@@ -109,3 +109,72 @@ final class CustomButtonBuilder {
         return self
     }
 }
+
+// MARK: - Extension
+
+extension CustomButtonBuilder {
+    func setupLanguageButton() -> CustomButtonBuilder {
+        let builder = self
+            .setupConstraintsAutomatically(false)
+            .setupColor(tint: Design.Color.language, background: Design.Color.sub)
+            .setupImage(image: Design.Image.chevronDown)
+            .setupTitle(name: "KR", font: .preferredFont(forTextStyle: .headline), color: Design.Color.language)
+            .setupInset(titleInset: Design.Inset.languageButtonTitle, contentInset: Design.Inset.languageButtonContent)
+            .setupPriority(hugging: .defaultHigh, compression: .defaultHigh, axis: .horizontal)
+            .setupLayer(cornerRadius: Design.laguageButtonCornerRadius)
+            .setupSemanticContentAttribute(direction: .forceRightToLeft)
+
+        return builder
+    }
+
+    func setupSortButton() -> CustomButtonBuilder {
+        let builder = self
+            .setupConstraintsAutomatically(false)
+            .setupPriority(hugging: .defaultHigh, compression: .defaultHigh, axis: .horizontal)
+            .setupImage(image: Design.Image.sortIcon)
+
+        return builder
+    }
+
+    func setupSearchButton() -> CustomButtonBuilder {
+        let builder = self
+            .setupConstraintsAutomatically(false)
+            .setupColor(tint: Design.Color.language)
+            .setupImage(image: Design.Image.search, textStyle: .title3, scale: .default)
+            .setupTitle(name: Design.searchButtonTitle, font: .preferredFont(forTextStyle: .footnote), color: Design.Color.language)
+            .setupInset(titleInset: Design.Inset.summonerSearchButtonTitle, contentInset: Design.Inset.summonerSearchButtonContent)
+            .setupPriority(hugging: .defaultHigh, compression: .defaultHigh, axis: .horizontal)
+            .setupLayer(cornerRadius: Design.laguageButtonCornerRadius, width: Design.languageButtonLayerWidth, color: Design.Color.layer)
+            .setupHorizontalAlignment(direction: .left)
+
+        return builder
+    }
+}
+
+private enum Design {
+    enum Color {
+        static let main = UIColor(named: "PrimitiveColor")
+        static let sub = UIColor(named: "SecondaryColor")
+        static let sortIcon = UIColor(named: "IconColor") ?? .systemBackground
+        static let language = UIColor(named: "LanguageColor")
+        static let layer = language?.cgColor.copy(alpha: 0.5)
+    }
+
+    enum Image {
+        static let logo = UIImage(named: "OP.GGMainLogo")
+        static let sortIcon = UIImage(named: "SortIcon")?.withTintColor(Color.sortIcon)
+        static let chevronDown = UIImage(systemName: "chevron.down")
+        static let search = UIImage(systemName: "magnifyingglass")
+    }
+
+    enum Inset {
+        static let languageButtonTitle = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        static let languageButtonContent = UIEdgeInsets(top: 4, left: 24, bottom: 4, right: 8)
+        static let summonerSearchButtonTitle = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        static let summonerSearchButtonContent = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 0)
+    }
+
+    static let searchButtonTitle = "소환사 검색"
+    static let laguageButtonCornerRadius: CGFloat = 4
+    static let languageButtonLayerWidth: CGFloat = 1
+}

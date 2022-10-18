@@ -12,7 +12,9 @@ final class MainViewController: UIViewController {
     // MARK: Properties
     
     private let topView = MainTopView()
-    private let searchButton = SummonerSearchButton()
+    private let searchButton = CustomButtonBuilder()
+        .setupSearchButton()
+        .build()
     
     // MARK: - View Life Cycle
     

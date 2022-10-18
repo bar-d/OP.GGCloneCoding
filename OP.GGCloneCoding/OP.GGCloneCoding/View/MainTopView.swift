@@ -20,17 +20,13 @@ final class MainTopView: UIView {
         return imageView
     }()
 
-    private let languageButton = LanguageButton()
+    private let languageButton = CustomButtonBuilder()
+        .setupLanguageButton()
+        .build()
 
-    private let sortButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        button.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        button.setImage(Design.sortIconImage, for: .normal)
-
-        return button
-    }()
+    private let sortButton = CustomButtonBuilder()
+        .setupSortButton()
+        .build()
 
     // MARK: - Initializers
 
@@ -80,7 +76,5 @@ final class MainTopView: UIView {
 // MARK: - Namespace
 
 private enum Design {
-    static let sortIconColor = UIColor(named: "IconColor") ?? .systemBackground
     static let logoImage = UIImage(named: "OP.GGMainLogo")
-    static let sortIconImage = UIImage(named: "SortIcon")?.withTintColor(sortIconColor)
 }
