@@ -13,18 +13,20 @@ final class LanguageButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         commonInit()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
         commonInit()
     }
 
     // MARK: - Methods
 
     private func commonInit() {
-        translatesAutoresizingMaskIntoConstraints = false
+        setupConstraints()
         setupColor()
         setupImage()
         setupTitle()
@@ -32,6 +34,10 @@ final class LanguageButton: UIButton {
         setupPriority()
         setupLayer()
         setupAttribute()
+    }
+    
+    private func setupConstraints() {
+        translatesAutoresizingMaskIntoConstraints = false
     }
 
     private func setupColor() {

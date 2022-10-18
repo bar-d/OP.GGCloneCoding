@@ -77,6 +77,8 @@ final class MainTopView: UIView {
     }
 }
 
+// MARK: - Namespace
+
 private enum Design {
     static let sortIconColor = UIColor(named: "IconColor") ?? .systemBackground
     static let logoImage = UIImage(named: "OP.GGMainLogo")
