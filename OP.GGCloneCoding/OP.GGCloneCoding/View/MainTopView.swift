@@ -11,20 +11,15 @@ final class MainTopView: UIView {
 
     // MARK: - Properties
 
-    private let logoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = Design.logoImage
-        imageView.contentMode = .left
+    private let logoImageView = ImageViewBuilder()
+        .setupLoadImageView()
+        .build()
 
-        return imageView
-    }()
-
-    private let languageButton = CustomButtonBuilder()
+    private let languageButton = ButtonBuilder()
         .setupLanguageButton()
         .build()
 
-    private let sortButton = CustomButtonBuilder()
+    private let sortButton = ButtonBuilder()
         .setupSortButton()
         .build()
 
