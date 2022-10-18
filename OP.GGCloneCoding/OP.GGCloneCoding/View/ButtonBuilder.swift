@@ -1,5 +1,5 @@
 //
-//  CustomButtonBuilder.swift
+//  ButtonBuilder.swift
 //  OP.GGCloneCoding
 //
 //  Created by 바드, 수꿍 on 2022/10/18.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CustomButtonBuilder {
+final class ButtonBuilder {
 
     // MARK: Properties
 
@@ -23,7 +23,7 @@ final class CustomButtonBuilder {
         return button
     }
 
-    func setupConstraintsAutomatically(_ bool: Bool) -> CustomButtonBuilder {
+    func setupConstraintsAutomatically(_ bool: Bool) -> ButtonBuilder {
         button.translatesAutoresizingMaskIntoConstraints = bool
 
         return self
@@ -32,7 +32,7 @@ final class CustomButtonBuilder {
     func setupColor(
         tint: UIColor? = .systemBackground,
         background: UIColor? = .systemBackground
-    ) -> CustomButtonBuilder {
+    ) -> ButtonBuilder {
         button.tintColor = tint
         button.backgroundColor = background
 
@@ -44,7 +44,7 @@ final class CustomButtonBuilder {
         state: UIControl.State = .normal,
         textStyle: UIFont.TextStyle = .body,
         scale: UIImage.SymbolScale = .default
-    ) -> CustomButtonBuilder {
+    ) -> ButtonBuilder {
         button.setImage(image, for: state)
         button.setPreferredSymbolConfiguration(.init(textStyle: textStyle, scale: scale), forImageIn: state)
 
@@ -56,7 +56,7 @@ final class CustomButtonBuilder {
         state: UIControl.State = .normal,
         font: UIFont? = UIFont().withSize(12),
         color: UIColor? = .black
-    ) -> CustomButtonBuilder {
+    ) -> ButtonBuilder {
         button.setTitle(name, for: state)
         button.titleLabel?.font = font
         button.setTitleColor(color, for: state)
@@ -67,7 +67,7 @@ final class CustomButtonBuilder {
     func setupInset(
         titleInset: UIEdgeInsets,
         contentInset: UIEdgeInsets
-    ) -> CustomButtonBuilder {
+    ) -> ButtonBuilder {
         button.titleEdgeInsets = titleInset
         button.contentEdgeInsets = contentInset
 
@@ -78,7 +78,7 @@ final class CustomButtonBuilder {
         hugging: UILayoutPriority = .init(250),
         compression: UILayoutPriority = .init(750),
         axis: NSLayoutConstraint.Axis
-    ) -> CustomButtonBuilder {
+    ) -> ButtonBuilder {
         button.setContentHuggingPriority(hugging, for: axis)
         button.setContentCompressionResistancePriority(compression, for: axis)
 
@@ -89,7 +89,7 @@ final class CustomButtonBuilder {
         cornerRadius: CGFloat = 0,
         width: CGFloat = 0,
         color: CGColor? = UIColor.black.cgColor
-    ) -> CustomButtonBuilder {
+    ) -> ButtonBuilder {
         button.layer.cornerRadius = cornerRadius
         button.layer.borderWidth = width
         button.layer.borderColor = color
@@ -97,13 +97,13 @@ final class CustomButtonBuilder {
         return self
     }
 
-    func setupSemanticContentAttribute(direction: UISemanticContentAttribute) -> CustomButtonBuilder {
+    func setupSemanticContentAttribute(direction: UISemanticContentAttribute) -> ButtonBuilder {
         button.semanticContentAttribute = direction
 
         return self
     }
 
-    func setupHorizontalAlignment(direction: UIControl.ContentHorizontalAlignment) -> CustomButtonBuilder {
+    func setupHorizontalAlignment(direction: UIControl.ContentHorizontalAlignment) -> ButtonBuilder {
         button.contentHorizontalAlignment = direction
 
         return self
@@ -112,8 +112,8 @@ final class CustomButtonBuilder {
 
 // MARK: - Extension
 
-extension CustomButtonBuilder {
-    func setupLanguageButton() -> CustomButtonBuilder {
+extension ButtonBuilder {
+    func setupLanguageButton() -> ButtonBuilder {
         let builder = self
             .setupConstraintsAutomatically(false)
             .setupColor(tint: Design.Color.language, background: Design.Color.sub)
@@ -127,7 +127,7 @@ extension CustomButtonBuilder {
         return builder
     }
 
-    func setupSortButton() -> CustomButtonBuilder {
+    func setupSortButton() -> ButtonBuilder {
         let builder = self
             .setupConstraintsAutomatically(false)
             .setupPriority(hugging: .defaultHigh, compression: .defaultHigh, axis: .horizontal)
@@ -136,7 +136,7 @@ extension CustomButtonBuilder {
         return builder
     }
 
-    func setupSearchButton() -> CustomButtonBuilder {
+    func setupSearchButton() -> ButtonBuilder {
         let builder = self
             .setupConstraintsAutomatically(false)
             .setupColor(tint: Design.Color.language)
@@ -150,6 +150,8 @@ extension CustomButtonBuilder {
         return builder
     }
 }
+
+// MARK: - Namespace
 
 private enum Design {
     enum Color {

@@ -12,7 +12,7 @@ final class MainViewController: UIViewController {
     // MARK: Properties
     
     private let topView = MainTopView()
-    private let searchButton = CustomButtonBuilder()
+    private let searchButton = ButtonBuilder()
         .setupSearchButton()
         .build()
     
