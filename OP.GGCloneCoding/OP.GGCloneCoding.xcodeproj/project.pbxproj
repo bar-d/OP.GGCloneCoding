@@ -50,10 +50,10 @@
 		203CD71528FC35D40037B457 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */,
 				C4EBCC2828FC242B00402617 /* Assets.xcassets */,
 				C4EBCC2D28FC242B00402617 /* Info.plist */,
 				C4EBCC2A28FC242B00402617 /* LaunchScreen.storyboard */,
+				C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -67,16 +67,47 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		203CD71728FC36510037B457 /* View */ = {
+		C4E505EA28FE91AA00EEA8C8 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
-				C4EBCC2328FC242900402617 /* MainViewController.swift */,
-				20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */,
-				C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */,
-				C436A08128FD640C00E261F7 /* LoadingView.swift */,
 				2033279C28FE7479005EF522 /* ButtonBuilder.swift */,
+				C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		C4E505EB28FE91BC00EEA8C8 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				C4E505ED28FE91E700EEA8C8 /* Common */,
+				C4E505EE28FE91FD00EEA8C8 /* Main */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		C4E505EC28FE91C400EEA8C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */,
+				C4EBCC2328FC242900402617 /* MainViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C4E505ED28FE91E700EEA8C8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C436A08128FD640C00E261F7 /* LoadingView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C4E505EE28FE91FD00EEA8C8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C4E505EC28FE91C400EEA8C8 /* View */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		C4EBCC1328FC242900402617 = {
@@ -100,7 +131,8 @@
 			children = (
 				203CD71628FC36470037B457 /* Application */,
 				203CD71528FC35D40037B457 /* Resource */,
-				203CD71728FC36510037B457 /* View */,
+				C4E505EA28FE91AA00EEA8C8 /* Builder */,
+				C4E505EB28FE91BC00EEA8C8 /* Scene */,
 			);
 			path = OP.GGCloneCoding;
 			sourceTree = "<group>";
