@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279C28FE7479005EF522 /* ButtonBuilder.swift */; };
 		20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */; };
-		20BEA4BE28FDAE6D009F1969 /* LanguageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEA4BD28FDAE6D009F1969 /* LanguageButton.swift */; };
 		C41BF02428FD4D90008D0BD8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C41BF02328FD4D90008D0BD8 /* Lottie */; };
 		C436A08028FD63BF00E261F7 /* LoadingIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */; };
 		C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C436A08128FD640C00E261F7 /* LoadingView.swift */; };
-		C4E505E728FE4C6F00EEA8C8 /* SummonerSearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E505E628FE4C6F00EEA8C8 /* SummonerSearchButton.swift */; };
+		C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */; };
 		C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC1F28FC242900402617 /* AppDelegate.swift */; };
 		C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC2128FC242900402617 /* SceneDelegate.swift */; };
 		C4EBCC2428FC242900402617 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC2328FC242900402617 /* MainViewController.swift */; };
@@ -21,11 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2033279C28FE7479005EF522 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
-		20BEA4BD28FDAE6D009F1969 /* LanguageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageButton.swift; sourceTree = "<group>"; };
 		C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingIndicator.json; sourceTree = "<group>"; };
 		C436A08128FD640C00E261F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		C4E505E628FE4C6F00EEA8C8 /* SummonerSearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchButton.swift; sourceTree = "<group>"; };
+		C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewBuilder.swift; sourceTree = "<group>"; };
 		C4EBCC1C28FC242900402617 /* OP.GGCloneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OP.GGCloneCoding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EBCC1F28FC242900402617 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4EBCC2128FC242900402617 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,10 +50,10 @@
 		203CD71528FC35D40037B457 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */,
 				C4EBCC2828FC242B00402617 /* Assets.xcassets */,
 				C4EBCC2D28FC242B00402617 /* Info.plist */,
 				C4EBCC2A28FC242B00402617 /* LaunchScreen.storyboard */,
+				C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -67,16 +67,47 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		203CD71728FC36510037B457 /* View */ = {
+		C4E505EA28FE91AA00EEA8C8 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
-				C4EBCC2328FC242900402617 /* MainViewController.swift */,
+				2033279C28FE7479005EF522 /* ButtonBuilder.swift */,
+				C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		C4E505EB28FE91BC00EEA8C8 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				C4E505ED28FE91E700EEA8C8 /* Common */,
+				C4E505EE28FE91FD00EEA8C8 /* Main */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		C4E505EC28FE91C400EEA8C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */,
-				C436A08128FD640C00E261F7 /* LoadingView.swift */,
-				20BEA4BD28FDAE6D009F1969 /* LanguageButton.swift */,
-				C4E505E628FE4C6F00EEA8C8 /* SummonerSearchButton.swift */,
+				C4EBCC2328FC242900402617 /* MainViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C4E505ED28FE91E700EEA8C8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C436A08128FD640C00E261F7 /* LoadingView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C4E505EE28FE91FD00EEA8C8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C4E505EC28FE91C400EEA8C8 /* View */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		C4EBCC1328FC242900402617 = {
@@ -100,7 +131,8 @@
 			children = (
 				203CD71628FC36470037B457 /* Application */,
 				203CD71528FC35D40037B457 /* Resource */,
-				203CD71728FC36510037B457 /* View */,
+				C4E505EA28FE91AA00EEA8C8 /* Builder */,
+				C4E505EB28FE91BC00EEA8C8 /* Scene */,
 			);
 			path = OP.GGCloneCoding;
 			sourceTree = "<group>";
@@ -183,10 +215,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4EBCC2428FC242900402617 /* MainViewController.swift in Sources */,
-				20BEA4BE28FDAE6D009F1969 /* LanguageButton.swift in Sources */,
+				2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */,
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
+				C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */,
 				C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */,
-				C4E505E728FE4C6F00EEA8C8 /* SummonerSearchButton.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
 				20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */,
 			);
