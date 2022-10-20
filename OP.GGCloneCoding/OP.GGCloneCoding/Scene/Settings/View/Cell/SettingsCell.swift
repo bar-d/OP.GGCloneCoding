@@ -14,7 +14,7 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Title Label"
+        label.text = Design.titleLabelText
         label.font = .preferredFont(forTextStyle: .headline)
         
         return label
@@ -23,7 +23,7 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
     private let indicatorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Indicator Label"
+        label.text = Design.indicatorLabelText
         label.textColor = .systemGray
         label.textAlignment = .right
         label.font = .preferredFont(forTextStyle: .subheadline)
@@ -34,8 +34,8 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
     private let indicator: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "chevron.right")
-        imageView.tintColor = UIColor(named: "LanguageColor")
+        imageView.image = Design.indicatorImage
+        imageView.tintColor = Design.indicatorTintColor
         
         return imageView
     }()
@@ -131,6 +131,10 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
 // MARK: - Namespace
 
 private enum Design {
+    static let titleLabelText = "Title Label"
+    static let indicatorLabelText = "Indicator Label"
+    static let indicatorImage = UIImage(systemName: "chevron.right")
+    static let indicatorTintColor = UIColor(named: "LanguageColor")
     static let backgroundColor = UIColor(named: "SecondaryColor")
 }
 

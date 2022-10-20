@@ -8,8 +8,7 @@
 import UIKit
 
 final class SettingsViewController: UIViewController {
-
-
+    
     // MARK: Properties
 
     private let tableView = SettingsTableView()

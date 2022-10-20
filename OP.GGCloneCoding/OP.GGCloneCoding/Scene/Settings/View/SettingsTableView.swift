@@ -134,7 +134,6 @@ struct SettingsTableView_Preview: PreviewProvider {
             let view = SettingsTableView()
             return view
         }
-        .previewDevice("iPhone 12 mini")
     }
 }
 
