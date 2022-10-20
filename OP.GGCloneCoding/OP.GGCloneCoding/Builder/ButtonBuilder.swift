@@ -23,7 +23,7 @@ final class ButtonBuilder {
         return button
     }
 
-    func setupConstraintsAutomatically(_ bool: Bool) -> ButtonBuilder {
+    func setupConstraintsAutomatic(_ bool: Bool) -> ButtonBuilder {
         button.translatesAutoresizingMaskIntoConstraints = bool
 
         return self
@@ -115,7 +115,7 @@ final class ButtonBuilder {
 extension ButtonBuilder {
     func setupLanguageButton() -> ButtonBuilder {
         let builder = self
-            .setupConstraintsAutomatically(false)
+            .setupConstraintsAutomatic(false)
             .setupColor(tint: Design.Color.language, background: Design.Color.sub)
             .setupImage(image: Design.Image.chevronDown)
             .setupTitle(name: "KR", font: .preferredFont(forTextStyle: .headline), color: Design.Color.language)
@@ -129,7 +129,7 @@ extension ButtonBuilder {
 
     func setupSortButton() -> ButtonBuilder {
         let builder = self
-            .setupConstraintsAutomatically(false)
+            .setupConstraintsAutomatic(false)
             .setupPriority(hugging: .defaultHigh, compression: .defaultHigh, axis: .horizontal)
             .setupImage(image: Design.Image.sortIcon)
 
@@ -138,7 +138,7 @@ extension ButtonBuilder {
 
     func setupSearchButton() -> ButtonBuilder {
         let builder = self
-            .setupConstraintsAutomatically(false)
+            .setupConstraintsAutomatic(false)
             .setupColor(tint: Design.Color.language)
             .setupImage(image: Design.Image.search, textStyle: .title3, scale: .default)
             .setupTitle(name: Design.searchButtonTitle, font: .preferredFont(forTextStyle: .footnote), color: Design.Color.language)
