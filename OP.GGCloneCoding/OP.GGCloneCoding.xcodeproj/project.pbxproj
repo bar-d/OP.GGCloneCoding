@@ -19,7 +19,8 @@
 		C440CCFF290114BD008B3C16 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCFE290114BD008B3C16 /* SettingsTableView.swift */; };
 		C440CD01290114D1008B3C16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CD00290114D1008B3C16 /* SettingsViewController.swift */; };
 		C440CD03290114E2008B3C16 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CD02290114E2008B3C16 /* SettingsCell.swift */; };
-		C440CD0729011505008B3C16 /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CD0629011505008B3C16 /* SettingsMenu.swift */; };
+		C440CD0729011505008B3C16 /* SettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CD0629011505008B3C16 /* SettingSection.swift */; };
+		C440CD1029017E50008B3C16 /* CellCustomizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CD0F29017E50008B3C16 /* CellCustomizable.swift */; };
 		C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */; };
 		C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC1F28FC242900402617 /* AppDelegate.swift */; };
 		C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC2128FC242900402617 /* SceneDelegate.swift */; };
@@ -40,7 +41,8 @@
 		C440CCFE290114BD008B3C16 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		C440CD00290114D1008B3C16 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C440CD02290114E2008B3C16 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
-		C440CD0629011505008B3C16 /* SettingsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenu.swift; sourceTree = "<group>"; };
+		C440CD0629011505008B3C16 /* SettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSection.swift; sourceTree = "<group>"; };
+		C440CD0F29017E50008B3C16 /* CellCustomizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCustomizable.swift; sourceTree = "<group>"; };
 		C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewBuilder.swift; sourceTree = "<group>"; };
 		C4EBCC1C28FC242900402617 /* OP.GGCloneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OP.GGCloneCoding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4EBCC1F28FC242900402617 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,8 +100,7 @@
 				C440CD05290114FB008B3C16 /* Section */,
 				C440CCFE290114BD008B3C16 /* SettingsTableView.swift */,
 				C440CD00290114D1008B3C16 /* SettingsViewController.swift */,
-				C440CD02290114E2008B3C16 /* SettingsCell.swift */,
-				204600922901180C004A3417 /* PushNotificationCell.swift */,
+				C440CD1129017E66008B3C16 /* Cell */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -107,9 +108,27 @@
 		C440CD05290114FB008B3C16 /* Section */ = {
 			isa = PBXGroup;
 			children = (
-				C440CD0629011505008B3C16 /* SettingsMenu.swift */,
+				C440CD0629011505008B3C16 /* SettingSection.swift */,
 			);
 			path = Section;
+			sourceTree = "<group>";
+		};
+		C440CD0E29017E3A008B3C16 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C440CD0F29017E50008B3C16 /* CellCustomizable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C440CD1129017E66008B3C16 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C440CD0E29017E3A008B3C16 /* Protocol */,
+				C440CD02290114E2008B3C16 /* SettingsCell.swift */,
+				204600922901180C004A3417 /* PushNotificationCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		C4E505EA28FE91AA00EEA8C8 /* Builder */ = {
@@ -263,8 +282,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C440CCFF290114BD008B3C16 /* SettingsTableView.swift in Sources */,
-				C440CD0729011505008B3C16 /* SettingsMenu.swift in Sources */,
+				C440CD0729011505008B3C16 /* SettingSection.swift in Sources */,
 				C4EBCC2428FC242900402617 /* MainViewController.swift in Sources */,
+				C440CD1029017E50008B3C16 /* CellCustomizable.swift in Sources */,
 				2033279F28FEA531005EF522 /* TabBarController.swift in Sources */,
 				C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */,
 				C440CD03290114E2008B3C16 /* SettingsCell.swift in Sources */,

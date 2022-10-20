@@ -9,7 +9,7 @@ import SwiftUI
 
 final class SettingsTableView: UITableView {
 
-    // MARK: - Initializer
+    // MARK: Initializer
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .grouped)
@@ -63,84 +63,47 @@ final class SettingsTableView: UITableView {
     private func setupScrollIndicatorVisible(_ bool: Bool) {
         showsVerticalScrollIndicator = bool
     }
+    
+    private func setupCell(by section: SettingSection?, index: IndexPath) -> CellCustomizable {
+        let cell: CellCustomizable
+        
+        switch section {
+        case .pushNotification:
+            cell = PushNotificationCell()
+        case .version:
+            cell = SettingsCell(font: Design.bodyFont, color: Design.languageColor)
+        default:
+            cell = SettingsCell()
+        }
+        cell.setupContent(with: index)
+        
+        return cell
+    }
 }
 
 // MARK: - Extension
 
 extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let section = SettingSection(rawValue: section) else { return 0 }
+        
         switch section {
-        case 0: // 로그인
-            return 1
-        case 1: // 푸시알림
-            return 1
-        case 2: // 챔피언 화면 기본 탭 설정
-            return 1
-        case 3: // 언어 선택
-            return 1
-        case 4: // 기본 테마 설정
-            return 1
-        case 5: // 버그제보 및 건의, 리뷰
-            return 2
-        case 6: // 이용 약관, 개인정보 보호방침
-            return 2
-        case 7: // 버전
+        case .pushNotification:
             return 1
         default:
-            return 1
+            return section.array.count
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = SettingsCell()
-
-        switch indexPath.section {
-        case 0:
-            let cell = SettingsCell()
-            cell.setupTitleLabel(with: "로그인")
-            return cell
-        case 1:
-            let cell = PushNotificationCell()
-            cell.setupTitleLabel(with: "푸시 알림")
-            cell.setupFirstContentTitleLabel(with: "게임 정보 알림")
-            cell.setupSecondContentTitleLabel(with: "커뮤니티 알림")
-            return cell
-        case 2:
-            let cell = SettingsCell()
-            cell.setupTitleLabel(with: "챔피언 화면 기본 탭 설정")
-            return cell
-        case 3:
-            let cell = SettingsCell()
-            cell.setupTitleLabel(with: "언어 선택")
-            return cell
-        case 4:
-            let cell = SettingsCell()
-            cell.setupTitleLabel(with: "기본 테마 설정")
-            return cell
-        case 5:
-            let cell = SettingsCell()
-            cell.setupTitleLabel(with: "버그제보 및 건의하기")
-            return cell
-        case 6:
-            let cell = SettingsCell()
-            if indexPath.row == 0 {
-                cell.setupTitleLabel(with: "이용약관")
-            } else if indexPath.row == 1{
-                cell.setupTitleLabel(with: "개인정보 보호 방침")
-            }
-
-            return cell
-        case 7:
-            let cell = SettingsCell()
-            cell.setupTitleLabel(with: SettingsMenu.version.title)
-            return cell
-        default:
-            return cell
-        }
+        let section = SettingSection(rawValue: indexPath.section)
+        let cell = setupCell(by: section, index: indexPath)
+        
+        return cell
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return SettingsMenu.allCases.count
+        return SettingSection.allCases.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -179,5 +142,7 @@ struct SettingsTableView_Preview: PreviewProvider {
 
 private enum Design {
     static let primitiveColor = UIColor(named: "PrimitiveColor")
+    static let languageColor = UIColor(named: "LanguageColor")
     static let tableViewEdgeInsets = UIEdgeInsets(top: -40, left: 0, bottom: 0, right: 0)
+    static let bodyFont = UIFont.preferredFont(forTextStyle: .body)
 }
