@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279C28FE7479005EF522 /* ButtonBuilder.swift */; };
 		2033279F28FEA531005EF522 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279E28FEA531005EF522 /* TabBarController.swift */; };
+		204600932901180C004A3417 /* PushNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204600922901180C004A3417 /* PushNotificationCell.swift */; };
 		20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */; };
 		C41BF02428FD4D90008D0BD8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C41BF02328FD4D90008D0BD8 /* Lottie */; };
 		C436A08028FD63BF00E261F7 /* LoadingIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		2033279C28FE7479005EF522 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		2033279E28FEA531005EF522 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		204600922901180C004A3417 /* PushNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationCell.swift; sourceTree = "<group>"; };
 		20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingIndicator.json; sourceTree = "<group>"; };
 		C436A08128FD640C00E261F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				C440CCFE290114BD008B3C16 /* SettingsTableView.swift */,
 				C440CD00290114D1008B3C16 /* SettingsViewController.swift */,
 				C440CD02290114E2008B3C16 /* SettingsCell.swift */,
+				204600922901180C004A3417 /* PushNotificationCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -121,6 +124,7 @@
 		C4E505EB28FE91BC00EEA8C8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				C440CCFD29011486008B3C16 /* Settings */,
 				C4E505ED28FE91E700EEA8C8 /* Common */,
 				C4E505EE28FE91FD00EEA8C8 /* Main */,
 			);
@@ -148,7 +152,6 @@
 		C4E505EE28FE91FD00EEA8C8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C440CCFD29011486008B3C16 /* Settings */,
 				C4E505EC28FE91C400EEA8C8 /* View */,
 			);
 			path = Main;
@@ -271,6 +274,7 @@
 				C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */,
 				C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
+				204600932901180C004A3417 /* PushNotificationCell.swift in Sources */,
 				20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */,
 				C440CD01290114D1008B3C16 /* SettingsViewController.swift in Sources */,
 			);
