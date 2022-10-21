@@ -27,6 +27,7 @@ final class SettingsTableView: UITableView {
 
     private func commonInit() {
         setupConstraintsAutomatic(false)
+        setupScrollable(false)
         setupDelegate()
         setupDataSource()
         setupSectionHeight(header: 4, footer: 4)
@@ -37,6 +38,10 @@ final class SettingsTableView: UITableView {
 
     private func setupConstraintsAutomatic(_ bool: Bool) {
         translatesAutoresizingMaskIntoConstraints = bool
+    }
+
+    private func setupScrollable(_ bool: Bool) {
+        isScrollEnabled = bool
     }
 
     private func setupDelegate() {
