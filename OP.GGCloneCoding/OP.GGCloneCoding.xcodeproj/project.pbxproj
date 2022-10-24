@@ -13,6 +13,8 @@
 		20528ECE29027683003046A3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20528ECD29027683003046A3 /* HeaderView.swift */; };
 		20528ED02902799E003046A3 /* StickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20528ECF2902799E003046A3 /* StickyHeaderView.swift */; };
 		20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */; };
+		C406923B2906759D00A4E48D /* HeaderViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */; };
+		C406923E29067C3100A4E48D /* NavigationBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923D29067C3100A4E48D /* NavigationBarButton.swift */; };
 		C41BF02428FD4D90008D0BD8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C41BF02328FD4D90008D0BD8 /* Lottie */; };
 		C436A08028FD63BF00E261F7 /* LoadingIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */; };
 		C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C436A08128FD640C00E261F7 /* LoadingView.swift */; };
@@ -38,6 +40,8 @@
 		20528ECD29027683003046A3 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		20528ECF2902799E003046A3 /* StickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderView.swift; sourceTree = "<group>"; };
 		20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
+		C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewBuilder.swift; sourceTree = "<group>"; };
+		C406923D29067C3100A4E48D /* NavigationBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButton.swift; sourceTree = "<group>"; };
 		C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingIndicator.json; sourceTree = "<group>"; };
 		C436A08128FD640C00E261F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C440CCF9290113C6008B3C16 /* SwiftUIPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreview.swift; sourceTree = "<group>"; };
@@ -89,6 +93,14 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		C406923C29067C1E00A4E48D /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				C406923D29067C3100A4E48D /* NavigationBarButton.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
 		C440CCF82901139D008B3C16 /* PreviewHelpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +150,6 @@
 				C440CD05290114FB008B3C16 /* Section */,
 				C440CD00290114D1008B3C16 /* SettingsViewController.swift */,
 				C440CCFE290114BD008B3C16 /* SettingsTableView.swift */,
-				20528ECD29027683003046A3 /* HeaderView.swift */,
 				20528ECF2902799E003046A3 /* StickyHeaderView.swift */,
 				C440CD1129017E66008B3C16 /* Cell */,
 			);
@@ -150,6 +161,7 @@
 			children = (
 				2033279C28FE7479005EF522 /* ButtonBuilder.swift */,
 				C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */,
+				C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -177,7 +189,9 @@
 		C4E505ED28FE91E700EEA8C8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C406923C29067C1E00A4E48D /* Section */,
 				C436A08128FD640C00E261F7 /* LoadingView.swift */,
+				20528ECD29027683003046A3 /* HeaderView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -308,7 +322,9 @@
 				C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */,
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
 				C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */,
+				C406923B2906759D00A4E48D /* HeaderViewBuilder.swift in Sources */,
 				C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */,
+				C406923E29067C3100A4E48D /* NavigationBarButton.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
 				204600932901180C004A3417 /* PushNotificationCell.swift in Sources */,
 				20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */,
