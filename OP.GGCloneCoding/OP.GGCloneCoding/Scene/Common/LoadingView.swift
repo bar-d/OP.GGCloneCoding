@@ -8,20 +8,20 @@
 import UIKit
 import Lottie
 
-class LoadingView: UIView {
+final class LoadingView: UIView {
 
     // MARK: - Properties
 
     private let circleView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(named: "LoadingView")
+        view.backgroundColor = Design.loadingViewColor
 
         return view
     }()
 
     private let loadingView: LottieAnimationView = {
-        let animationView: LottieAnimationView = .init(name: "LoadingIndicator")
+        let animationView: LottieAnimationView = Design.loadingIndicatorView
         animationView.translatesAutoresizingMaskIntoConstraints = false
         animationView.loopMode = .loop
         animationView.contentMode = .scaleAspectFill
@@ -78,4 +78,11 @@ class LoadingView: UIView {
             loadingView.heightAnchor.constraint(equalTo: circleView.heightAnchor, multiplier: 1.5)
         ])
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let loadingViewColor = UIColor(named: "LoadingView")
+    static let loadingIndicatorView = LottieAnimationView.init(name: "LoadingIndicator")
 }
