@@ -12,8 +12,10 @@ final class SettingsViewController: UIViewController {
     // MARK: Properties
 
     private let stickyHeaderView = StickyHeaderView()
-    private let headerView = HeaderView()
     private let tableView = SettingsTableView()
+    private let headerView = HeaderViewBuilder()
+        .setupSettingHeaderView()
+        .build()
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
