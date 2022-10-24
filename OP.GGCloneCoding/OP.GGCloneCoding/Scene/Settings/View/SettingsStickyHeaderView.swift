@@ -1,5 +1,5 @@
 //
-//  StickyHeaderView.swift
+//  SettingsStickyHeaderView.swift
 //  OP.GGCloneCoding
 //
 //  Created by 바드, 수꿍 on 2022/10/17.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class StickyHeaderView: UIView {
+final class SettingsStickyHeaderView: UIView {
 
     // MARK: Properties
 
@@ -39,7 +39,6 @@ final class StickyHeaderView: UIView {
 
     func setupTitleLabel(with text: String) {
         titleLabel.text = text
-
     }
 
     private func commonInit() {

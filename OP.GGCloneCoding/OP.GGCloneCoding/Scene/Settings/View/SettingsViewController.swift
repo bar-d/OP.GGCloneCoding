@@ -11,7 +11,7 @@ final class SettingsViewController: UIViewController {
 
     // MARK: Properties
 
-    private let stickyHeaderView = StickyHeaderView()
+    private let stickyHeaderView = SettingsStickyHeaderView()
     private let tableView = SettingsTableView()
     private let headerView = HeaderViewBuilder()
         .setupSettingHeaderView()

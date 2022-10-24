@@ -11,7 +11,7 @@
 		2033279F28FEA531005EF522 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279E28FEA531005EF522 /* TabBarController.swift */; };
 		204600932901180C004A3417 /* PushNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204600922901180C004A3417 /* PushNotificationCell.swift */; };
 		20528ECE29027683003046A3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20528ECD29027683003046A3 /* HeaderView.swift */; };
-		20528ED02902799E003046A3 /* StickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20528ECF2902799E003046A3 /* StickyHeaderView.swift */; };
+		20528ED02902799E003046A3 /* SettingsStickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20528ECF2902799E003046A3 /* SettingsStickyHeaderView.swift */; };
 		20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */; };
 		C406923B2906759D00A4E48D /* HeaderViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */; };
 		C406923E29067C3100A4E48D /* NavigationBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923D29067C3100A4E48D /* NavigationBarButton.swift */; };
@@ -38,7 +38,7 @@
 		2033279E28FEA531005EF522 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		204600922901180C004A3417 /* PushNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationCell.swift; sourceTree = "<group>"; };
 		20528ECD29027683003046A3 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		20528ECF2902799E003046A3 /* StickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderView.swift; sourceTree = "<group>"; };
+		20528ECF2902799E003046A3 /* SettingsStickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStickyHeaderView.swift; sourceTree = "<group>"; };
 		20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewBuilder.swift; sourceTree = "<group>"; };
 		C406923D29067C3100A4E48D /* NavigationBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButton.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				C440CD05290114FB008B3C16 /* Section */,
 				C440CD00290114D1008B3C16 /* SettingsViewController.swift */,
 				C440CCFE290114BD008B3C16 /* SettingsTableView.swift */,
-				20528ECF2902799E003046A3 /* StickyHeaderView.swift */,
+				20528ECF2902799E003046A3 /* SettingsStickyHeaderView.swift */,
 				C440CD1129017E66008B3C16 /* Cell */,
 			);
 			path = View;
@@ -313,7 +313,7 @@
 				C440CD0729011505008B3C16 /* SettingSection.swift in Sources */,
 				C4EBCC2428FC242900402617 /* MainViewController.swift in Sources */,
 				C440CD1029017E50008B3C16 /* CellCustomizable.swift in Sources */,
-				20528ED02902799E003046A3 /* StickyHeaderView.swift in Sources */,
+				20528ED02902799E003046A3 /* SettingsStickyHeaderView.swift in Sources */,
 				2033279F28FEA531005EF522 /* TabBarController.swift in Sources */,
 				C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */,
 				20528ECE29027683003046A3 /* HeaderView.swift in Sources */,
