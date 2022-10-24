@@ -60,7 +60,7 @@ private enum Design {
         static let champion = (MainViewController(), TabBarItem.champion)
         static let esports = (MainViewController(), TabBarItem.esports)
         static let community = (MainViewController(), TabBarItem.community)
-        static let settings = (MainViewController(), TabBarItem.settings)
+        static let settings = (SettingsViewController(), TabBarItem.settings)
     }
 
     enum TabBarItem {

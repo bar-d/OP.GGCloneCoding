@@ -23,7 +23,7 @@ final class ImageViewBuilder {
         return imageView
     }
     
-    func setupConstraintsAutomatically(_ bool: Bool) -> ImageViewBuilder {
+    func setupConstraintsAutomatic(_ bool: Bool) -> ImageViewBuilder {
         imageView.translatesAutoresizingMaskIntoConstraints = bool
 
         return self
@@ -47,7 +47,7 @@ final class ImageViewBuilder {
 extension ImageViewBuilder {
     func setupLoadImageView() -> ImageViewBuilder {
         let builder = self
-            .setupConstraintsAutomatically(false)
+            .setupConstraintsAutomatic(false)
             .setupImage(image: Design.logoImage)
             .setupContentMode(.left)
         
