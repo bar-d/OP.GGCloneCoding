@@ -17,6 +17,7 @@
 		205BC1AB2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BC1AA2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift */; };
 		205BC1AD2907EEE4004053F3 /* MainSkinOnSaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BC1AC2907EEE4004053F3 /* MainSkinOnSaleView.swift */; };
 		205BC1AF2907EEF3004053F3 /* ChampionsAndSkinsOnSaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BC1AE2907EEF3004053F3 /* ChampionsAndSkinsOnSaleView.swift */; };
+		205BC1B6290828FB004053F3 /* OtherGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BC1B5290828FB004053F3 /* OtherGamesCell.swift */; };
 		20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */; };
 		C406923B2906759D00A4E48D /* HeaderViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */; };
 		C406923E29067C3100A4E48D /* NavigationBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923D29067C3100A4E48D /* NavigationBarButton.swift */; };
@@ -58,6 +59,7 @@
 		205BC1AA2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionsAndSkinsOnSaleCell.swift; sourceTree = "<group>"; };
 		205BC1AC2907EEE4004053F3 /* MainSkinOnSaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSkinOnSaleView.swift; sourceTree = "<group>"; };
 		205BC1AE2907EEF3004053F3 /* ChampionsAndSkinsOnSaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionsAndSkinsOnSaleView.swift; sourceTree = "<group>"; };
+		205BC1B5290828FB004053F3 /* OtherGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherGamesCell.swift; sourceTree = "<group>"; };
 		20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewBuilder.swift; sourceTree = "<group>"; };
 		C406923D29067C3100A4E48D /* NavigationBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButton.swift; sourceTree = "<group>"; };
@@ -156,6 +158,14 @@
 				C4F3DDD22908179600137AAC /* PaddingLabel.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		205BC1B4290828E4004053F3 /* OtherGames */ = {
+			isa = PBXGroup;
+			children = (
+				205BC1B5290828FB004053F3 /* OtherGamesCell.swift */,
+			);
+			path = OtherGames;
 			sourceTree = "<group>";
 		};
 		C406923C29067C1E00A4E48D /* Section */ = {
@@ -264,6 +274,7 @@
 		C4E505EE28FE91FD00EEA8C8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				205BC1B4290828E4004053F3 /* OtherGames */,
 				C4E505EC28FE91C400EEA8C8 /* View */,
 				C4F3DDC32907F5D900137AAC /* Section */,
 				C4F3DDAF2907E92400137AAC /* SectionView */,
@@ -444,6 +455,7 @@
 				C4F3DDB22907E94F00137AAC /* MySummonerCell.swift in Sources */,
 				C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */,
 				20528ECE29027683003046A3 /* HeaderView.swift in Sources */,
+				205BC1B6290828FB004053F3 /* OtherGamesCell.swift in Sources */,
 				C440CD03290114E2008B3C16 /* SettingsCell.swift in Sources */,
 				2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */,
 				205BC1AB2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift in Sources */,
