@@ -143,6 +143,16 @@
 			path = ChampiosAndSkinOnSale;
 			sourceTree = "<group>";
 		};
+		205BC1B02907F9C0004053F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C436A08128FD640C00E261F7 /* LoadingView.swift */,
+				20528ECD29027683003046A3 /* HeaderView.swift */,
+				2033279E28FEA531005EF522 /* TabBarController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C406923C29067C1E00A4E48D /* Section */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				C440CD1229018617008B3C16 /* View */,
+				C440CD05290114FB008B3C16 /* Section */,
+				C440CD1129017E66008B3C16 /* SectionCell */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -184,24 +196,22 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		C440CD1129017E66008B3C16 /* Cell */ = {
+		C440CD1129017E66008B3C16 /* SectionCell */ = {
 			isa = PBXGroup;
 			children = (
 				C440CD0E29017E3A008B3C16 /* Protocol */,
 				C440CD02290114E2008B3C16 /* SettingsCell.swift */,
 				204600922901180C004A3417 /* PushNotificationCell.swift */,
 			);
-			path = Cell;
+			path = SectionCell;
 			sourceTree = "<group>";
 		};
 		C440CD1229018617008B3C16 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C440CD05290114FB008B3C16 /* Section */,
 				C440CD00290114D1008B3C16 /* SettingsViewController.swift */,
 				C440CCFE290114BD008B3C16 /* SettingsTableView.swift */,
 				20528ECF2902799E003046A3 /* SettingsStickyHeaderView.swift */,
-				C440CD1129017E66008B3C16 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -229,11 +239,10 @@
 		C4E505EC28FE91C400EEA8C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4EBCC2328FC242900402617 /* MainViewController.swift */,
 				20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */,
 				C4F3DDC62907F7CE00137AAC /* MainStickyHeaderView.swift */,
 				C4F3DDC82907F7DF00137AAC /* MainTableView.swift */,
-				C4EBCC2328FC242900402617 /* MainViewController.swift */,
-				2033279E28FEA531005EF522 /* TabBarController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,9 +250,8 @@
 		C4E505ED28FE91E700EEA8C8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				205BC1B02907F9C0004053F3 /* View */,
 				C406923C29067C1E00A4E48D /* Section */,
-				C436A08128FD640C00E261F7 /* LoadingView.swift */,
-				20528ECD29027683003046A3 /* HeaderView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -251,8 +259,8 @@
 		C4E505EE28FE91FD00EEA8C8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C4F3DDC32907F5D900137AAC /* Section */,
 				C4E505EC28FE91C400EEA8C8 /* View */,
+				C4F3DDC32907F5D900137AAC /* Section */,
 				C4F3DDAF2907E92400137AAC /* SectionView */,
 			);
 			path = Main;
