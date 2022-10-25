@@ -9,7 +9,7 @@ import UIKit
 
 final class MainTopView: UIView {
 
-    // MARK: - Properties
+    // MARK: Properties
 
     private let logoImageView = ImageViewBuilder()
         .setupLoadImageView()
@@ -52,16 +52,16 @@ final class MainTopView: UIView {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: topAnchor),
+            logoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             logoImageView.trailingAnchor.constraint(equalTo: languageButton.leadingAnchor, constant: -20),
 
-            languageButton.topAnchor.constraint(equalTo: topAnchor),
+            languageButton.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             languageButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             languageButton.trailingAnchor.constraint(equalTo: sortButton.leadingAnchor, constant: -20),
 
-            sortButton.topAnchor.constraint(equalTo: topAnchor),
+            sortButton.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             sortButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             sortButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
