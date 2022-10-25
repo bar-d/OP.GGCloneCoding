@@ -77,10 +77,32 @@ extension ImageViewBuilder {
 
         return builder
     }
+    
+    func setupPatchImageView() -> ImageViewBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupImage(image: Design.patchImageViewImage)
+            .setupContentMode(.scaleAspectFit)
+            .setupBackgroundColor(.darkGray)
+            .setupLayer(cornerRadius: 10, width: 1)
+        
+        return builder
+    }
+    
+    func setupIndicatorImageView() -> ImageViewBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupImage(image: Design.indicatorImage)
+            .setupImageTintColor(.white)
+        
+        return builder
+    }
 }
 
 // MARK: - Namespace
 
 private enum Design {
     static let logoImage = UIImage(named: "OP.GGMainLogo")
+    static let patchImageViewImage = UIImage(named: "OP.GGLoadLogo")
+    static let indicatorImage = UIImage(systemName: "chevron.right")
 }
