@@ -54,19 +54,19 @@ final class ButtonBuilder {
     func setupTitle(
         name: String?,
         state: UIControl.State = .normal,
-        font: UIFont? = UIFont().withSize(12),
+        font: UIFont.TextStyle = .body,
         color: UIColor? = .black
     ) -> ButtonBuilder {
         button.setTitle(name, for: state)
-        button.titleLabel?.font = font
+        button.titleLabel?.font = .preferredFont(forTextStyle: font)
         button.setTitleColor(color, for: state)
 
         return self
     }
 
     func setupInset(
-        titleInset: UIEdgeInsets,
-        contentInset: UIEdgeInsets
+        titleInset: UIEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 0),
+        contentInset: UIEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 0)
     ) -> ButtonBuilder {
         button.titleEdgeInsets = titleInset
         button.contentEdgeInsets = contentInset
@@ -118,7 +118,7 @@ extension ButtonBuilder {
             .setupConstraintsAutomatic(false)
             .setupColor(tint: Design.Color.language, background: Design.Color.sub)
             .setupImage(image: Design.Image.chevronDown)
-            .setupTitle(name: "KR", font: .preferredFont(forTextStyle: .headline), color: Design.Color.language)
+            .setupTitle(name: "KR", font: .headline, color: Design.Color.language)
             .setupInset(titleInset: Design.Inset.languageButtonTitle, contentInset: Design.Inset.languageButtonContent)
             .setupPriority(hugging: .defaultHigh, compression: .defaultHigh, axis: .horizontal)
             .setupLayer(cornerRadius: Design.laguageButtonCornerRadius)
@@ -141,7 +141,7 @@ extension ButtonBuilder {
             .setupConstraintsAutomatic(false)
             .setupColor(tint: Design.Color.language)
             .setupImage(image: Design.Image.search, textStyle: .title3, scale: .default)
-            .setupTitle(name: Design.searchButtonTitle, font: .preferredFont(forTextStyle: .footnote), color: Design.Color.language)
+            .setupTitle(name: Design.searchButtonTitle, font: .footnote, color: Design.Color.language)
             .setupInset(titleInset: Design.Inset.summonerSearchButtonTitle, contentInset: Design.Inset.summonerSearchButtonContent)
             .setupPriority(hugging: .defaultHigh, compression: .defaultHigh, axis: .horizontal)
             .setupLayer(cornerRadius: Design.laguageButtonCornerRadius, width: Design.languageButtonLayerWidth, color: Design.Color.layer)
