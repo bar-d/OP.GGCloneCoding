@@ -33,6 +33,7 @@
 		C4EBCC2928FC242B00402617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4EBCC2828FC242B00402617 /* Assets.xcassets */; };
 		C4EBCC2C28FC242B00402617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4EBCC2A28FC242B00402617 /* LaunchScreen.storyboard */; };
 		C4F3DDB22907E94F00137AAC /* MySummonerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDB12907E94F00137AAC /* MySummonerCell.swift */; };
+		C4F3DDB52907E9AD00137AAC /* FavoriteSummonerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDB42907E9AD00137AAC /* FavoriteSummonerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		C4EBCC2B28FC242B00402617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4EBCC2D28FC242B00402617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F3DDB12907E94F00137AAC /* MySummonerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerCell.swift; sourceTree = "<group>"; };
+		C4F3DDB42907E9AD00137AAC /* FavoriteSummonerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSummonerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				C4F3DDB02907E93A00137AAC /* MySummoner */,
+				C4F3DDB32907E99300137AAC /* FavoriteSummoner */,
 			);
 			path = SectionView;
 			sourceTree = "<group>";
@@ -260,6 +263,14 @@
 				C4F3DDB12907E94F00137AAC /* MySummonerCell.swift */,
 			);
 			path = MySummoner;
+			sourceTree = "<group>";
+		};
+		C4F3DDB32907E99300137AAC /* FavoriteSummoner */ = {
+			isa = PBXGroup;
+			children = (
+				C4F3DDB42907E9AD00137AAC /* FavoriteSummonerCell.swift */,
+			);
+			path = FavoriteSummoner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +367,7 @@
 				C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */,
 				C406923B2906759D00A4E48D /* HeaderViewBuilder.swift in Sources */,
 				C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */,
+				C4F3DDB52907E9AD00137AAC /* FavoriteSummonerCell.swift in Sources */,
 				C406923E29067C3100A4E48D /* NavigationBarButton.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
 				204600932901180C004A3417 /* PushNotificationCell.swift in Sources */,
