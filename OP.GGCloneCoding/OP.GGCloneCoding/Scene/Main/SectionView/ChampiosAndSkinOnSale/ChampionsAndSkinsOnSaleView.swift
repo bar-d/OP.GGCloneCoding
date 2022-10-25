@@ -59,9 +59,8 @@ final class ChampionsAndSkinsOnSaleView: UIView {
         label.textColor = .white
         label.font = .preferredFont(forTextStyle: .caption1)
         label.textAlignment = .center
-        label.backgroundColor = .red
+        label.layer.backgroundColor = Design.discountRateBackgroundColor
         label.layer.cornerRadius = 5
-        label.clipsToBounds = true
 
         return label
     }()
@@ -71,6 +70,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = .preferredFont(forTextStyle: .body)
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
 
         return label
     }()
@@ -78,6 +78,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
     private let verticalSeparator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = Design.verticalSeparatorColor
 
         return view
     }()
@@ -103,7 +104,6 @@ final class ChampionsAndSkinsOnSaleView: UIView {
         setupSubviews()
         setupConstraints()
         setupLabel()
-        setupBackgroundColor()
     }
 
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -156,10 +156,9 @@ final class ChampionsAndSkinsOnSaleView: UIView {
 
     private func setupDiscountRateLabelConstraints() {
         NSLayoutConstraint.activate([
-            discountRateLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
             discountRateLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             discountRateLabel.widthAnchor.constraint(equalTo: discountedPriceLabel.widthAnchor, multiplier: 0.4),
-            discountRateLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.13)
+            discountRateLabel.centerYAnchor.constraint(equalTo: discountedPriceLabel.centerYAnchor)
         ])
     }
 
@@ -195,7 +194,6 @@ final class ChampionsAndSkinsOnSaleView: UIView {
         NSLayoutConstraint.activate([
             deadLineLabel.topAnchor.constraint(equalTo: originalPriceLabel.topAnchor),
             deadLineLabel.leadingAnchor.constraint(equalTo: verticalSeparator.trailingAnchor, constant: 3),
-            deadLineLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             deadLineLabel.bottomAnchor.constraint(equalTo: originalPriceLabel.bottomAnchor)
         ])
     }
@@ -207,11 +205,6 @@ final class ChampionsAndSkinsOnSaleView: UIView {
         originalPriceLabel.attributedText = Design.originalPriceLabel
         discountRateLabel.text = Design.discountRateLabel
         discountedPriceLabel.text = Design.discountedPriceLabel
-    }
-
-    private func setupBackgroundColor() {
-        discountRateLabel.backgroundColor = Design.discountRateBackgroundColor
-        verticalSeparator.backgroundColor = Design.verticalSeparatorColor
     }
 }
 
@@ -225,6 +218,6 @@ private enum Design {
     static let originalPriceLabel = "1350RP".strikeThrough(value: NSUnderlineStyle.single.rawValue)
     static let discountRateLabel = "60%"
     static let discountedPriceLabel = "540RP"
-    static let discountRateBackgroundColor = UIColor(named: "LoseColor")
+    static let discountRateBackgroundColor = UIColor(named: "LoseColor")?.cgColor
     static let verticalSeparatorColor = UIColor(named: "SecondaryColor")
 }
