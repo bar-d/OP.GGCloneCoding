@@ -34,6 +34,8 @@
 		C4EBCC2C28FC242B00402617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4EBCC2A28FC242B00402617 /* LaunchScreen.storyboard */; };
 		C4F3DDB22907E94F00137AAC /* MySummonerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDB12907E94F00137AAC /* MySummonerCell.swift */; };
 		C4F3DDB52907E9AD00137AAC /* FavoriteSummonerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDB42907E9AD00137AAC /* FavoriteSummonerCell.swift */; };
+		C4F3DDB82907E9F800137AAC /* PatchNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDB72907E9F800137AAC /* PatchNoteCell.swift */; };
+		C4F3DDBA2907EA3600137AAC /* PatchNoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDB92907EA3600137AAC /* PatchNoteImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		C4EBCC2D28FC242B00402617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F3DDB12907E94F00137AAC /* MySummonerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerCell.swift; sourceTree = "<group>"; };
 		C4F3DDB42907E9AD00137AAC /* FavoriteSummonerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSummonerCell.swift; sourceTree = "<group>"; };
+		C4F3DDB72907E9F800137AAC /* PatchNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteCell.swift; sourceTree = "<group>"; };
+		C4F3DDB92907EA3600137AAC /* PatchNoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +257,7 @@
 			children = (
 				C4F3DDB02907E93A00137AAC /* MySummoner */,
 				C4F3DDB32907E99300137AAC /* FavoriteSummoner */,
+				C4F3DDB62907E9E000137AAC /* PatchNote */,
 			);
 			path = SectionView;
 			sourceTree = "<group>";
@@ -271,6 +276,15 @@
 				C4F3DDB42907E9AD00137AAC /* FavoriteSummonerCell.swift */,
 			);
 			path = FavoriteSummoner;
+			sourceTree = "<group>";
+		};
+		C4F3DDB62907E9E000137AAC /* PatchNote */ = {
+			isa = PBXGroup;
+			children = (
+				C4F3DDB72907E9F800137AAC /* PatchNoteCell.swift */,
+				C4F3DDB92907EA3600137AAC /* PatchNoteImageView.swift */,
+			);
+			path = PatchNote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +376,8 @@
 				20528ECE29027683003046A3 /* HeaderView.swift in Sources */,
 				C440CD03290114E2008B3C16 /* SettingsCell.swift in Sources */,
 				2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */,
+				C4F3DDBA2907EA3600137AAC /* PatchNoteImageView.swift in Sources */,
+				C4F3DDB82907E9F800137AAC /* PatchNoteCell.swift in Sources */,
 				C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */,
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
 				C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */,
