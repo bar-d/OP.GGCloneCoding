@@ -31,7 +31,7 @@ enum MainSection: Int ,CaseIterable {
         case .championTier:
             return MySummonerCell()
         case .todayTMI:
-            return MySummonerCell()
+            return TodayTMICell()
         case .saleSkinsAndChampion:
             return ChampionsAndSkinsOnSaleCell()
         case .anotherGame:
