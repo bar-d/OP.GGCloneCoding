@@ -43,6 +43,8 @@
 		C4F3DDC52907F5E200137AAC /* MainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDC42907F5E200137AAC /* MainSection.swift */; };
 		C4F3DDC72907F7CE00137AAC /* MainStickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDC62907F7CE00137AAC /* MainStickyHeaderView.swift */; };
 		C4F3DDC92907F7DF00137AAC /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDC82907F7DF00137AAC /* MainTableView.swift */; };
+		C4F3DDCE29080F5900137AAC /* TodayTMICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDCD29080F5900137AAC /* TodayTMICell.swift */; };
+		C4F3DDD32908179600137AAC /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDD22908179600137AAC /* PaddingLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		C4F3DDC42907F5E200137AAC /* MainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSection.swift; sourceTree = "<group>"; };
 		C4F3DDC62907F7CE00137AAC /* MainStickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStickyHeaderView.swift; sourceTree = "<group>"; };
 		C4F3DDC82907F7DF00137AAC /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
+		C4F3DDCD29080F5900137AAC /* TodayTMICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTMICell.swift; sourceTree = "<group>"; };
+		C4F3DDD22908179600137AAC /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 				C436A08128FD640C00E261F7 /* LoadingView.swift */,
 				20528ECD29027683003046A3 /* HeaderView.swift */,
 				2033279E28FEA531005EF522 /* TabBarController.swift */,
+				C4F3DDD22908179600137AAC /* PaddingLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				C4F3DDB62907E9E000137AAC /* PatchNote */,
 				205BC1A62907EC97004053F3 /* FavoriteChampion */,
 				205BC1A92907EE8F004053F3 /* ChampiosAndSkinOnSale */,
+				C4F3DDCA29080F0300137AAC /* TodayTMI */,
 			);
 			path = SectionView;
 			sourceTree = "<group>";
@@ -338,6 +344,14 @@
 				C4F3DDC42907F5E200137AAC /* MainSection.swift */,
 			);
 			path = Section;
+			sourceTree = "<group>";
+		};
+		C4F3DDCA29080F0300137AAC /* TodayTMI */ = {
+			isa = PBXGroup;
+			children = (
+				C4F3DDCD29080F5900137AAC /* TodayTMICell.swift */,
+			);
+			path = TodayTMI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,6 +439,7 @@
 				20528ED02902799E003046A3 /* SettingsStickyHeaderView.swift in Sources */,
 				C4F3DDC52907F5E200137AAC /* MainSection.swift in Sources */,
 				205BC1AD2907EEE4004053F3 /* MainSkinOnSaleView.swift in Sources */,
+				C4F3DDCE29080F5900137AAC /* TodayTMICell.swift in Sources */,
 				2033279F28FEA531005EF522 /* TabBarController.swift in Sources */,
 				C4F3DDB22907E94F00137AAC /* MySummonerCell.swift in Sources */,
 				C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */,
@@ -444,6 +459,7 @@
 				C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */,
 				C4F3DDB52907E9AD00137AAC /* FavoriteSummonerCell.swift in Sources */,
 				C4F3DDC72907F7CE00137AAC /* MainStickyHeaderView.swift in Sources */,
+				C4F3DDD32908179600137AAC /* PaddingLabel.swift in Sources */,
 				C406923E29067C3100A4E48D /* NavigationBarButton.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
 				204600932901180C004A3417 /* PushNotificationCell.swift in Sources */,
