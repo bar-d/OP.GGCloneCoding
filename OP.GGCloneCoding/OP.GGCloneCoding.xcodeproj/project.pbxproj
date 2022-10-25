@@ -32,6 +32,7 @@
 		C4EBCC2428FC242900402617 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC2328FC242900402617 /* MainViewController.swift */; };
 		C4EBCC2928FC242B00402617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4EBCC2828FC242B00402617 /* Assets.xcassets */; };
 		C4EBCC2C28FC242B00402617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4EBCC2A28FC242B00402617 /* LaunchScreen.storyboard */; };
+		C4F3DDB22907E94F00137AAC /* MySummonerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDB12907E94F00137AAC /* MySummonerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		C4EBCC2828FC242B00402617 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4EBCC2B28FC242B00402617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4EBCC2D28FC242B00402617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4F3DDB12907E94F00137AAC /* MySummonerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				C4E505EC28FE91C400EEA8C8 /* View */,
+				C4F3DDAF2907E92400137AAC /* SectionView */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -233,14 +236,30 @@
 		C4EBCC1E28FC242900402617 /* OP.GGCloneCoding */ = {
 			isa = PBXGroup;
 			children = (
-				205BC1A32907E84E004053F3 /* Extension */,
 				C440CCF82901139D008B3C16 /* PreviewHelpers */,
 				203CD71628FC36470037B457 /* Application */,
 				203CD71528FC35D40037B457 /* Resource */,
+				205BC1A32907E84E004053F3 /* Extension */,
 				C4E505EA28FE91AA00EEA8C8 /* Builder */,
 				C4E505EB28FE91BC00EEA8C8 /* Scene */,
 			);
 			path = OP.GGCloneCoding;
+			sourceTree = "<group>";
+		};
+		C4F3DDAF2907E92400137AAC /* SectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C4F3DDB02907E93A00137AAC /* MySummoner */,
+			);
+			path = SectionView;
+			sourceTree = "<group>";
+		};
+		C4F3DDB02907E93A00137AAC /* MySummoner */ = {
+			isa = PBXGroup;
+			children = (
+				C4F3DDB12907E94F00137AAC /* MySummonerCell.swift */,
+			);
+			path = MySummoner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +346,7 @@
 				C440CD1029017E50008B3C16 /* CellCustomizable.swift in Sources */,
 				20528ED02902799E003046A3 /* SettingsStickyHeaderView.swift in Sources */,
 				2033279F28FEA531005EF522 /* TabBarController.swift in Sources */,
+				C4F3DDB22907E94F00137AAC /* MySummonerCell.swift in Sources */,
 				C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */,
 				20528ECE29027683003046A3 /* HeaderView.swift in Sources */,
 				C440CD03290114E2008B3C16 /* SettingsCell.swift in Sources */,
