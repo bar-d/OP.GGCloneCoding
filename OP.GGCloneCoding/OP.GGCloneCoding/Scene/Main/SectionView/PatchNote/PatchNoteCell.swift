@@ -85,14 +85,11 @@ final class PatchNoteCell: UITableViewCell {
     }
     
     private func setupFirstPatchNoteImageViewConstraints() {
-        NSLayoutConstraint.activate([
-            firstPatchNoteImageView.heightAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 3/5),
-            firstPatchNoteImageView.widthAnchor.constraint(equalTo: firstPatchNoteImageView.heightAnchor, multiplier: 3/2),
-            secondPatchNoteImageView.heightAnchor.constraint(equalTo: firstPatchNoteImageView.heightAnchor),
-            secondPatchNoteImageView.widthAnchor.constraint(equalTo: firstPatchNoteImageView.widthAnchor),
-            thirdPatchNoteImageView.heightAnchor.constraint(equalTo: firstPatchNoteImageView.heightAnchor),
-            thirdPatchNoteImageView.widthAnchor.constraint(equalTo: firstPatchNoteImageView.widthAnchor)
-        ])
+        [firstPatchNoteImageView, secondPatchNoteImageView, thirdPatchNoteImageView]
+            .forEach {
+                $0.heightAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 3/5).isActive = true
+                $0.widthAnchor.constraint(equalTo: $0.heightAnchor, multiplier: 3/2).isActive = true
+            }
     }
     
     private func setupTitleLabelConstraints() {
