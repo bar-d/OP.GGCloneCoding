@@ -274,7 +274,6 @@
 		C4E505EE28FE91FD00EEA8C8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				205BC1B4290828E4004053F3 /* OtherGames */,
 				C4E505EC28FE91C400EEA8C8 /* View */,
 				C4F3DDC32907F5D900137AAC /* Section */,
 				C4F3DDAF2907E92400137AAC /* SectionView */,
@@ -320,6 +319,7 @@
 				205BC1A62907EC97004053F3 /* FavoriteChampion */,
 				205BC1A92907EE8F004053F3 /* ChampiosAndSkinOnSale */,
 				C4F3DDCA29080F0300137AAC /* TodayTMI */,
+				205BC1B4290828E4004053F3 /* OtherGames */,
 			);
 			path = SectionView;
 			sourceTree = "<group>";

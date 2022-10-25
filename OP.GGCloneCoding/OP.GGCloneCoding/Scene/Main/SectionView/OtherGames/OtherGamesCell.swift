@@ -24,6 +24,7 @@ final class OtherGamesCell: UITableViewCell {
     private let anotherGamesScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsHorizontalScrollIndicator = false
 
         return scrollView
     }()
