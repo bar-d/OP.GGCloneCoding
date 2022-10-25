@@ -14,6 +14,7 @@ final class MainSkinOnSaleView: UIView {
     private let imageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: Design.logoImage)
+        .setupLayer(cornerRadius: 10)
         .build()
 
     private let typeLabel: UILabel = {

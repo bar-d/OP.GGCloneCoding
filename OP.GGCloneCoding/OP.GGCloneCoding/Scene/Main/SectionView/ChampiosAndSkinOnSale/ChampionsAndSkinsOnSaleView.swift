@@ -15,6 +15,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
         .setupConstraintsAutomatic(false)
         .setupImage(image: Design.logoImage)
         .setupContentMode(.scaleToFill)
+        .setupLayer(cornerRadius: 10)
         .build()
 
     private let typeLabel: UILabel = {
