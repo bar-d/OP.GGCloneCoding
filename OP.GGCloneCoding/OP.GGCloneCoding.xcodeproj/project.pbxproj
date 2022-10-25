@@ -40,9 +40,9 @@
 		C4F3DDB52907E9AD00137AAC /* FavoriteSummonerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDB42907E9AD00137AAC /* FavoriteSummonerCell.swift */; };
 		C4F3DDB82907E9F800137AAC /* PatchNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDB72907E9F800137AAC /* PatchNoteCell.swift */; };
 		C4F3DDBA2907EA3600137AAC /* PatchNoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDB92907EA3600137AAC /* PatchNoteImageView.swift */; };
-		C4F3DDC02907F59E00137AAC /* MainStickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDBF2907F59E00137AAC /* MainStickyHeaderView.swift */; };
-		C4F3DDC22907F5BF00137AAC /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDC12907F5BF00137AAC /* MainTableView.swift */; };
 		C4F3DDC52907F5E200137AAC /* MainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDC42907F5E200137AAC /* MainSection.swift */; };
+		C4F3DDC72907F7CE00137AAC /* MainStickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDC62907F7CE00137AAC /* MainStickyHeaderView.swift */; };
+		C4F3DDC92907F7DF00137AAC /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3DDC82907F7DF00137AAC /* MainTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,9 +80,9 @@
 		C4F3DDB42907E9AD00137AAC /* FavoriteSummonerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSummonerCell.swift; sourceTree = "<group>"; };
 		C4F3DDB72907E9F800137AAC /* PatchNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteCell.swift; sourceTree = "<group>"; };
 		C4F3DDB92907EA3600137AAC /* PatchNoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteImageView.swift; sourceTree = "<group>"; };
-		C4F3DDBF2907F59E00137AAC /* MainStickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStickyHeaderView.swift; sourceTree = "<group>"; };
-		C4F3DDC12907F5BF00137AAC /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
 		C4F3DDC42907F5E200137AAC /* MainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSection.swift; sourceTree = "<group>"; };
+		C4F3DDC62907F7CE00137AAC /* MainStickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStickyHeaderView.swift; sourceTree = "<group>"; };
+		C4F3DDC82907F7DF00137AAC /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,8 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */,
-				C4F3DDBF2907F59E00137AAC /* MainStickyHeaderView.swift */,
-				C4F3DDC12907F5BF00137AAC /* MainTableView.swift */,
+				C4F3DDC62907F7CE00137AAC /* MainStickyHeaderView.swift */,
+				C4F3DDC82907F7DF00137AAC /* MainTableView.swift */,
 				C4EBCC2328FC242900402617 /* MainViewController.swift */,
 				2033279E28FEA531005EF522 /* TabBarController.swift */,
 			);
@@ -425,17 +425,17 @@
 				2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */,
 				205BC1AB2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift in Sources */,
 				C4F3DDBA2907EA3600137AAC /* PatchNoteImageView.swift in Sources */,
-				C4F3DDC22907F5BF00137AAC /* MainTableView.swift in Sources */,
-				C4F3DDC02907F59E00137AAC /* MainStickyHeaderView.swift in Sources */,
 				C4F3DDB82907E9F800137AAC /* PatchNoteCell.swift in Sources */,
 				C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */,
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
 				205BC1A82907ECCF004053F3 /* FavoriteChampionCell.swift in Sources */,
 				C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */,
 				C406923B2906759D00A4E48D /* HeaderViewBuilder.swift in Sources */,
+				C4F3DDC92907F7DF00137AAC /* MainTableView.swift in Sources */,
 				205BC1AF2907EEF3004053F3 /* ChampionsAndSkinsOnSaleView.swift in Sources */,
 				C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */,
 				C4F3DDB52907E9AD00137AAC /* FavoriteSummonerCell.swift in Sources */,
+				C4F3DDC72907F7CE00137AAC /* MainStickyHeaderView.swift in Sources */,
 				C406923E29067C3100A4E48D /* NavigationBarButton.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
 				204600932901180C004A3417 /* PushNotificationCell.swift in Sources */,
