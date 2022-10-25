@@ -56,8 +56,9 @@ final class ImageViewBuilder {
     func setupLayer(
         cornerRadius: CGFloat = 0,
         width: CGFloat = 0,
-        color: CGColor? = UIColor.black.cgColor
+        color: CGColor? = UIColor.clear.cgColor
     ) -> ImageViewBuilder {
+        imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = cornerRadius
         imageView.layer.borderWidth = width
         imageView.layer.borderColor = color
@@ -95,6 +96,16 @@ extension ImageViewBuilder {
             .setupImage(image: Design.indicatorImage)
             .setupImageTintColor(.white)
         
+        return builder
+    }
+
+    func setupAnotherGameImageView(image: UIImage?) -> ImageViewBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupImage(image: image)
+            .setupContentMode(.scaleAspectFit)
+            .setupLayer(cornerRadius: 10, width: 1)
+
         return builder
     }
 }
