@@ -149,6 +149,26 @@ extension ButtonBuilder {
 
         return builder
     }
+
+    func setupSummonerSearchButton() -> ButtonBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupTitle(name: Design.registerButtonTitle, state: .normal, font: .footnote)
+            .setupColor(background: Design.Color.buttonBackground)
+            .setupLayer(cornerRadius: 4, width: 1)
+
+        return builder
+    }
+
+    func setupMoreButton() -> ButtonBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupTitle(name: "모두 보기", font: .caption1, color: .label)
+            .setupColor(background: UIColor(named: "SecondaryColor"))
+            .setupInset(contentInset: UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0))
+
+        return builder
+    }
 }
 
 // MARK: - Namespace
@@ -160,6 +180,7 @@ private enum Design {
         static let sortIcon = UIColor(named: "IconColor") ?? .systemBackground
         static let language = UIColor(named: "LanguageColor")
         static let layer = language?.cgColor.copy(alpha: 0.5)
+        static let buttonBackground = UIColor(named: "ButtonFontColor")
     }
 
     enum Image {
@@ -177,6 +198,8 @@ private enum Design {
     }
 
     static let searchButtonTitle = "소환사 검색"
+    static let registerButtonTitle = "챔피언 살펴보기"
+
     static let laguageButtonCornerRadius: CGFloat = 4
     static let languageButtonLayerWidth: CGFloat = 1
 }
