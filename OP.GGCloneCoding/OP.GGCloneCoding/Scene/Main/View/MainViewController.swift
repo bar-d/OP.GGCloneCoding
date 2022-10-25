@@ -11,10 +11,21 @@ final class MainViewController: UIViewController {
     
     // MARK: Properties
     
-    private let topView = MainTopView()
-    private let searchButton = ButtonBuilder()
-        .setupSearchButton()
-        .build()
+    private let mainTopView = MainTopView()
+    private let mainStickyHeaderView = MainStickyHeaderView()
+    private let mainTableView = MainTableView()
+    private let mainScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.refreshControl = UIRefreshControl()
+
+        return scrollView
+    }()
+
+    private var mainStickyHeaderviewTopConstraint = NSLayoutConstraint()
+    private var mainTableViewHeightConstraint = NSLayoutConstraint()
+
     
     // MARK: - View Life Cycle
     
@@ -22,31 +33,115 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        setupSubviews()
-        setupConstraints()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        mainTableViewHeightConstraint.constant = mainTableView.contentSize.height
     }
     
     // MARK: - Methods
     
     private func setupUI() {
-        view.backgroundColor = Design.backgroundColor
+        setupSubviews()
+        setupConstraintsAutomatic(false)
+        setupConstraints()
+        setupScrollViewContentInset()
+        setupBackgroundColor()
+        setupDelegate()
     }
     
     private func setupSubviews() {
-        [topView, searchButton]
+        [mainStickyHeaderView, mainTopView, mainScrollView]
             .forEach { view.addSubview($0) }
+        mainScrollView.addSubview(mainTableView)
+    }
+    
+    private func setupConstraintsAutomatic(_ bool: Bool) {
+        mainScrollView.translatesAutoresizingMaskIntoConstraints = bool
     }
     
     private func setupConstraints() {
+        setupMainTopViewConstraints()
+        setupStickyHeaderViewConstraints()
+        setupSettingsScrollViewConstraints()
+        setupSettingsTableViewConstraints()
+    }
+
+    private func setupMainTopViewConstraints() {
         NSLayoutConstraint.activate([
-            topView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            topView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            topView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            
-            searchButton.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 20),
-            searchButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            searchButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
+            mainTopView.topAnchor.constraint(equalTo: view.topAnchor),
+            mainTopView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            mainTopView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            mainTopView.heightAnchor.constraint(equalToConstant: Design.headerMinHeight)
         ])
+    }
+
+    private func setupStickyHeaderViewConstraints() {
+        mainStickyHeaderviewTopConstraint = mainStickyHeaderView.topAnchor.constraint(equalTo: view.topAnchor)
+
+        NSLayoutConstraint.activate([
+            mainStickyHeaderviewTopConstraint,
+            mainStickyHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainStickyHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mainStickyHeaderView.heightAnchor.constraint(equalToConstant: Design.headerMaxHeight)
+        ])
+    }
+
+    private func setupSettingsScrollViewConstraints() {
+        NSLayoutConstraint.activate([
+            mainScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: Design.headerMinHeight),
+            mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+    }
+
+    private func setupSettingsTableViewConstraints() {
+        mainTableViewHeightConstraint = mainTableView.heightAnchor.constraint(equalToConstant: .zero)
+
+        NSLayoutConstraint.activate([
+            mainTableView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
+            mainTableView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor),
+            mainTableView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
+            mainTableView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor),
+            mainTableView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
+            mainTableViewHeightConstraint
+        ])
+    }
+    
+    private func setupScrollViewContentInset() {
+        mainScrollView.contentInset = Design.scrollViewContentInsets
+    }
+
+    private func setupBackgroundColor() {
+        view.backgroundColor = Design.backgroundColor
+        mainTopView.backgroundColor = Design.secondaryColor
+    }
+
+    private func setupDelegate() {
+        mainScrollView.delegate = self
+    }
+}
+
+// MARK: - Extension
+
+extension MainViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        updateStickyHeaderView()
+    }
+
+    private func updateStickyHeaderView() {
+        mainStickyHeaderviewTopConstraint.constant = -calculateHeaderConstant()
+    }
+
+    private func calculateHeaderConstant() -> CGFloat {
+        var headerConstant = mainScrollView.contentOffset.y + Design.headerMaxHeight - Design.headerMinHeight
+        headerConstant = headerConstant < 0 ? 0 : headerConstant
+        headerConstant = headerConstant > Design.headerMinHeight ? Design.headerMinHeight : headerConstant
+
+        return headerConstant
     }
 }
 
@@ -54,4 +149,11 @@ final class MainViewController: UIViewController {
 
 private enum Design {
     static let backgroundColor = UIColor(named: "PrimitiveColor")
+    static let secondaryColor = UIColor(named: "SecondaryColor")
+    static let scrollViewContentInsets = UIEdgeInsets(top: headerMaxHeight - headerMinHeight + 7,
+                                                      left: 0,
+                                                      bottom: -(headerMaxHeight - headerMinHeight + 7),
+                                                      right: 0)
+    static let headerMaxHeight: CGFloat = 150
+    static let headerMinHeight: CGFloat = 100
 }
