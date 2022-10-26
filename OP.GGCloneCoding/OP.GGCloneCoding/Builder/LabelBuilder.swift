@@ -176,6 +176,15 @@ extension LabelBuilder {
         
         return builder
     }
+
+    func setupButtonTitleLabel() -> LabelBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupLabelText(color: .label)
+            .setupLabelTextAttributes(alignment: .left, font: .caption1)
+
+        return builder
+    }
 }
 
 private enum Design {
