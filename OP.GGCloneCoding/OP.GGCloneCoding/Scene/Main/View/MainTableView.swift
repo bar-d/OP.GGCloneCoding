@@ -15,8 +15,8 @@ final class MainTableView: UITableView {
         .mySummoner, .favoriteSummoner,
         .patchNote, .championTier,
         .favoriteChampions, .todayTMI,
-        .saleSkinsAndChampion, .additionalInformation,
-        .anotherGame
+        .saleSkinsAndChampion, .anotherGame,
+        .additionalInformation
     ]
     
     // MARK: - Initializers

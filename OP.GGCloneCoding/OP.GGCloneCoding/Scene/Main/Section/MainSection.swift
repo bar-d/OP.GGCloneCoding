@@ -37,7 +37,7 @@ enum MainSection: Int ,CaseIterable {
         case .anotherGame:
             return OtherGamesCell()
         case .additionalInformation:
-            return MySummonerCell()
+            return MoreInformationCell()
         }
     }
 }

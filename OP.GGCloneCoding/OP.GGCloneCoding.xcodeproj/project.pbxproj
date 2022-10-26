@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279C28FE7479005EF522 /* ButtonBuilder.swift */; };
 		2033279F28FEA531005EF522 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279E28FEA531005EF522 /* TabBarController.swift */; };
+		203F1D47290918D4002C5F5A /* MoreInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F1D46290918D4002C5F5A /* MoreInformationCell.swift */; };
+		203F1D49290918DB002C5F5A /* MoreInformationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F1D48290918DB002C5F5A /* MoreInformationButton.swift */; };
 		204600932901180C004A3417 /* PushNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204600922901180C004A3417 /* PushNotificationCell.swift */; };
 		20528ECE29027683003046A3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20528ECD29027683003046A3 /* HeaderView.swift */; };
 		20528ED02902799E003046A3 /* SettingsStickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20528ECF2902799E003046A3 /* SettingsStickyHeaderView.swift */; };
@@ -52,6 +54,8 @@
 /* Begin PBXFileReference section */
 		2033279C28FE7479005EF522 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		2033279E28FEA531005EF522 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		203F1D46290918D4002C5F5A /* MoreInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInformationCell.swift; sourceTree = "<group>"; };
+		203F1D48290918DB002C5F5A /* MoreInformationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInformationButton.swift; sourceTree = "<group>"; };
 		204600922901180C004A3417 /* PushNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationCell.swift; sourceTree = "<group>"; };
 		20528ECD29027683003046A3 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		20528ECF2902799E003046A3 /* SettingsStickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStickyHeaderView.swift; sourceTree = "<group>"; };
@@ -123,6 +127,15 @@
 				C4EBCC2128FC242900402617 /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		203F1D45290918BD002C5F5A /* MoreInformation */ = {
+			isa = PBXGroup;
+			children = (
+				203F1D46290918D4002C5F5A /* MoreInformationCell.swift */,
+				203F1D48290918DB002C5F5A /* MoreInformationButton.swift */,
+			);
+			path = MoreInformation;
 			sourceTree = "<group>";
 		};
 		205BC1A32907E84E004053F3 /* Extension */ = {
@@ -316,6 +329,7 @@
 		C4F3DDAF2907E92400137AAC /* SectionView */ = {
 			isa = PBXGroup;
 			children = (
+				203F1D45290918BD002C5F5A /* MoreInformation */,
 				C4F3DDB02907E93A00137AAC /* MySummoner */,
 				C4F3DDB32907E99300137AAC /* FavoriteSummoner */,
 				C4F3DDB62907E9E000137AAC /* PatchNote */,
@@ -446,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C440CCFF290114BD008B3C16 /* SettingsTableView.swift in Sources */,
+				203F1D47290918D4002C5F5A /* MoreInformationCell.swift in Sources */,
 				205BC1A52907E85B004053F3 /* String+Extension.swift in Sources */,
 				C440CD0729011505008B3C16 /* SettingSection.swift in Sources */,
 				C4EBCC2428FC242900402617 /* MainViewController.swift in Sources */,
@@ -457,6 +472,7 @@
 				C4F3DDCE29080F5900137AAC /* TodayTMICell.swift in Sources */,
 				2033279F28FEA531005EF522 /* TabBarController.swift in Sources */,
 				C4F3DDB22907E94F00137AAC /* MySummonerCell.swift in Sources */,
+				203F1D49290918DB002C5F5A /* MoreInformationButton.swift in Sources */,
 				C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */,
 				20528ECE29027683003046A3 /* HeaderView.swift in Sources */,
 				205BC1B6290828FB004053F3 /* OtherGamesCell.swift in Sources */,
