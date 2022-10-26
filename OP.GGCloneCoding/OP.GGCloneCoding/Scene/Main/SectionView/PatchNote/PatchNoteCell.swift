@@ -12,7 +12,7 @@ final class PatchNoteCell: UITableViewCell {
     // MARK: Properties
     
     private let titleLabel = LabelBuilder()
-        .setupMainCellTitleLabel(text: Design.titleLabelText)
+        .setupMainCellTitleLabel(text: Design.titleLabelText, color: .white)
         .build()
     
     private let patchNoteScrollView: UIScrollView = {

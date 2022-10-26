@@ -16,7 +16,7 @@ final class PatchNoteImageView: UIView {
         .build()
     
     private let titleLabel = LabelBuilder()
-        .setupMainCellTitleLabel(text: Design.titleLabelText)
+        .setupMainCellTitleLabel(text: Design.titleLabelText, color: .white, font: .footnote)
         .build()
     
     private let indicatorImageView = ImageViewBuilder()

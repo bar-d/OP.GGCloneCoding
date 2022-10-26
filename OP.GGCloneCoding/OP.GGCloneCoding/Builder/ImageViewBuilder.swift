@@ -103,6 +103,7 @@ extension ImageViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
             .setupImage(image: Design.indicatorImage)
+            .setupContentMode(.scaleAspectFit)
             .setupImageTintColor(.white)
         
         return builder

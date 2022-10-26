@@ -92,11 +92,11 @@ final class LabelBuilder {
 // MARK: - Extension
 
 extension LabelBuilder {
-    func setupMainCellTitleLabel(text: String) -> LabelBuilder {
+    func setupMainCellTitleLabel(text: String, color: UIColor = .label, numberOfLines: Int = 1, font: UIFont.TextStyle = .title3) -> LabelBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupLabelText(text: text)
-            .setupLabelTextAttributes(font: .title3)
+            .setupLabelText(text: text, color: color)
+            .setupLabelTextAttributes(numberOfLines: numberOfLines, font: font)
         
         return builder
     }

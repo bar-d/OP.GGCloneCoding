@@ -12,7 +12,7 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
     // MARK: Properties
     
     private let titleLabel = LabelBuilder()
-        .setupMainCellTitleLabel(text: Design.titlelabelText)
+        .setupMainCellTitleLabel(text: Design.titlelabelText, numberOfLines: 2)
         .build()
     
     private let mainImageView = MainSkinOnSaleView()

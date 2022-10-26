@@ -153,9 +153,9 @@ extension ButtonBuilder {
     func setupMainCellButton(text: String, backgroundColor: UIColor? = Design.Color.buttonBackground, tintColor: UIColor? = Design.Color.buttonTintColor) -> ButtonBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupTitle(name: text, state: .normal, font: .footnote)
+            .setupTitle(name: text, state: .normal, font: .footnote, color: tintColor)
             .setupColor(tint: tintColor, background: backgroundColor)
-            .setupLayer(cornerRadius: 4, width: 1)
+            .setupLayer(cornerRadius: 4)
         
         return builder
     }
@@ -175,6 +175,7 @@ extension ButtonBuilder {
 
 private enum Design {
     enum Color {
+        static let primitiveColor = UIColor(named: "PrimitiveColor")
         static let secondaryColor = UIColor(named: "SecondaryColor")
         static let sortIcon = UIColor(named: "IconColor") ?? .systemBackground
         static let language = UIColor(named: "LanguageColor")
