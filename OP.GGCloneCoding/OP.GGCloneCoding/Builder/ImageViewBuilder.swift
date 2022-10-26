@@ -41,7 +41,7 @@ final class ImageViewBuilder {
         return self
     }
     
-    func setupImageTintColor(_ color: UIColor) -> ImageViewBuilder {
+    func setupImageTintColor(_ color: UIColor?) -> ImageViewBuilder {
         imageView.tintColor = color
         
         return self
@@ -99,12 +99,12 @@ extension ImageViewBuilder {
         return builder
     }
     
-    func setupPatchNoteIndicatorImageView() -> ImageViewBuilder {
+    func setupIndicatorImageView(tintColor: UIColor?) -> ImageViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
             .setupImage(image: Design.indicatorImage)
             .setupContentMode(.scaleAspectFit)
-            .setupImageTintColor(.white)
+            .setupImageTintColor(tintColor)
         
         return builder
     }

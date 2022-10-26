@@ -20,7 +20,7 @@ final class PatchNoteImageView: UIView {
         .build()
     
     private let indicatorImageView = ImageViewBuilder()
-        .setupPatchNoteIndicatorImageView()
+        .setupIndicatorImageView(tintColor: .white)
         .build()
     
     // MARK: - Initializers
