@@ -5,37 +5,26 @@
 //  Created by 바드, 수꿍 on 2022/10/20.
 //
 
-import SwiftUI
+import UIKit
 
 final class SettingsCell: UITableViewCell, CellCustomizable {
     
     // MARK: Properties
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = Design.titleLabelText
-        label.font = .preferredFont(forTextStyle: .headline)
-        
-        return label
-    }()
+    private let titleLabel = LabelBuilder()
+        .setupSettingsTitleLabel()
+        .build()
     
-    private let indicatorLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = Design.indicatorLabelText
-        label.textColor = .systemGray
-        label.textAlignment = .right
-        label.font = .preferredFont(forTextStyle: .subheadline)
-        
-        return label
-    }()
+    private let indicatorLabel = LabelBuilder()
+        .setupSettingsIndicatorLabel()
+        .build()
     
     private let indicator: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = Design.indicatorImage
         imageView.tintColor = Design.indicatorTintColor
+        imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         return imageView
     }()
@@ -93,7 +82,6 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
         setupSubviews()
         setupConstraints()
         setupBackgroundColor()
-        setupContentPriority()
     }
     
     private func setupSubviews() {
@@ -102,15 +90,29 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
     }
     
     private func setupConstraints() {
+        setupTitleLabelConstraints()
+        setupIndicatorLabelConstraints()
+        setupIndicatorConstraints()
+    }
+    
+    private func setupTitleLabelConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+        ])
+    }
+    
+    private func setupIndicatorLabelConstraints() {
+        NSLayoutConstraint.activate([
             indicatorLabel.topAnchor.constraint(equalTo: topAnchor),
             indicatorLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            indicatorLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20),
-            
+            indicatorLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20)
+        ])
+    }
+    
+    private func setupIndicatorConstraints() {
+        NSLayoutConstraint.activate([
             indicator.centerYAnchor.constraint(equalTo: centerYAnchor),
             indicator.leadingAnchor.constraint(equalTo: indicatorLabel.trailingAnchor, constant: 20),
             indicator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
@@ -120,32 +122,12 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
     private func setupBackgroundColor() {
         backgroundColor = Design.backgroundColor
     }
-    
-    private func setupContentPriority() {
-        titleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        indicatorLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        indicator.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-    }
 }
 
 // MARK: - Namespace
 
 private enum Design {
-    static let titleLabelText = "Title Label"
-    static let indicatorLabelText = "Indicator Label"
     static let indicatorImage = UIImage(systemName: "chevron.right")
     static let indicatorTintColor = UIColor(named: "LanguageColor")
     static let backgroundColor = UIColor(named: "SecondaryColor")
-}
-
-// MARK: - Preview
-
-struct SettingsCell_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = SettingsCell()
-            return view
-        }
-        .previewLayout(.fixed(width: 400, height: 50))
-    }
 }

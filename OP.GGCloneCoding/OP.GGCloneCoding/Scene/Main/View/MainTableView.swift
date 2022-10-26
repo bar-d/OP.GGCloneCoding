@@ -71,7 +71,6 @@ final class MainTableView: UITableView {
         contentInset = insets
     }
     
-    
     private func setupBackgroundColor() {
         backgroundColor = Design.primitiveColor
     }
@@ -93,14 +92,14 @@ extension MainTableView: UITableViewDelegate, UITableViewDataSource {
         
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = mainList[indexPath.section]
         let cell = setupCell(by: section, index: indexPath)
         
         return cell
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return mainList.count

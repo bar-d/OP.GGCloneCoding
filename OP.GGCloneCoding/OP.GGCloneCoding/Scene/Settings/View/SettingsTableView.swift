@@ -5,26 +5,26 @@
 //  Created by 바드, 수꿍 on 2022/10/20.
 //
 
-import SwiftUI
+import UIKit
 
 final class SettingsTableView: UITableView {
-
+    
     // MARK: Initializer
-
+    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .grouped)
-
+        
         commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-
+        
         commonInit()
     }
-
+    
     // MARK: - Methods
-
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupScrollable(false)
@@ -35,36 +35,36 @@ final class SettingsTableView: UITableView {
         setupBackgroundColor()
         setupScrollIndicatorVisible(false)
     }
-
+    
     private func setupConstraintsAutomatic(_ bool: Bool) {
         translatesAutoresizingMaskIntoConstraints = bool
     }
-
+    
     private func setupScrollable(_ bool: Bool) {
         isScrollEnabled = bool
     }
-
+    
     private func setupDelegate() {
         delegate = self
     }
-
+    
     private func setupDataSource() {
         dataSource = self
     }
-
+    
     private func setupSectionHeight(header: CGFloat, footer: CGFloat) {
         sectionHeaderHeight = header
         sectionFooterHeight = footer
     }
-
+    
     private func setupContentInset(_ insets: UIEdgeInsets) {
         contentInset = insets
     }
-
+    
     private func setupBackgroundColor() {
         backgroundColor = Design.primitiveColor
     }
-
+    
     private func setupScrollIndicatorVisible(_ bool: Bool) {
         showsVerticalScrollIndicator = bool
     }
@@ -99,18 +99,18 @@ extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
             return section.array.count
         }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = SettingSection(rawValue: indexPath.section)
         let cell = setupCell(by: section, index: indexPath)
         
         return cell
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return SettingSection.allCases.count
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 {
             return 190
@@ -118,26 +118,15 @@ extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
             return 60
         }
     }
-
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
+        
         return 0
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section != 1 {
             tableView.deselectRow(at: indexPath, animated: true)
-        }
-    }
-}
-
-// MARK: - Preview
-
-struct SettingsTableView_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = SettingsTableView()
-            return view
         }
     }
 }

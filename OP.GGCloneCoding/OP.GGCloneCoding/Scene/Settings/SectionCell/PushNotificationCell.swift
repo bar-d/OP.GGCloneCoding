@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/10/20.
 //
 
-import SwiftUI
+import UIKit
 
 final class PushNotificationCell: UITableViewCell, CellCustomizable {
     
@@ -41,7 +41,7 @@ final class PushNotificationCell: UITableViewCell, CellCustomizable {
         return stackView
     }()
     
-    private let separtorView: UIView = {
+    private let separatorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = Design.languageColor
@@ -49,27 +49,17 @@ final class PushNotificationCell: UITableViewCell, CellCustomizable {
         return view
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .preferredFont(forTextStyle: .headline)
-        
-        return label
-    }()
+    private let titleLabel = LabelBuilder()
+        .setupPushNotificationTitleLabel()
+        .build()
     
-    private let firstContentTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    private let firstContentTitleLabel = LabelBuilder()
+        .setupConstraintsAutomatic(false)
+        .build()
     
-    private let secondContentTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    private let secondContentTitleLabel = LabelBuilder()
+        .setupConstraintsAutomatic(false)
+        .build()
     
     private let firstContentSwitchButton: UISwitch = {
         let switchButton = UISwitch()
@@ -143,8 +133,9 @@ final class PushNotificationCell: UITableViewCell, CellCustomizable {
     }
     
     private func setupSubviews() {
-        addSubview(totalStackView)
-        [titleLabel, gameInformationStackView, separtorView, communityStackView]
+        [totalStackView]
+            .forEach { addSubview($0) }
+        [titleLabel, gameInformationStackView, separatorView, communityStackView]
             .forEach { totalStackView.addArrangedSubview($0) }
         [firstContentTitleLabel, firstContentSwitchButton]
             .forEach { gameInformationStackView.addArrangedSubview($0) }
@@ -153,14 +144,21 @@ final class PushNotificationCell: UITableViewCell, CellCustomizable {
     }
     
     private func setupConstraints() {
+        setupTotalStackViewConstraints()
+        setupSeparatorViewConstraints()
+    }
+    
+    private func setupTotalStackViewConstraints() {
         NSLayoutConstraint.activate([
             totalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             totalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             totalStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
-            totalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
-            separtorView.heightAnchor.constraint(equalToConstant: 0.2)
+            totalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
+    }
+    
+    private func setupSeparatorViewConstraints() {
+        separatorView.heightAnchor.constraint(equalToConstant: 0.2).isActive = true
     }
     
     private func setupBackgroundColor(_ color: UIColor?) {

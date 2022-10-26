@@ -8,44 +8,45 @@
 import UIKit
 
 final class MainStickyHeaderView: UIView {
-
+    
     // MARK: Properties
-
+    
     private let button = ButtonBuilder()
-        .setupSearchButton()
+        .setupMainStickyHeaderViewSearchButton()
         .build()
-
+    
     // MARK: - Initializers
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-
+        
         commonInit()
     }
-
+    
     // MARK: - Methods
-
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
         setupBackgroundColor()
     }
-
+    
     private func setupConstraintsAutomatic(_ bool: Bool) {
         translatesAutoresizingMaskIntoConstraints = bool
     }
-
+    
     private func setupSubviews() {
+        [button].forEach { addSubview($0) }
         addSubview(button)
     }
-
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             button.topAnchor.constraint(equalTo: topAnchor, constant: 100),
@@ -54,7 +55,7 @@ final class MainStickyHeaderView: UIView {
             button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }
-
+    
     private func setupBackgroundColor() {
         backgroundColor = Design.backgroundColor
     }

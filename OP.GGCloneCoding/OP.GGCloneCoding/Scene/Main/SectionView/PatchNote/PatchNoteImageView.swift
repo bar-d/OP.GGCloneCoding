@@ -15,17 +15,12 @@ final class PatchNoteImageView: UIView {
         .setupPatchImageView()
         .build()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = Design.titleLabelText
-        label.textColor = .white
-        
-        return label
-    }()
+    private let titleLabel = LabelBuilder()
+        .setupMainCellTitleLabel(text: Design.titleLabelText)
+        .build()
     
     private let indicatorImageView = ImageViewBuilder()
-        .setupIndicatorImageView()
+        .setupPatchNoteIndicatorImageView()
         .build()
     
     // MARK: - Initializers

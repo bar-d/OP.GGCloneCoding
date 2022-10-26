@@ -8,27 +8,21 @@
 import UIKit
 
 final class OtherGamesCell: UITableViewCell {
-
+    
     // MARK: Properties
-
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = Design.titleLabelText
-        label.font = .preferredFont(forTextStyle: .title3)
-        label.textColor = .label
-
-        return label
-    }()
-
+    
+    private let titleLabel = LabelBuilder()
+        .setupMainCellTitleLabel(text: Design.titleLabelText)
+        .build()
+    
     private let anotherGamesScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsHorizontalScrollIndicator = false
-
+        
         return scrollView
     }()
-
+    
     private let anotherGamesStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,42 +30,42 @@ final class OtherGamesCell: UITableViewCell {
         stackView.alignment = .fill
         stackView.axis = .horizontal
         stackView.spacing = 10
-
+        
         return stackView
     }()
-
+    
     private let valorantImageView = ImageViewBuilder()
         .setupAnotherGameImageView(image: Design.valorantImage)
         .build()
-
+    
     private let battlegroundsImageView = ImageViewBuilder()
         .setupAnotherGameImageView(image: Design.battleGroundsImage)
         .build()
-
+    
     private let eternalReturnImageView = ImageViewBuilder()
         .setupAnotherGameImageView(image: Design.eternalReturnImage)
         .build()
-
+    
     private let overwatchImageView = ImageViewBuilder()
         .setupAnotherGameImageView(image: Design.overWatchImage)
         .build()
-
+    
     // MARK: - Initializers
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        
         commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-
+        
         commonInit()
     }
-
+    
     // MARK: - Methods
-
+    
     private func commonInit() {
         setupSubviews()
         setupConstraints()
@@ -79,7 +73,7 @@ final class OtherGamesCell: UITableViewCell {
         setupContentViewUserInteractionEnabled(false)
         setupSelectionStyle(.none)
     }
-
+    
     private func setupSubviews() {
         [titleLabel, anotherGamesScrollView]
             .forEach { addSubview($0) }
@@ -88,14 +82,14 @@ final class OtherGamesCell: UITableViewCell {
         [valorantImageView, battlegroundsImageView, eternalReturnImageView, overwatchImageView]
             .forEach { anotherGamesStackView.addArrangedSubview($0) }
     }
-
+    
     private func setupConstraints() {
         setupFirstPatchNoteImageViewConstraints()
         setupTitleLabelConstraints()
         setupPatchNoteScrollViewConstraints()
         setupPatchNoteStackViewConstraints()
     }
-
+    
     private func setupFirstPatchNoteImageViewConstraints() {
         [valorantImageView, battlegroundsImageView, eternalReturnImageView, overwatchImageView]
             .forEach {
@@ -103,16 +97,15 @@ final class OtherGamesCell: UITableViewCell {
                 $0.widthAnchor.constraint(equalTo: $0.heightAnchor, multiplier: 3/2).isActive = true
             }
     }
-
+    
     private func setupTitleLabelConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 20)
-
         ])
     }
-
+    
     private func setupPatchNoteScrollViewConstraints() {
         NSLayoutConstraint.activate([
             anotherGamesScrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
@@ -121,7 +114,7 @@ final class OtherGamesCell: UITableViewCell {
             anotherGamesScrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
-
+    
     private func setupPatchNoteStackViewConstraints() {
         NSLayoutConstraint.activate([
             anotherGamesStackView.topAnchor.constraint(equalTo: anotherGamesScrollView.topAnchor),
@@ -131,15 +124,15 @@ final class OtherGamesCell: UITableViewCell {
             anotherGamesStackView.heightAnchor.constraint(equalTo: anotherGamesScrollView.heightAnchor, constant: -20)
         ])
     }
-
+    
     private func setupContentInset(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) {
         anotherGamesScrollView.contentInset = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
     }
-
+    
     private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
         contentView.isUserInteractionEnabled = bool
     }
-
+    
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {
         selectionStyle = style
     }

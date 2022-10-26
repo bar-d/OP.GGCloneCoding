@@ -11,15 +11,9 @@ final class PatchNoteCell: UITableViewCell {
     
     // MARK: Properties
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = Design.titleLabelText
-        label.font = .preferredFont(forTextStyle: .title3)
-        label.textColor = .white
-        
-        return label
-    }()
+    private let titleLabel = LabelBuilder()
+        .setupMainCellTitleLabel(text: Design.titleLabelText)
+        .build()
     
     private let patchNoteScrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -63,7 +57,7 @@ final class PatchNoteCell: UITableViewCell {
         setupSubviews()
         setupConstraints()
         setupContentInset(top: 0, left: 20, bottom: 0, right: 20)
-        setupBackgroundColor(UIColor(named: "PatchNoteColor"))
+        setupBackgroundColor(Design.patchNoteBackgroundColor)
         setupContentViewUserInteractionEnabled(false)
         setupSelectionStyle(.none)
     }
@@ -97,7 +91,6 @@ final class PatchNoteCell: UITableViewCell {
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 20)
-            
         ])
     }
     
@@ -106,7 +99,7 @@ final class PatchNoteCell: UITableViewCell {
             patchNoteScrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             patchNoteScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
             patchNoteScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            patchNoteScrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            patchNoteScrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     
@@ -116,7 +109,7 @@ final class PatchNoteCell: UITableViewCell {
             patchNoteStackView.bottomAnchor.constraint(equalTo: patchNoteScrollView.bottomAnchor, constant: -20),
             patchNoteStackView.leadingAnchor.constraint(equalTo: patchNoteScrollView.leadingAnchor),
             patchNoteStackView.trailingAnchor.constraint(equalTo: patchNoteScrollView.trailingAnchor),
-            patchNoteStackView.heightAnchor.constraint(equalTo: patchNoteScrollView.heightAnchor, constant: -20),
+            patchNoteStackView.heightAnchor.constraint(equalTo: patchNoteScrollView.heightAnchor, constant: -20)
         ])
     }
     
@@ -135,10 +128,15 @@ final class PatchNoteCell: UITableViewCell {
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {
         selectionStyle = style
     }
+    
+    private func setupTitleLabel() {
+        titleLabel.text = Design.titleLabelText
+    }
 }
 
 // MARK: - Namespace
 
 private enum Design {
     static let titleLabelText = "패치 노트"
+    static let patchNoteBackgroundColor = UIColor(named: "PatchNoteColor")
 }

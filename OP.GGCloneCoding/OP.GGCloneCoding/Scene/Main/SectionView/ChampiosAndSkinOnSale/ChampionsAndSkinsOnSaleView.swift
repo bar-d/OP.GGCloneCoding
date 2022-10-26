@@ -8,115 +8,82 @@
 import UIKit
 
 final class ChampionsAndSkinsOnSaleView: UIView {
-
+    
     // MARK: Properties
-
+    
     private let imageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: Design.logoImage)
         .setupContentMode(.scaleToFill)
         .setupLayer(cornerRadius: 10)
         .build()
-
-    private let typeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .systemOrange
-        label.font = .preferredFont(forTextStyle: .caption2)
-
-        return label
-    }()
-
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .label
-        label.font = .preferredFont(forTextStyle: .caption2)
-
-        return label
-    }()
-
-    private let deadLineLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .systemGray
-        label.font = .preferredFont(forTextStyle: .caption2)
-
-        return label
-    }()
-
-    private let originalPriceLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .systemGray
-        label.font = .preferredFont(forTextStyle: .caption2)
-
-        return label
-    }()
-
-    private let discountRateLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
-        label.font = .preferredFont(forTextStyle: .caption1)
-        label.textAlignment = .center
-        label.layer.backgroundColor = Design.discountRateBackgroundColor
-        label.layer.cornerRadius = 5
-
-        return label
-    }()
-
-    private let discountedPriceLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
-        label.font = .preferredFont(forTextStyle: .body)
-        label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-
-        return label
-    }()
-
+    
+    private let typeLabel = LabelBuilder()
+        .setupSkinOnSaleLabel(textColor: .systemOrange)
+        .build()
+    
+    private let nameLabel = LabelBuilder()
+        .setupSkinOnSaleLabel(textColor: .label)
+        .build()
+    
+    private let deadLineLabel = LabelBuilder()
+        .setupSkinOnSaleLabel(textColor: .systemGray)
+        .build()
+    
+    private let originalPriceLabel = LabelBuilder()
+        .setupSkinOnSaleLabel(textColor: .systemGray)
+        .build()
+    
+    private let discountRateLabel = LabelBuilder()
+        .setupSaleDiscountRateLabel()
+        .build()
+    
+    private let discountedPriceLabel = LabelBuilder()
+        .setupSkinOnSaleLabel(textColor: .white, font: .body)
+        .setupPriority(compression: .defaultHigh, axis: .horizontal)
+        .build()
+    
     private let verticalSeparator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = Design.verticalSeparatorColor
-
+        
         return view
     }()
-
+    
     // MARK: - Initializers
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-
+        
         commonInit()
     }
-
+    
     // MARK: - Methods
-
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
         setupLabel()
     }
-
+    
     private func setupConstraintsAutomatic(_ bool: Bool) {
         translatesAutoresizingMaskIntoConstraints = bool
     }
-
+    
     private func setupSubviews() {
         [imageView, typeLabel, nameLabel, discountRateLabel,
          discountedPriceLabel, originalPriceLabel, verticalSeparator, deadLineLabel]
             .forEach { addSubview($0) }
     }
-
+    
     private func setupConstraints() {
         setupImageViewConstraints()
         setupTypeLabelConstraints()
@@ -127,7 +94,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
         setupVerticalSeparatorConstraints()
         setupDeadLineLabelConstraints()
     }
-
+    
     private func setupImageViewConstraints() {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor),
@@ -136,7 +103,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
             imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6)
         ])
     }
-
+    
     private func setupTypeLabelConstraints() {
         NSLayoutConstraint.activate([
             typeLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
@@ -145,7 +112,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
             typeLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.09)
         ])
     }
-
+    
     private func setupNameLabelConstraints() {
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: typeLabel.bottomAnchor),
@@ -154,7 +121,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
             nameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.09)
         ])
     }
-
+    
     private func setupDiscountRateLabelConstraints() {
         NSLayoutConstraint.activate([
             discountRateLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -162,7 +129,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
             discountRateLabel.centerYAnchor.constraint(equalTo: discountedPriceLabel.centerYAnchor)
         ])
     }
-
+    
     private func setupDiscountedPriceLabelConstraints() {
         NSLayoutConstraint.activate([
             discountedPriceLabel.topAnchor.constraint(equalTo: discountRateLabel.topAnchor),
@@ -171,7 +138,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
             discountedPriceLabel.bottomAnchor.constraint(equalTo: discountRateLabel.bottomAnchor)
         ])
     }
-
+    
     private func setupOriginalPriceLabelConstraints() {
         NSLayoutConstraint.activate([
             originalPriceLabel.topAnchor.constraint(equalTo: discountRateLabel.bottomAnchor),
@@ -181,7 +148,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
             originalPriceLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.09)
         ])
     }
-
+    
     private func setupVerticalSeparatorConstraints() {
         NSLayoutConstraint.activate([
             verticalSeparator.topAnchor.constraint(equalTo: originalPriceLabel.topAnchor),
@@ -190,7 +157,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
             verticalSeparator.bottomAnchor.constraint(equalTo: originalPriceLabel.bottomAnchor)
         ])
     }
-
+    
     private func setupDeadLineLabelConstraints() {
         NSLayoutConstraint.activate([
             deadLineLabel.topAnchor.constraint(equalTo: originalPriceLabel.topAnchor),
@@ -198,7 +165,7 @@ final class ChampionsAndSkinsOnSaleView: UIView {
             deadLineLabel.bottomAnchor.constraint(equalTo: originalPriceLabel.bottomAnchor)
         ])
     }
-
+    
     private func setupLabel() {
         typeLabel.text = Design.typeLabel
         nameLabel.text = Design.nameLabel
@@ -219,6 +186,6 @@ private enum Design {
     static let originalPriceLabel = "1350RP".strikeThrough(value: NSUnderlineStyle.single.rawValue)
     static let discountRateLabel = "60%"
     static let discountedPriceLabel = "540RP"
-    static let discountRateBackgroundColor = UIColor(named: "LoseColor")?.cgColor
+//    static let discountRateBackgroundColor = UIColor(named: "LoseColor")?.cgColor
     static let verticalSeparatorColor = UIColor(named: "SecondaryColor")
 }

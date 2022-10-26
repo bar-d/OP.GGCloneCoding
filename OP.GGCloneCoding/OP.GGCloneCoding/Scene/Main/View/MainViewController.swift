@@ -55,7 +55,8 @@ final class MainViewController: UIViewController {
     private func setupSubviews() {
         [mainStickyHeaderView, mainTopView, mainScrollView]
             .forEach { view.addSubview($0) }
-        mainScrollView.addSubview(mainTableView)
+        [mainTableView]
+            .forEach { mainScrollView.addSubview($0) }
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -94,7 +95,7 @@ final class MainViewController: UIViewController {
             mainScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: Design.headerMinHeight),
             mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mainScrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 

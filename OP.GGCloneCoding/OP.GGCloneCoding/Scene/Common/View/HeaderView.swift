@@ -5,11 +5,11 @@
 //  Created by 바드, 수꿍 on 2022/10/17.
 //
 
-import SwiftUI
+import UIKit
 
 final class HeaderView: UIView {
     
-    // MARK: - Properties
+    // MARK: Properties
     
     private let leftBarItem: UIStackView = {
         let stackView = UIStackView()
@@ -19,14 +19,14 @@ final class HeaderView: UIView {
         
         return stackView
     }()
-
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
         label.textAlignment = .center
         label.alpha = .zero
-
+        
         return label
     }()
     
@@ -45,25 +45,25 @@ final class HeaderView: UIView {
     private let secondRightButton = UIButton()
     
     // MARK: - Initializers
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-
+        
         commonInit()
     }
-
+    
     // MARK: - Methods
-
+    
     func setupTitleLabel(with text: String) {
         titleLabel.text = text
     }
-
+    
     func changeTitleLabelAlpha(with alpha: CGFloat) {
         titleLabel.alpha = alpha
     }
@@ -83,7 +83,7 @@ final class HeaderView: UIView {
     func setupSecondRightButtonImage(with image: UIImage?) {
         secondRightButton.setImage(image, for: .normal)
     }
-
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
@@ -91,11 +91,11 @@ final class HeaderView: UIView {
         setupLabel()
         setupBackgroundColor()
     }
-
+    
     private func setupConstraintsAutomatic(_ bool: Bool) {
         translatesAutoresizingMaskIntoConstraints = bool
     }
-
+    
     private func setupSubviews() {
         [leftBarItem, titleLabel, rightBarItem]
             .forEach { addSubview($0) }
@@ -104,27 +104,41 @@ final class HeaderView: UIView {
         [firstRightButton, secondRightButton]
             .forEach { rightBarItem.addArrangedSubview($0) }
     }
-
+    
     private func setupConstraints() {
+        setupLeftBarItemConstraints()
+        setupTitleLabelConstraints()
+        setupRightBarItemConstraints()
+    }
+    
+    private func setupLeftBarItemConstraints() {
         NSLayoutConstraint.activate([
             leftBarItem.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             leftBarItem.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            leftBarItem.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/5),
-            
+            leftBarItem.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/5)
+        ])
+    }
+    
+    private func setupTitleLabelConstraints() {
+        NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 20),
-            
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 20)
+        ])
+    }
+    
+    private func setupRightBarItemConstraints() {
+        NSLayoutConstraint.activate([
             rightBarItem.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             rightBarItem.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             rightBarItem.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            rightBarItem.widthAnchor.constraint(equalTo: leftBarItem.widthAnchor),
+            rightBarItem.widthAnchor.constraint(equalTo: leftBarItem.widthAnchor)
         ])
     }
-
+    
     private func setupLabel() {
         titleLabel.text = Design.titleLabel
     }
-
+    
     private func setupBackgroundColor() {
         backgroundColor = Design.backgroundColor
     }
@@ -135,19 +149,4 @@ final class HeaderView: UIView {
 private enum Design {
     static let backgroundColor = UIColor(named: "SecondaryColor")
     static let titleLabel = "Title Label"
-}
-
-// MARK: - Preview
-
-struct HeaderView1_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = HeaderView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            view.changeTitleLabelAlpha(with: 1)
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 600, height: 100))
-    }
 }
