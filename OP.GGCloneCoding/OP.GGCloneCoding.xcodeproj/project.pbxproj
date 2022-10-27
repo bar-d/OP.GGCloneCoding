@@ -33,7 +33,7 @@
 		C43F3F45290A70E500B03A04 /* ChampionTierCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F44290A70E500B03A04 /* ChampionTierCollectionView.swift */; };
 		C43F3F48290A717100B03A04 /* PositionTabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F47290A717100B03A04 /* PositionTabBarDelegate.swift */; };
 		C43F3F4A290A71B800B03A04 /* PositionTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F49290A71B800B03A04 /* PositionTabBar.swift */; };
-		C43F3F4C290A751100B03A04 /* ChampionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F4B290A751100B03A04 /* ChampionTableViewCell.swift */; };
+		C43F3F4C290A751100B03A04 /* ChampionTierTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F4B290A751100B03A04 /* ChampionTierTableViewCell.swift */; };
 		C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCF9290113C6008B3C16 /* SwiftUIPreview.swift */; };
 		C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCFB290113DD008B3C16 /* SwiftUIPreviewController.swift */; };
 		C440CCFF290114BD008B3C16 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCFE290114BD008B3C16 /* SettingsTableView.swift */; };
@@ -85,7 +85,7 @@
 		C43F3F44290A70E500B03A04 /* ChampionTierCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTierCollectionView.swift; sourceTree = "<group>"; };
 		C43F3F47290A717100B03A04 /* PositionTabBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBarDelegate.swift; sourceTree = "<group>"; };
 		C43F3F49290A71B800B03A04 /* PositionTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBar.swift; sourceTree = "<group>"; };
-		C43F3F4B290A751100B03A04 /* ChampionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTableViewCell.swift; sourceTree = "<group>"; };
+		C43F3F4B290A751100B03A04 /* ChampionTierTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTierTableViewCell.swift; sourceTree = "<group>"; };
 		C440CCF9290113C6008B3C16 /* SwiftUIPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreview.swift; sourceTree = "<group>"; };
 		C440CCFB290113DD008B3C16 /* SwiftUIPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreviewController.swift; sourceTree = "<group>"; };
 		C440CCFE290114BD008B3C16 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 		C43F3F3D290A6DC200B03A04 /* ChampionTier */ = {
 			isa = PBXGroup;
 			children = (
-				C43F3F4B290A751100B03A04 /* ChampionTableViewCell.swift */,
+				C43F3F4B290A751100B03A04 /* ChampionTierTableViewCell.swift */,
 				C43F3F44290A70E500B03A04 /* ChampionTierCollectionView.swift */,
 				C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */,
 				C43F3F3E290A6DD500B03A04 /* PositionTabBar */,
@@ -533,7 +533,7 @@
 				C406923E29067C3100A4E48D /* HeaderViewButton.swift in Sources */,
 				204A9C37290A7A4500D70FC4 /* UICollectionView+Extension.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
-				C43F3F4C290A751100B03A04 /* ChampionTableViewCell.swift in Sources */,
+				C43F3F4C290A751100B03A04 /* ChampionTierTableViewCell.swift in Sources */,
 				204600932901180C004A3417 /* PushNotificationCell.swift in Sources */,
 				20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */,
 				C440CD01290114D1008B3C16 /* SettingsViewController.swift in Sources */,
