@@ -2,7 +2,7 @@
 //  LabelBuilder.swift
 //  OP.GGCloneCoding
 //
-//  Created by bard on 2022/10/26.
+//  Created by 바드, 수꿍 on 2022/10/26.
 //
 
 import UIKit

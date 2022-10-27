@@ -11,13 +11,13 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
     
     // MARK: Properties
     
-    var championTierCollectionView = ChampionTierCollectionView(section: .page)
-    var championTabBar = PositionTabBar()
-    
     private let titleLabel = LabelBuilder()
-        .setupMainCellTitleLabel(text: "챔피언 티어")
+        .setupMainCellTitleLabel(text: Design.titleLabelText)
         .build()
-    
+
+    private let positionTapBar = PositionTabBar()
+    private let championTierCollectionView = ChampionTierCollectionView(section: .page)
+
     private let moreButton = ButtonBuilder()
         .setupMoreButton()
         .build()
@@ -35,11 +35,23 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
         
         commonInit()
     }
+
+    // MARK: - View Life Cycle
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        setupPositionTabBarConstraints()
+    }
     
     // MARK: - Methods
     
     func scrollTabBar(to index: IndexPath) {
-        championTierCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        championTierCollectionView.scrollToItem(
+            at: index,
+            at: .centeredHorizontally,
+            animated: true
+        )
     }
     
     private func commonInit() {
@@ -55,13 +67,13 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
     }
     
     private func setupSubviews() {
-        [titleLabel, championTabBar, championTierCollectionView, moreButton]
+        [titleLabel, positionTapBar, championTierCollectionView, moreButton]
             .forEach { addSubview($0) }
     }
     
     private func setupConstraints() {
         setupTitleLabelConstraints()
-        setupChampionTabBarConstraints()
+        setupPositionTabBarConstraints()
         setupChampionTierCollectionViewConstraints()
         setupMoreButtonConstraints()
     }
@@ -75,14 +87,14 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
         ])
     }
     
-    private func setupChampionTabBarConstraints() {
-        championTabBar.indicatorViewWidthConstraint.constant = frame.width / 5
+    private func setupPositionTabBarConstraints() {
+        positionTapBar.updateIndicatorViewConstraints(width: frame.width / 5)
         NSLayoutConstraint.activate([
-            championTabBar.indicatorViewWidthConstraint,
-            championTabBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-            championTabBar.trailingAnchor.constraint(equalTo: trailingAnchor),
-            championTabBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            championTabBar.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 2)
+            positionTapBar.calculateIndicatorViewWidthConstraint(),
+            positionTapBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+            positionTapBar.trailingAnchor.constraint(equalTo: trailingAnchor),
+            positionTapBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            positionTapBar.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 2)
         ])
     }
     
@@ -90,14 +102,17 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
         NSLayoutConstraint.activate([
             championTierCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             championTierCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            championTierCollectionView.topAnchor.constraint(equalTo: championTabBar.bottomAnchor),
+            championTierCollectionView.topAnchor.constraint(equalTo: positionTapBar.bottomAnchor),
             championTierCollectionView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
     
     private func setupMoreButtonConstraints() {
         NSLayoutConstraint.activate([
-            moreButton.topAnchor.constraint(equalTo: championTierCollectionView.bottomAnchor, constant: 8),
+            moreButton.topAnchor.constraint(
+                equalTo: championTierCollectionView.bottomAnchor,
+                constant: 8
+            ),
             moreButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             moreButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             moreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
@@ -106,7 +121,7 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
     
     private func setupDelegate() {
         championTierCollectionView.delegate = self
-        championTabBar.customMenuBarDelegate = self
+        positionTapBar.setupPostionTabBarDelegate(self)
     }
     
     private func setupDataSource() {
@@ -136,7 +151,7 @@ extension ChampionTierTableViewCell: UICollectionViewDelegate, UICollectionViewD
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        championTabBar.indicatorViewLeadingConstraint.constant = scrollView.contentOffset.x / 5
+        positionTapBar.updateIndicatorViewConstraints(leading: scrollView.contentOffset.x / 5)
     }
     
     func scrollViewWillEndDragging(
@@ -144,11 +159,10 @@ extension ChampionTierTableViewCell: UICollectionViewDelegate, UICollectionViewD
         withVelocity velocity: CGPoint,
         targetContentOffset: UnsafeMutablePointer<CGPoint>
     ) {
-        let itemAt = Int(targetContentOffset.pointee.x / frame.width)
-        let indexPath = IndexPath(item: itemAt, section: 0)
-        championTabBar.positionTabBarCollectionView.selectItem(at: indexPath,
-                                                               animated: true,
-                                                               scrollPosition: .init())
+        let indexPathItem = Int(targetContentOffset.pointee.x / frame.width)
+        let indexPath = IndexPath(item: indexPathItem, section: .zero)
+
+        positionTapBar.selectTabBarItem(at: indexPath)
     }
 }
 
@@ -159,8 +173,10 @@ extension ChampionTierTableViewCell: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         
-        return CGSize(width: championTierCollectionView.frame.width,
-                      height: championTierCollectionView.frame.height)
+        return CGSize(
+            width: championTierCollectionView.frame.width,
+            height: championTierCollectionView.frame.height
+        )
     }
     
     func collectionView(
@@ -171,4 +187,10 @@ extension ChampionTierTableViewCell: UICollectionViewDelegateFlowLayout {
         
         return 0
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let titleLabelText = "챔피언 티어"
 }

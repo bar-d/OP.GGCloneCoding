@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol PositionTabBarDelegate {
+protocol PositionTabBarDelegate: AnyObject {
     func scrollTabBar(to index: IndexPath)
 }

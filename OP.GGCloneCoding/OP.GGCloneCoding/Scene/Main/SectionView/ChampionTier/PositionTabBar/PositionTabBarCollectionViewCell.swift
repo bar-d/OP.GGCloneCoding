@@ -17,7 +17,7 @@ final class PositionTabBarCollectionViewCell: UICollectionViewCell {
         .build()
     
     override var isSelected: Bool {
-        didSet{
+        didSet {
             titleLabel.textColor = isSelected ? .black : .lightGray
         }
     }

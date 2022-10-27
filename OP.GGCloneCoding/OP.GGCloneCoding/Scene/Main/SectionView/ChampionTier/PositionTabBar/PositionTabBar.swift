@@ -7,23 +7,23 @@
 
 import UIKit
 
-class PositionTabBar: UIView {
+final class PositionTabBar: UIView {
     
     // MARK: Properties
     
-    var customMenuBarDelegate: PositionTabBarDelegate?
-    var positionTabBarCollectionView = ChampionTierCollectionView(section: .tapBar)
+    private weak var postionTabBarDelegate: PositionTabBarDelegate?
+    private let positionTabBarCollectionView = ChampionTierCollectionView(section: .tapBar)
     
-    var indicatorView: UIView = {
+    private let indicatorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .black
+        view.backgroundColor = .label
         
         return view
     }()
     
-    var indicatorViewLeadingConstraint = NSLayoutConstraint()
-    var indicatorViewWidthConstraint = NSLayoutConstraint()
+    private var indicatorViewLeadingConstraint = NSLayoutConstraint()
+    private var indicatorViewWidthConstraint = NSLayoutConstraint()
     private let postion = ["탑", "정글", "미드", "바텀", "서폿"]
     
     // MARK: - Initializers
@@ -41,7 +41,24 @@ class PositionTabBar: UIView {
     }
     
     // MARK: - Methods
-    
+
+    func setupPostionTabBarDelegate(_ delegate: PositionTabBarDelegate) {
+        postionTabBarDelegate = delegate
+    }
+
+    func selectTabBarItem(at index: IndexPath, animated: Bool = true) {
+        positionTabBarCollectionView.selectItem(at: index, animated: true, scrollPosition: .init())
+    }
+
+    func updateIndicatorViewConstraints(leading: CGFloat = .zero, width: CGFloat = .zero) {
+        indicatorViewLeadingConstraint.constant = leading
+        indicatorViewLeadingConstraint.constant = width
+    }
+
+    func calculateIndicatorViewWidthConstraint() -> NSLayoutConstraint {
+        return indicatorViewWidthConstraint
+    }
+
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupDelegate()
@@ -67,22 +84,22 @@ class PositionTabBar: UIView {
     
     private func setupCustomTabBarCollectionViewConstraints() {
         NSLayoutConstraint.activate([
-            positionTabBarCollectionView.topAnchor.constraint(equalTo: self.topAnchor),
-            positionTabBarCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            positionTabBarCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            positionTabBarCollectionView.topAnchor.constraint(equalTo: topAnchor),
+            positionTabBarCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            positionTabBarCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             positionTabBarCollectionView.heightAnchor.constraint(equalToConstant: 55)
         ])
     }
     
     private func setupIndicatorViewConstraints() {
-        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: self.frame.width / 5)
-        indicatorViewLeadingConstraint = indicatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: frame.width / 5)
+        indicatorViewLeadingConstraint = indicatorView.leadingAnchor.constraint(equalTo: leadingAnchor)
         
         NSLayoutConstraint.activate([
             indicatorViewWidthConstraint,
             indicatorViewLeadingConstraint,
             indicatorView.heightAnchor.constraint(equalToConstant: 5),
-            indicatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            indicatorView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
@@ -95,10 +112,12 @@ class PositionTabBar: UIView {
     }
     
     private func selectInitialItem() {
-        let indexPath = IndexPath(item: 0, section: 0)
-        positionTabBarCollectionView.selectItem(at: indexPath,
-                                                animated: false,
-                                                scrollPosition: .init())
+        let indexPath = IndexPath(item: .zero, section: .zero)
+        positionTabBarCollectionView.selectItem(
+            at: indexPath,
+            animated: false,
+            scrollPosition: .init()
+        )
     }
 }
 
@@ -129,34 +148,24 @@ extension PositionTabBar: UICollectionViewDelegate, UICollectionViewDataSource {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         
-        return CGSize(width: self.frame.width / 5, height: 55)
+        return CGSize(width: frame.width / 5, height: 55)
     }
     
     func collectionView(
         _ collectionView: UICollectionView
         , didSelectItemAt indexPath: IndexPath
     ) {
-        customMenuBarDelegate?.scrollTabBar(to: indexPath)
+        postionTabBarDelegate?.scrollTabBar(to: indexPath)
     }
 }
 
 extension PositionTabBar: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        insetForSectionAt section: Int
-    ) -> UIEdgeInsets {
-        
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    
     func collectionView(
         _ collectionView: UICollectionView
         , layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAt section: Int
     ) -> CGFloat {
         
-        return 0
+        return .zero
     }
 }

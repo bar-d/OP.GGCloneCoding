@@ -2,7 +2,7 @@
 //  TodayTMICell.swift
 //  OP.GGCloneCoding
 //
-//  Created by bard on 2022/10/25.
+//  Created by 바드, 수꿍 on 2022/10/25.
 //
 
 import UIKit

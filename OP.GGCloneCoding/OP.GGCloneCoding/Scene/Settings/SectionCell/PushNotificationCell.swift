@@ -94,9 +94,9 @@ final class PushNotificationCell: UITableViewCell, CellCustomizable {
     // MARK: - Methods
     
     func setupContent(with indexPath: IndexPath) {
-        setupTitleLabel(with: SettingSection(rawValue: indexPath.section)?.array[0])
-        setupFirstContentTitleLabel(with: SettingSection(rawValue: indexPath.section)?.array[1])
-        setupSecondContentTitleLabel(with: SettingSection(rawValue: indexPath.section)?.array[2])
+        setupTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[0])
+        setupFirstContentTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[1])
+        setupSecondContentTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[2])
     }
     
     func setupTitleAttributes(font: UIFont?, color: UIColor?) {

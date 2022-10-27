@@ -28,7 +28,7 @@ final class ChampionTierCollectionView: UICollectionView {
         self.section = section
         super.init(frame: .zero, collectionViewLayout: collectionViewLayout)
 
-       commonInit()
+        commonInit()
     }
 
     required init?(coder: NSCoder) {
@@ -44,7 +44,6 @@ final class ChampionTierCollectionView: UICollectionView {
         setupConstraintsAutomatic(false)
         setupScrollIndicator(horizontal: false, vertical: false)
         setupPagingEnable(true)
-        setupScrollEnable()
         registerCell()
     }
     
@@ -69,14 +68,4 @@ final class ChampionTierCollectionView: UICollectionView {
             register(cellType: ChampionTierCollectionViewCell.self)
         }
     }
-    
-    private func setupScrollEnable() {
-        switch section {
-        case .tapBar:
-            isScrollEnabled = false
-        case .page:
-            isScrollEnabled = true
-        }
-    }
 }
-

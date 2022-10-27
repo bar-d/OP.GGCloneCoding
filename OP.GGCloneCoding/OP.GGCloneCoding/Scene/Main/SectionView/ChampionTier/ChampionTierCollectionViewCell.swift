@@ -54,8 +54,8 @@ final class ChampionTierCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupSubviews() {
-        addSubview(titleLabel)
-        addSubview(championTierimageView)
+        [titleLabel, championTierimageView]
+            .forEach { addSubview($0) }
     }
     
     private func setupConstraints() {

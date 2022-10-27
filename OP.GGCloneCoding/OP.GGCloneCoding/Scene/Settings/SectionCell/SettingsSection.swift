@@ -1,11 +1,11 @@
 //
-//  SettingSection.swift
+//  SettingsSection.swift
 //  OP.GGCloneCoding
 //
 //  Created by 바드, 수꿍 on 2022/10/20.
 //
 
-enum SettingSection: Int, CaseIterable {
+enum SettingsSection: Int, CaseIterable {
     case login
     case pushNotification
     case championTabSettings

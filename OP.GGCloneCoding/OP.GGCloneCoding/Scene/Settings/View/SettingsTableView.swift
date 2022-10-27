@@ -69,7 +69,7 @@ final class SettingsTableView: UITableView {
         showsVerticalScrollIndicator = bool
     }
     
-    private func setupCell(by section: SettingSection?, index: IndexPath) -> CellCustomizable {
+    private func setupCell(by section: SettingsSection?, index: IndexPath) -> CellCustomizable {
         let cell: CellCustomizable
         
         switch section {
@@ -90,7 +90,7 @@ final class SettingsTableView: UITableView {
 
 extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = SettingSection(rawValue: section) else { return 0 }
+        guard let section = SettingsSection(rawValue: section) else { return 0 }
         
         switch section {
         case .pushNotification:
@@ -101,14 +101,14 @@ extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = SettingSection(rawValue: indexPath.section)
+        let section = SettingsSection(rawValue: indexPath.section)
         let cell = setupCell(by: section, index: indexPath)
         
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return SettingSection.allCases.count
+        return SettingsSection.allCases.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

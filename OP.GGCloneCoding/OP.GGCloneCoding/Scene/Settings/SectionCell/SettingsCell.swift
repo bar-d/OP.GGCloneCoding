@@ -53,8 +53,8 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
     // MARK: - Methods
     
     func setupContent(with indexPath: IndexPath) {
-        setupTitleLabel(with: SettingSection(rawValue: indexPath.section)?.array[indexPath.row])
-        setupIndicatorLabelText(with: SettingSection(rawValue: indexPath.section)?.indicator)
+        setupTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[indexPath.row])
+        setupIndicatorLabelText(with: SettingsSection(rawValue: indexPath.section)?.indicator)
     }
     
     func setupTitleAttributes(font: UIFont?, color: UIColor?) {
