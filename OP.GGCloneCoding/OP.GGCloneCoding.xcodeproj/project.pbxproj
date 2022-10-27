@@ -27,6 +27,7 @@
 		C436A08028FD63BF00E261F7 /* LoadingIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */; };
 		C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C436A08128FD640C00E261F7 /* LoadingView.swift */; };
 		C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */; };
+		C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */; };
 		C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCF9290113C6008B3C16 /* SwiftUIPreview.swift */; };
 		C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCFB290113DD008B3C16 /* SwiftUIPreviewController.swift */; };
 		C440CCFF290114BD008B3C16 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCFE290114BD008B3C16 /* SettingsTableView.swift */; };
@@ -72,6 +73,7 @@
 		C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingIndicator.json; sourceTree = "<group>"; };
 		C436A08128FD640C00E261F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
+		C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		C440CCF9290113C6008B3C16 /* SwiftUIPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreview.swift; sourceTree = "<group>"; };
 		C440CCFB290113DD008B3C16 /* SwiftUIPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreviewController.swift; sourceTree = "<group>"; };
 		C440CCFE290114BD008B3C16 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
@@ -199,6 +201,30 @@
 				C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C43F3F3D290A6DC200B03A04 /* ChampionTier */ = {
+			isa = PBXGroup;
+			children = (
+				C43F3F3E290A6DD500B03A04 /* PositionTabBar */,
+				C43F3F3F290A6DE300B03A04 /* ChampionTier */,
+			);
+			path = ChampionTier;
+			sourceTree = "<group>";
+		};
+		C43F3F3E290A6DD500B03A04 /* PositionTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */,
+			);
+			path = PositionTabBar;
+			sourceTree = "<group>";
+		};
+		C43F3F3F290A6DE300B03A04 /* ChampionTier */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChampionTier;
 			sourceTree = "<group>";
 		};
 		C440CCF82901139D008B3C16 /* PreviewHelpers */ = {
@@ -343,6 +369,7 @@
 				C4F3DDB02907E93A00137AAC /* MySummoner */,
 				C4F3DDB32907E99300137AAC /* FavoriteSummoner */,
 				C4F3DDB62907E9E000137AAC /* PatchNote */,
+				C43F3F3D290A6DC200B03A04 /* ChampionTier */,
 				205BC1A62907EC97004053F3 /* FavoriteChampion */,
 				205BC1A92907EE8F004053F3 /* ChampiosAndSkinOnSale */,
 				C4F3DDCA29080F0300137AAC /* TodayTMI */,
@@ -495,6 +522,7 @@
 				C4F3DDB82907E9F800137AAC /* PatchNoteCell.swift in Sources */,
 				C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */,
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
+				C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */,
 				205BC1A82907ECCF004053F3 /* FavoriteChampionCell.swift in Sources */,
 				C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */,
 				C406923B2906759D00A4E48D /* HeaderViewBuilder.swift in Sources */,
