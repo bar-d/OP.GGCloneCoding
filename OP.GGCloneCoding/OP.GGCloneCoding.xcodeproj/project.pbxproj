@@ -28,6 +28,7 @@
 		C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C436A08128FD640C00E261F7 /* LoadingView.swift */; };
 		C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */; };
 		C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */; };
+		C43F3F43290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */; };
 		C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCF9290113C6008B3C16 /* SwiftUIPreview.swift */; };
 		C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCFB290113DD008B3C16 /* SwiftUIPreviewController.swift */; };
 		C440CCFF290114BD008B3C16 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCFE290114BD008B3C16 /* SettingsTableView.swift */; };
@@ -74,6 +75,7 @@
 		C436A08128FD640C00E261F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBarCollectionViewCell.swift; sourceTree = "<group>"; };
+		C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTierCollectionViewCell.swift; sourceTree = "<group>"; };
 		C440CCF9290113C6008B3C16 /* SwiftUIPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreview.swift; sourceTree = "<group>"; };
 		C440CCFB290113DD008B3C16 /* SwiftUIPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreviewController.swift; sourceTree = "<group>"; };
 		C440CCFE290114BD008B3C16 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		C43F3F3F290A6DE300B03A04 /* ChampionTier */ = {
 			isa = PBXGroup;
 			children = (
+				C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */,
 			);
 			path = ChampionTier;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				C4F3DDC92907F7DF00137AAC /* MainTableView.swift in Sources */,
 				205BC1AF2907EEF3004053F3 /* ChampionsAndSkinsOnSaleView.swift in Sources */,
 				C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */,
+				C43F3F43290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift in Sources */,
 				C4F3DDB52907E9AD00137AAC /* FavoriteSummonerCell.swift in Sources */,
 				C4F3DDC72907F7CE00137AAC /* MainStickyHeaderView.swift in Sources */,
 				C4F3DDD32908179600137AAC /* PaddingLabel.swift in Sources */,
