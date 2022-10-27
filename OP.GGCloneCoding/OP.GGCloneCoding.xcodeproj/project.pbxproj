@@ -26,6 +26,7 @@
 		C41BF02428FD4D90008D0BD8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C41BF02328FD4D90008D0BD8 /* Lottie */; };
 		C436A08028FD63BF00E261F7 /* LoadingIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */; };
 		C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C436A08128FD640C00E261F7 /* LoadingView.swift */; };
+		C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */; };
 		C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCF9290113C6008B3C16 /* SwiftUIPreview.swift */; };
 		C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCFB290113DD008B3C16 /* SwiftUIPreviewController.swift */; };
 		C440CCFF290114BD008B3C16 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCFE290114BD008B3C16 /* SettingsTableView.swift */; };
@@ -70,6 +71,7 @@
 		C406923D29067C3100A4E48D /* HeaderViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewButton.swift; sourceTree = "<group>"; };
 		C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingIndicator.json; sourceTree = "<group>"; };
 		C436A08128FD640C00E261F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		C440CCF9290113C6008B3C16 /* SwiftUIPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreview.swift; sourceTree = "<group>"; };
 		C440CCFB290113DD008B3C16 /* SwiftUIPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreviewController.swift; sourceTree = "<group>"; };
 		C440CCFE290114BD008B3C16 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,14 @@
 				C406923D29067C3100A4E48D /* HeaderViewButton.swift */,
 			);
 			path = Section;
+			sourceTree = "<group>";
+		};
+		C43F3F3A290A6CBC00B03A04 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		C440CCF82901139D008B3C16 /* PreviewHelpers */ = {
@@ -320,6 +330,7 @@
 				203CD71628FC36470037B457 /* Application */,
 				203CD71528FC35D40037B457 /* Resource */,
 				205BC1A32907E84E004053F3 /* Extension */,
+				C43F3F3A290A6CBC00B03A04 /* Protocol */,
 				C4E505EA28FE91AA00EEA8C8 /* Builder */,
 				C4E505EB28FE91BC00EEA8C8 /* Scene */,
 			);
@@ -478,6 +489,7 @@
 				205BC1B6290828FB004053F3 /* OtherGamesCell.swift in Sources */,
 				C440CD03290114E2008B3C16 /* SettingsCell.swift in Sources */,
 				2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */,
+				C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */,
 				205BC1AB2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift in Sources */,
 				C4F3DDBA2907EA3600137AAC /* PatchNoteImageView.swift in Sources */,
 				C4F3DDB82907E9F800137AAC /* PatchNoteCell.swift in Sources */,
