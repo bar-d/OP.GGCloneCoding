@@ -38,9 +38,8 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
     
     // MARK: - Methods
     
-    func customMenuBar(scrollTo index: Int) {
-        let indexPath = IndexPath(item: index, section: 0)
-        championTierCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    func scrollTabBar(to index: IndexPath) {
+        championTierCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
     }
     
     private func commonInit() {

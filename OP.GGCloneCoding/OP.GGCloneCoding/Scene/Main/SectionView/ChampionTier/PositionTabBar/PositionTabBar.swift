@@ -136,7 +136,7 @@ extension PositionTabBar: UICollectionViewDelegate, UICollectionViewDataSource {
         _ collectionView: UICollectionView
         , didSelectItemAt indexPath: IndexPath
     ) {
-        customMenuBarDelegate?.customMenuBar(scrollTo: indexPath.row)
+        customMenuBarDelegate?.scrollTabBar(to: indexPath)
     }
 }
 
