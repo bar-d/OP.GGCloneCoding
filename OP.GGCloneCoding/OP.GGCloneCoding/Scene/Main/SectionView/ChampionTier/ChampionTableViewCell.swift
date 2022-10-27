@@ -122,10 +122,7 @@ extension ChampionTierTableViewCell: UICollectionViewDelegate, UICollectionViewD
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChampionTierCollectionViewCell.identifier,
-                                                            for: indexPath) as? ChampionTierCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        let cell: ChampionTierCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.setupTitle(with: "\(indexPath.row + 1)번째 뷰")
         
         return cell

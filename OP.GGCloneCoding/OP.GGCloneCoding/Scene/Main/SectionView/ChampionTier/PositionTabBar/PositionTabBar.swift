@@ -48,7 +48,6 @@ class PositionTabBar: UIView {
         setupDataSource()
         setupSubviews()
         setupConstraints()
-        registerPositionTabBarCollectionViewCell()
         selectInitialItem()
     }
     
@@ -95,11 +94,6 @@ class PositionTabBar: UIView {
         positionTabBarCollectionView.dataSource = self
     }
     
-    private func registerPositionTabBarCollectionViewCell() {
-        positionTabBarCollectionView.register(PositionTabBarCollectionViewCell.self,
-                                              forCellWithReuseIdentifier: PositionTabBarCollectionViewCell.identifier)
-    }
-    
     private func selectInitialItem() {
         let indexPath = IndexPath(item: 0, section: 0)
         positionTabBarCollectionView.selectItem(at: indexPath,
@@ -115,9 +109,7 @@ extension PositionTabBar: UICollectionViewDelegate, UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PositionTabBarCollectionViewCell.identifier, for: indexPath) as? PositionTabBarCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        let cell: PositionTabBarCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.setupTitle(with: postion[indexPath.row])
         
         return cell

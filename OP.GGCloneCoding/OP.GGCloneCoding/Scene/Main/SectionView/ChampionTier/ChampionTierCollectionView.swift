@@ -64,11 +64,9 @@ final class ChampionTierCollectionView: UICollectionView {
     private func registerCell() {
         switch section {
         case .tapBar:
-            register(PositionTabBarCollectionViewCell.self,
-                     forCellWithReuseIdentifier: PositionTabBarCollectionViewCell.identifier)
+            register(cellType: PositionTabBarCollectionViewCell.self)
         case .page:
-            register(ChampionTierCollectionViewCell.self,
-                     forCellWithReuseIdentifier: ChampionTierCollectionViewCell.identifier)
+            register(cellType: ChampionTierCollectionViewCell.self)
         }
     }
     
