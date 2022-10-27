@@ -44,6 +44,7 @@ final class ChampionTierCollectionView: UICollectionView {
         setupConstraintsAutomatic(false)
         setupScrollIndicator(horizontal: false, vertical: false)
         setupPagingEnable(true)
+        setupScrollEnable()
         registerCell()
     }
     
@@ -68,6 +69,15 @@ final class ChampionTierCollectionView: UICollectionView {
         case .page:
             register(ChampionTierCollectionViewCell.self,
                      forCellWithReuseIdentifier: ChampionTierCollectionViewCell.identifier)
+        }
+    }
+    
+    private func setupScrollEnable() {
+        switch section {
+        case .tapBar:
+            isScrollEnabled = false
+        case .page:
+            isScrollEnabled = true
         }
     }
 }
