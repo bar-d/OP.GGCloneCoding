@@ -29,7 +29,7 @@ enum MainSection: Int ,CaseIterable {
         case .favoriteChampions:
             return FavoriteChampionCell()
         case .championTier:
-            return MySummonerCell()
+            return ChampionTierTableViewCell()
         case .todayTMI:
             return TodayTMICell()
         case .saleSkinsAndChampion:
