@@ -30,6 +30,8 @@
 		C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */; };
 		C43F3F43290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */; };
 		C43F3F45290A70E500B03A04 /* ChampionTierCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F44290A70E500B03A04 /* ChampionTierCollectionView.swift */; };
+		C43F3F48290A717100B03A04 /* PositionTabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F47290A717100B03A04 /* PositionTabBarDelegate.swift */; };
+		C43F3F4A290A71B800B03A04 /* PositionTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F49290A71B800B03A04 /* PositionTabBar.swift */; };
 		C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCF9290113C6008B3C16 /* SwiftUIPreview.swift */; };
 		C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCFB290113DD008B3C16 /* SwiftUIPreviewController.swift */; };
 		C440CCFF290114BD008B3C16 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CCFE290114BD008B3C16 /* SettingsTableView.swift */; };
@@ -78,6 +80,8 @@
 		C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTierCollectionViewCell.swift; sourceTree = "<group>"; };
 		C43F3F44290A70E500B03A04 /* ChampionTierCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTierCollectionView.swift; sourceTree = "<group>"; };
+		C43F3F47290A717100B03A04 /* PositionTabBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBarDelegate.swift; sourceTree = "<group>"; };
+		C43F3F49290A71B800B03A04 /* PositionTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBar.swift; sourceTree = "<group>"; };
 		C440CCF9290113C6008B3C16 /* SwiftUIPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreview.swift; sourceTree = "<group>"; };
 		C440CCFB290113DD008B3C16 /* SwiftUIPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreviewController.swift; sourceTree = "<group>"; };
 		C440CCFE290114BD008B3C16 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 		C43F3F3E290A6DD500B03A04 /* PositionTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				C43F3F47290A717100B03A04 /* PositionTabBarDelegate.swift */,
+				C43F3F49290A71B800B03A04 /* PositionTabBar.swift */,
 				C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */,
 			);
 			path = PositionTabBar;
@@ -506,10 +512,12 @@
 				C440CCFF290114BD008B3C16 /* SettingsTableView.swift in Sources */,
 				203F1D47290918D4002C5F5A /* MoreInformationCell.swift in Sources */,
 				205BC1A52907E85B004053F3 /* String+Extension.swift in Sources */,
+				C43F3F48290A717100B03A04 /* PositionTabBarDelegate.swift in Sources */,
 				C440CD0729011505008B3C16 /* SettingSection.swift in Sources */,
 				C4EBCC2428FC242900402617 /* MainViewController.swift in Sources */,
 				C4F3DDD529084CBC00137AAC /* LabelBuilder.swift in Sources */,
 				C440CD1029017E50008B3C16 /* CellCustomizable.swift in Sources */,
+				C43F3F4A290A71B800B03A04 /* PositionTabBar.swift in Sources */,
 				20528ED02902799E003046A3 /* SettingsStickyHeaderView.swift in Sources */,
 				C4F3DDC52907F5E200137AAC /* MainSection.swift in Sources */,
 				205BC1AD2907EEE4004053F3 /* MainSkinOnSaleView.swift in Sources */,
