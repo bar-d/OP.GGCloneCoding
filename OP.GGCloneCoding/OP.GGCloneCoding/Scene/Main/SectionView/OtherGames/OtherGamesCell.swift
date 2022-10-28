@@ -12,7 +12,7 @@ final class OtherGamesCell: UITableViewCell {
 
     // MARK: Properties
 
-    weak var otherGamesDelegate: OtherGamesDelegate?
+    private weak var otherGamesDelegate: OtherGamesDelegate?
 
     private let titleLabel = LabelBuilder()
         .setupMainCellTitleLabel(text: Design.titleLabelText)
@@ -69,20 +69,8 @@ final class OtherGamesCell: UITableViewCell {
 
     // MARK: - Methods
 
-    private func setupTapGestureRecognizer() {
-        [
-            (valorantImageView, #selector(goToValorant)),
-            (battlegroundsImageView, #selector(goToBattlegrounds)),
-            (eternalReturnImageView, #selector(goToEternalReturn)),
-            (overwatchImageView, #selector(goToOverwatch))
-        ]
-            .forEach { setupTapGestureRecognizer(in: $0.0, action: $0.1) }
-    }
-
-    private func setupTapGestureRecognizer(in imageView: UIImageView, action: Selector) {
-        let tapGesture = UITapGestureRecognizer(target: self, action: action)
-        imageView.addGestureRecognizer(tapGesture)
-        imageView.isUserInteractionEnabled = true
+    func setupOtherGamesCellDelegate(_ delegate: OtherGamesDelegate) {
+        otherGamesDelegate = delegate
     }
 
     private func commonInit() {
@@ -92,22 +80,6 @@ final class OtherGamesCell: UITableViewCell {
         setupContentViewUserInteractionEnabled(false)
         setupSelectionStyle(.none)
         setupTapGestureRecognizer()
-    }
-
-    @objc func goToValorant() {
-        otherGamesDelegate?.valorantImageDidTapped()
-    }
-
-    @objc func goToBattlegrounds() {
-        otherGamesDelegate?.battlegroundsImageDidTapped()
-    }
-
-    @objc func goToEternalReturn() {
-        otherGamesDelegate?.eternalReturnImageDidTapped()
-    }
-
-    @objc func goToOverwatch() {
-        otherGamesDelegate?.overwatchDidTapped()
     }
 
     private func setupSubviews() {
@@ -171,6 +143,38 @@ final class OtherGamesCell: UITableViewCell {
 
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {
         selectionStyle = style
+    }
+
+    private func setupTapGestureRecognizer() {
+        [
+            (valorantImageView, #selector(goToValorant)),
+            (battlegroundsImageView, #selector(goToBattlegrounds)),
+            (eternalReturnImageView, #selector(goToEternalReturn)),
+            (overwatchImageView, #selector(goToOverwatch))
+        ]
+            .forEach { setupTapGestureRecognizer(in: $0.0, action: $0.1) }
+    }
+
+    private func setupTapGestureRecognizer(in imageView: UIImageView, action: Selector) {
+        let tapGesture = UITapGestureRecognizer(target: self, action: action)
+        imageView.addGestureRecognizer(tapGesture)
+        imageView.isUserInteractionEnabled = true
+    }
+
+    @objc func goToValorant() {
+        otherGamesDelegate?.valorantImageDidTapped()
+    }
+
+    @objc func goToBattlegrounds() {
+        otherGamesDelegate?.battlegroundsImageDidTapped()
+    }
+
+    @objc func goToEternalReturn() {
+        otherGamesDelegate?.eternalReturnImageDidTapped()
+    }
+
+    @objc func goToOverwatch() {
+        otherGamesDelegate?.overwatchDidTapped()
     }
 }
 

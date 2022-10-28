@@ -38,7 +38,7 @@ final class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        setupOtherGamesDelegate()
+        setupCellDelegate()
     }
 
     override func viewWillLayoutSubviews() {
@@ -131,6 +131,11 @@ final class MainViewController: UIViewController {
         mainScrollView.delegate = self
     }
 
+    private func setupCellDelegate() {
+        setupOtherGamesDelegate()
+        setupPatchNoteDelegate()
+    }
+
     private func setupOtherGamesDelegate() {
         guard let cell = mainTableView.cellForRow(
             at: Design.otherGamesCellIndex
@@ -138,7 +143,9 @@ final class MainViewController: UIViewController {
             return
         }
 
-        cell.otherGamesDelegate = self
+        cell.setupOtherGamesCellDelegate(self)
+    }
+
     private func setupPatchNoteDelegate() {
         guard let cell = mainTableView.cellForRow(
             at: Design.patchNoteCellIndex
