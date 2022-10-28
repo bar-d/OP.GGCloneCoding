@@ -10,6 +10,8 @@ import UIKit
 final class PatchNoteCell: UITableViewCell {
     
     // MARK: Properties
+
+    private weak var patchNoteDelegate: PatchNoteDelegate?
     
     private let titleLabel = LabelBuilder()
         .setupMainCellTitleLabel(text: Design.titleLabelText, color: .white)
@@ -52,6 +54,10 @@ final class PatchNoteCell: UITableViewCell {
     }
     
     // MARK: - Methods
+
+    func setupPatchNoteCellDelegate(_ delegate: PatchNoteDelegate) {
+        patchNoteDelegate = delegate
+    }
     
     private func commonInit() {
         setupSubviews()
@@ -61,6 +67,7 @@ final class PatchNoteCell: UITableViewCell {
         setupContentViewUserInteractionEnabled(false)
         setupSelectionStyle(.none)
         setupPatchNoteImages()
+        setupTapGestureRecognizer()
     }
     
     private func setupSubviews() {
@@ -138,6 +145,33 @@ final class PatchNoteCell: UITableViewCell {
         firstPatchNoteImageView.changeImage(with: Design.firtsPatchNote)
         secondPatchNoteImageView.changeImage(with: Design.secondPatchNote)
         thirdPatchNoteImageView.changeImage(with: Design.thirdPatchNote)
+    }
+
+    private func setupTapGestureRecognizer() {
+        [
+            (firstPatchNoteImageView, #selector(goToFirstPatchNote)),
+            (secondPatchNoteImageView, #selector(goToSecondPatchNote)),
+            (thirdPatchNoteImageView, #selector(goToThirdPatchNote))
+        ]
+            .forEach { setupTapGestureRecognizer(in: $0.0, action: $0.1) }
+    }
+
+    private func setupTapGestureRecognizer(in imageView: PatchNoteImageView, action: Selector) {
+        let tapGesture = UITapGestureRecognizer(target: self, action: action)
+        imageView.addGestureRecognizer(tapGesture)
+        imageView.isUserInteractionEnabled = true
+    }
+
+    @objc func goToFirstPatchNote() {
+        patchNoteDelegate?.firstPatchNoteImageDidTapped()
+    }
+
+    @objc func goToSecondPatchNote() {
+        patchNoteDelegate?.secondPatchNoteImageDidTapped()
+    }
+
+    @objc func goToThirdPatchNote() {
+        patchNoteDelegate?.thirdPatchNoteImageDidTapped()
     }
 }
 

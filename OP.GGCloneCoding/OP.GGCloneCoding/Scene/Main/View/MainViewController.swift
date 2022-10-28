@@ -139,6 +139,14 @@ final class MainViewController: UIViewController {
         }
 
         cell.otherGamesDelegate = self
+    private func setupPatchNoteDelegate() {
+        guard let cell = mainTableView.cellForRow(
+            at: Design.patchNoteCellIndex
+        ) as? PatchNoteCell else {
+            return
+        }
+
+        cell.setupPatchNoteCellDelegate(self)
     }
 
     private func setupMainTableViewHeightConstraint() {
@@ -166,7 +174,7 @@ extension MainViewController: UIScrollViewDelegate {
     }
 }
 
-extension MainViewController: OtherGamesDelegate {
+extension MainViewController: OtherGamesDelegate, PatchNoteDelegate {
     func valorantImageDidTapped() {
         presentSafariViewController(using: Design.URL.valorant)
     }
@@ -181,6 +189,18 @@ extension MainViewController: OtherGamesDelegate {
 
     func overwatchDidTapped() {
         presentSafariViewController(using: Design.URL.overwatch)
+    }
+
+    func firstPatchNoteImageDidTapped() {
+        presentSafariViewController(using: Design.URL.firstPatchNote)
+    }
+
+    func secondPatchNoteImageDidTapped() {
+        presentSafariViewController(using: Design.URL.secondPatchNote)
+    }
+
+    func thirdPatchNoteImageDidTapped() {
+        presentSafariViewController(using: Design.URL.thirdPatchNote)
     }
 
     private func presentSafariViewController(using url: URL) {
@@ -198,6 +218,9 @@ private enum Design {
         static let battlegrounds = "https://pubg.op.gg".url
         static let eternalReturn = "https://er.op.gg".url
         static let overwatch = "https://overwatch.op.gg".url
+        static let firstPatchNote = "https://www.leagueoflegends.com/ko-kr/news/game-updates/patch-12-20-notes/".url
+        static let secondPatchNote = "https://www.leagueoflegends.com/ko-kr/news/game-updates/patch-12-19-notes/".url
+        static let thirdPatchNote = "https://www.leagueoflegends.com/ko-kr/news/game-updates/patch-12-18-notes/".url
     }
 
     static let backgroundColor = UIColor(named: "PrimitiveColor")
@@ -213,4 +236,5 @@ private enum Design {
     )
 
     static let otherGamesCellIndex = IndexPath(row: .zero, section: 7)
+    static let patchNoteCellIndex = IndexPath(row: .zero, section: 2)
 }
