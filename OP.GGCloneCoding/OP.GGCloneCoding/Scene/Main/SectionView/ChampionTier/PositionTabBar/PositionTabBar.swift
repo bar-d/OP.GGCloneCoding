@@ -50,9 +50,12 @@ final class PositionTabBar: UIView {
         positionTabBarCollectionView.selectItem(at: index, animated: true, scrollPosition: .init())
     }
 
-    func updateIndicatorViewConstraints(leading: CGFloat = .zero, width: CGFloat = .zero) {
+    func updateIndicatorViewWidthConstraints(width: CGFloat) {
+        indicatorViewWidthConstraint.constant = width
+    }
+    
+    func updateIndicatorViewLeadingConstraints(leading: CGFloat) {
         indicatorViewLeadingConstraint.constant = leading
-        indicatorViewLeadingConstraint.constant = width
     }
 
     func calculateIndicatorViewWidthConstraint() -> NSLayoutConstraint {

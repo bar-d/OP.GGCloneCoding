@@ -88,7 +88,7 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
     }
     
     private func setupPositionTabBarConstraints() {
-        positionTapBar.updateIndicatorViewConstraints(width: frame.width / 5)
+        positionTapBar.updateIndicatorViewWidthConstraints(width: frame.width / 5)
         NSLayoutConstraint.activate([
             positionTapBar.calculateIndicatorViewWidthConstraint(),
             positionTapBar.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -151,7 +151,7 @@ extension ChampionTierTableViewCell: UICollectionViewDelegate, UICollectionViewD
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        positionTapBar.updateIndicatorViewConstraints(leading: scrollView.contentOffset.x / 5)
+        positionTapBar.updateIndicatorViewLeadingConstraints(leading: scrollView.contentOffset.x / 5)
     }
     
     func scrollViewWillEndDragging(
