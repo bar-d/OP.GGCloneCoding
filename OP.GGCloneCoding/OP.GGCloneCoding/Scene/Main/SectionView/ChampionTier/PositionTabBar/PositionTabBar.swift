@@ -11,7 +11,7 @@ final class PositionTabBar: UIView {
     
     // MARK: Properties
     
-    private weak var postionTabBarDelegate: PositionTabBarDelegate?
+    private weak var positionTabBarDelegate: PositionTabBarDelegate?
     private let positionTabBarCollectionView = ChampionTierCollectionView(section: .tapBar)
     
     private let indicatorView: UIView = {
@@ -43,7 +43,7 @@ final class PositionTabBar: UIView {
     // MARK: - Methods
 
     func setupPostionTabBarDelegate(_ delegate: PositionTabBarDelegate) {
-        postionTabBarDelegate = delegate
+        positionTabBarDelegate = delegate
     }
 
     func selectTabBarItem(at index: IndexPath, animated: Bool = true) {
@@ -158,7 +158,7 @@ extension PositionTabBar: UICollectionViewDelegate, UICollectionViewDataSource {
         _ collectionView: UICollectionView
         , didSelectItemAt indexPath: IndexPath
     ) {
-        postionTabBarDelegate?.scrollTabBar(to: indexPath)
+        positionTabBarDelegate?.scrollTabBar(to: indexPath)
     }
 }
 
