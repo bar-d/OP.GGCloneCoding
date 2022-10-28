@@ -11,9 +11,7 @@ final class MySummonerCell: UITableViewCell {
     
     // MARK: Properties
     
-    private let emptySummonerView = ImageViewBuilder()
-        .setupEmptySummonerView()
-        .build()
+    private let emptySummonerView = EmptySummonerView()
     
     private let descriptionLabel = LabelBuilder()
         .setupMainCellDescriptionLabel(text: Design.descriptionLabelText)
@@ -33,6 +31,12 @@ final class MySummonerCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        emptySummonerView.addDashedBorder(cornerRadius: 10)
     }
     
     // MARK: - Methods

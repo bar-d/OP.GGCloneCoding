@@ -10,6 +10,8 @@
 		2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279C28FE7479005EF522 /* ButtonBuilder.swift */; };
 		2033279F28FEA531005EF522 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279E28FEA531005EF522 /* TabBarController.swift */; };
 		203F0010290BC34600BF95F7 /* OtherGamesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F000F290BC34600BF95F7 /* OtherGamesDelegate.swift */; };
+		203F0012290BD76300BF95F7 /* EmptySummonerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F0011290BD76300BF95F7 /* EmptySummonerView.swift */; };
+		203F0014290BE31100BF95F7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F0013290BE31100BF95F7 /* UIView+Extension.swift */; };
 		203F1D47290918D4002C5F5A /* MoreInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F1D46290918D4002C5F5A /* MoreInformationCell.swift */; };
 		203F1D49290918DB002C5F5A /* MoreInformationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F1D48290918DB002C5F5A /* MoreInformationButton.swift */; };
 		204600932901180C004A3417 /* PushNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204600922901180C004A3417 /* PushNotificationCell.swift */; };
@@ -66,6 +68,8 @@
 		2033279C28FE7479005EF522 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		2033279E28FEA531005EF522 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		203F000F290BC34600BF95F7 /* OtherGamesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherGamesDelegate.swift; sourceTree = "<group>"; };
+		203F0011290BD76300BF95F7 /* EmptySummonerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySummonerView.swift; sourceTree = "<group>"; };
+		203F0013290BE31100BF95F7 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		203F1D46290918D4002C5F5A /* MoreInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInformationCell.swift; sourceTree = "<group>"; };
 		203F1D48290918DB002C5F5A /* MoreInformationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInformationButton.swift; sourceTree = "<group>"; };
 		204600922901180C004A3417 /* PushNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationCell.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 			children = (
 				205BC1A42907E85B004053F3 /* String+Extension.swift */,
 				204A9C36290A7A4500D70FC4 /* UICollectionView+Extension.swift */,
+				203F0013290BE31100BF95F7 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				C4F3DDB12907E94F00137AAC /* MySummonerCell.swift */,
+				203F0011290BD76300BF95F7 /* EmptySummonerView.swift */,
 			);
 			path = MySummoner;
 			sourceTree = "<group>";
@@ -508,6 +514,7 @@
 				C440CD0729011505008B3C16 /* SettingsSection.swift in Sources */,
 				C4EBCC2428FC242900402617 /* MainViewController.swift in Sources */,
 				C4F3DDD529084CBC00137AAC /* LabelBuilder.swift in Sources */,
+				203F0012290BD76300BF95F7 /* EmptySummonerView.swift in Sources */,
 				C440CD1029017E50008B3C16 /* CellCustomizable.swift in Sources */,
 				C43F3F4A290A71B800B03A04 /* PositionTabBar.swift in Sources */,
 				20528ED02902799E003046A3 /* SettingsStickyHeaderView.swift in Sources */,
@@ -523,6 +530,7 @@
 				C440CD03290114E2008B3C16 /* SettingsCell.swift in Sources */,
 				C43F3F45290A70E500B03A04 /* ChampionTierCollectionView.swift in Sources */,
 				2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */,
+				203F0014290BE31100BF95F7 /* UIView+Extension.swift in Sources */,
 				C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */,
 				205BC1AB2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift in Sources */,
 				C4F3DDBA2907EA3600137AAC /* PatchNoteImageView.swift in Sources */,
