@@ -12,7 +12,7 @@ final class PatchNoteImageView: UIView {
     // MARK: Properties
     
     private let patchImageView = ImageViewBuilder()
-        .setupPatchImageView()
+        .setupEmptyPatchImageView()
         .build()
     
     private let titleLabel = LabelBuilder()
@@ -27,7 +27,7 @@ final class PatchNoteImageView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         commonInit()
     }
     
@@ -38,6 +38,11 @@ final class PatchNoteImageView: UIView {
     }
     
     // MARK: - Methods
+    
+    func changeImage(with imageName: String) {
+        patchImageView.image = UIImage(named: imageName)
+        titleLabel.text = "패치 노트 \(imageName)"
+    }
     
     private func commonInit() {
         setupConstraintsAutomatic(false)

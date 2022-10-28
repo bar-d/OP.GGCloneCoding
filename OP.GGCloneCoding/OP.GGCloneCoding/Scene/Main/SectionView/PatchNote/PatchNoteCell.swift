@@ -60,6 +60,7 @@ final class PatchNoteCell: UITableViewCell {
         setupBackgroundColor(Design.patchNoteBackgroundColor)
         setupContentViewUserInteractionEnabled(false)
         setupSelectionStyle(.none)
+        setupPatchNoteImages()
     }
     
     private func setupSubviews() {
@@ -132,6 +133,12 @@ final class PatchNoteCell: UITableViewCell {
     private func setupTitleLabel() {
         titleLabel.text = Design.titleLabelText
     }
+    
+    private func setupPatchNoteImages() {
+        firstPatchNoteImageView.changeImage(with: Design.firtsPatchNote)
+        secondPatchNoteImageView.changeImage(with: Design.secondPatchNote)
+        thirdPatchNoteImageView.changeImage(with: Design.thirdPatchNote)
+    }
 }
 
 // MARK: - Namespace
@@ -139,4 +146,7 @@ final class PatchNoteCell: UITableViewCell {
 private enum Design {
     static let titleLabelText = "패치 노트"
     static let patchNoteBackgroundColor = UIColor(named: "PatchNoteColor")
+    static let firtsPatchNote = "12.20"
+    static let secondPatchNote = "12.19"
+    static let thirdPatchNote = "12.18"
 }

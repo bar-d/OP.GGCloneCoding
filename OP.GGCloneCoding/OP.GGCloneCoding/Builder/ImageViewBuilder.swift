@@ -88,11 +88,11 @@ extension ImageViewBuilder {
         return builder
     }
     
-    func setupPatchImageView() -> ImageViewBuilder {
+    func setupEmptyPatchImageView() -> ImageViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
             .setupImage(image: Design.patchImageViewImage)
-            .setupContentMode(.scaleAspectFit)
+            .setupContentMode(.scaleAspectFill)
             .setupBackgroundColor(.darkGray)
             .setupLayer(cornerRadius: 10, width: 1)
         
