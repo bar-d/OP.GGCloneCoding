@@ -79,11 +79,11 @@ extension ImageViewBuilder {
         return builder
     }
     
-    func setupEmptySummonerView() -> ImageViewBuilder {
+    func setupEmptySummonerImageView() -> ImageViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupBackgroundColor(.red)
-            .setupLayer(cornerRadius: 10, width: 1)
+            .setupImage(image: Design.emptySummonerIconImage)
+            .setupLayer(cornerRadius: 20)
         
         return builder
     }
@@ -126,4 +126,5 @@ private enum Design {
     static let logoImage = UIImage(named: "OP.GGMainLogo")
     static let patchImageViewImage = UIImage(named: "OP.GGLoadLogo")
     static let indicatorImage = UIImage(systemName: "chevron.right")
+    static let emptySummonerIconImage = UIImage(named: "EmptySummonerIcon")
 }

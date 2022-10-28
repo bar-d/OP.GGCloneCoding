@@ -52,6 +52,12 @@ final class LabelBuilder {
         
         return self
     }
+
+    func setupConstantFontSize(_ constant: CGFloat) -> LabelBuilder {
+        label.font = label.font.withSize(constant)
+
+        return self
+    }
     
     func setupLabelBackgroundColor(_ color: UIColor?) -> LabelBuilder {
         label.backgroundColor = color
@@ -185,6 +191,24 @@ extension LabelBuilder {
 
         return builder
     }
+
+    func setupEmptySummonerDescrptionLabel() -> LabelBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupLabelText(text: Design.emptySummonerDescriptionLabelText, color: .label)
+            .setupLabelTextAttributes(alignment: .left, numberOfLines: 2)
+
+        return builder
+    }
+
+    func setupQuestionMarkLabel() -> LabelBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupLabelText(text: Design.questionMarkLabelText, color: .white)
+            .setupConstantFontSize(50)
+
+        return builder
+    }
 }
 
 private enum Design {
@@ -192,6 +216,8 @@ private enum Design {
     static let settingsStickyHeaderTitleLabel = "설정"
     static let settingsTitleLabelText = "Title Label"
     static let settingsIndicatorLabelText = "Indicator Label"
+    static let emptySummonerDescriptionLabelText = "내 KDA는 몇점?\n내가 가장 잘하는 챔피언은?"
+    static let questionMarkLabelText = "?"
     
     enum Color {
         static let descriptionLabelTextColor = UIColor(named: "IconColor")
