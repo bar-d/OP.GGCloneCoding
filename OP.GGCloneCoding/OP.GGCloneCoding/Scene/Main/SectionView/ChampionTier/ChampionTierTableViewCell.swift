@@ -103,7 +103,7 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
             championTierCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             championTierCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             championTierCollectionView.topAnchor.constraint(equalTo: positionTapBar.bottomAnchor),
-            championTierCollectionView.heightAnchor.constraint(equalToConstant: 200)
+            championTierCollectionView.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
     
@@ -137,7 +137,6 @@ extension ChampionTierTableViewCell: UICollectionViewDelegate, UICollectionViewD
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let cell: ChampionTierCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.setupTitle(with: "\(indexPath.row + 1)번째 뷰")
         
         return cell
     }

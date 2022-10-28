@@ -11,18 +11,17 @@ final class ChampionTierCollectionViewCell: UICollectionViewCell {
     
     // MARK: Properties
     
-    private let titleLabel = LabelBuilder()
-        .setupConstraintsAutomatic(false)
-        .build()
+    private let firstChampionTierView = ChampionTierView()
+    private let secondChampionTierView = ChampionTierView()
+    private let thirdChampionTierView = ChampionTierView()
+    private let fourthChampionTierView = ChampionTierView()
+    private let fifthChampionTierView = ChampionTierView()
     
-    private let championTierimageView = ImageViewBuilder()
-        .setupBackgroundColor(.blue)
-        .build()
-    
-    private let chapionStackView: UIStackView = {
+    private let championStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
         
         return stackView
     }()
@@ -33,7 +32,6 @@ final class ChampionTierCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         commonInit()
-        backgroundColor = .gray
     }
     
     required init?(coder: NSCoder) {
@@ -44,24 +42,25 @@ final class ChampionTierCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Methods
     
-    func setupTitle(with text: String) {
-        titleLabel.text = text
-    }
-    
     private func commonInit() {
         setupSubviews()
         setupConstraints()
     }
     
     private func setupSubviews() {
-        [titleLabel, championTierimageView]
+        [championStackView]
             .forEach { addSubview($0) }
+        [firstChampionTierView, secondChampionTierView, thirdChampionTierView,
+        fourthChampionTierView, fifthChampionTierView]
+            .forEach { championStackView.addArrangedSubview($0) }
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+            championStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            championStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            championStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            championStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
 }
