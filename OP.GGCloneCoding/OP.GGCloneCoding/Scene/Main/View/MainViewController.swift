@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SafariServices
 
 final class MainViewController: UIViewController {
-    
+
     // MARK: Properties
-    
+
     private let mainTopView = MainTopView()
     private let mainStickyHeaderView = MainStickyHeaderView()
     private let mainTableView = MainTableView()
@@ -26,23 +27,28 @@ final class MainViewController: UIViewController {
     private var mainStickyHeaderviewTopConstraint = NSLayoutConstraint()
     private var mainTableViewHeightConstraint = NSLayoutConstraint()
 
-    
     // MARK: - View Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupUI()
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        setupOtherGamesDelegate()
+    }
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
-        mainTableViewHeightConstraint.constant = mainTableView.contentSize.height
+        setupMainTableViewHeightConstraint()
     }
-    
+
     // MARK: - Methods
-    
+
     private func setupUI() {
         setupSubviews()
         setupConstraintsAutomatic(false)
@@ -51,18 +57,18 @@ final class MainViewController: UIViewController {
         setupBackgroundColor()
         setupDelegate()
     }
-    
+
     private func setupSubviews() {
         [mainStickyHeaderView, mainTopView, mainScrollView]
             .forEach { view.addSubview($0) }
         [mainTableView]
             .forEach { mainScrollView.addSubview($0) }
     }
-    
+
     private func setupConstraintsAutomatic(_ bool: Bool) {
         mainScrollView.translatesAutoresizingMaskIntoConstraints = bool
     }
-    
+
     private func setupConstraints() {
         setupMainTopViewConstraints()
         setupStickyHeaderViewConstraints()
@@ -111,7 +117,7 @@ final class MainViewController: UIViewController {
             mainTableViewHeightConstraint
         ])
     }
-    
+
     private func setupScrollViewContentInset() {
         mainScrollView.contentInset = Design.scrollViewContentInsets
     }
@@ -123,6 +129,20 @@ final class MainViewController: UIViewController {
 
     private func setupDelegate() {
         mainScrollView.delegate = self
+    }
+
+    private func setupOtherGamesDelegate() {
+        guard let cell = mainTableView.cellForRow(
+            at: Design.otherGamesCellIndex
+        ) as? OtherGamesCell else {
+            return
+        }
+
+        cell.otherGamesDelegate = self
+    }
+
+    private func setupMainTableViewHeightConstraint() {
+        mainTableViewHeightConstraint.constant = mainTableView.contentSize.height
     }
 }
 
@@ -146,15 +166,51 @@ extension MainViewController: UIScrollViewDelegate {
     }
 }
 
+extension MainViewController: OtherGamesDelegate {
+    func valorantImageDidTapped() {
+        presentSafariViewController(using: Design.URL.valorant)
+    }
+
+    func battlegroundsImageDidTapped() {
+        presentSafariViewController(using: Design.URL.battlegrounds)
+    }
+
+    func eternalReturnImageDidTapped() {
+        presentSafariViewController(using: Design.URL.eternalReturn)
+    }
+
+    func overwatchDidTapped() {
+        presentSafariViewController(using: Design.URL.overwatch)
+    }
+
+    private func presentSafariViewController(using url: URL) {
+        let safari = SFSafariViewController(url: url)
+
+        present(safari, animated: true)
+    }
+}
+
 // MARK: - Namespace
 
 private enum Design {
+    enum URL {
+        static let valorant = "https://valorant.op.gg".url
+        static let battlegrounds = "https://pubg.op.gg".url
+        static let eternalReturn = "https://er.op.gg".url
+        static let overwatch = "https://overwatch.op.gg".url
+    }
+
     static let backgroundColor = UIColor(named: "PrimitiveColor")
     static let secondaryColor = UIColor(named: "SecondaryColor")
-    static let scrollViewContentInsets = UIEdgeInsets(top: headerMaxHeight - headerMinHeight + 7,
-                                                      left: 0,
-                                                      bottom: -(headerMaxHeight - headerMinHeight + 7),
-                                                      right: 0)
+
     static let headerMaxHeight: CGFloat = 150
     static let headerMinHeight: CGFloat = 100
+    static let scrollViewContentInsets = UIEdgeInsets(
+        top: headerMaxHeight - headerMinHeight + 7,
+        left: 0,
+        bottom: -(headerMaxHeight - headerMinHeight + 7),
+        right: 0
+    )
+
+    static let otherGamesCellIndex = IndexPath(row: .zero, section: 7)
 }

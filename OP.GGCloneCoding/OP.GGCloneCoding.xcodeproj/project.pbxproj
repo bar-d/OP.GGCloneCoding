@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279C28FE7479005EF522 /* ButtonBuilder.swift */; };
 		2033279F28FEA531005EF522 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279E28FEA531005EF522 /* TabBarController.swift */; };
+		203F0010290BC34600BF95F7 /* OtherGamesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F000F290BC34600BF95F7 /* OtherGamesDelegate.swift */; };
 		203F1D47290918D4002C5F5A /* MoreInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F1D46290918D4002C5F5A /* MoreInformationCell.swift */; };
 		203F1D49290918DB002C5F5A /* MoreInformationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F1D48290918DB002C5F5A /* MoreInformationButton.swift */; };
 		204600932901180C004A3417 /* PushNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204600922901180C004A3417 /* PushNotificationCell.swift */; };
@@ -62,6 +63,7 @@
 /* Begin PBXFileReference section */
 		2033279C28FE7479005EF522 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		2033279E28FEA531005EF522 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		203F000F290BC34600BF95F7 /* OtherGamesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherGamesDelegate.swift; sourceTree = "<group>"; };
 		203F1D46290918D4002C5F5A /* MoreInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInformationCell.swift; sourceTree = "<group>"; };
 		203F1D48290918DB002C5F5A /* MoreInformationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInformationButton.swift; sourceTree = "<group>"; };
 		204600922901180C004A3417 /* PushNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationCell.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				205BC1B5290828FB004053F3 /* OtherGamesCell.swift */,
+				203F000F290BC34600BF95F7 /* OtherGamesDelegate.swift */,
 			);
 			path = OtherGames;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				203F0010290BC34600BF95F7 /* OtherGamesDelegate.swift in Sources */,
 				C440CCFF290114BD008B3C16 /* SettingsTableView.swift in Sources */,
 				203F1D47290918D4002C5F5A /* MoreInformationCell.swift in Sources */,
 				205BC1A52907E85B004053F3 /* String+Extension.swift in Sources */,
