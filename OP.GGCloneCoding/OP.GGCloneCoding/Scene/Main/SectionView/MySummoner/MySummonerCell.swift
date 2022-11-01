@@ -11,6 +11,8 @@ final class MySummonerCell: UITableViewCell {
     
     // MARK: Properties
     
+    private weak var mySummonerCellDelegate: MySummonerCellDelegate?
+    
     private let emptySummonerView = EmptySummonerView()
     
     private let descriptionLabel = LabelBuilder()
@@ -41,12 +43,17 @@ final class MySummonerCell: UITableViewCell {
     
     // MARK: - Methods
     
+    func setupMySummonerCellDelegate(_ delegate: MySummonerCellDelegate) {
+        mySummonerCellDelegate = delegate
+    }
+    
     private func commonInit() {
         setupContentViewUserInteractionEnabled(false)
         setupSubviews()
         setupConstraints()
         setupBackgroundColor(Design.cellBackgroundColor)
         setupSelectionStyle(.none)
+        setupRegisterButton()
     }
     
     private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
@@ -97,6 +104,18 @@ final class MySummonerCell: UITableViewCell {
     
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {
         selectionStyle = style
+    }
+    
+    private func setupRegisterButton() {
+        summonerRegisterButton.addTarget(
+            self,
+            action: #selector(searchButtonDidTapped),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func searchButtonDidTapped() {
+        mySummonerCellDelegate?.searchButtonDidTapped()
     }
 }
 
