@@ -165,6 +165,7 @@ extension ButtonBuilder {
             .setupConstraintsAutomatic(false)
             .setupTitle(name: Design.moreButtonTitle, font: .caption1, color: .label)
             .setupColor(background: Design.Color.secondaryColor)
+            .setupLayer(cornerRadius: 4)
             .setupInset(contentInset: UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0))
         
         return builder
