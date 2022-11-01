@@ -51,6 +51,7 @@
 		C458CAED2910ECAD004E6D74 /* SummonerRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAEC2910ECAD004E6D74 /* SummonerRegisterViewController.swift */; };
 		C458CAEF2910F928004E6D74 /* MySummonerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAEE2910F928004E6D74 /* MySummonerCellDelegate.swift */; };
 		C458CAF12910FA7A004E6D74 /* SummonerRegisterTopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF02910FA7A004E6D74 /* SummonerRegisterTopViewDelegate.swift */; };
+		C458CAF3291106B0004E6D74 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF2291106B0004E6D74 /* IndicatorView.swift */; };
 		C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */; };
 		C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */; };
 		C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC1F28FC242900402617 /* AppDelegate.swift */; };
@@ -114,6 +115,7 @@
 		C458CAEC2910ECAD004E6D74 /* SummonerRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRegisterViewController.swift; sourceTree = "<group>"; };
 		C458CAEE2910F928004E6D74 /* MySummonerCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerCellDelegate.swift; sourceTree = "<group>"; };
 		C458CAF02910FA7A004E6D74 /* SummonerRegisterTopViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRegisterTopViewDelegate.swift; sourceTree = "<group>"; };
+		C458CAF2291106B0004E6D74 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteDelegate.swift; sourceTree = "<group>"; };
 		C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewBuilder.swift; sourceTree = "<group>"; };
 		C4EBCC1C28FC242900402617 /* OP.GGCloneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OP.GGCloneCoding.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +261,7 @@
 				C43F3F47290A717100B03A04 /* PositionTabBarDelegate.swift */,
 				C43F3F49290A71B800B03A04 /* PositionTabBar.swift */,
 				C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */,
+				C458CAF2291106B0004E6D74 /* IndicatorView.swift */,
 			);
 			path = PositionTabBar;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */,
 				205BC1AB2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift in Sources */,
 				C4F3DDBA2907EA3600137AAC /* PatchNoteImageView.swift in Sources */,
+				C458CAF3291106B0004E6D74 /* IndicatorView.swift in Sources */,
 				C4F3DDB82907E9F800137AAC /* PatchNoteCell.swift in Sources */,
 				C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */,
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
