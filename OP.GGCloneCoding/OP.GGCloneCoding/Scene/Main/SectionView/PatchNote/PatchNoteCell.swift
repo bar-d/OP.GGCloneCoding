@@ -20,6 +20,7 @@ final class PatchNoteCell: UITableViewCell {
     private let patchNoteScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsHorizontalScrollIndicator = false
         
         return scrollView
     }()
