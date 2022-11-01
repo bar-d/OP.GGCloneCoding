@@ -134,6 +134,17 @@ final class MainViewController: UIViewController {
     private func setupCellDelegate() {
         setupOtherGamesDelegate()
         setupPatchNoteDelegate()
+        setupMySummonerDelegate()
+    }
+    
+    private func setupMySummonerDelegate() {
+        guard let cell = mainTableView.cellForRow(
+            at: Design.mySummonerCellIndex
+        ) as? MySummonerCell else {
+            return
+        }
+        
+        cell.setupMySummonerCellDelegate(self)
     }
 
     private func setupOtherGamesDelegate() {
@@ -181,7 +192,13 @@ extension MainViewController: UIScrollViewDelegate {
     }
 }
 
-extension MainViewController: OtherGamesDelegate, PatchNoteDelegate {
+extension MainViewController: OtherGamesDelegate, PatchNoteDelegate, MySummonerCellDelegate {
+    func searchButtonDidTapped() {
+        let summonerRegisterViewController = SummonerRegisterViewController()
+        
+        present(summonerRegisterViewController, animated: true)
+    }
+    
     func valorantImageDidTapped() {
         presentSafariViewController(using: Design.URL.valorant)
     }
@@ -242,6 +259,7 @@ private enum Design {
         right: 0
     )
 
+    static let mySummonerCellIndex = IndexPath(row: .zero, section: .zero)
     static let otherGamesCellIndex = IndexPath(row: .zero, section: 7)
     static let patchNoteCellIndex = IndexPath(row: .zero, section: 2)
 }
