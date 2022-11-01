@@ -63,12 +63,16 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
     // MARK: - Methods
     
     private func commonInit() {
+        setupContentViewUserInteractionEnabled(false)
         setupSubviews()
         setupConstraints()
-        setupUserInterationEnabled(false)
         setupSelectionStyle(.none)
         setupTitleLabel()
         setupContentInset(top: 0, left: 20, bottom: 0, right: 20)
+    }
+  
+    private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
+        contentView.isUserInteractionEnabled = bool
     }
     
     private func setupSubviews() {
@@ -139,10 +143,6 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
             moreButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             moreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
-    }
-    
-    private func setupUserInterationEnabled(_ bool: Bool) {
-        contentView.isUserInteractionEnabled = bool
     }
     
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {

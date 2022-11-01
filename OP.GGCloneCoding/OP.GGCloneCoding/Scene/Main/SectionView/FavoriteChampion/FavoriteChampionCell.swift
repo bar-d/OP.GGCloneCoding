@@ -40,11 +40,16 @@ final class FavoriteChampionCell: UITableViewCell {
     // MARK: - Methods
     
     private func commonInit() {
+        setupContentViewUserInteractionEnabled(false)
         setupSubviews()
         setupConstraints()
         setupBackgroundColor(Design.cellBackgroundColor)
         setupSelectionStyle(.none)
     }
+    
+    private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
+            contentView.isUserInteractionEnabled = bool
+        }
     
     private func setupSubviews() {
         [titleLabel, descriptionLabel, summonerSearchButton]

@@ -35,10 +35,15 @@ final class MoreInformationCell: UITableViewCell {
     // MARK: - Methods
 
     private func commonInit() {
+        setupContentViewUserInteractionEnabled(false)
         setupSubviews()
         setupConstraints()
     }
 
+    private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
+        contentView.isUserInteractionEnabled = bool
+    }
+    
     private func setupSubviews() {
         [titleLabel, rankingButton, proMatchesButton]
             .forEach { addSubview($0) }

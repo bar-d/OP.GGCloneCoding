@@ -61,14 +61,18 @@ final class PatchNoteCell: UITableViewCell {
     }
     
     private func commonInit() {
+        setupContentViewUserInteractionEnabled(false)
         setupSubviews()
         setupConstraints()
         setupContentInset(top: 0, left: 20, bottom: 0, right: 20)
         setupBackgroundColor(Design.patchNoteBackgroundColor)
-        setupContentViewUserInteractionEnabled(false)
         setupSelectionStyle(.none)
         setupPatchNoteImages()
         setupTapGestureRecognizer()
+    }
+    
+    private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
+        contentView.isUserInteractionEnabled = bool
     }
     
     private func setupSubviews() {
@@ -128,10 +132,6 @@ final class PatchNoteCell: UITableViewCell {
     
     private func setupBackgroundColor(_ color: UIColor?) {
         backgroundColor = color
-    }
-    
-    private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
-        contentView.isUserInteractionEnabled = bool
     }
     
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {

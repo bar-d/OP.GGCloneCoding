@@ -74,12 +74,16 @@ final class OtherGamesCell: UITableViewCell {
     }
 
     private func commonInit() {
+        setupContentViewUserInteractionEnabled(false)
         setupSubviews()
         setupConstraints()
         setupContentInset(top: 0, left: 20, bottom: 0, right: 20)
-        setupContentViewUserInteractionEnabled(false)
         setupSelectionStyle(.none)
         setupTapGestureRecognizer()
+    }
+    
+    private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
+        contentView.isUserInteractionEnabled = bool
     }
 
     private func setupSubviews() {
@@ -135,10 +139,6 @@ final class OtherGamesCell: UITableViewCell {
 
     private func setupContentInset(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) {
         otherGamesScrollView.contentInset = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
-    }
-
-    private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
-        contentView.isUserInteractionEnabled = bool
     }
 
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {

@@ -44,7 +44,12 @@ final class FavoriteSummonersCell: UITableViewCell {
         setupConstraints()
         setupBackgroundColor(Design.cellBackgroundColor)
         setupSelectionStyle(.none)
+        setupContentViewUserInteractionEnabled(false)
     }
+    
+    private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
+            contentView.isUserInteractionEnabled = bool
+        }
     
     private func setupSubviews() {
         [titleLabel, descriptionLabel, summonerSearchButton]

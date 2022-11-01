@@ -55,14 +55,14 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
     }
     
     private func commonInit() {
-        setupContentViewUserInteraction(false)
+        setupContentViewUserInteractionEnabled(false)
         setupSubviews()
         setupConstraints()
         setupDelegate()
         setupDataSource()
     }
     
-    private func setupContentViewUserInteraction(_ bool: Bool) {
+    private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
         contentView.isUserInteractionEnabled = bool
     }
     
