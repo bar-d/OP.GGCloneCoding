@@ -60,7 +60,7 @@ final class FavoriteChampionCell: UITableViewCell {
     private func setupTitleLabelConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -20),
             titleLabel.heightAnchor.constraint(equalToConstant: 100),
             titleLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -50)

@@ -135,7 +135,7 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
     private func setupMoreButtonConstraints() {
         NSLayoutConstraint.activate([
             moreButton.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 12),
-            moreButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+            moreButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             moreButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             moreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
