@@ -52,6 +52,8 @@
 		C458CAEF2910F928004E6D74 /* MySummonerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAEE2910F928004E6D74 /* MySummonerCellDelegate.swift */; };
 		C458CAF12910FA7A004E6D74 /* SummonerRegisterTopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF02910FA7A004E6D74 /* SummonerRegisterTopViewDelegate.swift */; };
 		C458CAF3291106B0004E6D74 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF2291106B0004E6D74 /* IndicatorView.swift */; };
+		C458CAF629110B27004E6D74 /* SummonerSearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF529110B27004E6D74 /* SummonerSearchTableView.swift */; };
+		C458CAF829110D4F004E6D74 /* SummonerSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF729110D4F004E6D74 /* SummonerSearchTableViewCell.swift */; };
 		C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */; };
 		C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */; };
 		C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC1F28FC242900402617 /* AppDelegate.swift */; };
@@ -116,6 +118,8 @@
 		C458CAEE2910F928004E6D74 /* MySummonerCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerCellDelegate.swift; sourceTree = "<group>"; };
 		C458CAF02910FA7A004E6D74 /* SummonerRegisterTopViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRegisterTopViewDelegate.swift; sourceTree = "<group>"; };
 		C458CAF2291106B0004E6D74 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		C458CAF529110B27004E6D74 /* SummonerSearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchTableView.swift; sourceTree = "<group>"; };
+		C458CAF729110D4F004E6D74 /* SummonerSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchTableViewCell.swift; sourceTree = "<group>"; };
 		C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteDelegate.swift; sourceTree = "<group>"; };
 		C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewBuilder.swift; sourceTree = "<group>"; };
 		C4EBCC1C28FC242900402617 /* OP.GGCloneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OP.GGCloneCoding.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +328,15 @@
 			path = SummonerRegister;
 			sourceTree = "<group>";
 		};
+		C458CAF429110B0A004E6D74 /* SummonerSearch */ = {
+			isa = PBXGroup;
+			children = (
+				C458CAF529110B27004E6D74 /* SummonerSearchTableView.swift */,
+				C458CAF729110D4F004E6D74 /* SummonerSearchTableViewCell.swift */,
+			);
+			path = SummonerSearch;
+			sourceTree = "<group>";
+		};
 		C4E505EA28FE91AA00EEA8C8 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				C4F3DDB42907E9AD00137AAC /* FavoriteSummonerCell.swift */,
+				C458CAF429110B0A004E6D74 /* SummonerSearch */,
 			);
 			path = FavoriteSummoner;
 			sourceTree = "<group>";
@@ -580,12 +594,14 @@
 				C43F3F83290BCCBF00B03A04 /* ChampionTierView.swift in Sources */,
 				205BC1AF2907EEF3004053F3 /* ChampionsAndSkinsOnSaleView.swift in Sources */,
 				C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */,
+				C458CAF829110D4F004E6D74 /* SummonerSearchTableViewCell.swift in Sources */,
 				C43F3F43290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift in Sources */,
 				C4F3DDB52907E9AD00137AAC /* FavoriteSummonerCell.swift in Sources */,
 				C458CAE92910C28F004E6D74 /* SummonerRegisterTopView.swift in Sources */,
 				C4F3DDC72907F7CE00137AAC /* MainStickyHeaderView.swift in Sources */,
 				C4F3DDD32908179600137AAC /* PaddingLabel.swift in Sources */,
 				C406923E29067C3100A4E48D /* HeaderViewButton.swift in Sources */,
+				C458CAF629110B27004E6D74 /* SummonerSearchTableView.swift in Sources */,
 				204A9C37290A7A4500D70FC4 /* UICollectionView+Extension.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
 				C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */,

@@ -9,7 +9,7 @@ import UIKit
 
 final class IndicatorView: UIView {
     
-    // MARK: - Properties
+    // MARK: Properties
     
     private let highlightedIndicatorView: UIView = {
         let view = UIView()

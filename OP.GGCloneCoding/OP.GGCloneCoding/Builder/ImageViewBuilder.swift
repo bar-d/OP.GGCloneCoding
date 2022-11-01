@@ -9,7 +9,7 @@ import UIKit
 
 final class ImageViewBuilder {
     
-    // MARK: - Properties
+    // MARK: Properties
     
     private let imageView = UIImageView()
     

@@ -9,7 +9,7 @@ import UIKit
 
 final class MoreInformationCell: UITableViewCell {
 
-    // MARK: - Properties
+    // MARK: Properties
 
     private let titleLabel = LabelBuilder()
         .setupMainCellTitleLabel(text: Design.titleLabelText, color: .label)

@@ -48,7 +48,7 @@ final class MoreInformationButton: UIButton {
         commonInit()
     }
 
-    // MARK: - Properties
+    // MARK: - Methods
 
     private func commonInit() {
         setupConstraintsAutomatic(false)
