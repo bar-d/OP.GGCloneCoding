@@ -14,13 +14,7 @@ final class PositionTabBar: UIView {
     private weak var positionTabBarDelegate: PositionTabBarDelegate?
     private let positionTabBarCollectionView = ChampionTierCollectionView(section: .tapBar)
     
-    private let indicatorView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .label
-        
-        return view
-    }()
+    private let indicatorView = IndicatorView()
     
     private var indicatorViewLeadingConstraint = NSLayoutConstraint()
     private var indicatorViewWidthConstraint = NSLayoutConstraint()
@@ -69,6 +63,7 @@ final class PositionTabBar: UIView {
         setupSubviews()
         setupConstraints()
         selectInitialItem()
+        setupBackgroundColor(.lightGray)
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -90,7 +85,7 @@ final class PositionTabBar: UIView {
             positionTabBarCollectionView.topAnchor.constraint(equalTo: topAnchor),
             positionTabBarCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             positionTabBarCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            positionTabBarCollectionView.heightAnchor.constraint(equalToConstant: 55)
+            positionTabBarCollectionView.heightAnchor.constraint(equalToConstant: 58)
         ])
     }
     
@@ -101,7 +96,7 @@ final class PositionTabBar: UIView {
         NSLayoutConstraint.activate([
             indicatorViewWidthConstraint,
             indicatorViewLeadingConstraint,
-            indicatorView.heightAnchor.constraint(equalToConstant: 5),
+            indicatorView.heightAnchor.constraint(equalToConstant: 2),
             indicatorView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
@@ -121,6 +116,10 @@ final class PositionTabBar: UIView {
             animated: false,
             scrollPosition: .init()
         )
+    }
+    
+    private func setupBackgroundColor(_ color: UIColor) {
+        backgroundColor = color
     }
 }
 
