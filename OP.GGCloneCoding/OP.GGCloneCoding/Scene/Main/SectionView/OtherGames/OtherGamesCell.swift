@@ -161,19 +161,19 @@ final class OtherGamesCell: UITableViewCell {
         imageView.isUserInteractionEnabled = true
     }
 
-    @objc func goToValorant() {
+    @objc private func goToValorant() {
         otherGamesDelegate?.valorantImageDidTapped()
     }
 
-    @objc func goToBattlegrounds() {
+    @objc private func goToBattlegrounds() {
         otherGamesDelegate?.battlegroundsImageDidTapped()
     }
 
-    @objc func goToEternalReturn() {
+    @objc private func goToEternalReturn() {
         otherGamesDelegate?.eternalReturnImageDidTapped()
     }
 
-    @objc func goToOverwatch() {
+    @objc private func goToOverwatch() {
         otherGamesDelegate?.overwatchDidTapped()
     }
 }

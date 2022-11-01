@@ -2,7 +2,7 @@
 //  ChampionTierView.swift
 //  OP.GGCloneCoding
 //
-//  Created by bard on 2022/10/28.
+//  Created by 바드, 수꿍 on 2022/10/28.
 //
 
 import UIKit

@@ -163,15 +163,15 @@ final class PatchNoteCell: UITableViewCell {
         imageView.isUserInteractionEnabled = true
     }
 
-    @objc func goToFirstPatchNote() {
+    @objc private func goToFirstPatchNote() {
         patchNoteDelegate?.firstPatchNoteImageDidTapped()
     }
 
-    @objc func goToSecondPatchNote() {
+    @objc private func goToSecondPatchNote() {
         patchNoteDelegate?.secondPatchNoteImageDidTapped()
     }
 
-    @objc func goToThirdPatchNote() {
+    @objc private func goToThirdPatchNote() {
         patchNoteDelegate?.thirdPatchNoteImageDidTapped()
     }
 }
