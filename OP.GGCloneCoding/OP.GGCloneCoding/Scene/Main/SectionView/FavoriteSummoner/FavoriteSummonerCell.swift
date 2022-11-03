@@ -11,6 +11,8 @@ final class FavoriteSummonersCell: UITableViewCell {
     
     // MARK:  Properties
     
+    weak var favoriteSummonersCellDelegate: FavoriteSummonersCellDelegate?
+    
     private let titleLabel = LabelBuilder()
         .setupMainCellTitleLabel(text: Design.titleLabelText)
         .build()
@@ -39,17 +41,22 @@ final class FavoriteSummonersCell: UITableViewCell {
     
     // MARK: - Methods
     
+    func setupFavoriteSummonersCellDelegate(_ delegate: FavoriteSummonersCellDelegate) {
+        favoriteSummonersCellDelegate = delegate
+    }
+    
     private func commonInit() {
+        setupContentViewUserInteractionEnabled(false)
         setupSubviews()
         setupConstraints()
         setupBackgroundColor(Design.cellBackgroundColor)
         setupSelectionStyle(.none)
-        setupContentViewUserInteractionEnabled(false)
+        setupSummonerSearchButton()
     }
     
     private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
-            contentView.isUserInteractionEnabled = bool
-        }
+        contentView.isUserInteractionEnabled = bool
+    }
     
     private func setupSubviews() {
         [titleLabel, descriptionLabel, summonerSearchButton]
@@ -59,7 +66,7 @@ final class FavoriteSummonersCell: UITableViewCell {
     private func setupConstraints() {
         setupTitleLabelConstraints()
         setupDescriptioinLabel()
-        setupSummonerSearchButton()
+        setupSummonerSearchButtonConstraints()
     }
     
     private func setupTitleLabelConstraints() {
@@ -81,7 +88,7 @@ final class FavoriteSummonersCell: UITableViewCell {
         ])
     }
     
-    private func setupSummonerSearchButton() {
+    private func setupSummonerSearchButtonConstraints() {
         NSLayoutConstraint.activate([
             summonerSearchButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             summonerSearchButton.widthAnchor.constraint(equalTo: widthAnchor, constant: -40),
@@ -95,6 +102,14 @@ final class FavoriteSummonersCell: UITableViewCell {
     
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {
         selectionStyle = style
+    }
+    
+    private func setupSummonerSearchButton() {
+        summonerSearchButton.addTarget(self, action: #selector(summonerSearchButtonDidTapped), for: .touchUpInside)
+    }
+    
+    @objc private func summonerSearchButtonDidTapped() {
+        favoriteSummonersCellDelegate?.summonerSearchButtonDidTapped()
     }
 }
 
