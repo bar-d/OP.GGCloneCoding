@@ -54,6 +54,10 @@
 		C458CAF3291106B0004E6D74 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF2291106B0004E6D74 /* IndicatorView.swift */; };
 		C458CAF629110B27004E6D74 /* SummonerSearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF529110B27004E6D74 /* SummonerSearchTableView.swift */; };
 		C458CAF829110D4F004E6D74 /* SummonerSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF729110D4F004E6D74 /* SummonerSearchTableViewCell.swift */; };
+		C458CAFA29111F44004E6D74 /* SummonerSearchTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF929111F43004E6D74 /* SummonerSearchTableHeaderView.swift */; };
+		C458CAFC29112276004E6D74 /* SummonerSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAFB29112276004E6D74 /* SummonerSearchViewController.swift */; };
+		C458CB002911608E004E6D74 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAFF2911608E004E6D74 /* SearchTextField.swift */; };
+		C4AC80352913942600C5A550 /* FavoriteSummonerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC80342913942600C5A550 /* FavoriteSummonerCellDelegate.swift */; };
 		C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */; };
 		C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */; };
 		C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC1F28FC242900402617 /* AppDelegate.swift */; };
@@ -120,6 +124,10 @@
 		C458CAF2291106B0004E6D74 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		C458CAF529110B27004E6D74 /* SummonerSearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchTableView.swift; sourceTree = "<group>"; };
 		C458CAF729110D4F004E6D74 /* SummonerSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchTableViewCell.swift; sourceTree = "<group>"; };
+		C458CAF929111F43004E6D74 /* SummonerSearchTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchTableHeaderView.swift; sourceTree = "<group>"; };
+		C458CAFB29112276004E6D74 /* SummonerSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchViewController.swift; sourceTree = "<group>"; };
+		C458CAFF2911608E004E6D74 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
+		C4AC80342913942600C5A550 /* FavoriteSummonerCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSummonerCellDelegate.swift; sourceTree = "<group>"; };
 		C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteDelegate.swift; sourceTree = "<group>"; };
 		C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewBuilder.swift; sourceTree = "<group>"; };
 		C4EBCC1C28FC242900402617 /* OP.GGCloneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OP.GGCloneCoding.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +221,7 @@
 		205BC1B02907F9C0004053F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C458CAFF2911608E004E6D74 /* SearchTextField.swift */,
 				C436A08128FD640C00E261F7 /* LoadingView.swift */,
 				20528ECD29027683003046A3 /* HeaderView.swift */,
 				2033279E28FEA531005EF522 /* TabBarController.swift */,
@@ -332,7 +341,9 @@
 			isa = PBXGroup;
 			children = (
 				C458CAF529110B27004E6D74 /* SummonerSearchTableView.swift */,
+				C458CAF929111F43004E6D74 /* SummonerSearchTableHeaderView.swift */,
 				C458CAF729110D4F004E6D74 /* SummonerSearchTableViewCell.swift */,
+				C458CAFB29112276004E6D74 /* SummonerSearchViewController.swift */,
 			);
 			path = SummonerSearch;
 			sourceTree = "<group>";
@@ -449,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				C4F3DDB42907E9AD00137AAC /* FavoriteSummonerCell.swift */,
+				C4AC80342913942600C5A550 /* FavoriteSummonerCellDelegate.swift */,
 				C458CAF429110B0A004E6D74 /* SummonerSearch */,
 			);
 			path = FavoriteSummoner;
@@ -561,8 +573,10 @@
 				C440CD1029017E50008B3C16 /* CellCustomizable.swift in Sources */,
 				C43F3F4A290A71B800B03A04 /* PositionTabBar.swift in Sources */,
 				20528ED02902799E003046A3 /* SettingsStickyHeaderView.swift in Sources */,
+				C458CAFA29111F44004E6D74 /* SummonerSearchTableHeaderView.swift in Sources */,
 				C4F3DDC52907F5E200137AAC /* MainSection.swift in Sources */,
 				205BC1AD2907EEE4004053F3 /* MainSkinOnSaleView.swift in Sources */,
+				C458CB002911608E004E6D74 /* SearchTextField.swift in Sources */,
 				C458CAEF2910F928004E6D74 /* MySummonerCellDelegate.swift in Sources */,
 				C4F3DDCE29080F5900137AAC /* TodayTMICell.swift in Sources */,
 				2033279F28FEA531005EF522 /* TabBarController.swift in Sources */,
@@ -585,6 +599,7 @@
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
 				C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */,
 				205BC1A82907ECCF004053F3 /* FavoriteChampionCell.swift in Sources */,
+				C4AC80352913942600C5A550 /* FavoriteSummonerCellDelegate.swift in Sources */,
 				C458CAED2910ECAD004E6D74 /* SummonerRegisterViewController.swift in Sources */,
 				C43F3F81290BCCAF00B03A04 /* ChampionImageView.swift in Sources */,
 				C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */,
@@ -602,6 +617,7 @@
 				C4F3DDD32908179600137AAC /* PaddingLabel.swift in Sources */,
 				C406923E29067C3100A4E48D /* HeaderViewButton.swift in Sources */,
 				C458CAF629110B27004E6D74 /* SummonerSearchTableView.swift in Sources */,
+				C458CAFC29112276004E6D74 /* SummonerSearchViewController.swift in Sources */,
 				204A9C37290A7A4500D70FC4 /* UICollectionView+Extension.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
 				C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */,
