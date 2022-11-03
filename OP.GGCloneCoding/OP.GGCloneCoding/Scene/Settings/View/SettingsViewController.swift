@@ -16,6 +16,7 @@ final class SettingsViewController: UIViewController {
     private let headerView = HeaderViewBuilder()
         .setupSettingHeaderView()
         .build()
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +46,6 @@ final class SettingsViewController: UIViewController {
     
     private func setupUI() {
         setupSubviews()
-        //        setupConstraintsAutomatic(false)
         setupConstraints()
         setupScrollViewContentInset()
         setupBackgroundColor()
@@ -57,17 +57,7 @@ final class SettingsViewController: UIViewController {
             .forEach { view.addSubview($0) }
         [tableView]
             .forEach { scrollView.addSubview($0) }
-        //        view.addSubview(scrollView)
-        //        view.addSubview(stickyHeaderView)
-        //        view.addSubview(headerView)
-        //        scrollView.addSubview(tableView)
     }
-    
-    //    private func setupConstraintsAutomatic(_ bool: Bool) {
-    //        stickyHeaderView.translatesAutoresizingMaskIntoConstraints = bool 이미 스티키 헤더뷰에 구현되어있음
-    //        headerView.translatesAutoresizingMaskIntoConstraints = bool 다른 빌더도 다 구현되어 있어서 걍 구현해줌
-    //        scrollView.translatesAutoresizingMaskIntoConstraints = bool 애도 위에 되이씀
-    //    }
     
     private func setupConstraints() {
         setupHeaderViewConstraints()

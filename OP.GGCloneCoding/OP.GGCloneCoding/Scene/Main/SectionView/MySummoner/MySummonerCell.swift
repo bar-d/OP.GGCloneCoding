@@ -57,8 +57,8 @@ final class MySummonerCell: UITableViewCell {
     }
     
     private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
-            contentView.isUserInteractionEnabled = bool
-        }
+        contentView.isUserInteractionEnabled = bool
+    }
     
     private func setupSubviews() {
         [emptySummonerView, descriptionLabel, summonerRegisterButton]

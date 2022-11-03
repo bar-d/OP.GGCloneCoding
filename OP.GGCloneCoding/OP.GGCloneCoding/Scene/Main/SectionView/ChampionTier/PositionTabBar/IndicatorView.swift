@@ -2,7 +2,7 @@
 //  IndicatorView.swift
 //  OP.GGCloneCoding
 //
-//  Created by bard on 2022/11/01.
+//  Created by 바드, 수꿍 on 2022/11/01.
 //
 
 import UIKit
