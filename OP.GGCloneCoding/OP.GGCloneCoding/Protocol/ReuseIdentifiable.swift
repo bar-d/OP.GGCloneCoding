@@ -18,3 +18,4 @@ extension ReuseIdentifiable {
 }
 
 extension UICollectionViewCell: ReuseIdentifiable { }
+extension UITableViewCell: ReuseIdentifiable { }
