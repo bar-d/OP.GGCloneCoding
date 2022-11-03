@@ -135,6 +135,7 @@ final class MainViewController: UIViewController {
         setupOtherGamesDelegate()
         setupPatchNoteDelegate()
         setupMySummonerDelegate()
+        setupFavoriteSummonersCellDelegate()
     }
     
     private func setupMySummonerDelegate() {
@@ -145,6 +146,16 @@ final class MainViewController: UIViewController {
         }
         
         cell.setupMySummonerCellDelegate(self)
+    }
+    
+    private func setupFavoriteSummonersCellDelegate() {
+        guard let cell = mainTableView.cellForRow(
+            at: Design.favoriteSummonerCellIndex
+        ) as? FavoriteSummonersCell else {
+            return
+        }
+        
+        cell.setupFavoriteSummonersCellDelegate(self)
     }
 
     private func setupOtherGamesDelegate() {
@@ -192,7 +203,13 @@ extension MainViewController: UIScrollViewDelegate {
     }
 }
 
-extension MainViewController: OtherGamesDelegate, PatchNoteDelegate, MySummonerCellDelegate {
+extension MainViewController: OtherGamesDelegate, PatchNoteDelegate, MySummonerCellDelegate, FavoriteSummonersCellDelegate {
+    func summonerSearchButtonDidTapped() {
+        let summonerSearchViewController = SummonerSearchViewController()
+        
+        present(summonerSearchViewController, animated: true)
+    }
+    
     func searchButtonDidTapped() {
         let summonerRegisterViewController = SummonerRegisterViewController()
         
@@ -260,6 +277,7 @@ private enum Design {
     )
 
     static let mySummonerCellIndex = IndexPath(row: .zero, section: .zero)
-    static let otherGamesCellIndex = IndexPath(row: .zero, section: 7)
+    static let favoriteSummonerCellIndex = IndexPath(row: .zero, section: 1)
     static let patchNoteCellIndex = IndexPath(row: .zero, section: 2)
+    static let otherGamesCellIndex = IndexPath(row: .zero, section: 7)
 }
