@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/10/24.
 //
 
-import SwiftUI
+import UIKit
 
 final class HeaderViewBuilder {
     
@@ -22,6 +22,12 @@ final class HeaderViewBuilder {
     func build() -> HeaderView {
         return headerView
     }
+    
+    func setupConstraintsAutomatic(_ bool: Bool) -> HeaderViewBuilder {
+        headerView.translatesAutoresizingMaskIntoConstraints = bool
+
+        return self
+    }
 
     func setupTitleLabel(with text: String) -> HeaderViewBuilder {
         headerView.setupTitleLabel(with: text)
@@ -35,7 +41,7 @@ final class HeaderViewBuilder {
         return self
     }
     
-    func setupImage(with image: UIImage?, for section: NavigationBarButton) -> HeaderViewBuilder {
+    func setupImage(with image: UIImage?, for section: HeaderViewButton) -> HeaderViewBuilder {
         switch section {
         case .firstLeftButton:
             headerView.setupFirstLeftButtonImage(with: image)
@@ -56,6 +62,7 @@ final class HeaderViewBuilder {
 extension HeaderViewBuilder {
     func setupChampionHeaderView() -> HeaderViewBuilder {
         let builder = self
+            .setupConstraintsAutomatic(false)
             .setupTitleLabel(with: "챔피언 분석")
         
         return builder
@@ -63,6 +70,7 @@ extension HeaderViewBuilder {
     
     func setupCommunityHeaderView() -> HeaderViewBuilder {
         let builder = self
+            .setupConstraintsAutomatic(false)
             .setupTitleLabel(with: "전체")
         
         return builder
@@ -70,23 +78,9 @@ extension HeaderViewBuilder {
     
     func setupSettingHeaderView() -> HeaderViewBuilder {
         let builder = self
+            .setupConstraintsAutomatic(false)
             .setupTitleLabel(with: "설정")
         
         return builder
-    }
-}
-
-// MARK: - Preview
-
-struct ButtonBuilder_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = HeaderView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            view.changeTitleLabelAlpha(with: 1)
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 400, height: 100))
     }
 }
