@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279C28FE7479005EF522 /* ButtonBuilder.swift */; };
 		2033279F28FEA531005EF522 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279E28FEA531005EF522 /* TabBarController.swift */; };
+		20336A2D29150B29001BDF7D /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A2C29150B29001BDF7D /* APIRequest.swift */; };
+		20336A2F29150C14001BDF7D /* URLHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A2E29150C14001BDF7D /* URLHost.swift */; };
+		20336A3129150C2F001BDF7D /* URLPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A3029150C2F001BDF7D /* URLPath.swift */; };
+		20336A3329150C48001BDF7D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A3229150C48001BDF7D /* HTTPMethod.swift */; };
+		20336A3529150C5C001BDF7D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A3429150C5C001BDF7D /* APIError.swift */; };
 		203F0010290BC34600BF95F7 /* OtherGamesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F000F290BC34600BF95F7 /* OtherGamesDelegate.swift */; };
 		203F0012290BD76300BF95F7 /* EmptySummonerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F0011290BD76300BF95F7 /* EmptySummonerView.swift */; };
 		203F0014290BE31100BF95F7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F0013290BE31100BF95F7 /* UIView+Extension.swift */; };
@@ -80,6 +85,11 @@
 /* Begin PBXFileReference section */
 		2033279C28FE7479005EF522 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		2033279E28FEA531005EF522 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		20336A2C29150B29001BDF7D /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		20336A2E29150C14001BDF7D /* URLHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHost.swift; sourceTree = "<group>"; };
+		20336A3029150C2F001BDF7D /* URLPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPath.swift; sourceTree = "<group>"; };
+		20336A3229150C48001BDF7D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		20336A3429150C5C001BDF7D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		203F000F290BC34600BF95F7 /* OtherGamesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherGamesDelegate.swift; sourceTree = "<group>"; };
 		203F0011290BD76300BF95F7 /* EmptySummonerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySummonerView.swift; sourceTree = "<group>"; };
 		203F0013290BE31100BF95F7 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -161,6 +171,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20336A2829150ACA001BDF7D /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				20336A2929150AE2001BDF7D /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		20336A2929150AE2001BDF7D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				20336A2C29150B29001BDF7D /* APIRequest.swift */,
+				20336A2E29150C14001BDF7D /* URLHost.swift */,
+				20336A3029150C2F001BDF7D /* URLPath.swift */,
+				20336A3229150C48001BDF7D /* HTTPMethod.swift */,
+				20336A3429150C5C001BDF7D /* APIError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		203CD71528FC35D40037B457 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +447,7 @@
 		C4EBCC1E28FC242900402617 /* OP.GGCloneCoding */ = {
 			isa = PBXGroup;
 			children = (
+				20336A2829150ACA001BDF7D /* Infrastructure */,
 				C440CCF82901139D008B3C16 /* PreviewHelpers */,
 				203CD71628FC36470037B457 /* Application */,
 				203CD71528FC35D40037B457 /* Resource */,
@@ -572,7 +603,9 @@
 				203F0012290BD76300BF95F7 /* EmptySummonerView.swift in Sources */,
 				C440CD1029017E50008B3C16 /* CellCustomizable.swift in Sources */,
 				C43F3F4A290A71B800B03A04 /* PositionTabBar.swift in Sources */,
+				20336A3529150C5C001BDF7D /* APIError.swift in Sources */,
 				20528ED02902799E003046A3 /* SettingsStickyHeaderView.swift in Sources */,
+				20336A3329150C48001BDF7D /* HTTPMethod.swift in Sources */,
 				C458CAFA29111F44004E6D74 /* SummonerSearchTableHeaderView.swift in Sources */,
 				C4F3DDC52907F5E200137AAC /* MainSection.swift in Sources */,
 				205BC1AD2907EEE4004053F3 /* MainSkinOnSaleView.swift in Sources */,
@@ -589,6 +622,7 @@
 				C440CD03290114E2008B3C16 /* SettingsCell.swift in Sources */,
 				C43F3F45290A70E500B03A04 /* ChampionTierCollectionView.swift in Sources */,
 				2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */,
+				20336A2D29150B29001BDF7D /* APIRequest.swift in Sources */,
 				203F0014290BE31100BF95F7 /* UIView+Extension.swift in Sources */,
 				C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */,
 				205BC1AB2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift in Sources */,
@@ -597,6 +631,7 @@
 				C4F3DDB82907E9F800137AAC /* PatchNoteCell.swift in Sources */,
 				C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */,
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
+				20336A2F29150C14001BDF7D /* URLHost.swift in Sources */,
 				C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */,
 				205BC1A82907ECCF004053F3 /* FavoriteChampionCell.swift in Sources */,
 				C4AC80352913942600C5A550 /* FavoriteSummonerCellDelegate.swift in Sources */,
@@ -616,6 +651,7 @@
 				C4F3DDC72907F7CE00137AAC /* MainStickyHeaderView.swift in Sources */,
 				C4F3DDD32908179600137AAC /* PaddingLabel.swift in Sources */,
 				C406923E29067C3100A4E48D /* HeaderViewButton.swift in Sources */,
+				20336A3129150C2F001BDF7D /* URLPath.swift in Sources */,
 				C458CAF629110B27004E6D74 /* SummonerSearchTableView.swift in Sources */,
 				C458CAFC29112276004E6D74 /* SummonerSearchViewController.swift in Sources */,
 				204A9C37290A7A4500D70FC4 /* UICollectionView+Extension.swift in Sources */,
