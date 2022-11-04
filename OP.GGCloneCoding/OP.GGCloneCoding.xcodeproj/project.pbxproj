@@ -14,6 +14,7 @@
 		20336A3129150C2F001BDF7D /* URLPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A3029150C2F001BDF7D /* URLPath.swift */; };
 		20336A3329150C48001BDF7D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A3229150C48001BDF7D /* HTTPMethod.swift */; };
 		20336A3529150C5C001BDF7D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A3429150C5C001BDF7D /* APIError.swift */; };
+		20336A3729150F2F001BDF7D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A3629150F2F001BDF7D /* APIService.swift */; };
 		203F0010290BC34600BF95F7 /* OtherGamesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F000F290BC34600BF95F7 /* OtherGamesDelegate.swift */; };
 		203F0012290BD76300BF95F7 /* EmptySummonerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F0011290BD76300BF95F7 /* EmptySummonerView.swift */; };
 		203F0014290BE31100BF95F7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F0013290BE31100BF95F7 /* UIView+Extension.swift */; };
@@ -90,6 +91,7 @@
 		20336A3029150C2F001BDF7D /* URLPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPath.swift; sourceTree = "<group>"; };
 		20336A3229150C48001BDF7D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		20336A3429150C5C001BDF7D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		20336A3629150F2F001BDF7D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		203F000F290BC34600BF95F7 /* OtherGamesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherGamesDelegate.swift; sourceTree = "<group>"; };
 		203F0011290BD76300BF95F7 /* EmptySummonerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySummonerView.swift; sourceTree = "<group>"; };
 		203F0013290BE31100BF95F7 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -182,13 +184,22 @@
 		20336A2929150AE2001BDF7D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				20336A3829150FE2001BDF7D /* Common */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		20336A3829150FE2001BDF7D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				20336A3629150F2F001BDF7D /* APIService.swift */,
 				20336A2C29150B29001BDF7D /* APIRequest.swift */,
 				20336A2E29150C14001BDF7D /* URLHost.swift */,
 				20336A3029150C2F001BDF7D /* URLPath.swift */,
 				20336A3229150C48001BDF7D /* HTTPMethod.swift */,
 				20336A3429150C5C001BDF7D /* APIError.swift */,
 			);
-			path = Network;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		203CD71528FC35D40037B457 /* Resource */ = {
@@ -628,6 +639,7 @@
 				205BC1AB2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift in Sources */,
 				C4F3DDBA2907EA3600137AAC /* PatchNoteImageView.swift in Sources */,
 				C458CAF3291106B0004E6D74 /* IndicatorView.swift in Sources */,
+				20336A3729150F2F001BDF7D /* APIService.swift in Sources */,
 				C4F3DDB82907E9F800137AAC /* PatchNoteCell.swift in Sources */,
 				C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */,
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
