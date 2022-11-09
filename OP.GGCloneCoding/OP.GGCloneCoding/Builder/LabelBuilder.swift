@@ -88,6 +88,12 @@ final class LabelBuilder {
         return self
     }
     
+    func setupLayerBackgroundColor(_ color: UIColor?) -> LabelBuilder {
+        label.layer.backgroundColor = color?.cgColor
+        
+        return self
+    }
+    
     func setupClipsToBounds(_ bool: Bool) -> LabelBuilder {
         label.clipsToBounds = bool
         

@@ -73,6 +73,10 @@
 		C458CAFC29112276004E6D74 /* SummonerSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAFB29112276004E6D74 /* SummonerSearchViewController.swift */; };
 		C458CB002911608E004E6D74 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAFF2911608E004E6D74 /* SearchTextField.swift */; };
 		C4AC80352913942600C5A550 /* FavoriteSummonerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC80342913942600C5A550 /* FavoriteSummonerCellDelegate.swift */; };
+		C4AC8067291B680400C5A550 /* SelectedSummonerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC8066291B680400C5A550 /* SelectedSummonerView.swift */; };
+		C4AC8069291B680C00C5A550 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC8068291B680C00C5A550 /* DetailView.swift */; };
+		C4AC806B291B681800C5A550 /* ChampionRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC806A291B681800C5A550 /* ChampionRateView.swift */; };
+		C4AC806D291B682700C5A550 /* SummonerDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC806C291B682700C5A550 /* SummonerDescriptionView.swift */; };
 		C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */; };
 		C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */; };
 		C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC1F28FC242900402617 /* AppDelegate.swift */; };
@@ -158,6 +162,10 @@
 		C458CAFB29112276004E6D74 /* SummonerSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchViewController.swift; sourceTree = "<group>"; };
 		C458CAFF2911608E004E6D74 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		C4AC80342913942600C5A550 /* FavoriteSummonerCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSummonerCellDelegate.swift; sourceTree = "<group>"; };
+		C4AC8066291B680400C5A550 /* SelectedSummonerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSummonerView.swift; sourceTree = "<group>"; };
+		C4AC8068291B680C00C5A550 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		C4AC806A291B681800C5A550 /* ChampionRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionRateView.swift; sourceTree = "<group>"; };
+		C4AC806C291B682700C5A550 /* SummonerDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerDescriptionView.swift; sourceTree = "<group>"; };
 		C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteDelegate.swift; sourceTree = "<group>"; };
 		C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewBuilder.swift; sourceTree = "<group>"; };
 		C4EBCC1C28FC242900402617 /* OP.GGCloneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OP.GGCloneCoding.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -494,6 +502,17 @@
 			path = SummonerSearch;
 			sourceTree = "<group>";
 		};
+		C4AC8065291B67F300C5A550 /* SelectedSummonerView */ = {
+			isa = PBXGroup;
+			children = (
+				C4AC8066291B680400C5A550 /* SelectedSummonerView.swift */,
+				C4AC8068291B680C00C5A550 /* DetailView.swift */,
+				C4AC806A291B681800C5A550 /* ChampionRateView.swift */,
+				C4AC806C291B682700C5A550 /* SummonerDescriptionView.swift */,
+			);
+			path = SelectedSummonerView;
+			sourceTree = "<group>";
+		};
 		C4E505EA28FE91AA00EEA8C8 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
@@ -600,6 +619,7 @@
 				C4F3DDB12907E94F00137AAC /* MySummonerCell.swift */,
 				C458CAEE2910F928004E6D74 /* MySummonerCellDelegate.swift */,
 				203F0011290BD76300BF95F7 /* EmptySummonerView.swift */,
+				C4AC8065291B67F300C5A550 /* SelectedSummonerView */,
 				C458CAE72910C24E004E6D74 /* SummonerRegister */,
 			);
 			path = MySummoner;
@@ -761,6 +781,7 @@
 				C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */,
 				205BC1A82907ECCF004053F3 /* FavoriteChampionCell.swift in Sources */,
 				C4AC80352913942600C5A550 /* FavoriteSummonerCellDelegate.swift in Sources */,
+				C4AC806B291B681800C5A550 /* ChampionRateView.swift in Sources */,
 				C458CAED2910ECAD004E6D74 /* SummonerRegisterViewController.swift in Sources */,
 				C43F3F81290BCCAF00B03A04 /* ChampionImageView.swift in Sources */,
 				C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */,
@@ -771,6 +792,7 @@
 				C43F3F83290BCCBF00B03A04 /* ChampionTierView.swift in Sources */,
 				205BC1AF2907EEF3004053F3 /* ChampionsAndSkinsOnSaleView.swift in Sources */,
 				C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */,
+				C4AC806D291B682700C5A550 /* SummonerDescriptionView.swift in Sources */,
 				C458CAF829110D4F004E6D74 /* SummonerSearchTableViewCell.swift in Sources */,
 				C43F3F43290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift in Sources */,
 				C4F3DDB52907E9AD00137AAC /* FavoriteSummonerCell.swift in Sources */,
@@ -783,12 +805,14 @@
 				C458CAFC29112276004E6D74 /* SummonerSearchViewController.swift in Sources */,
 				204A9C37290A7A4500D70FC4 /* UICollectionView+Extension.swift in Sources */,
 				20336A52291546A3001BDF7D /* SummonerRepository.swift in Sources */,
+				C4AC8069291B680C00C5A550 /* DetailView.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
 				C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */,
 				C43F3F4C290A751100B03A04 /* ChampionTierTableViewCell.swift in Sources */,
 				204600932901180C004A3417 /* PushNotificationCell.swift in Sources */,
 				20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */,
 				C440CD01290114D1008B3C16 /* SettingsViewController.swift in Sources */,
+				C4AC8067291B680400C5A550 /* SelectedSummonerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
