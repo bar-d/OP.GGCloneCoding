@@ -64,7 +64,7 @@
 		C458CAE62910C239004E6D74 /* SummonerRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAE52910C239004E6D74 /* SummonerRegisterView.swift */; };
 		C458CAE92910C28F004E6D74 /* SummonerRegisterTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAE82910C28F004E6D74 /* SummonerRegisterTopView.swift */; };
 		C458CAED2910ECAD004E6D74 /* SummonerRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAEC2910ECAD004E6D74 /* SummonerRegisterViewController.swift */; };
-		C458CAEF2910F928004E6D74 /* MySummonerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAEE2910F928004E6D74 /* MySummonerCellDelegate.swift */; };
+		C458CAEF2910F928004E6D74 /* UnselectedSummonerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAEE2910F928004E6D74 /* UnselectedSummonerViewDelegate.swift */; };
 		C458CAF12910FA7A004E6D74 /* SummonerRegisterTopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF02910FA7A004E6D74 /* SummonerRegisterTopViewDelegate.swift */; };
 		C458CAF3291106B0004E6D74 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF2291106B0004E6D74 /* IndicatorView.swift */; };
 		C458CAF629110B27004E6D74 /* SummonerSearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAF529110B27004E6D74 /* SummonerSearchTableView.swift */; };
@@ -77,6 +77,7 @@
 		C4AC8069291B680C00C5A550 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC8068291B680C00C5A550 /* DetailView.swift */; };
 		C4AC806B291B681800C5A550 /* ChampionRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC806A291B681800C5A550 /* ChampionRateView.swift */; };
 		C4AC806D291B682700C5A550 /* SummonerDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC806C291B682700C5A550 /* SummonerDescriptionView.swift */; };
+		C4AC807A291B88F200C5A550 /* UnselectedSummonerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC8079291B88F200C5A550 /* UnselectedSummonerView.swift */; };
 		C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */; };
 		C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */; };
 		C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC1F28FC242900402617 /* AppDelegate.swift */; };
@@ -153,7 +154,7 @@
 		C458CAE52910C239004E6D74 /* SummonerRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRegisterView.swift; sourceTree = "<group>"; };
 		C458CAE82910C28F004E6D74 /* SummonerRegisterTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRegisterTopView.swift; sourceTree = "<group>"; };
 		C458CAEC2910ECAD004E6D74 /* SummonerRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRegisterViewController.swift; sourceTree = "<group>"; };
-		C458CAEE2910F928004E6D74 /* MySummonerCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySummonerCellDelegate.swift; sourceTree = "<group>"; };
+		C458CAEE2910F928004E6D74 /* UnselectedSummonerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectedSummonerViewDelegate.swift; sourceTree = "<group>"; };
 		C458CAF02910FA7A004E6D74 /* SummonerRegisterTopViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRegisterTopViewDelegate.swift; sourceTree = "<group>"; };
 		C458CAF2291106B0004E6D74 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		C458CAF529110B27004E6D74 /* SummonerSearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchTableView.swift; sourceTree = "<group>"; };
@@ -166,6 +167,7 @@
 		C4AC8068291B680C00C5A550 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		C4AC806A291B681800C5A550 /* ChampionRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionRateView.swift; sourceTree = "<group>"; };
 		C4AC806C291B682700C5A550 /* SummonerDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerDescriptionView.swift; sourceTree = "<group>"; };
+		C4AC8079291B88F200C5A550 /* UnselectedSummonerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectedSummonerView.swift; sourceTree = "<group>"; };
 		C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteDelegate.swift; sourceTree = "<group>"; };
 		C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewBuilder.swift; sourceTree = "<group>"; };
 		C4EBCC1C28FC242900402617 /* OP.GGCloneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OP.GGCloneCoding.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -513,6 +515,16 @@
 			path = SelectedSummonerView;
 			sourceTree = "<group>";
 		};
+		C4AC8078291B88DB00C5A550 /* UnselectedSummonerView */ = {
+			isa = PBXGroup;
+			children = (
+				203F0011290BD76300BF95F7 /* EmptySummonerView.swift */,
+				C4AC8079291B88F200C5A550 /* UnselectedSummonerView.swift */,
+				C458CAEE2910F928004E6D74 /* UnselectedSummonerViewDelegate.swift */,
+			);
+			path = UnselectedSummonerView;
+			sourceTree = "<group>";
+		};
 		C4E505EA28FE91AA00EEA8C8 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,8 +629,7 @@
 			isa = PBXGroup;
 			children = (
 				C4F3DDB12907E94F00137AAC /* MySummonerCell.swift */,
-				C458CAEE2910F928004E6D74 /* MySummonerCellDelegate.swift */,
-				203F0011290BD76300BF95F7 /* EmptySummonerView.swift */,
+				C4AC8078291B88DB00C5A550 /* UnselectedSummonerView */,
 				C4AC8065291B67F300C5A550 /* SelectedSummonerView */,
 				C458CAE72910C24E004E6D74 /* SummonerRegister */,
 			);
@@ -751,7 +762,7 @@
 				C4F3DDC52907F5E200137AAC /* MainSection.swift in Sources */,
 				205BC1AD2907EEE4004053F3 /* MainSkinOnSaleView.swift in Sources */,
 				C458CB002911608E004E6D74 /* SearchTextField.swift in Sources */,
-				C458CAEF2910F928004E6D74 /* MySummonerCellDelegate.swift in Sources */,
+				C458CAEF2910F928004E6D74 /* UnselectedSummonerViewDelegate.swift in Sources */,
 				C4F3DDCE29080F5900137AAC /* TodayTMICell.swift in Sources */,
 				2033279F28FEA531005EF522 /* TabBarController.swift in Sources */,
 				C458CAF12910FA7A004E6D74 /* SummonerRegisterTopViewDelegate.swift in Sources */,
@@ -806,6 +817,7 @@
 				204A9C37290A7A4500D70FC4 /* UICollectionView+Extension.swift in Sources */,
 				20336A52291546A3001BDF7D /* SummonerRepository.swift in Sources */,
 				C4AC8069291B680C00C5A550 /* DetailView.swift in Sources */,
+				C4AC807A291B88F200C5A550 /* UnselectedSummonerView.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
 				C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */,
 				C43F3F4C290A751100B03A04 /* ChampionTierTableViewCell.swift in Sources */,
