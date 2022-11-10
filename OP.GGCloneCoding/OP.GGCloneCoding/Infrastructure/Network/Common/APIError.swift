@@ -15,10 +15,10 @@ enum APIError: LocalizedError {
     case emptyData
     case failedToParse
 
-    var errorDescription: String {
+    var errorDescription: String? {
         switch self {
         case .unknownError(let error):
-            return "Unknown error \(error.localizedDescription) occured."
+            return "Unknown error: \(error.localizedDescription)"
         case .invalidRequest:
             return "URLRequest is not valid."
         case .invalidResponse:
