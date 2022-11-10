@@ -10,6 +10,11 @@ import UIKit
 final class SummonerRegisterViewController: UIViewController {
     
     // MARK: Properties
+
+    private lazy var viewModel = SummonerRankViewModel(output: .init(
+        dismissController: dismissController,
+        showErrorAlert: showErrorAlert
+    ))
     
     private let summonerRegisterView = SummonerRegisterView()
 
@@ -61,6 +66,14 @@ final class SummonerRegisterViewController: UIViewController {
     private func setupDelegate() {
         summonerRegisterView.setupSummonerRegisterTopViewDelegate(self)
         summonerRegisterView.setupSummonerRegisterViewDelegate(self)
+    }
+
+    private func dismissController() {
+        dismiss(animated: true)
+    }
+
+    private func showErrorAlert(from alert: UIAlertController) {
+        present(alert, animated: true)
     }
 }
 

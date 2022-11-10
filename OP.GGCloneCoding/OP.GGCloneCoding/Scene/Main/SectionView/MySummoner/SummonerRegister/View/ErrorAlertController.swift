@@ -9,11 +9,14 @@ import UIKit
 
 enum ErrorAlertController {
     case nonexistentSummoner
+    case unknownError(_ error: APIError?)
 
     var value: UIAlertController {
         switch self {
         case .nonexistentSummoner:
             return NonexistentSummonerAlertViewModel().makeAlertController()
+        case .unknownError(let error):
+            return UnknownErrorAlertViewModel().makeAlertController(error: error)
         }
     }
 }
@@ -48,6 +51,39 @@ extension ErrorAlertController {
     }
 
     struct NonexistentSummonerAlertActionViewModel: UIAlertActionViewModel {
+        var title: String? = "확인"
+        var style: UIAlertAction.Style = .default
+    }
+
+    struct UnknownErrorAlertViewModel: AlertViewModel {
+        var alertController: UIAlertControllerViewModel = UnknownErrorAlertController()
+        var alertAction: UIAlertActionViewModel = UnknownErrorAlertActionViewModel()
+
+        func makeAlertController(error: APIError?) -> UIAlertController {
+            let alert = UIAlertController(
+                title: alertController.title,
+                message: error?.localizedDescription,
+                preferredStyle: alertController.preferredStyle
+            )
+
+            let action = UIAlertAction(
+                title: alertAction.title,
+                style: alertAction.style
+            )
+
+            alert.addAction(action)
+
+            return alert
+        }
+    }
+
+    struct UnknownErrorAlertController: UIAlertControllerViewModel {
+        var title: String? = "에러 발생"
+        var message: String?
+        var preferredStyle: UIAlertController.Style = .alert
+    }
+
+    struct UnknownErrorAlertActionViewModel: UIAlertActionViewModel {
         var title: String? = "확인"
         var style: UIAlertAction.Style = .default
     }
