@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/04.
 //
 
-struct Summoner: Decodable {
+struct Summoner: Codable {
     let id: String
     let accountID: String
     let puuid: String

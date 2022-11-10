@@ -47,6 +47,12 @@ final class MainViewController: UIViewController {
         setupMainTableViewHeightConstraint()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        mainTableView.reloadData()
+    }
+
     // MARK: - Methods
 
     private func setupUI() {

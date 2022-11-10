@@ -36,15 +36,7 @@ final class MySummonerCell: UITableViewCell {
     }
     
     // MARK: - Methods
-    
-    func setupUnselectedSummonerViewHidden(_ bool: Bool) {
-        unselectedSummonerView.isHidden = bool
-    }
-    
-    func setupSelectedSummonerViewHidden(_ bool: Bool) {
-        selectedSummoenrView.isHidden = bool
-    }
-    
+
     func setupUnselectedSummonerViewDelegate(_ delegate: UnselectedSummonerViewDelegate) {
         unselectedSummonerView.setupUnselectedSummonerViewDelegate(delegate)
     }
@@ -55,8 +47,21 @@ final class MySummonerCell: UITableViewCell {
         setupConstraints()
         setupBackgroundColor(Design.cellBackgroundColor)
         setupSelectionStyle(.none)
-        setupUnselectedSummonerViewHidden(false)
-        setupSelectedSummonerViewHidden(true)
+        checkSummonerRegistrationForHidingView()
+    }
+
+    private func checkSummonerRegistrationForHidingView() {
+        guard let archivedData = UserDefaults.standard.object(
+            forKey: "MySummonerInformation"
+        ) as? Data else {
+            setupUnselectedSummonerViewHidden(false)
+            setupSelectedSummonerViewHidden(true)
+
+            return
+        }
+
+        setupUnselectedSummonerViewHidden(true)
+        setupSelectedSummonerViewHidden(false)
     }
     
     private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
@@ -64,10 +69,10 @@ final class MySummonerCell: UITableViewCell {
     }
     
     private func setupSubviews() {
-        [unselectedSummonerView, selectedSummoenrView]
-            .forEach { emptyView.addSubview($0) }
         [emptyView]
             .forEach { addSubview($0) }
+        [unselectedSummonerView, selectedSummoenrView]
+            .forEach { emptyView.addSubview($0) }
     }
     
     private func setupConstraints() {
@@ -109,6 +114,14 @@ final class MySummonerCell: UITableViewCell {
     
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {
         selectionStyle = style
+    }
+
+    private func setupUnselectedSummonerViewHidden(_ bool: Bool) {
+        unselectedSummonerView.isHidden = bool
+    }
+
+    private func setupSelectedSummonerViewHidden(_ bool: Bool) {
+        selectedSummoenrView.isHidden = bool
     }
 }
 
