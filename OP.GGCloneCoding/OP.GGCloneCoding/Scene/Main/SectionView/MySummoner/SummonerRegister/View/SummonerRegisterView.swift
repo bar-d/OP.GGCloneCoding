@@ -10,7 +10,14 @@ import UIKit
 final class SummonerRegisterView: UIView {
     
     // MARK: Properties
-    
+
+    private lazy var viewModel = SummonerSearchViewModel(output: .init(
+        dismissController: dismissController,
+        showErrorAlert: showErrorAlert
+    ))
+
+    private weak var summonerRegisterViewDelegate: SummonerRegisterViewDelegate?
+
     private let summonerRegisterTopView = SummonerRegisterTopView()
     
     private let logoImageView = ImageViewBuilder()
@@ -56,6 +63,7 @@ final class SummonerRegisterView: UIView {
         super.init(frame: frame)
         
         commonInit()
+
     }
     
     required init?(coder: NSCoder) {
@@ -70,10 +78,23 @@ final class SummonerRegisterView: UIView {
         summonerRegisterTopView.setupSummonerRegisterTopViewDelegate(delegate)
     }
     
+    func setupSummonerRegisterViewDelegate(_ delegate: SummonerRegisterViewDelegate) {
+        summonerRegisterViewDelegate = delegate
+    }
+
+    private func dismissController() {
+        summonerRegisterViewDelegate?.dismissController()
+    }
+
+    private func showErrorAlert(from alert: UIAlertController) {
+        summonerRegisterViewDelegate?.showAlert(from: alert)
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
+        setupCompletionButton()
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -146,6 +167,18 @@ final class SummonerRegisterView: UIView {
             completeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             completeButton.heightAnchor.constraint(equalTo: textFieldLayer.heightAnchor)
         ])
+    }
+
+    private func setupCompletionButton() {
+        completeButton.addTarget(self, action: #selector(didTapCompleteButton), for: .touchUpInside)
+    }
+
+    @objc private func didTapCompleteButton() {
+        guard let text = searchTextField.text else {
+            return
+        }
+
+        viewModel.input.completeButtonDidTap(text)
     }
 }
 

@@ -12,7 +12,7 @@ final class SummonerRegisterViewController: UIViewController {
     // MARK: Properties
     
     private let summonerRegisterView = SummonerRegisterView()
-    
+
     // MARK: - Initializers
     
     init() {
@@ -28,13 +28,13 @@ final class SummonerRegisterViewController: UIViewController {
     }
     
     // MARK: - Methods
-    
+
     func setupUI() {
         setupSubviews()
         setupConstraints()
         setupModalPresentationStyle(.fullScreen)
         setupBackgroundColor(UIColor(named: "PrimitiveColor") ?? .systemBackground)
-        summonerRegisterView.setupSummonerRegisterTopViewDelegate(self)
+        setupDelegate()
     }
     
     private func setupModalPresentationStyle(_ style: UIModalPresentationStyle) {
@@ -57,6 +57,11 @@ final class SummonerRegisterViewController: UIViewController {
     private func setupBackgroundColor(_ color: UIColor) {
         view.backgroundColor = color
     }
+
+    private func setupDelegate() {
+        summonerRegisterView.setupSummonerRegisterTopViewDelegate(self)
+        summonerRegisterView.setupSummonerRegisterViewDelegate(self)
+    }
 }
 
 // MARK: - Extension
@@ -64,5 +69,15 @@ final class SummonerRegisterViewController: UIViewController {
 extension SummonerRegisterViewController: SummonerRegisterTopViewDelegate {
     func cancelButtonDidTapped() {
         dismiss(animated: true)
+    }
+}
+
+extension SummonerRegisterViewController: SummonerRegisterViewDelegate {
+    func dismissController() {
+        dismiss(animated: true)
+    }
+    
+    func showAlert(from alert: UIAlertController) {
+        present(alert, animated: true)
     }
 }
