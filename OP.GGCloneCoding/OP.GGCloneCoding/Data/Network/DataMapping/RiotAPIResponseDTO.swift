@@ -29,6 +29,38 @@ extension RiotAPIResponseDTO {
             case summonerLevel
         }
     }
+
+    struct LeagueEntryDTO: Decodable {
+        let leagueID: String
+        let summonerID: String
+        let summonerName: String
+        let queueType: String
+        let tier: String
+        let rank: String
+        let leaguePoints: Int
+        let wins: Int
+        let losses: Int
+        let hotStreak: Bool
+        let veteran: Bool
+        let freshBlood: Bool
+        let inactive: Bool
+
+        private enum CodingKeys: String, CodingKey {
+            case leagueID = "leagueId"
+            case summonerID = "summonerId"
+            case summonerName
+            case queueType
+            case tier
+            case rank
+            case leaguePoints
+            case wins
+            case losses
+            case hotStreak
+            case veteran
+            case freshBlood
+            case inactive
+        }
+    }
 }
 
 extension RiotAPIResponseDTO.SummonerDTO {
@@ -41,6 +73,19 @@ extension RiotAPIResponseDTO.SummonerDTO {
             profileIconID: profileIconID,
             revisionDate: revisionDate,
             summonerLevel: summonerLevel
+        )
+    }
+}
+
+extension RiotAPIResponseDTO.LeagueEntryDTO {
+    func toDomain() -> SummonerRank? {
+        return .init(
+            queueType: queueType,
+            tier: tier,
+            rank: rank,
+            leaguePoints: leaguePoints,
+            wins: wins,
+            losses: losses
         )
     }
 }
