@@ -19,7 +19,7 @@ extension RiotAPIResponseDTO {
         let revisionDate: Int
         let summonerLevel: Int
 
-        private enum CodingKeys: String, CodingKey  {
+        private enum CodingKeys: String, CodingKey {
             case id
             case accountID = "accountId"
             case puuid

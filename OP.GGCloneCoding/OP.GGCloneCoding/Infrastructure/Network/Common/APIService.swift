@@ -8,7 +8,10 @@
 import Foundation
 
 protocol APIService {
-    func execute<T: APIRequest>(_ request: T, completion: @escaping (Result<T.APIResponse, APIError>) -> Void)
+    func execute<T: APIRequest>(
+        _ request: T,
+        completion: @escaping (Result<T.APIResponse, APIError>) -> Void
+    )
 }
 
 extension APIService {

@@ -44,6 +44,12 @@
 		205BC1AF2907EEF3004053F3 /* ChampionsAndSkinsOnSaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BC1AE2907EEF3004053F3 /* ChampionsAndSkinsOnSaleView.swift */; };
 		205BC1B6290828FB004053F3 /* OtherGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BC1B5290828FB004053F3 /* OtherGamesCell.swift */; };
 		20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */; };
+		20C76694291CC30500E94133 /* RiotSummonerRankAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C76693291CC30500E94133 /* RiotSummonerRankAPIRequest.swift */; };
+		20C76696291CC9F600E94133 /* SummonerRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C76695291CC9F600E94133 /* SummonerRank.swift */; };
+		20C76698291CCD7900E94133 /* SummonerRankRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C76697291CCD7900E94133 /* SummonerRankRepository.swift */; };
+		20C7669A291CCDAA00E94133 /* DefaultSummonerRankRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C76699291CCDAA00E94133 /* DefaultSummonerRankRepository.swift */; };
+		20C7669C291CCE7100E94133 /* SummonerRankUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7669B291CCE7100E94133 /* SummonerRankUseCase.swift */; };
+		20C7669E291CCF1700E94133 /* SummonerRankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7669D291CCF1700E94133 /* SummonerRankViewModel.swift */; };
 		C406923B2906759D00A4E48D /* HeaderViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */; };
 		C406923E29067C3100A4E48D /* HeaderViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923D29067C3100A4E48D /* HeaderViewButton.swift */; };
 		C41BF02428FD4D90008D0BD8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C41BF02328FD4D90008D0BD8 /* Lottie */; };
@@ -139,6 +145,12 @@
 		205BC1AE2907EEF3004053F3 /* ChampionsAndSkinsOnSaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionsAndSkinsOnSaleView.swift; sourceTree = "<group>"; };
 		205BC1B5290828FB004053F3 /* OtherGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherGamesCell.swift; sourceTree = "<group>"; };
 		20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
+		20C76693291CC30500E94133 /* RiotSummonerRankAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiotSummonerRankAPIRequest.swift; sourceTree = "<group>"; };
+		20C76695291CC9F600E94133 /* SummonerRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRank.swift; sourceTree = "<group>"; };
+		20C76697291CCD7900E94133 /* SummonerRankRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRankRepository.swift; sourceTree = "<group>"; };
+		20C76699291CCDAA00E94133 /* DefaultSummonerRankRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSummonerRankRepository.swift; sourceTree = "<group>"; };
+		20C7669B291CCE7100E94133 /* SummonerRankUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRankUseCase.swift; sourceTree = "<group>"; };
+		20C7669D291CCF1700E94133 /* SummonerRankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRankViewModel.swift; sourceTree = "<group>"; };
 		C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewBuilder.swift; sourceTree = "<group>"; };
 		C406923D29067C3100A4E48D /* HeaderViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewButton.swift; sourceTree = "<group>"; };
 		C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingIndicator.json; sourceTree = "<group>"; };
@@ -253,6 +265,7 @@
 				20336A3B29151062001BDF7D /* RiotAPIService.swift */,
 				20336A3E29152D78001BDF7D /* RiotAPIRequest.swift */,
 				20336A4529154508001BDF7D /* RiotSummonerAPIRequest.swift */,
+				20C76693291CC30500E94133 /* RiotSummonerRankAPIRequest.swift */,
 			);
 			path = RiotAPI;
 			sourceTree = "<group>";
@@ -286,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				20336A4829154571001BDF7D /* DefaultSummonerRepostiory.swift */,
+				20C76699291CCDAA00E94133 /* DefaultSummonerRankRepository.swift */,
 				20336A5529154928001BDF7D /* DTOError.swift */,
 			);
 			path = Repositories;
@@ -305,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				20336A4F29154668001BDF7D /* Summoner.swift */,
+				20C76695291CC9F600E94133 /* SummonerRank.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -313,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				20336A5329154723001BDF7D /* SummonerSearchUseCase.swift */,
+				20C7669B291CCE7100E94133 /* SummonerRankUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -329,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				20336A51291546A3001BDF7D /* SummonerRepository.swift */,
+				20C76697291CCD7900E94133 /* SummonerRankRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -449,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				202B4C3F291B70D70078A03E /* SummonerRegisterViewModel.swift */,
+				20C7669D291CCF1700E94133 /* SummonerRankViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -834,14 +852,17 @@
 				C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */,
 				20336A4629154508001BDF7D /* RiotSummonerAPIRequest.swift in Sources */,
 				205BC1AB2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift in Sources */,
+				20C76696291CC9F600E94133 /* SummonerRank.swift in Sources */,
 				C4F3DDBA2907EA3600137AAC /* PatchNoteImageView.swift in Sources */,
 				C458CAF3291106B0004E6D74 /* IndicatorView.swift in Sources */,
 				20336A3729150F2F001BDF7D /* APIService.swift in Sources */,
 				C4F3DDB82907E9F800137AAC /* PatchNoteCell.swift in Sources */,
 				C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */,
+				20C7669E291CCF1700E94133 /* SummonerRankViewModel.swift in Sources */,
 				202B4C42291B71860078A03E /* ErrorAlertController.swift in Sources */,
 				20336A4929154571001BDF7D /* DefaultSummonerRepostiory.swift in Sources */,
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
+				20C76694291CC30500E94133 /* RiotSummonerRankAPIRequest.swift in Sources */,
 				20336A442915444B001BDF7D /* RiotAPIResponseDTO.swift in Sources */,
 				20336A2F29150C14001BDF7D /* URLHost.swift in Sources */,
 				C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */,
@@ -849,6 +870,7 @@
 				205BC1A82907ECCF004053F3 /* FavoriteChampionCell.swift in Sources */,
 				C4AC80352913942600C5A550 /* FavoriteSummonerCellDelegate.swift in Sources */,
 				C4AC806B291B681800C5A550 /* ChampionRateView.swift in Sources */,
+				20C76698291CCD7900E94133 /* SummonerRankRepository.swift in Sources */,
 				C458CAED2910ECAD004E6D74 /* SummonerRegisterViewController.swift in Sources */,
 				C43F3F81290BCCAF00B03A04 /* ChampionImageView.swift in Sources */,
 				C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */,
@@ -879,7 +901,9 @@
 				C43F3F4C290A751100B03A04 /* ChampionTierTableViewCell.swift in Sources */,
 				204600932901180C004A3417 /* PushNotificationCell.swift in Sources */,
 				20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */,
+				20C7669A291CCDAA00E94133 /* DefaultSummonerRankRepository.swift in Sources */,
 				C440CD01290114D1008B3C16 /* SettingsViewController.swift in Sources */,
+				20C7669C291CCE7100E94133 /* SummonerRankUseCase.swift in Sources */,
 				C4AC8067291B680400C5A550 /* SelectedSummonerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
