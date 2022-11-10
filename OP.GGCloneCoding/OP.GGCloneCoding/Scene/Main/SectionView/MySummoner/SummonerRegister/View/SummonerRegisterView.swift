@@ -12,7 +12,7 @@ final class SummonerRegisterView: UIView {
     // MARK: Properties
 
     private lazy var viewModel = SummonerSearchViewModel(output: .init(
-        dismissController: dismissController,
+        fetchSummonerRankInformation: fetchSummonerRankInformation(encryptedID:),
         showErrorAlert: showErrorAlert
     ))
 
@@ -82,8 +82,8 @@ final class SummonerRegisterView: UIView {
         summonerRegisterViewDelegate = delegate
     }
 
-    private func dismissController() {
-        summonerRegisterViewDelegate?.dismissController()
+    private func fetchSummonerRankInformation(encryptedID: String) {
+        summonerRegisterViewDelegate?.fetchSummonerRankInformation(encryptedID: encryptedID)
     }
 
     private func showErrorAlert(from alert: UIAlertController) {

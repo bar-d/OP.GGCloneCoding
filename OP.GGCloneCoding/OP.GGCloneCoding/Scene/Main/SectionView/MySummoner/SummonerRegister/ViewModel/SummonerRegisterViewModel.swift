@@ -24,7 +24,7 @@ struct SummonerSearchViewModel {
                     let archivedData = try? JSONEncoder().encode(summoner)
 
                     UserDefaults.standard.set(archivedData, forKey: "MySummonerInformation")
-                    output.dismissController()
+                    output.fetchSummonerRankInformation(summoner.id)
                 case .failure(_):
                     output.showErrorAlert(ErrorAlertController.nonexistentSummoner.value)
                 }
@@ -39,7 +39,7 @@ extension SummonerSearchViewModel {
     }
 
     struct Output {
-        let dismissController: () -> Void
+        let fetchSummonerRankInformation: (String) -> Void
         let showErrorAlert: (UIAlertController) -> Void
     }
 }

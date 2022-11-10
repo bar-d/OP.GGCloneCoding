@@ -8,6 +8,6 @@
 import UIKit
 
 protocol SummonerRegisterViewDelegate: AnyObject {
-    func dismissController()
+    func fetchSummonerRankInformation(encryptedID: String)
     func showAlert(from alert: UIAlertController)
 }

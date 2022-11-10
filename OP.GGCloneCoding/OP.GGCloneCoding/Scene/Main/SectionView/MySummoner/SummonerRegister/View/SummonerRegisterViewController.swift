@@ -73,8 +73,8 @@ extension SummonerRegisterViewController: SummonerRegisterTopViewDelegate {
 }
 
 extension SummonerRegisterViewController: SummonerRegisterViewDelegate {
-    func dismissController() {
-        dismiss(animated: true)
+    func fetchSummonerRankInformation(encryptedID: String) {
+        viewModel.input.fetchSummonerRankInformation(encryptedID)
     }
     
     func showAlert(from alert: UIAlertController) {
