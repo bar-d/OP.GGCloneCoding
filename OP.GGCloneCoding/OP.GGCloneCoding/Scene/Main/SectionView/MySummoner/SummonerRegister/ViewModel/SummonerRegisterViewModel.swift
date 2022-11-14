@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct SummonerSearchViewModel {
+struct SummonerSearchViewModel: ViewModel {
     private let summonerSearchUsecase: SummonerSearchUseCase = SummonerSearchUseCase()
     private let output: Output
     lazy var input = Input(completeButtonDidTap: completeButtonDidTap(id:))

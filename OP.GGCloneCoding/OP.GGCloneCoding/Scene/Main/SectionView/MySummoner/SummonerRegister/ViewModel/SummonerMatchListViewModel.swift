@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct SummonerMatchListViewModel {
+struct SummonerMatchListViewModel: ViewModel {
     private let summonerMatchListUsecase: SummonerMatchListUseCase = SummonerMatchListUseCase()
     private let output: Output
     lazy var input = Input(fetchSummonerMatchListInformation: fetchSummonerMatchListInformation(puuid:))

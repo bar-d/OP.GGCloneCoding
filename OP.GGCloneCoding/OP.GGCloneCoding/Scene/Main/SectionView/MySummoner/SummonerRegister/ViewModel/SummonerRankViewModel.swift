@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct SummonerRankViewModel {
+struct SummonerRankViewModel: ViewModel {
     private let summonerRankUsecase: SummonerRankUseCase = SummonerRankUseCase()
     private let output: Output
     lazy var input = Input(fetchSummonerRankInformation: fetchSummonerRankInformation(encryptedID:))
