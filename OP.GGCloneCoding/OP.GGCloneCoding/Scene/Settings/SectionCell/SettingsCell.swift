@@ -35,7 +35,6 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
         super.init(style: .default, reuseIdentifier: nil)
         
         commonInit()
-        setupTitleAttributes(font: font, color: color)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
