@@ -7,11 +7,14 @@
 
 enum URLHost {
     case riotAPI
+    case riotAsiaAPI
 
     var url: String {
         switch self {
         case .riotAPI:
             return "https://kr.api.riotgames.com"
+        case .riotAsiaAPI:
+            return "https://asia.api.riotgames.com"
         }
     }
 }
