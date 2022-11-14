@@ -13,6 +13,7 @@ final class SummonerRegisterView: UIView {
 
     private lazy var viewModel = SummonerSearchViewModel(output: .init(
         fetchSummonerRankInformation: fetchSummonerRankInformation(encryptedID:),
+        fetchSummonerMatchListInformation: fetchSummonerMatchListInformation(puuid:),
         showErrorAlert: showErrorAlert
     ))
 
@@ -84,6 +85,10 @@ final class SummonerRegisterView: UIView {
 
     private func fetchSummonerRankInformation(encryptedID: String) {
         summonerRegisterViewDelegate?.fetchSummonerRankInformation(encryptedID: encryptedID)
+    }
+
+    private func fetchSummonerMatchListInformation(puuid: String) {
+        summonerRegisterViewDelegate?.fetchSummonerMatchListInformation(puuid: puuid)
     }
 
     private func showErrorAlert(from alert: UIAlertController) {

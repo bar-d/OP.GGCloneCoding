@@ -11,8 +11,12 @@ final class SummonerRegisterViewController: UIViewController {
     
     // MARK: Properties
 
-    private lazy var viewModel = SummonerRankViewModel(output: .init(
-        dismissController: dismissController,
+    private lazy var summonerRankViewModel = SummonerRankViewModel(output: .init(
+        showErrorAlert: showErrorAlert
+    ))
+
+    private lazy var summonerMatchListViewModel = SummonerMatchListViewModel(output: .init(
+        fetchMatchInformation: fetchMatchInformation,
         showErrorAlert: showErrorAlert
     ))
     
@@ -90,6 +94,11 @@ extension SummonerRegisterViewController: SummonerRegisterViewDelegate {
         viewModel.input.fetchSummonerRankInformation(encryptedID)
     }
     
+
+    func fetchSummonerMatchListInformation(puuid: String) {
+        summonerMatchListViewModel.input.fetchSummonerMatchListInformation(puuid)
+    }
+
     func showAlert(from alert: UIAlertController) {
         present(alert, animated: true)
     }

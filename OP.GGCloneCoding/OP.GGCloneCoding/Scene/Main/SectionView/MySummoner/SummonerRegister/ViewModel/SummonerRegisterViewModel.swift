@@ -25,6 +25,7 @@ struct SummonerSearchViewModel {
 
                     UserDefaults.standard.set(archivedData, forKey: "MySummonerInformation")
                     output.fetchSummonerRankInformation(summoner.id)
+                    output.fetchSummonerMatchListInformation(summoner.puuid)
                 case .failure(_):
                     output.showErrorAlert(ErrorAlertController.nonexistentSummoner.value)
                 }
@@ -40,6 +41,7 @@ extension SummonerSearchViewModel {
 
     struct Output {
         let fetchSummonerRankInformation: (String) -> Void
+        let fetchSummonerMatchListInformation: (String) -> Void
         let showErrorAlert: (UIAlertController) -> Void
     }
 }

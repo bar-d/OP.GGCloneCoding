@@ -9,5 +9,6 @@ import UIKit
 
 protocol SummonerRegisterViewDelegate: AnyObject {
     func fetchSummonerRankInformation(encryptedID: String)
+    func fetchSummonerMatchListInformation(puuid: String)
     func showAlert(from alert: UIAlertController)
 }
