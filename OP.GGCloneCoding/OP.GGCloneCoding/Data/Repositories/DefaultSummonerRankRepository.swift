@@ -37,12 +37,6 @@ extension DefaultSummonerRankRepository {
                     array.append(summonerRankInformation)
                 }
 
-                guard let summonerRankInformation = response.toDomain() else {
-                    completion(.failure(DTOError.invalidTransformation))
-
-                    return
-                }
-
                 completion(.success(array))
             case .failure(let error):
                 completion(.failure(error))
