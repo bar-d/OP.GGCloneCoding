@@ -11,54 +11,27 @@ struct RiotAPIResponseDTO: Decodable { }
 
 extension RiotAPIResponseDTO {
     struct SummonerDTO: Decodable {
-        let id: String
-        let accountID: String
-        let puuid: String
-        let name: String
-        let profileIconID: Int
-        let revisionDate: Int
-        let summonerLevel: Int
+        let id, accountID, puuid, name: String
+        let profileIconID, revisionDate, summonerLevel: Int
 
         private enum CodingKeys: String, CodingKey {
             case id
             case accountID = "accountId"
-            case puuid
-            case name
+            case puuid, name
             case profileIconID = "profileIconId"
-            case revisionDate
-            case summonerLevel
+            case revisionDate, summonerLevel
         }
     }
 
     struct LeagueEntryDTO: Decodable {
-        let leagueID: String
-        let summonerID: String
-        let summonerName: String
-        let queueType: String
-        let tier: String
-        let rank: String
-        let leaguePoints: Int
-        let wins: Int
-        let losses: Int
-        let hotStreak: Bool
-        let veteran: Bool
-        let freshBlood: Bool
-        let inactive: Bool
+        let leagueID, summonerID, summonerName, queueType, tier, rank: String
+        let leaguePoints, wins, losses: Int
+        let hotStreak, veteran, freshBlood, inactive: Bool
 
         private enum CodingKeys: String, CodingKey {
             case leagueID = "leagueId"
             case summonerID = "summonerId"
-            case summonerName
-            case queueType
-            case tier
-            case rank
-            case leaguePoints
-            case wins
-            case losses
-            case hotStreak
-            case veteran
-            case freshBlood
-            case inactive
+            case summonerName, queueType, tier, rank, leaguePoints, wins, losses, hotStreak, veteran, freshBlood, inactive
         }
     }
 }

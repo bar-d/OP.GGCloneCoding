@@ -91,9 +91,8 @@ extension SummonerRegisterViewController: SummonerRegisterTopViewDelegate {
 
 extension SummonerRegisterViewController: SummonerRegisterViewDelegate {
     func fetchSummonerRankInformation(encryptedID: String) {
-        viewModel.input.fetchSummonerRankInformation(encryptedID)
+        summonerRankViewModel.input.fetchSummonerRankInformation(encryptedID)
     }
-    
 
     func fetchSummonerMatchListInformation(puuid: String) {
         summonerMatchListViewModel.input.fetchSummonerMatchListInformation(puuid)

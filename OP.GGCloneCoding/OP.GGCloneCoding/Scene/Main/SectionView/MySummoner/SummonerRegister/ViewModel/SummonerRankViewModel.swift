@@ -25,7 +25,6 @@ struct SummonerRankViewModel {
                     let archivedRankData = try? JSONEncoder().encode(summonerRankArray)
 
                     UserDefaults.standard.set(archivedRankData, forKey: "MySummonerRankInformation")
-                    output.dismissController()
                 case .failure(let error):
                     output.showErrorAlert(ErrorAlertController.unknownError(error as? APIError).value)
                 }
@@ -40,7 +39,6 @@ extension SummonerRankViewModel {
     }
 
     struct Output {
-        let dismissController: () -> Void
         let showErrorAlert: (UIAlertController) -> Void
     }
 }
