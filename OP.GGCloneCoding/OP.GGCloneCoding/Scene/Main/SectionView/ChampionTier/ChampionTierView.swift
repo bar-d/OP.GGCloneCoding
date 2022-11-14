@@ -15,7 +15,7 @@ final class ChampionTierView: UIView {
     
     private let equalImage = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(systemName: "equal"))
+        .setupImage(image: Design.equalImage)
         .setupImageTintColor(.gray)
         .build()
     
@@ -91,4 +91,10 @@ final class ChampionTierView: UIView {
             percentLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let equalImage = UIImage(systemName: "equal")
 }

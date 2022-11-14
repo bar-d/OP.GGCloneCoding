@@ -22,12 +22,14 @@ struct DefaultSummonerMatchListRepository: SummonerMatchListRepository {
 
 // MARK: - Extension
 
+private typealias Request = RiotSummonerMatchListAPIRequest
+
 extension DefaultSummonerMatchListRepository {
     func fetchSummonerInformation(
         puuid: String,
         completion: @escaping (Result<[String], Error>) -> Void
     ) {
-        let summonerMatchListRequest = RiotSummonerMatchListAPIRequest(puuid: puuid)
+        let summonerMatchListRequest = Request(puuid: puuid)
 
         riotAPIService.execute(summonerMatchListRequest) { result in
             switch result {

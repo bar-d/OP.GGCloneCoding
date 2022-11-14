@@ -44,7 +44,7 @@ final class SummonerRegisterViewController: UIViewController {
         setupSubviews()
         setupConstraints()
         setupModalPresentationStyle(.fullScreen)
-        setupBackgroundColor(UIColor(named: "PrimitiveColor") ?? .systemBackground)
+        setupBackgroundColor(Design.backgroundColor ?? .systemBackground)
         setupDelegate()
     }
     
@@ -109,4 +109,10 @@ extension SummonerRegisterViewController: SummonerRegisterViewDelegate {
     func showAlert(from alert: UIAlertController) {
         present(alert, animated: true)
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let backgroundColor = UIColor(named: "PrimitiveColor")
 }

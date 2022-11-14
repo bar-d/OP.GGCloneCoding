@@ -37,7 +37,7 @@ final class SearchTextField: UIView {
         )
         clearButton.contentMode = .left
         
-        textField.rightViewRect(forBounds: CGRect(x: 10, y: 0, width: 10, height: 0))
+        textField.rightViewRect(forBounds: Design.textFieldRightViewRect)
         textField.rightView = clearButton
         textField.rightViewMode = .never
         
@@ -146,4 +146,5 @@ private enum Design {
     static let searchImage = UIImage(systemName: "magnifyingglass")
     static let clearButtonImage = UIImage(systemName: "x.circle.fill")
     static let textFieldPlaceHolder = "소환사 검색"
+    static let textFieldRightViewRect = CGRect(x: 10, y: 0, width: 10, height: 0)
 }

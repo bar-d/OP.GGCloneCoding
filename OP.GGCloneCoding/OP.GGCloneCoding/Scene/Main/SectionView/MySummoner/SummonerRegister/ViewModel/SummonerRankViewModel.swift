@@ -32,10 +32,10 @@ struct SummonerRankViewModel: ViewModel {
                 case .success(let summonerRankArray):
                     print(summonerRankArray)
                     let archivedRankData = try? JSONEncoder().encode(summonerRankArray)
-
+                    // UserDefaults는 비즈니스 로직인가?
                     UserDefaults.standard.set(
                         archivedRankData,
-                        forKey: "MySummonerRankInformation"
+                        forKey: Design.userDefaultsKey
                     )
                 case .failure(let error):
                     output.showErrorAlert(
@@ -55,4 +55,10 @@ extension SummonerRankViewModel {
     struct Output {
         let showErrorAlert: (UIAlertController) -> Void
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let userDefaultsKey = "MySummonerRankInformation"
 }

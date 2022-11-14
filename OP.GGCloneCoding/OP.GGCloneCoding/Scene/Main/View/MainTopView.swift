@@ -65,7 +65,10 @@ final class MainTopView: UIView {
             logoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            logoImageView.trailingAnchor.constraint(equalTo: languageButton.leadingAnchor, constant: -20)
+            logoImageView.trailingAnchor.constraint(
+                equalTo: languageButton.leadingAnchor,
+                constant: -20
+            )
         ])
     }
     
@@ -73,7 +76,10 @@ final class MainTopView: UIView {
         NSLayoutConstraint.activate([
             languageButton.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             languageButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            languageButton.trailingAnchor.constraint(equalTo: sortButton.leadingAnchor, constant: -20)
+            languageButton.trailingAnchor.constraint(
+                equalTo: sortButton.leadingAnchor,
+                constant: -20
+            )
         ])
     }
     

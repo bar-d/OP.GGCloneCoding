@@ -45,7 +45,7 @@ final class PatchNoteImageView: UIView {
     
     func changeImage(with imageName: String) {
         patchImageView.image = UIImage(named: imageName)
-        titleLabel.text = "패치 노트 \(imageName)"
+        titleLabel.text = "\(Design.titleLabelText) \(imageName)"
     }
     
     private func commonInit() {

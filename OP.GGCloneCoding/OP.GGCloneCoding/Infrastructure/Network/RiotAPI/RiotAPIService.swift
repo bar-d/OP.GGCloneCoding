@@ -66,7 +66,9 @@ struct RiotAPIService: APIService {
         return nil
     }
 
-    private func checkIntegrity<T>(of data: Data?) -> Result<T, APIError> where T: Decodable {
+    private func checkIntegrity<T>(
+        of data: Data?
+    ) -> Result<T, APIError> where T: Decodable {
         guard let verifiedData = data else {
             return .failure(.emptyData)
         }

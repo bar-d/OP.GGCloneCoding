@@ -41,7 +41,7 @@ final class SummonerDescriptionView: UIView {
     
     private let tierLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: "GOLD 2")
+        .setupLabelText(text: Design.tierLabelText)
         .setupLabelTextAttributes(font: .footnote)
         .build()
     
@@ -67,7 +67,7 @@ final class SummonerDescriptionView: UIView {
     
     private let cancelButton = ButtonBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(systemName: "xmark"), scale: .large)
+        .setupImage(image: Design.cancelButtonImage, scale: .large)
         .setupColor(tint: .label)
         .build()
     
@@ -163,4 +163,11 @@ final class SummonerDescriptionView: UIView {
             cancelButton.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let tierLabelText = "Unranked"
+    static let cancelButtonImage = UIImage(systemName:"xmark")
 }

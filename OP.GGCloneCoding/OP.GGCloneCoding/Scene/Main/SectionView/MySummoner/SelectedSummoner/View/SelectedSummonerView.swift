@@ -26,7 +26,7 @@ final class SelectedSummonerView: UIView {
     private let detailView = DetailView()
     
     private let detailButton = ButtonBuilder()
-        .setupTitle(name: "자세히 보기", color: .systemBackground)
+        .setupTitle(name: Design.detailButtonTitle, color: .systemBackground)
         .setupLayer(cornerRadius: 10)
         .setupColor(background: .systemBlue)
         .build()
@@ -90,4 +90,10 @@ final class SelectedSummonerView: UIView {
             )
         ])
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let detailButtonTitle = "자세히 보기"
 }

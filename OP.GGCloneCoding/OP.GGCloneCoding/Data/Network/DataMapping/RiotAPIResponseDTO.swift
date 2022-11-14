@@ -31,7 +31,8 @@ extension RiotAPIResponseDTO {
         private enum CodingKeys: String, CodingKey {
             case leagueID = "leagueId"
             case summonerID = "summonerId"
-            case summonerName, queueType, tier, rank, leaguePoints, wins, losses, hotStreak, veteran, freshBlood, inactive
+            case summonerName, queueType, tier, rank, leaguePoints, wins, losses,
+                 hotStreak, veteran, freshBlood, inactive
         }
     }
 
@@ -112,8 +113,10 @@ extension RiotAPIResponseDTO.MatchDTO.InfoDTO {
         let challenges: [String: Double]
         let champExperience, champLevel, championID: Int
         let championName: String
-        let championTransform, commandPings, consumablesPurchased, damageDealtToBuildings: Int
-        let damageDealtToObjectives, damageDealtToTurrets, damageSelfMitigated, dangerPings: Int
+        let championTransform, commandPings, consumablesPurchased,
+            damageDealtToBuildings: Int
+        let damageDealtToObjectives, damageDealtToTurrets, damageSelfMitigated,
+            dangerPings: Int
         let deaths, detectorWardsPlaced, doubleKills, dragonKills: Int
         let eligibleForProgression: Bool
         let enemyMissingPings, enemyVisionPings: Int
@@ -126,13 +129,16 @@ extension RiotAPIResponseDTO.MatchDTO.InfoDTO {
         let item5, item6, itemsPurchased, killingSprees: Int
         let kills: Int
         let lane: String
-        let largestCriticalStrike, largestKillingSpree, largestMultiKill, longestTimeSpentLiving: Int
-        let magicDamageDealt, magicDamageDealtToChampions, magicDamageTaken, needVisionPings: Int
+        let largestCriticalStrike, largestKillingSpree, largestMultiKill,
+            longestTimeSpentLiving: Int
+        let magicDamageDealt, magicDamageDealtToChampions, magicDamageTaken,
+            needVisionPings: Int
         let neutralMinionsKilled, nexusKills, nexusLost, nexusTakedowns: Int
         let objectivesStolen, objectivesStolenAssists, onMyWayPings, participantID: Int
         let pentaKills: Int
         let perks: PerksDTO
-        let physicalDamageDealt, physicalDamageDealtToChampions, physicalDamageTaken, profileIcon: Int
+        let physicalDamageDealt, physicalDamageDealtToChampions, physicalDamageTaken,
+            profileIcon: Int
         let pushPings: Int
         let puuid: String
         let quadraKills: Int
@@ -146,9 +152,12 @@ extension RiotAPIResponseDTO.MatchDTO.InfoDTO {
         let teamEarlySurrendered: Bool
         let teamID: Int
         let teamPosition: String
-        let timeCCingOthers, timePlayed, totalDamageDealt, totalDamageDealtToChampions: Int
-        let totalDamageShieldedOnTeammates, totalDamageTaken, totalHeal, totalHealsOnTeammates: Int
-        let totalMinionsKilled, totalTimeCCDealt, totalTimeSpentDead, totalUnitsHealed: Int
+        let timeCCingOthers, timePlayed, totalDamageDealt,
+            totalDamageDealtToChampions: Int
+        let totalDamageShieldedOnTeammates, totalDamageTaken, totalHeal,
+            totalHealsOnTeammates: Int
+        let totalMinionsKilled, totalTimeCCDealt, totalTimeSpentDead,
+            totalUnitsHealed: Int
         let tripleKills, trueDamageDealt, trueDamageDealtToChampions, trueDamageTaken: Int
         let turretKills, turretTakedowns, turretsLost, unrealKills: Int
         let visionClearedPings, visionScore, visionWardsBoughtInGame, wardsKilled: Int
@@ -156,21 +165,44 @@ extension RiotAPIResponseDTO.MatchDTO.InfoDTO {
         let win: Bool
 
         enum CodingKeys: String, CodingKey {
-            case allInPings, assistMePings, assists, baitPings, baronKills, basicPings, bountyLevel, challenges, champExperience, champLevel
+            case allInPings, assistMePings, assists, baitPings, baronKills,
+                 basicPings, bountyLevel, challenges, champExperience, champLevel
             case championID = "championId"
-            case championName, championTransform, commandPings, consumablesPurchased, damageDealtToBuildings, damageDealtToObjectives, damageDealtToTurrets, damageSelfMitigated, dangerPings, deaths, detectorWardsPlaced, doubleKills, dragonKills, eligibleForProgression, enemyMissingPings, enemyVisionPings, firstBloodAssist, firstBloodKill, firstTowerAssist, firstTowerKill, gameEndedInEarlySurrender, gameEndedInSurrender, getBackPings, goldEarned, goldSpent, holdPings, individualPosition, inhibitorKills, inhibitorTakedowns, inhibitorsLost, item0, item1, item2, item3, item4, item5, item6, itemsPurchased, killingSprees, kills, lane, largestCriticalStrike, largestKillingSpree, largestMultiKill, longestTimeSpentLiving, magicDamageDealt, magicDamageDealtToChampions, magicDamageTaken, needVisionPings, neutralMinionsKilled, nexusKills, nexusLost, nexusTakedowns, objectivesStolen, objectivesStolenAssists, onMyWayPings
+            case championName, championTransform, commandPings, consumablesPurchased,
+                 damageDealtToBuildings, damageDealtToObjectives, damageDealtToTurrets,
+                 damageSelfMitigated, dangerPings, deaths, detectorWardsPlaced,
+                 doubleKills, dragonKills, eligibleForProgression, enemyMissingPings,
+                 enemyVisionPings, firstBloodAssist, firstBloodKill, firstTowerAssist,
+                 firstTowerKill, gameEndedInEarlySurrender, gameEndedInSurrender,
+                 getBackPings, goldEarned, goldSpent, holdPings, individualPosition,
+                 inhibitorKills, inhibitorTakedowns, inhibitorsLost, item0, item1, item2,
+                 item3, item4, item5, item6, itemsPurchased, killingSprees, kills, lane,
+                 largestCriticalStrike, largestKillingSpree, largestMultiKill,
+                 longestTimeSpentLiving, magicDamageDealt, magicDamageDealtToChampions,
+                 magicDamageTaken, needVisionPings, neutralMinionsKilled, nexusKills,
+                 nexusLost, nexusTakedowns, objectivesStolen, objectivesStolenAssists,
+                 onMyWayPings
             case participantID = "participantId"
-            case pentaKills, perks, physicalDamageDealt, physicalDamageDealtToChampions, physicalDamageTaken, profileIcon, pushPings, puuid, quadraKills
+            case pentaKills, perks, physicalDamageDealt, physicalDamageDealtToChampions,
+                 physicalDamageTaken, profileIcon, pushPings, puuid, quadraKills
             case riotIDName = "riotIdName"
             case riotIDTagline = "riotIdTagline"
-            case role, sightWardsBoughtInGame, spell1Casts, spell2Casts, spell3Casts, spell4Casts, summoner1Casts
+            case role, sightWardsBoughtInGame, spell1Casts, spell2Casts, spell3Casts,
+                 spell4Casts, summoner1Casts
             case summoner1ID = "summoner1Id"
             case summoner2Casts
             case summoner2ID = "summoner2Id"
             case summonerID = "summonerId"
             case summonerLevel, summonerName, teamEarlySurrendered
             case teamID = "teamId"
-            case teamPosition, timeCCingOthers, timePlayed, totalDamageDealt, totalDamageDealtToChampions, totalDamageShieldedOnTeammates, totalDamageTaken, totalHeal, totalHealsOnTeammates, totalMinionsKilled, totalTimeCCDealt, totalTimeSpentDead, totalUnitsHealed, tripleKills, trueDamageDealt, trueDamageDealtToChampions, trueDamageTaken, turretKills, turretTakedowns, turretsLost, unrealKills, visionClearedPings, visionScore, visionWardsBoughtInGame, wardsKilled, wardsPlaced, win
+            case teamPosition, timeCCingOthers, timePlayed, totalDamageDealt,
+                 totalDamageDealtToChampions, totalDamageShieldedOnTeammates,
+                 totalDamageTaken, totalHeal, totalHealsOnTeammates, totalMinionsKilled,
+                 totalTimeCCDealt, totalTimeSpentDead, totalUnitsHealed, tripleKills,
+                 trueDamageDealt, trueDamageDealtToChampions, trueDamageTaken,
+                 turretKills, turretTakedowns, turretsLost, unrealKills,
+                 visionClearedPings, visionScore, visionWardsBoughtInGame, wardsKilled,
+                 wardsPlaced, win
         }
     }
 

@@ -20,13 +20,13 @@ final class PositionTabBar: UIView {
     
     private var indicatorViewLeadingConstraint = NSLayoutConstraint()
     private var indicatorViewWidthConstraint = NSLayoutConstraint()
-    private let postion = ["탑", "정글", "미드", "바텀", "서폿"]
+    private let postion = Design.position
     
     // MARK: - Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-      
+        
         commonInit()
     }
     
@@ -37,11 +37,11 @@ final class PositionTabBar: UIView {
     }
     
     // MARK: - Methods
-
+    
     func setupPostionTabBarDelegate(_ delegate: PositionTabBarDelegate) {
         positionTabBarDelegate = delegate
     }
-
+    
     func selectTabBarItem(at index: IndexPath, animated: Bool = true) {
         positionTabBarCollectionView.selectItem(
             at: index,
@@ -49,7 +49,7 @@ final class PositionTabBar: UIView {
             scrollPosition: .init()
         )
     }
-
+    
     func updateIndicatorViewWidthConstraints(width: CGFloat) {
         indicatorViewWidthConstraint.constant = width
     }
@@ -57,11 +57,11 @@ final class PositionTabBar: UIView {
     func updateIndicatorViewLeadingConstraints(leading: CGFloat) {
         indicatorViewLeadingConstraint.constant = leading
     }
-
+    
     func calculateIndicatorViewWidthConstraint() -> NSLayoutConstraint {
         return indicatorViewWidthConstraint
     }
-
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupDelegate()
@@ -186,4 +186,10 @@ extension PositionTabBar: UICollectionViewDelegateFlowLayout {
         
         return .zero
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let position = ["탑", "정글", "미드", "바텀", "서폿"]
 }

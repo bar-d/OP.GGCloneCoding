@@ -16,7 +16,9 @@ struct RiotSummonerAPIRequest: RiotAPIRequest {
     var body: Data?
 
     init(summonerID: String) {
-        guard let summonerID = summonerID.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+        guard let summonerID = summonerID.addingPercentEncoding(
+            withAllowedCharacters: .urlQueryAllowed
+        ) else {
             return
         }
 

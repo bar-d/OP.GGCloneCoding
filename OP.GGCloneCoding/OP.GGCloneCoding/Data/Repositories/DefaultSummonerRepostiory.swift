@@ -22,12 +22,14 @@ struct DefaultSummonerRepostiory: SummonerRepository {
 
 // MARK: - Extension
 
+private typealias Request = RiotSummonerAPIRequest
+
 extension DefaultSummonerRepostiory {
     func fetchSummonerInformation(
         id: String,
         completion: @escaping (Result<Summoner, Error>) -> Void
     ) {
-        let summonerRequest = RiotSummonerAPIRequest(summonerID: id)
+        let summonerRequest = Request(summonerID: id)
 
         riotAPIService.execute(summonerRequest) { result in
             switch result {

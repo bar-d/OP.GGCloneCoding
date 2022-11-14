@@ -66,7 +66,7 @@ extension HeaderViewBuilder {
     func setupChampionHeaderView() -> HeaderViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupTitleLabel(with: "챔피언 분석")
+            .setupTitleLabel(with: Design.championHeaderViewTitle)
         
         return builder
     }
@@ -74,7 +74,7 @@ extension HeaderViewBuilder {
     func setupCommunityHeaderView() -> HeaderViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupTitleLabel(with: "전체")
+            .setupTitleLabel(with: Design.communityHeaderViewTitle)
         
         return builder
     }
@@ -82,8 +82,16 @@ extension HeaderViewBuilder {
     func setupSettingHeaderView() -> HeaderViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupTitleLabel(with: "설정")
+            .setupTitleLabel(with: Design.settingHeaderViewTitle)
         
         return builder
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let championHeaderViewTitle = "챔피언 분석"
+    static let communityHeaderViewTitle = "전체"
+    static let settingHeaderViewTitle = "설정"
 }

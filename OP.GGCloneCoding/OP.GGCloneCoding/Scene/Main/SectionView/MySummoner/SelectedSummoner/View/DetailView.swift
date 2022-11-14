@@ -28,7 +28,7 @@ final class DetailView: UIView {
     
     private let KDALabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: "KDA", color: .label)
+        .setupLabelText(text: Design.KDALabelText, color: .label)
         .setupLabelTextAttributes(font: .headline)
         .build()
     
@@ -71,7 +71,7 @@ final class DetailView: UIView {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
-        setupBackgroundColor(UIColor(named: "SecondaryColor"))
+        setupBackgroundColor(Design.backgroundColor)
         setupCornerRadius(10)
     }
     
@@ -132,4 +132,11 @@ final class DetailView: UIView {
     private func setupCornerRadius(_ radius: CGFloat) {
         layer.cornerRadius = radius
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let KDALabelText = "KDA"
+    static let backgroundColor = UIColor(named: "SecondaryColor")
 }

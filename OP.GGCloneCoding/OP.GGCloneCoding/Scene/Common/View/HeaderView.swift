@@ -20,15 +20,11 @@ final class HeaderView: UIView {
         return stackView
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .label
-        label.textAlignment = .center
-        label.alpha = .zero
-        
-        return label
-    }()
+    private let titleLabel = LabelBuilder()
+        .setupConstraintsAutomatic(false)
+        .setupLabelText(color: .label, alpha: .zero)
+        .setupLabelTextAttributes(alignment: .center)
+        .build()
     
     private let rightBarItem: UIStackView = {
         let stackView = UIStackView()

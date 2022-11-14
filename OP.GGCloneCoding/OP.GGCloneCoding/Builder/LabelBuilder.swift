@@ -30,7 +30,7 @@ final class LabelBuilder {
     }
     
     func setupLabelText(
-        text: String? = "",
+        text: String? = Design.emptyString,
         color: UIColor? = .label,
         alpha: CGFloat = 1
     ) -> LabelBuilder {
@@ -230,6 +230,7 @@ extension LabelBuilder {
 }
 
 private enum Design {
+    static let emptyString = ""
     static let otherGamestitleLabelText = "다른 게임 전적 보기"
     static let settingsStickyHeaderTitleLabel = "설정"
     static let settingsTitleLabelText = "Title Label"

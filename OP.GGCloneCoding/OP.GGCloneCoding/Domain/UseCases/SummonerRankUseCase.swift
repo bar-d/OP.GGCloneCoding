@@ -9,12 +9,12 @@ struct SummonerRankUseCase {
     
     // MARK: Properties
     
-    private let summonerRankRepository: SummonerRankRepository
+    private let repository: SummonerRankRepository
     
     // MARK: - Initializers
 
-    init(summonerRankRepository: SummonerRankRepository = DefaultSummonerRankRepository()) {
-        self.summonerRankRepository = summonerRankRepository
+    init(repository: SummonerRankRepository = DefaultSummonerRankRepository()) {
+        self.repository = repository
     }
     
     // MARK: - Methods
@@ -23,7 +23,10 @@ struct SummonerRankUseCase {
         encryptedId: String,
         completion: @escaping (Result<[SummonerRank], Error>) -> Void
     ) {
-        summonerRankRepository.fetchSummonerInformation(encryptedSummonerID: encryptedId) { result in
+        repository.fetchSummonerInformation(
+            encryptedSummonerID: encryptedId
+        ) {
+            result in
             switch result {
             case .success(let summonerRank):
                 completion(.success(summonerRank))

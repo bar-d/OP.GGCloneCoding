@@ -9,18 +9,21 @@ struct SummonerSearchUseCase {
     
     // MARK: Properties
     
-    private let summonerRepository: SummonerRepository
+    private let repository: SummonerRepository
     
     // MARK: - Initializers
 
-    init(summonerRepository: SummonerRepository = DefaultSummonerRepostiory()) {
-        self.summonerRepository = summonerRepository
+    init(repository: SummonerRepository = DefaultSummonerRepostiory()) {
+        self.repository = repository
     }
     
     // MARK: - Methods
 
-    func searchSummoner(id: String, completion: @escaping (Result<Summoner, Error>) -> Void) {
-        summonerRepository.fetchSummonerInformation(id: id) { result in
+    func searchSummoner(
+        id: String,
+        completion: @escaping (Result<Summoner, Error>) -> Void
+    ) {
+        repository.fetchSummonerInformation(id: id) { result in
             switch result {
             case .success(let summoner):
                 completion(.success(summoner))

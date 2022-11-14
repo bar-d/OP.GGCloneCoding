@@ -9,12 +9,12 @@ struct SummonerMatchListUseCase {
     
     // MARK: Properties
     
-    private let summonerMatchListRepository: SummonerMatchListRepository
+    private let repository: SummonerMatchListRepository
     
     // MARK: - Initializers
 
-    init(summonerMatchListRepository: SummonerMatchListRepository = DefaultSummonerMatchListRepository()) {
-        self.summonerMatchListRepository = summonerMatchListRepository
+    init(repository: SummonerMatchListRepository = DefaultSummonerMatchListRepository()) {
+        self.repository = repository
     }
     
     // MARK: - Methods
@@ -23,7 +23,7 @@ struct SummonerMatchListUseCase {
         puuid: String,
         completion: @escaping (Result<[String], Error>) -> Void
     ) {
-        summonerMatchListRepository.fetchSummonerInformation(puuid: puuid) { result in
+        repository.fetchSummonerInformation(puuid: puuid) { result in
             switch result {
             case .success(let summonerMatchList):
                 completion(.success(summonerMatchList))

@@ -22,12 +22,14 @@ struct DefaultSummonerRankRepository: SummonerRankRepository {
 
 // MARK: - Extension
 
+private typealias Request = RiotSummonerRankAPIRequest
+
 extension DefaultSummonerRankRepository {
     func fetchSummonerInformation(
         encryptedSummonerID: String,
         completion: @escaping (Result<[SummonerRank], Error>) -> Void
     ) {
-        let summonerRankRequest = RiotSummonerRankAPIRequest(encryptedSummonerID: encryptedSummonerID)
+        let summonerRankRequest = Request(encryptedSummonerID: encryptedSummonerID)
 
         riotAPIService.execute(summonerRankRequest) { result in
             switch result {
@@ -40,7 +42,6 @@ extension DefaultSummonerRankRepository {
 
                         return
                     }
-
                     array.append(summonerRankInformation)
                 }
 
