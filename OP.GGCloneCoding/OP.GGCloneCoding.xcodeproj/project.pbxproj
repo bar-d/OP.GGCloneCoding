@@ -50,6 +50,13 @@
 		20C7669A291CCDAA00E94133 /* DefaultSummonerRankRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C76699291CCDAA00E94133 /* DefaultSummonerRankRepository.swift */; };
 		20C7669C291CCE7100E94133 /* SummonerRankUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7669B291CCE7100E94133 /* SummonerRankUseCase.swift */; };
 		20C7669E291CCF1700E94133 /* SummonerRankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7669D291CCF1700E94133 /* SummonerRankViewModel.swift */; };
+		20C766A0291CEF5B00E94133 /* RiotSummonerMatchListAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7669F291CEF5B00E94133 /* RiotSummonerMatchListAPIRequest.swift */; };
+		20C766A4291CF2CD00E94133 /* SummonerMatchListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766A3291CF2CD00E94133 /* SummonerMatchListRepository.swift */; };
+		20C766A6291CF43500E94133 /* DefaultSummonerMatchListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766A5291CF43500E94133 /* DefaultSummonerMatchListRepository.swift */; };
+		20C766A8291CF56A00E94133 /* SummonerMatchListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766A7291CF56A00E94133 /* SummonerMatchListUseCase.swift */; };
+		20C766AA291CF9A800E94133 /* SummonerMatchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766A9291CF9A800E94133 /* SummonerMatchListViewModel.swift */; };
+		20C766AC291D149400E94133 /* RiotSummonerMatchAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766AB291D149400E94133 /* RiotSummonerMatchAPIRequest.swift */; };
+		20C766B0291D250100E94133 /* SummonerMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766AF291D250100E94133 /* SummonerMatch.swift */; };
 		C406923B2906759D00A4E48D /* HeaderViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */; };
 		C406923E29067C3100A4E48D /* HeaderViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923D29067C3100A4E48D /* HeaderViewButton.swift */; };
 		C41BF02428FD4D90008D0BD8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C41BF02328FD4D90008D0BD8 /* Lottie */; };
@@ -151,6 +158,13 @@
 		20C76699291CCDAA00E94133 /* DefaultSummonerRankRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSummonerRankRepository.swift; sourceTree = "<group>"; };
 		20C7669B291CCE7100E94133 /* SummonerRankUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRankUseCase.swift; sourceTree = "<group>"; };
 		20C7669D291CCF1700E94133 /* SummonerRankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRankViewModel.swift; sourceTree = "<group>"; };
+		20C7669F291CEF5B00E94133 /* RiotSummonerMatchListAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiotSummonerMatchListAPIRequest.swift; sourceTree = "<group>"; };
+		20C766A3291CF2CD00E94133 /* SummonerMatchListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchListRepository.swift; sourceTree = "<group>"; };
+		20C766A5291CF43500E94133 /* DefaultSummonerMatchListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSummonerMatchListRepository.swift; sourceTree = "<group>"; };
+		20C766A7291CF56A00E94133 /* SummonerMatchListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchListUseCase.swift; sourceTree = "<group>"; };
+		20C766A9291CF9A800E94133 /* SummonerMatchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchListViewModel.swift; sourceTree = "<group>"; };
+		20C766AB291D149400E94133 /* RiotSummonerMatchAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiotSummonerMatchAPIRequest.swift; sourceTree = "<group>"; };
+		20C766AF291D250100E94133 /* SummonerMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatch.swift; sourceTree = "<group>"; };
 		C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewBuilder.swift; sourceTree = "<group>"; };
 		C406923D29067C3100A4E48D /* HeaderViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewButton.swift; sourceTree = "<group>"; };
 		C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingIndicator.json; sourceTree = "<group>"; };
@@ -266,6 +280,8 @@
 				20336A3E29152D78001BDF7D /* RiotAPIRequest.swift */,
 				20336A4529154508001BDF7D /* RiotSummonerAPIRequest.swift */,
 				20C76693291CC30500E94133 /* RiotSummonerRankAPIRequest.swift */,
+				20C7669F291CEF5B00E94133 /* RiotSummonerMatchListAPIRequest.swift */,
+				20C766AB291D149400E94133 /* RiotSummonerMatchAPIRequest.swift */,
 			);
 			path = RiotAPI;
 			sourceTree = "<group>";
@@ -300,6 +316,7 @@
 			children = (
 				20336A4829154571001BDF7D /* DefaultSummonerRepostiory.swift */,
 				20C76699291CCDAA00E94133 /* DefaultSummonerRankRepository.swift */,
+				20C766A5291CF43500E94133 /* DefaultSummonerMatchListRepository.swift */,
 				20336A5529154928001BDF7D /* DTOError.swift */,
 			);
 			path = Repositories;
@@ -320,6 +337,7 @@
 			children = (
 				20336A4F29154668001BDF7D /* Summoner.swift */,
 				20C76695291CC9F600E94133 /* SummonerRank.swift */,
+				20C766AF291D250100E94133 /* SummonerMatch.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -329,6 +347,7 @@
 			children = (
 				20336A5329154723001BDF7D /* SummonerSearchUseCase.swift */,
 				20C7669B291CCE7100E94133 /* SummonerRankUseCase.swift */,
+				20C766A7291CF56A00E94133 /* SummonerMatchListUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -346,6 +365,7 @@
 			children = (
 				20336A51291546A3001BDF7D /* SummonerRepository.swift */,
 				20C76697291CCD7900E94133 /* SummonerRankRepository.swift */,
+				20C766A3291CF2CD00E94133 /* SummonerMatchListRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -467,6 +487,7 @@
 			children = (
 				202B4C3F291B70D70078A03E /* SummonerRegisterViewModel.swift */,
 				20C7669D291CCF1700E94133 /* SummonerRankViewModel.swift */,
+				20C766A9291CF9A800E94133 /* SummonerMatchListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -832,6 +853,7 @@
 				C4F3DDC52907F5E200137AAC /* MainSection.swift in Sources */,
 				205BC1AD2907EEE4004053F3 /* MainSkinOnSaleView.swift in Sources */,
 				C458CB002911608E004E6D74 /* SearchTextField.swift in Sources */,
+				20C766AA291CF9A800E94133 /* SummonerMatchListViewModel.swift in Sources */,
 				C458CAEF2910F928004E6D74 /* UnselectedSummonerViewDelegate.swift in Sources */,
 				C4F3DDCE29080F5900137AAC /* TodayTMICell.swift in Sources */,
 				2033279F28FEA531005EF522 /* TabBarController.swift in Sources */,
@@ -849,7 +871,10 @@
 				202B4C45291B71CC0078A03E /* AlertViewModel.swift in Sources */,
 				20336A2D29150B29001BDF7D /* APIRequest.swift in Sources */,
 				203F0014290BE31100BF95F7 /* UIView+Extension.swift in Sources */,
+				20C766A0291CEF5B00E94133 /* RiotSummonerMatchListAPIRequest.swift in Sources */,
+				20C766A8291CF56A00E94133 /* SummonerMatchListUseCase.swift in Sources */,
 				C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */,
+				20C766A6291CF43500E94133 /* DefaultSummonerMatchListRepository.swift in Sources */,
 				20336A4629154508001BDF7D /* RiotSummonerAPIRequest.swift in Sources */,
 				205BC1AB2907EEAF004053F3 /* ChampionsAndSkinsOnSaleCell.swift in Sources */,
 				20C76696291CC9F600E94133 /* SummonerRank.swift in Sources */,
@@ -869,6 +894,7 @@
 				202B4C47291B76510078A03E /* SummonerRegisterViewDelegate.swift in Sources */,
 				205BC1A82907ECCF004053F3 /* FavoriteChampionCell.swift in Sources */,
 				C4AC80352913942600C5A550 /* FavoriteSummonerCellDelegate.swift in Sources */,
+				20C766A4291CF2CD00E94133 /* SummonerMatchListRepository.swift in Sources */,
 				C4AC806B291B681800C5A550 /* ChampionRateView.swift in Sources */,
 				20C76698291CCD7900E94133 /* SummonerRankRepository.swift in Sources */,
 				C458CAED2910ECAD004E6D74 /* SummonerRegisterViewController.swift in Sources */,
@@ -894,10 +920,12 @@
 				C458CAFC29112276004E6D74 /* SummonerSearchViewController.swift in Sources */,
 				204A9C37290A7A4500D70FC4 /* UICollectionView+Extension.swift in Sources */,
 				20336A52291546A3001BDF7D /* SummonerRepository.swift in Sources */,
+				20C766AC291D149400E94133 /* RiotSummonerMatchAPIRequest.swift in Sources */,
 				C4AC8069291B680C00C5A550 /* DetailView.swift in Sources */,
 				C4AC807A291B88F200C5A550 /* UnselectedSummonerView.swift in Sources */,
 				C4EBCC2228FC242900402617 /* SceneDelegate.swift in Sources */,
 				C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */,
+				20C766B0291D250100E94133 /* SummonerMatch.swift in Sources */,
 				C43F3F4C290A751100B03A04 /* ChampionTierTableViewCell.swift in Sources */,
 				204600932901180C004A3417 /* PushNotificationCell.swift in Sources */,
 				20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */,
