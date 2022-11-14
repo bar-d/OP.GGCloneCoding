@@ -103,6 +103,8 @@ extension RiotAPIResponseDTO.MatchDTO {
             case teams, tournamentCode
         }
     }
+}
+
 extension RiotAPIResponseDTO.MatchDTO.InfoDTO {
     struct ParticipantDTO: Decodable {
         let allInPings, assistMePings, assists, baitPings: Int

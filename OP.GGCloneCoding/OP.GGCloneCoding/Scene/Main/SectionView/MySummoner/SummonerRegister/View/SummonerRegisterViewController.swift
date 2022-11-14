@@ -76,6 +76,10 @@ final class SummonerRegisterViewController: UIViewController {
         dismiss(animated: true)
     }
 
+    private func fetchMatchInformation() {
+
+    }
+
     private func showErrorAlert(from alert: UIAlertController) {
         present(alert, animated: true)
     }
