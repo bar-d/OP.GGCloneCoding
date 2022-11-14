@@ -71,22 +71,36 @@ final class ChampionRateView: UIView {
             championImageView.topAnchor.constraint(equalTo: topAnchor),
             championImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             championImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            championImageView.heightAnchor.constraint(equalTo: winRateLabel.heightAnchor, multiplier: 2),
-            championImageView.widthAnchor.constraint(equalTo: championImageView.heightAnchor)
+            championImageView.heightAnchor.constraint(
+                equalTo: winRateLabel.heightAnchor,
+                multiplier: 2
+            ),
+            championImageView.widthAnchor.constraint(
+                equalTo: championImageView.heightAnchor
+            )
         ])
     }
     
     private func setupWiinRateLabelConstraints() {
         NSLayoutConstraint.activate([
-            winRateLabel.leadingAnchor.constraint(equalTo: championImageView.trailingAnchor, constant: 4),
+            winRateLabel.leadingAnchor.constraint(
+                equalTo: championImageView.trailingAnchor,
+                constant: 4
+            ),
             winRateLabel.bottomAnchor.constraint(equalTo: KDALabel.topAnchor)
         ])
     }
     
     private func setupKDALabelConstraints() {
         NSLayoutConstraint.activate([
-            KDALabel.bottomAnchor.constraint(equalTo: championImageView.bottomAnchor, constant: -4),
-            KDALabel.leadingAnchor.constraint(equalTo: championImageView.trailingAnchor, constant: 4)
+            KDALabel.bottomAnchor.constraint(
+                equalTo: championImageView.bottomAnchor,
+                constant: -4
+            ),
+            KDALabel.leadingAnchor.constraint(
+                equalTo: championImageView.trailingAnchor,
+                constant: 4
+            )
         ])
     }
 }

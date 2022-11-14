@@ -15,10 +15,12 @@ final class SummonerRegisterViewController: UIViewController {
         showErrorAlert: showErrorAlert
     ))
 
-    private lazy var summonerMatchListViewModel = SummonerMatchListViewModel(output: .init(
-        fetchMatchInformation: fetchMatchInformation,
-        showErrorAlert: showErrorAlert
-    ))
+    private lazy var summonerMatchListViewModel = SummonerMatchListViewModel(
+        output: .init(
+            fetchMatchInformation: fetchMatchInformation,
+            showErrorAlert: showErrorAlert
+        )
+    )
     
     private let summonerRegisterView = SummonerRegisterView()
 
@@ -56,7 +58,9 @@ final class SummonerRegisterViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            summonerRegisterView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            summonerRegisterView.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor
+            ),
             summonerRegisterView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             summonerRegisterView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             summonerRegisterView.trailingAnchor.constraint(equalTo: view.trailingAnchor)

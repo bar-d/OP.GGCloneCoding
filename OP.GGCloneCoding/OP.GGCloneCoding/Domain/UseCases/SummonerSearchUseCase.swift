@@ -6,11 +6,18 @@
 //
 
 struct SummonerSearchUseCase {
+    
+    // MARK: Properties
+    
     private let summonerRepository: SummonerRepository
+    
+    // MARK: - Initializers
 
     init(summonerRepository: SummonerRepository = DefaultSummonerRepostiory()) {
         self.summonerRepository = summonerRepository
     }
+    
+    // MARK: - Methods
 
     func searchSummoner(id: String, completion: @escaping (Result<Summoner, Error>) -> Void) {
         summonerRepository.fetchSummonerInformation(id: id) { result in

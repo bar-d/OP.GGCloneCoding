@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 final class SummonerRegisterTopView: UIView {
     
     // MARK: Properties
@@ -32,7 +30,11 @@ final class SummonerRegisterTopView: UIView {
         super.init(frame: frame)
         
         commonInit()
-        cancelButton.addTarget(self, action: #selector(cancelButtonDidTapped), for: .touchUpInside)
+        cancelButton.addTarget(
+            self,
+            action: #selector(cancelButtonDidTapped),
+            for: .touchUpInside
+        )
     }
     
     required init?(coder: NSCoder) {
@@ -41,9 +43,11 @@ final class SummonerRegisterTopView: UIView {
         commonInit()
     }
     
-    // MARK: -  Methods
+    // MARK: - Methods
     
-    func setupSummonerRegisterTopViewDelegate(_ delegate: SummonerRegisterTopViewDelegate) {
+    func setupSummonerRegisterTopViewDelegate(
+        _ delegate: SummonerRegisterTopViewDelegate
+    ) {
         summonerRegisterTopViewDelegate = delegate
     }
     
@@ -70,14 +74,17 @@ final class SummonerRegisterTopView: UIView {
     private func setupCancelButtonConstraints() {
         NSLayoutConstraint.activate([
             cancelButton.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            cancelButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            cancelButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
     }
     
     private func setupLanguageLabelConstraints() {
         NSLayoutConstraint.activate([
             languageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            languageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            languageLabel.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            )
         ])
     }
     

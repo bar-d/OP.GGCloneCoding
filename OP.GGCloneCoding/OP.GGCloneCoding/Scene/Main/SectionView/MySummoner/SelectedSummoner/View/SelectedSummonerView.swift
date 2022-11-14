@@ -74,14 +74,20 @@ final class SelectedSummonerView: UIView {
             totalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             totalStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             totalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            totalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            totalStackView.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            )
         ])
     }
     
     private func setupDetailButtonConstraints() {
         NSLayoutConstraint.activate([
             detailButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1/6),
-            summonerDescriptionView.heightAnchor.constraint(equalTo: detailView.heightAnchor, multiplier: 1)
+            summonerDescriptionView.heightAnchor.constraint(
+                equalTo: detailView.heightAnchor,
+                multiplier: 1
+            )
         ])
     }
 }

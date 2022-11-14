@@ -73,7 +73,10 @@ final class FavoriteSummonersCell: UITableViewCell {
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -20),
+            titleLabel.bottomAnchor.constraint(
+                equalTo: descriptionLabel.topAnchor,
+                constant: -20
+            ),
             titleLabel.heightAnchor.constraint(equalToConstant: 100),
             titleLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -50)
         ])
@@ -83,16 +86,28 @@ final class FavoriteSummonersCell: UITableViewCell {
         NSLayoutConstraint.activate([
             descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             descriptionLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -140),
-            descriptionLabel.bottomAnchor.constraint(equalTo: summonerSearchButton.topAnchor, constant: -20),
-            descriptionLabel.heightAnchor.constraint(equalTo: summonerSearchButton.heightAnchor, multiplier: 2)
+            descriptionLabel.bottomAnchor.constraint(
+                equalTo: summonerSearchButton.topAnchor,
+                constant: -20
+            ),
+            descriptionLabel.heightAnchor.constraint(
+                equalTo: summonerSearchButton.heightAnchor,
+                multiplier: 2
+            )
         ])
     }
     
     private func setupSummonerSearchButtonConstraints() {
         NSLayoutConstraint.activate([
             summonerSearchButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            summonerSearchButton.widthAnchor.constraint(equalTo: widthAnchor, constant: -40),
-            summonerSearchButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
+            summonerSearchButton.widthAnchor.constraint(
+                equalTo: widthAnchor,
+                constant: -40
+            ),
+            summonerSearchButton.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -20
+            )
         ])
     }
     
@@ -105,7 +120,11 @@ final class FavoriteSummonersCell: UITableViewCell {
     }
     
     private func setupSummonerSearchButton() {
-        summonerSearchButton.addTarget(self, action: #selector(summonerSearchButtonDidTapped), for: .touchUpInside)
+        summonerSearchButton.addTarget(
+            self,
+            action: #selector(summonerSearchButtonDidTapped),
+            for: .touchUpInside
+        )
     }
     
     @objc private func summonerSearchButtonDidTapped() {

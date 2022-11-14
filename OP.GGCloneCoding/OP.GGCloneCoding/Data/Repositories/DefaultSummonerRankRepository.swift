@@ -8,12 +8,19 @@
 import Foundation
 
 struct DefaultSummonerRankRepository: SummonerRankRepository {
+    
+    // MARK: Properties
+    
     private let riotAPIService: RiotAPIService
 
+    // MARK: - Initializers
+    
     init(riotAPIService: RiotAPIService = RiotAPIService()) {
         self.riotAPIService = riotAPIService
     }
 }
+
+// MARK: - Extension
 
 extension DefaultSummonerRankRepository {
     func fetchSummonerInformation(

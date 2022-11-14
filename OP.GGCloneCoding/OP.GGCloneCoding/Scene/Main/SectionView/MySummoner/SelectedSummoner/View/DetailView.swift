@@ -96,17 +96,32 @@ final class DetailView: UIView {
     private func setupLabelStackViewConstraints() {
         NSLayoutConstraint.activate([
             labelStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            labelStackView.bottomAnchor.constraint(equalTo: championStackView.topAnchor, constant: -12)
+            labelStackView.bottomAnchor.constraint(
+                equalTo: championStackView.topAnchor,
+                constant: -12
+            )
         ])
     }
     
     private func setupChampionStackViewConstraints() {
         NSLayoutConstraint.activate([
             championStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            championStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
-            championStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            championStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            heightAnchor.constraint(equalTo: championStackView.heightAnchor, multiplier: 2)
+            championStackView.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -4
+            ),
+            championStackView.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: 8
+            ),
+            championStackView.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -8
+            ),
+            heightAnchor.constraint(
+                equalTo: championStackView.heightAnchor,
+                multiplier: 2
+            )
         ])
     }
     

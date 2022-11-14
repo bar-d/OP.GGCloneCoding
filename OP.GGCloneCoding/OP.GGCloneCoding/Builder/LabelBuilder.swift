@@ -52,10 +52,10 @@ final class LabelBuilder {
         
         return self
     }
-
+    
     func setupConstantFontSize(_ constant: CGFloat) -> LabelBuilder {
         label.font = label.font.withSize(constant)
-
+        
         return self
     }
     
@@ -104,7 +104,12 @@ final class LabelBuilder {
 // MARK: - Extension
 
 extension LabelBuilder {
-    func setupMainCellTitleLabel(text: String, color: UIColor = .label, numberOfLines: Int = 1, font: UIFont.TextStyle = .title3) -> LabelBuilder {
+    func setupMainCellTitleLabel(
+        text: String,
+        color: UIColor = .label,
+        numberOfLines: Int = 1,
+        font: UIFont.TextStyle = .title3
+    ) -> LabelBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
             .setupLabelText(text: text, color: color)
@@ -117,12 +122,19 @@ extension LabelBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
             .setupLabelText(text: text, color: Design.Color.descriptionLabelTextColor)
-            .setupLabelTextAttributes(alignment: .center, numberOfLines: 2, font: .footnote)
+            .setupLabelTextAttributes(
+                alignment: .center,
+                numberOfLines: 2,
+                font: .footnote
+            )
         
         return builder
     }
     
-    func setupSkinOnSaleLabel(textColor: UIColor?, font: UIFont.TextStyle = .caption2) -> LabelBuilder {
+    func setupSkinOnSaleLabel(
+        textColor: UIColor?,
+        font: UIFont.TextStyle = .caption2
+    ) -> LabelBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
             .setupLabelText(color: textColor)
@@ -188,31 +200,31 @@ extension LabelBuilder {
         
         return builder
     }
-
+    
     func setupButtonTitleLabel() -> LabelBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
             .setupLabelText(color: .label)
             .setupLabelTextAttributes(alignment: .left, font: .caption1)
-
+        
         return builder
     }
-
+    
     func setupEmptySummonerDescrptionLabel() -> LabelBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
             .setupLabelText(text: Design.emptySummonerDescriptionLabelText, color: .label)
             .setupLabelTextAttributes(alignment: .left, numberOfLines: 2)
-
+        
         return builder
     }
-
+    
     func setupQuestionMarkLabel() -> LabelBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
             .setupLabelText(text: Design.questionMarkLabelText, color: .white)
             .setupConstantFontSize(50)
-
+        
         return builder
     }
 }

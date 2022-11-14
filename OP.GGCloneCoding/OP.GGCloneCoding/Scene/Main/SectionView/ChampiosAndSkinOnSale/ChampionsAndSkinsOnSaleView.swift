@@ -125,44 +125,74 @@ final class ChampionsAndSkinsOnSaleView: UIView {
     private func setupDiscountRateLabelConstraints() {
         NSLayoutConstraint.activate([
             discountRateLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            discountRateLabel.widthAnchor.constraint(equalTo: discountedPriceLabel.widthAnchor, multiplier: 0.4),
-            discountRateLabel.centerYAnchor.constraint(equalTo: discountedPriceLabel.centerYAnchor)
+            discountRateLabel.widthAnchor.constraint(
+                equalTo: discountedPriceLabel.widthAnchor,
+                multiplier: 0.4
+            ),
+            discountRateLabel.centerYAnchor.constraint(
+                equalTo: discountedPriceLabel.centerYAnchor
+            )
         ])
     }
     
     private func setupDiscountedPriceLabelConstraints() {
         NSLayoutConstraint.activate([
-            discountedPriceLabel.topAnchor.constraint(equalTo: discountRateLabel.topAnchor),
-            discountedPriceLabel.leadingAnchor.constraint(equalTo: discountRateLabel.trailingAnchor, constant: 3),
+            discountedPriceLabel.topAnchor.constraint(
+                equalTo: discountRateLabel.topAnchor
+            ),
+            discountedPriceLabel.leadingAnchor.constraint(
+                equalTo: discountRateLabel.trailingAnchor,
+                constant: 3
+            ),
             discountedPriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            discountedPriceLabel.bottomAnchor.constraint(equalTo: discountRateLabel.bottomAnchor)
+            discountedPriceLabel.bottomAnchor.constraint(
+                equalTo: discountRateLabel.bottomAnchor
+            )
         ])
     }
     
     private func setupOriginalPriceLabelConstraints() {
         NSLayoutConstraint.activate([
-            originalPriceLabel.topAnchor.constraint(equalTo: discountRateLabel.bottomAnchor),
+            originalPriceLabel.topAnchor.constraint(
+                equalTo: discountRateLabel.bottomAnchor
+            ),
             originalPriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             originalPriceLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            originalPriceLabel.widthAnchor.constraint(equalTo: deadLineLabel.widthAnchor, multiplier: 0.6),
-            originalPriceLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.09)
+            originalPriceLabel.widthAnchor.constraint(
+                equalTo: deadLineLabel.widthAnchor,
+                multiplier: 0.6
+            ),
+            originalPriceLabel.heightAnchor.constraint(
+                equalTo: heightAnchor,
+                multiplier: 0.09
+            )
         ])
     }
     
     private func setupVerticalSeparatorConstraints() {
         NSLayoutConstraint.activate([
             verticalSeparator.topAnchor.constraint(equalTo: originalPriceLabel.topAnchor),
-            verticalSeparator.leadingAnchor.constraint(equalTo: originalPriceLabel.trailingAnchor, constant: 3),
+            verticalSeparator.leadingAnchor.constraint(
+                equalTo: originalPriceLabel.trailingAnchor,
+                constant: 3
+            ),
             verticalSeparator.widthAnchor.constraint(equalToConstant: 1),
-            verticalSeparator.bottomAnchor.constraint(equalTo: originalPriceLabel.bottomAnchor)
+            verticalSeparator.bottomAnchor.constraint(
+                equalTo: originalPriceLabel.bottomAnchor
+            )
         ])
     }
     
     private func setupDeadLineLabelConstraints() {
         NSLayoutConstraint.activate([
             deadLineLabel.topAnchor.constraint(equalTo: originalPriceLabel.topAnchor),
-            deadLineLabel.leadingAnchor.constraint(equalTo: verticalSeparator.trailingAnchor, constant: 3),
-            deadLineLabel.bottomAnchor.constraint(equalTo: originalPriceLabel.bottomAnchor)
+            deadLineLabel.leadingAnchor.constraint(
+                equalTo: verticalSeparator.trailingAnchor,
+                constant: 3
+            ),
+            deadLineLabel.bottomAnchor.constraint(
+                equalTo: originalPriceLabel.bottomAnchor
+            )
         ])
     }
     
@@ -183,9 +213,10 @@ private enum Design {
     static let typeLabel = "Skin"
     static let nameLabel = "중간보스 브랜드"
     static let deadLineLabel = "~10.24"
-    static let originalPriceLabel = "1350RP".strikeThrough(value: NSUnderlineStyle.single.rawValue)
+    static let originalPriceLabel = "1350RP".strikeThrough(
+        value: NSUnderlineStyle.single.rawValue
+    )
     static let discountRateLabel = "60%"
     static let discountedPriceLabel = "540RP"
-//    static let discountRateBackgroundColor = UIColor(named: "LoseColor")?.cgColor
     static let verticalSeparatorColor = UIColor(named: "SecondaryColor")
 }

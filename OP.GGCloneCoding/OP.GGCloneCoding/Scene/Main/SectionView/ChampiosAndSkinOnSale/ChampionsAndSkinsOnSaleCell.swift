@@ -80,7 +80,8 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
             .forEach { addSubview($0) }
         [stackView]
             .forEach { scrollView.addSubview($0) }
-        [firstSubImageView, secondSubImageView, thirdSubImageView, fourthSubImageView, fifthSubImageView]
+        [firstSubImageView, secondSubImageView, thirdSubImageView,
+         fourthSubImageView, fifthSubImageView]
             .forEach { stackView.addArrangedSubview($0) }
     }
     
@@ -98,25 +99,43 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            titleLabel.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 1/3)
+            titleLabel.heightAnchor.constraint(
+                equalTo: stackView.heightAnchor,
+                multiplier: 1/3
+            )
         ])
     }
     
     private func setupMainImageViewConstraints() {
         NSLayoutConstraint.activate([
-            mainImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+            mainImageView.topAnchor.constraint(
+                equalTo: titleLabel.bottomAnchor,
+                constant: 12
+            ),
             mainImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            mainImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            mainImageView.heightAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 1/2)
+            mainImageView.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            ),
+            mainImageView.heightAnchor.constraint(
+                equalTo: titleLabel.widthAnchor,
+                multiplier: 1/2
+            )
         ])
     }
     
     private func setupScrollViewConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 12),
+            scrollView.topAnchor.constraint(
+                equalTo: mainImageView.bottomAnchor,
+                constant: 12
+            ),
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.heightAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 2/3)
+            scrollView.heightAnchor.constraint(
+                equalTo: mainImageView.widthAnchor,
+                multiplier: 2/3
+            )
         ])
     }
     
@@ -130,15 +149,22 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
     }
     
     private func setupSubImageViewConstraints() {
-        [firstSubImageView, secondSubImageView, thirdSubImageView, fourthSubImageView, fifthSubImageView]
+        [firstSubImageView, secondSubImageView, thirdSubImageView,
+         fourthSubImageView, fifthSubImageView]
             .forEach {
-                $0.widthAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 1/3).isActive = true
+                $0.widthAnchor.constraint(
+                    equalTo: mainImageView.widthAnchor,
+                    multiplier: 1/3
+                ).isActive = true
             }
     }
     
     private func setupMoreButtonConstraints() {
         NSLayoutConstraint.activate([
-            moreButton.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 12),
+            moreButton.topAnchor.constraint(
+                equalTo: scrollView.bottomAnchor,
+                constant: 12
+            ),
             moreButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             moreButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             moreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
@@ -153,8 +179,18 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
         titleLabel.text = Design.titlelabelText
     }
     
-    private func setupContentInset(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) {
-        scrollView.contentInset = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
+    private func setupContentInset(
+        top: CGFloat,
+        left: CGFloat,
+        bottom: CGFloat,
+        right: CGFloat
+    ) {
+        scrollView.contentInset = UIEdgeInsets(
+            top: top,
+            left: left,
+            bottom: bottom,
+            right: right
+        )
     }
 }
 

@@ -8,17 +8,17 @@
 import UIKit
 
 protocol AlertViewModel {
-    var alertController: UIAlertControllerViewModel { get }
-    var alertAction: UIAlertActionViewModel { get }
+    var alertController: AlertControllerViewModel { get }
+    var alertAction: AlertActionViewModel { get }
 }
 
-protocol UIAlertControllerViewModel {
+protocol AlertControllerViewModel {
     var title: String? { get }
     var message: String? { get }
     var preferredStyle: UIAlertController.Style { get }
 }
 
-protocol UIAlertActionViewModel {
+protocol AlertActionViewModel {
     var title: String? { get }
     var style: UIAlertAction.Style { get }
 }

@@ -2,15 +2,22 @@
 //  SummonerMatchListUseCase.swift
 //  OP.GGCloneCoding
 //
-//  Created by 전민수 on 2022/11/10.
+//  Created by 바드, 수꿍 on 2022/11/10.
 //
 
 struct SummonerMatchListUseCase {
+    
+    // MARK: Properties
+    
     private let summonerMatchListRepository: SummonerMatchListRepository
+    
+    // MARK: - Initializers
 
     init(summonerMatchListRepository: SummonerMatchListRepository = DefaultSummonerMatchListRepository()) {
         self.summonerMatchListRepository = summonerMatchListRepository
     }
+    
+    // MARK: - Methods
 
     func searchSummonerMatch(
         puuid: String,

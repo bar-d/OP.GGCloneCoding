@@ -29,7 +29,12 @@ final class SearchTextField: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = Design.textFieldPlaceHolder
         let size = clearButton.frame.size
-        clearButton.frame = CGRect(x: 0, y: 0, width: size.width + 10, height: size.height)
+        clearButton.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: size.width + 10,
+            height: size.height
+        )
         clearButton.contentMode = .left
         
         textField.rightViewRect(forBounds: CGRect(x: 10, y: 0, width: 10, height: 0))
@@ -92,9 +97,15 @@ final class SearchTextField: UIView {
     
     private func setupSearchImageViewConstraints() {
         NSLayoutConstraint.activate([
-            searchImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            searchImageView.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: 8
+            ),
             searchImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            searchImageView.heightAnchor.constraint(equalTo: textField.heightAnchor, multiplier: 2/3),
+            searchImageView.heightAnchor.constraint(
+                equalTo: textField.heightAnchor,
+                multiplier: 2/3
+            ),
             searchImageView.widthAnchor.constraint(equalTo: searchImageView.heightAnchor)
         ])
     }
@@ -103,8 +114,11 @@ final class SearchTextField: UIView {
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: topAnchor),
             textField.bottomAnchor.constraint(equalTo: bottomAnchor),
-            textField.leadingAnchor.constraint(equalTo: searchImageView.trailingAnchor, constant: 8),
-            textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            textField.leadingAnchor.constraint(
+                equalTo: searchImageView.trailingAnchor,
+                constant: 8
+            ),
+            textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }
     
@@ -114,7 +128,11 @@ final class SearchTextField: UIView {
     }
     
     private func setupClearButton() {
-        clearButton.addTarget(self, action: #selector(clearButtonDidTapped), for: .touchUpInside)
+        clearButton.addTarget(
+            self,
+            action: #selector(clearButtonDidTapped),
+            for: .touchUpInside
+        )
     }
     
     @objc private func clearButtonDidTapped() {

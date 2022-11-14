@@ -53,8 +53,12 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
     // MARK: - Methods
     
     func setupContent(with indexPath: IndexPath) {
-        setupTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[indexPath.row])
-        setupIndicatorLabelText(with: SettingsSection(rawValue: indexPath.section)?.indicator)
+        setupTitleLabel(
+            with: SettingsSection(rawValue: indexPath.section)?.array[indexPath.row]
+        )
+        setupIndicatorLabelText(
+            with: SettingsSection(rawValue: indexPath.section)?.indicator
+        )
     }
     
     func setupTitleAttributes(font: UIFont?, color: UIColor?) {
@@ -107,14 +111,20 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
         NSLayoutConstraint.activate([
             indicatorLabel.topAnchor.constraint(equalTo: topAnchor),
             indicatorLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            indicatorLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20)
+            indicatorLabel.leadingAnchor.constraint(
+                equalTo: titleLabel.trailingAnchor,
+                constant: 20
+            )
         ])
     }
     
     private func setupIndicatorConstraints() {
         NSLayoutConstraint.activate([
             indicator.centerYAnchor.constraint(equalTo: centerYAnchor),
-            indicator.leadingAnchor.constraint(equalTo: indicatorLabel.trailingAnchor, constant: 20),
+            indicator.leadingAnchor.constraint(
+                equalTo: indicatorLabel.trailingAnchor,
+                constant: 20
+            ),
             indicator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }

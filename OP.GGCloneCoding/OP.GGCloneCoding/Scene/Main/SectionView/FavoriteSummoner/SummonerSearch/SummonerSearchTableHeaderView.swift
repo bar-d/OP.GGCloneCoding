@@ -60,15 +60,23 @@ final class SummonerSearchTableHeaderView: UIView {
     
     private func setupRecentSearchLabelConstraints() {
         NSLayoutConstraint.activate([
-            recentSearchLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            recentSearchLabel.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: 20
+            ),
             recentSearchLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
     private func setupDeleteAllButtonContraints() {
         NSLayoutConstraint.activate([
-            deleteAllButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            deleteAllButton.heightAnchor.constraint(equalTo: recentSearchLabel.heightAnchor),
+            deleteAllButton.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            ),
+            deleteAllButton.heightAnchor.constraint(
+                equalTo: recentSearchLabel.heightAnchor
+            ),
             deleteAllButton.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }

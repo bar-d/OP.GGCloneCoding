@@ -8,13 +8,20 @@
 import UIKit
 
 struct SummonerSearchViewModel: ViewModel {
+    
+    // MARK: Properties
+    
     private let summonerSearchUsecase: SummonerSearchUseCase = SummonerSearchUseCase()
     private let output: Output
     lazy var input = Input(completeButtonDidTap: completeButtonDidTap(id:))
 
+    // MARK: - Initializers
+    
     init(output: Output) {
         self.output = output
     }
+    
+    // MARK: - Methods
 
     private func completeButtonDidTap(id: String) {
         summonerSearchUsecase.searchSummoner(id: id) { result in
@@ -23,11 +30,14 @@ struct SummonerSearchViewModel: ViewModel {
                 case .success(let summoner):
                     let archivedData = try? JSONEncoder().encode(summoner)
 
-                    UserDefaults.standard.set(archivedData, forKey: "MySummonerInformation")
+                    UserDefaults.standard.set(
+                        archivedData,
+                        forKey: "MySummonerInformation"
+                    )
                     output.fetchSummonerRankInformation(summoner.id)
                     output.fetchSummonerMatchListInformation(summoner.puuid)
                 case .failure(_):
-                    output.showErrorAlert(ErrorAlertController.nonexistentSummoner.value)
+                    output.showErrorAlert(ErrorAlertController.unknownSummoner.value)
                 }
             }
         }

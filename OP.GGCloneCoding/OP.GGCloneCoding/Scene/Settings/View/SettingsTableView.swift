@@ -69,7 +69,10 @@ final class SettingsTableView: UITableView {
         showsVerticalScrollIndicator = bool
     }
     
-    private func setupCell(by section: SettingsSection?, index: IndexPath) -> CellCustomizable {
+    private func setupCell(
+        by section: SettingsSection?,
+        index: IndexPath
+    ) -> CellCustomizable {
         let cell: CellCustomizable
         
         switch section {
@@ -89,7 +92,10 @@ final class SettingsTableView: UITableView {
 // MARK: - Extension
 
 extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         guard let section = SettingsSection(rawValue: section) else { return 0 }
         
         switch section {
@@ -100,7 +106,10 @@ extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         let section = SettingsSection(rawValue: indexPath.section)
         let cell = setupCell(by: section, index: indexPath)
         
@@ -111,7 +120,10 @@ extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
         return SettingsSection.allCases.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
         if indexPath.section == 1 {
             return 190
         } else {
@@ -119,7 +131,10 @@ extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(
+        _ tableView: UITableView,
+        heightForHeaderInSection section: Int
+    ) -> CGFloat {
         
         return 0
     }

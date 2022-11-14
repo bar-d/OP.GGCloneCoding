@@ -53,12 +53,15 @@ final class SummonerSearchTableView: UITableView {
         NSLayoutConstraint.activate([
             summonerSearchTableHeaderView.heightAnchor.constraint(equalToConstant: 50),
             summonerSearchTableHeaderView.widthAnchor.constraint(equalTo: widthAnchor),
-            summonerSearchTableHeaderView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            summonerSearchTableHeaderView.centerXAnchor.constraint(
+                equalTo: centerXAnchor
+            ),
             summonerSearchTableHeaderView.topAnchor.constraint(equalTo: topAnchor)
         ])
     }
     
     private func setupCell() {
+        
         register(SummonerSearchTableViewCell.self,
                  forCellReuseIdentifier: SummonerSearchTableViewCell.identifier)
     }

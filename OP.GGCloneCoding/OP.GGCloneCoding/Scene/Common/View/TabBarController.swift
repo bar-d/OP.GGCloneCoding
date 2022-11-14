@@ -45,7 +45,10 @@ final class TabBarController: UITabBarController {
         viewControllers = viewControllerArray
     }
     
-    private func setupTabBarItemViewController(viewController: UIViewController, item: UITabBarItem) -> UIViewController {
+    private func setupTabBarItemViewController(
+        viewController: UIViewController,
+        item: UITabBarItem
+    ) -> UIViewController {
         viewController.tabBarItem = item
         
         return viewController
@@ -64,11 +67,31 @@ private enum Design {
     }
     
     enum TabBarItem {
-        static let home = UITabBarItem(title: "홈", image: UIImage(named: "HomeIcon"), tag: 0)
-        static let champion = UITabBarItem(title: "챔피언", image: UIImage(named: "ChampionIcon"), tag: 1)
-        static let esports = UITabBarItem(title: "e 스포츠", image: UIImage(named: "ESportsIcon"), tag: 2)
-        static let community = UITabBarItem(title: "커뮤니티", image: UIImage(named: "CommunityIcon"), tag: 3)
-        static let settings = UITabBarItem(title: "설정", image: UIImage(named: "SettingsIcon"), tag: 4)
+        static let home = UITabBarItem(
+            title: "홈",
+            image: UIImage(named: "HomeIcon"),
+            tag: 0
+        )
+        static let champion = UITabBarItem(
+            title: "챔피언",
+            image: UIImage(named: "ChampionIcon"),
+            tag: 1
+        )
+        static let esports = UITabBarItem(
+            title: "e 스포츠",
+            image: UIImage(named: "ESportsIcon"),
+            tag: 2
+        )
+        static let community = UITabBarItem(
+            title: "커뮤니티",
+            image: UIImage(named: "CommunityIcon"),
+            tag: 3
+        )
+        static let settings = UITabBarItem(
+            title: "설정",
+            image: UIImage(named: "SettingsIcon"),
+            tag: 4
+        )
     }
     
     static let iconColor = UIColor(named: "IconColor")

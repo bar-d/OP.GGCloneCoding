@@ -8,13 +8,13 @@
 import UIKit
 
 enum ErrorAlertController {
-    case nonexistentSummoner
+    case unknownSummoner
     case unknownError(_ error: APIError?)
 
     var value: UIAlertController {
         switch self {
-        case .nonexistentSummoner:
-            return NonexistentSummonerAlertViewModel().makeAlertController()
+        case .unknownSummoner:
+            return UnknownSummonerAlertViewModel().makeAlertController()
         case .unknownError(let error):
             return UnknownErrorAlertViewModel().makeAlertController(error: error)
         }
@@ -22,9 +22,9 @@ enum ErrorAlertController {
 }
 
 extension ErrorAlertController {
-    struct NonexistentSummonerAlertViewModel: AlertViewModel {
-        var alertController: UIAlertControllerViewModel = NonexistentSummonerAlertController()
-        var alertAction: UIAlertActionViewModel = NonexistentSummonerAlertActionViewModel()
+    struct UnknownSummonerAlertViewModel: AlertViewModel {
+        var alertController: AlertControllerViewModel = UnknownSummonerAlertController()
+        var alertAction: AlertActionViewModel = UnknownSummonerAlertActionViewModel()
 
         func makeAlertController() -> UIAlertController {
             let alert = UIAlertController(
@@ -44,20 +44,20 @@ extension ErrorAlertController {
         }
     }
 
-    struct NonexistentSummonerAlertController: UIAlertControllerViewModel {
+    struct UnknownSummonerAlertController: AlertControllerViewModel {
         var title: String? = "존재하지 않는 소환사입니다."
         var message: String? = "소환사 아이디를 확인해주세요!"
         var preferredStyle: UIAlertController.Style = .alert
     }
 
-    struct NonexistentSummonerAlertActionViewModel: UIAlertActionViewModel {
+    struct UnknownSummonerAlertActionViewModel: AlertActionViewModel {
         var title: String? = "확인"
         var style: UIAlertAction.Style = .default
     }
 
     struct UnknownErrorAlertViewModel: AlertViewModel {
-        var alertController: UIAlertControllerViewModel = UnknownErrorAlertController()
-        var alertAction: UIAlertActionViewModel = UnknownErrorAlertActionViewModel()
+        var alertController: AlertControllerViewModel = UnknownErrorAlertController()
+        var alertAction: AlertActionViewModel = UnknownErrorAlertActionViewModel()
 
         func makeAlertController(error: APIError?) -> UIAlertController {
             let alert = UIAlertController(
@@ -77,13 +77,13 @@ extension ErrorAlertController {
         }
     }
 
-    struct UnknownErrorAlertController: UIAlertControllerViewModel {
+    struct UnknownErrorAlertController: AlertControllerViewModel {
         var title: String? = "에러 발생"
         var message: String?
         var preferredStyle: UIAlertController.Style = .alert
     }
 
-    struct UnknownErrorAlertActionViewModel: UIAlertActionViewModel {
+    struct UnknownErrorAlertActionViewModel: AlertActionViewModel {
         var title: String? = "확인"
         var style: UIAlertAction.Style = .default
     }

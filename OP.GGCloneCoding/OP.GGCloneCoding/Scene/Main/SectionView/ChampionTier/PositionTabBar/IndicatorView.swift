@@ -56,7 +56,10 @@ final class IndicatorView: UIView {
             highlightedIndicatorView.topAnchor.constraint(equalTo: topAnchor),
             highlightedIndicatorView.bottomAnchor.constraint(equalTo: bottomAnchor),
             highlightedIndicatorView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            highlightedIndicatorView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/3)
+            highlightedIndicatorView.widthAnchor.constraint(
+                equalTo: widthAnchor,
+                multiplier: 1/3
+            )
         ])
     }
 }

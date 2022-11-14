@@ -75,7 +75,9 @@ final class SummonerRegisterView: UIView {
     
     // MARK: - Methods
     
-    func setupSummonerRegisterTopViewDelegate(_ delegate: SummonerRegisterTopViewDelegate) {
+    func setupSummonerRegisterTopViewDelegate(
+        _ delegate: SummonerRegisterTopViewDelegate
+    ) {
         summonerRegisterTopView.setupSummonerRegisterTopViewDelegate(delegate)
     }
     
@@ -84,7 +86,9 @@ final class SummonerRegisterView: UIView {
     }
 
     private func fetchSummonerRankInformation(encryptedID: String) {
-        summonerRegisterViewDelegate?.fetchSummonerRankInformation(encryptedID: encryptedID)
+        summonerRegisterViewDelegate?.fetchSummonerRankInformation(
+            encryptedID: encryptedID
+        )
     }
 
     private func fetchSummonerMatchListInformation(puuid: String) {
@@ -134,48 +138,89 @@ final class SummonerRegisterView: UIView {
         NSLayoutConstraint.activate([
             logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/5),
             logoImageView.heightAnchor.constraint(equalTo: logoImageView.widthAnchor),
-            logoImageView.topAnchor.constraint(equalTo: summonerRegisterTopView.bottomAnchor, constant: 40),
+            logoImageView.topAnchor.constraint(
+                equalTo: summonerRegisterTopView.bottomAnchor,
+                constant: 40
+            ),
             logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
     }
     
     private func setupDescriptionLabelConstraints() {
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 8),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            descriptionLabel.topAnchor.constraint(
+                equalTo: logoImageView.bottomAnchor,
+                constant: 8
+            ),
+            descriptionLabel.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: 20
+            ),
             descriptionLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
     private func setupTextFieldLayerConstraints() {
         NSLayoutConstraint.activate([
-            textFieldLayer.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            textFieldLayer.topAnchor.constraint(
+                equalTo: descriptionLabel.bottomAnchor,
+                constant: 20
+            ),
             textFieldLayer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            textFieldLayer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            textFieldLayer.heightAnchor.constraint(equalTo: summonerRegisterTopView.heightAnchor, multiplier: 2)
+            textFieldLayer.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            ),
+            textFieldLayer.heightAnchor.constraint(
+                equalTo: summonerRegisterTopView.heightAnchor,
+                multiplier: 2
+            )
         ])
     }
     
     private func setupSearchTextFieldConstraints() {
         NSLayoutConstraint.activate([
-            searchTextField.centerXAnchor.constraint(equalTo: textFieldLayer.centerXAnchor),
-            searchTextField.centerYAnchor.constraint(equalTo: textFieldLayer.centerYAnchor),
-            searchTextField.leadingAnchor.constraint(equalTo: textFieldLayer.leadingAnchor, constant: 8),
-            searchTextField.trailingAnchor.constraint(equalTo: textFieldLayer.trailingAnchor, constant: -8)
+            searchTextField.centerXAnchor.constraint(
+                equalTo: textFieldLayer.centerXAnchor
+            ),
+            searchTextField.centerYAnchor.constraint(
+                equalTo: textFieldLayer.centerYAnchor
+            ),
+            searchTextField.leadingAnchor.constraint(
+                equalTo: textFieldLayer.leadingAnchor,
+                constant: 8
+            ),
+            searchTextField.trailingAnchor.constraint(
+                equalTo: textFieldLayer.trailingAnchor,
+                constant: -8
+            )
         ])
     }
     
     private func setupCompleteButtonConstraints() {
         NSLayoutConstraint.activate([
-            completeButton.topAnchor.constraint(equalTo: textFieldLayer.bottomAnchor, constant: 8),
-            completeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            completeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            completeButton.topAnchor.constraint(
+                equalTo: textFieldLayer.bottomAnchor,
+                constant: 8
+            ),
+            completeButton.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: 20
+            ),
+            completeButton.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            ),
             completeButton.heightAnchor.constraint(equalTo: textFieldLayer.heightAnchor)
         ])
     }
 
     private func setupCompletionButton() {
-        completeButton.addTarget(self, action: #selector(didTapCompleteButton), for: .touchUpInside)
+        completeButton.addTarget(
+            self,
+            action: #selector(didTapCompleteButton),
+            for: .touchUpInside
+        )
     }
 
     @objc private func didTapCompleteButton() {

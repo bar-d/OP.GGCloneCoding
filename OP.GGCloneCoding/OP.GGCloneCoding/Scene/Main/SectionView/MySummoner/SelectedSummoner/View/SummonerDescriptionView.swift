@@ -115,7 +115,10 @@ final class SummonerDescriptionView: UIView {
     private func setupIconImageViewConstraints() {
         NSLayoutConstraint.activate([
             iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            iconImageView.heightAnchor.constraint(equalTo: tierLabel.heightAnchor, multiplier: 4),
+            iconImageView.heightAnchor.constraint(
+                equalTo: tierLabel.heightAnchor,
+                multiplier: 4
+            ),
             iconImageView.widthAnchor.constraint(equalTo: iconImageView.heightAnchor),
             iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
@@ -123,22 +126,34 @@ final class SummonerDescriptionView: UIView {
     
     private func setupLevelLabelConstraints() {
         NSLayoutConstraint.activate([
-            levelLabel.centerYAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: -4),
+            levelLabel.centerYAnchor.constraint(
+                equalTo: iconImageView.bottomAnchor,
+                constant: -4
+            ),
             levelLabel.centerXAnchor.constraint(equalTo: iconImageView.centerXAnchor)
         ])
     }
     
     private func setupSummonerIDLabelConstraints() {
         NSLayoutConstraint.activate([
-            summonerIDLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
+            summonerIDLabel.leadingAnchor.constraint(
+                equalTo: iconImageView.trailingAnchor,
+                constant: 8
+            ),
             summonerIDLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -8)
         ])
     }
     
     private func setupTierStackViewConstraints() {
         NSLayoutConstraint.activate([
-            tierStackView.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
-            tierStackView.topAnchor.constraint(equalTo: summonerIDLabel.bottomAnchor, constant: 4)
+            tierStackView.leadingAnchor.constraint(
+                equalTo: iconImageView.trailingAnchor,
+                constant: 8
+            ),
+            tierStackView.topAnchor.constraint(
+                equalTo: summonerIDLabel.bottomAnchor,
+                constant: 4
+            )
         ])
     }
     

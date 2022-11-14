@@ -91,7 +91,8 @@ final class OtherGamesCell: UITableViewCell {
             .forEach { addSubview($0) }
         [otherGamesStackView]
             .forEach { otherGamesScrollView.addSubview($0) }
-        [valorantImageView, battlegroundsImageView, eternalReturnImageView, overwatchImageView]
+        [valorantImageView, battlegroundsImageView,
+         eternalReturnImageView, overwatchImageView]
             .forEach { otherGamesStackView.addArrangedSubview($0) }
     }
 
@@ -103,10 +104,17 @@ final class OtherGamesCell: UITableViewCell {
     }
 
     private func setupFirstPatchNoteImageViewConstraints() {
-        [valorantImageView, battlegroundsImageView, eternalReturnImageView, overwatchImageView]
+        [valorantImageView, battlegroundsImageView,
+         eternalReturnImageView, overwatchImageView]
             .forEach {
-                $0.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 7).isActive = true
-                $0.widthAnchor.constraint(equalTo: $0.heightAnchor, multiplier: 3/2).isActive = true
+                $0.heightAnchor.constraint(
+                    equalTo: titleLabel.heightAnchor,
+                    multiplier: 7
+                ).isActive = true
+                $0.widthAnchor.constraint(
+                    equalTo: $0.heightAnchor,
+                    multiplier: 3/2
+                ).isActive = true
             }
     }
 
@@ -120,7 +128,10 @@ final class OtherGamesCell: UITableViewCell {
 
     private func setupPatchNoteScrollViewConstraints() {
         NSLayoutConstraint.activate([
-            otherGamesScrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+            otherGamesScrollView.topAnchor.constraint(
+                equalTo: titleLabel.bottomAnchor,
+                constant: 4
+            ),
             otherGamesScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
             otherGamesScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             otherGamesScrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
@@ -129,16 +140,38 @@ final class OtherGamesCell: UITableViewCell {
 
     private func setupPatchNoteStackViewConstraints() {
         NSLayoutConstraint.activate([
-            otherGamesStackView.topAnchor.constraint(equalTo: otherGamesScrollView.topAnchor),
-            otherGamesStackView.bottomAnchor.constraint(equalTo: otherGamesScrollView.bottomAnchor, constant: -20),
-            otherGamesStackView.leadingAnchor.constraint(equalTo: otherGamesScrollView.leadingAnchor),
-            otherGamesStackView.trailingAnchor.constraint(equalTo: otherGamesScrollView.trailingAnchor),
-            otherGamesStackView.heightAnchor.constraint(equalTo: otherGamesScrollView.heightAnchor, constant: -20)
+            otherGamesStackView.topAnchor.constraint(
+                equalTo: otherGamesScrollView.topAnchor
+            ),
+            otherGamesStackView.bottomAnchor.constraint(
+                equalTo: otherGamesScrollView.bottomAnchor,
+                constant: -20
+            ),
+            otherGamesStackView.leadingAnchor.constraint(
+                equalTo: otherGamesScrollView.leadingAnchor
+            ),
+            otherGamesStackView.trailingAnchor.constraint(
+                equalTo: otherGamesScrollView.trailingAnchor
+            ),
+            otherGamesStackView.heightAnchor.constraint(
+                equalTo: otherGamesScrollView.heightAnchor,
+                constant: -20
+            )
         ])
     }
 
-    private func setupContentInset(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) {
-        otherGamesScrollView.contentInset = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
+    private func setupContentInset(
+        top: CGFloat,
+        left: CGFloat,
+        bottom: CGFloat,
+        right: CGFloat
+    ) {
+        otherGamesScrollView.contentInset = UIEdgeInsets(
+            top: top,
+            left: left,
+            bottom: bottom,
+            right: right
+        )
     }
 
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {

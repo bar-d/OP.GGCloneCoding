@@ -73,8 +73,13 @@ final class EmptySummonerView: UIView {
     private func setupDescriptionLabelConstraints() {
         NSLayoutConstraint.activate([
             descriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 15),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            descriptionLabel.leadingAnchor.constraint(
+                equalTo: imageView.trailingAnchor, constant: 15
+            ),
+            descriptionLabel.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            )
         ])
     }
 

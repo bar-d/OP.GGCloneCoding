@@ -95,8 +95,12 @@ final class PushNotificationCell: UITableViewCell, CellCustomizable {
     
     func setupContent(with indexPath: IndexPath) {
         setupTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[0])
-        setupFirstContentTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[1])
-        setupSecondContentTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[2])
+        setupFirstContentTitleLabel(
+            with: SettingsSection(rawValue: indexPath.section)?.array[1]
+        )
+        setupSecondContentTitleLabel(
+            with: SettingsSection(rawValue: indexPath.section)?.array[2]
+        )
     }
     
     func setupTitleAttributes(font: UIFont?, color: UIColor?) {
@@ -153,7 +157,10 @@ final class PushNotificationCell: UITableViewCell, CellCustomizable {
             totalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             totalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             totalStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
-            totalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            totalStackView.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            )
         ])
     }
     

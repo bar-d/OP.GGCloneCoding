@@ -10,25 +10,25 @@ import UIKit
 final class HeaderViewBuilder {
     
     // MARK: Properties
-
+    
     private var headerView = HeaderView()
-
+    
     // MARK: - Initizliers
-
+    
     init() { }
-
+    
     // MARK: - Methods
-
+    
     func build() -> HeaderView {
         return headerView
     }
     
     func setupConstraintsAutomatic(_ bool: Bool) -> HeaderViewBuilder {
         headerView.translatesAutoresizingMaskIntoConstraints = bool
-
+        
         return self
     }
-
+    
     func setupTitleLabel(with text: String) -> HeaderViewBuilder {
         headerView.setupTitleLabel(with: text)
         
@@ -41,7 +41,10 @@ final class HeaderViewBuilder {
         return self
     }
     
-    func setupImage(with image: UIImage?, for section: HeaderViewButton) -> HeaderViewBuilder {
+    func setupImage(
+        with image: UIImage?,
+        for section: HeaderViewButton
+    ) -> HeaderViewBuilder {
         switch section {
         case .firstLeftButton:
             headerView.setupFirstLeftButtonImage(with: image)

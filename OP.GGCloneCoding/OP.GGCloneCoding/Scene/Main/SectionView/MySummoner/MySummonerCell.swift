@@ -51,9 +51,9 @@ final class MySummonerCell: UITableViewCell {
     }
 
     private func checkSummonerRegistrationForHidingView() {
-        guard let archivedData = UserDefaults.standard.object(
+        guard UserDefaults.standard.object(
             forKey: "MySummonerInformation"
-        ) as? Data else {
+        ) is Data else {
             setupUnselectedSummonerViewHidden(false)
             setupSelectedSummonerViewHidden(true)
 
@@ -92,19 +92,33 @@ final class MySummonerCell: UITableViewCell {
     
     private func setupUnselectedSummonerViewConstraints() {
         NSLayoutConstraint.activate([
-            unselectedSummonerView.topAnchor.constraint(equalTo: emptyView.topAnchor),
-            unselectedSummonerView.bottomAnchor.constraint(equalTo: emptyView.bottomAnchor),
-            unselectedSummonerView.leadingAnchor.constraint(equalTo: emptyView.leadingAnchor),
-            unselectedSummonerView.trailingAnchor.constraint(equalTo: emptyView.trailingAnchor)
+            unselectedSummonerView.topAnchor.constraint(
+                equalTo: emptyView.topAnchor
+            ),
+            unselectedSummonerView.bottomAnchor.constraint(
+                equalTo: emptyView.bottomAnchor
+            ),
+            unselectedSummonerView.leadingAnchor.constraint(
+                equalTo: emptyView.leadingAnchor
+            ),
+            unselectedSummonerView.trailingAnchor.constraint(
+                equalTo: emptyView.trailingAnchor
+            )
         ])
     }
     
     private func setupSelectedSummonerViewConstraints() {
         NSLayoutConstraint.activate([
             selectedSummoenrView.topAnchor.constraint(equalTo: emptyView.topAnchor),
-            selectedSummoenrView.bottomAnchor.constraint(equalTo: emptyView.bottomAnchor),
-            selectedSummoenrView.leadingAnchor.constraint(equalTo: emptyView.leadingAnchor),
-            selectedSummoenrView.trailingAnchor.constraint(equalTo: emptyView.trailingAnchor)
+            selectedSummoenrView.bottomAnchor.constraint(
+                equalTo: emptyView.bottomAnchor
+            ),
+            selectedSummoenrView.leadingAnchor.constraint(
+                equalTo: emptyView.leadingAnchor
+            ),
+            selectedSummoenrView.trailingAnchor.constraint(
+                equalTo: emptyView.trailingAnchor
+            )
         ])
     }
     

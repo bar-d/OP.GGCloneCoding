@@ -76,27 +76,41 @@ final class SettingsViewController: UIViewController {
     }
     
     private func setupStickyHeaderViewConstraints() {
-        stickyHeaderviewTopConstraint = stickyHeaderView.topAnchor.constraint(equalTo: view.topAnchor)
+        stickyHeaderviewTopConstraint = stickyHeaderView.topAnchor.constraint(
+            equalTo: view.topAnchor
+        )
         
         NSLayoutConstraint.activate([
             stickyHeaderviewTopConstraint,
-            stickyHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            stickyHeaderView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor,
+                constant: 16
+            ),
             stickyHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            stickyHeaderView.heightAnchor.constraint(equalToConstant: Design.headerMaxHeight)
+            stickyHeaderView.heightAnchor.constraint(
+                equalToConstant: Design.headerMaxHeight
+            )
         ])
     }
     
     private func setupSettingsScrollViewConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: Design.headerMinHeight),
+            scrollView.topAnchor.constraint(
+                equalTo: view.topAnchor,
+                constant: Design.headerMinHeight
+            ),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            scrollView.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor
+            )
         ])
     }
     
     private func setupSettingsTableViewConstraints() {
-        tableViewHeightConstraint = tableView.heightAnchor.constraint(equalToConstant: .zero)
+        tableViewHeightConstraint = tableView.heightAnchor.constraint(
+            equalToConstant: .zero
+        )
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: scrollView.topAnchor),
@@ -135,13 +149,16 @@ extension SettingsViewController: UIScrollViewDelegate {
     }
     
     private func updateHeaderView() {
-        headerView.changeTitleLabelAlpha(with: calculateHeaderConstant() / Design.headerMinHeight)
+        headerView.changeTitleLabelAlpha(
+            with: calculateHeaderConstant() / Design.headerMinHeight
+        )
     }
     
     private func calculateHeaderConstant() -> CGFloat {
-        var headerConstant = scrollView.contentOffset.y + Design.headerMaxHeight - Design.headerMinHeight
+        var headerConstant = scrollView.contentOffset.y + Design.dynamicHeaderHeight
         headerConstant = headerConstant < 0 ? 0 : headerConstant
-        headerConstant = headerConstant > Design.headerMinHeight ? Design.headerMinHeight : headerConstant
+        headerConstant = headerConstant > Design.headerMinHeight
+                            ? Design.headerMinHeight : headerConstant
         
         return headerConstant
     }
@@ -151,10 +168,13 @@ extension SettingsViewController: UIScrollViewDelegate {
 
 private enum Design {
     static let secondaryColor = UIColor(named: "SecondaryColor")
-    static let scrollViewContentInsets = UIEdgeInsets(top: headerMaxHeight - headerMinHeight,
-                                                      left: 0,
-                                                      bottom: -(headerMaxHeight - headerMinHeight),
-                                                      right: 0)
     static let headerMaxHeight: CGFloat = 150
     static let headerMinHeight: CGFloat = 100
+    static let dynamicHeaderHeight = headerMaxHeight - headerMinHeight
+    static let scrollViewContentInsets = UIEdgeInsets(
+        top: headerMaxHeight - headerMinHeight,
+        left: 0,
+        bottom: -(headerMaxHeight - headerMinHeight),
+        right: 0
+    )
 }

@@ -76,7 +76,10 @@ final class UnselectedSummonerView: UIView {
         NSLayoutConstraint.activate([
             emptySummonerView.centerXAnchor.constraint(equalTo: centerXAnchor),
             emptySummonerView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
-            emptySummonerView.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -20),
+            emptySummonerView.bottomAnchor.constraint(
+                equalTo: descriptionLabel.topAnchor,
+                constant: -20
+            ),
             emptySummonerView.heightAnchor.constraint(equalToConstant: 100),
             emptySummonerView.widthAnchor.constraint(equalTo: widthAnchor, constant: -50)
         ])
@@ -86,16 +89,28 @@ final class UnselectedSummonerView: UIView {
         NSLayoutConstraint.activate([
             descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             descriptionLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -140),
-            descriptionLabel.bottomAnchor.constraint(equalTo: summonerRegisterButton.topAnchor, constant: -20),
-            descriptionLabel.heightAnchor.constraint(equalTo: summonerRegisterButton.heightAnchor, multiplier: 2)
+            descriptionLabel.bottomAnchor.constraint(
+                equalTo: summonerRegisterButton.topAnchor,
+                constant: -20
+            ),
+            descriptionLabel.heightAnchor.constraint(
+                equalTo: summonerRegisterButton.heightAnchor,
+                multiplier: 2
+            )
         ])
     }
     
     private func setupSummonerRegisterButtonConstraints() {
         NSLayoutConstraint.activate([
             summonerRegisterButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            summonerRegisterButton.widthAnchor.constraint(equalTo: widthAnchor, constant: -40),
-            summonerRegisterButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
+            summonerRegisterButton.widthAnchor.constraint(
+                equalTo: widthAnchor,
+                constant: -40
+            ),
+            summonerRegisterButton.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -20
+            )
         ])
     }
     

@@ -12,7 +12,9 @@ final class PositionTabBar: UIView {
     // MARK: Properties
     
     private weak var positionTabBarDelegate: PositionTabBarDelegate?
-    private let positionTabBarCollectionView = ChampionTierCollectionView(section: .tapBar)
+    private let positionTabBarCollectionView = ChampionTierCollectionView(
+        section: .tapBar
+    )
     
     private let indicatorView = IndicatorView()
     
@@ -41,7 +43,11 @@ final class PositionTabBar: UIView {
     }
 
     func selectTabBarItem(at index: IndexPath, animated: Bool = true) {
-        positionTabBarCollectionView.selectItem(at: index, animated: true, scrollPosition: .init())
+        positionTabBarCollectionView.selectItem(
+            at: index,
+            animated: true,
+            scrollPosition: .init()
+        )
     }
 
     func updateIndicatorViewWidthConstraints(width: CGFloat) {
@@ -83,15 +89,23 @@ final class PositionTabBar: UIView {
     private func setupCustomTabBarCollectionViewConstraints() {
         NSLayoutConstraint.activate([
             positionTabBarCollectionView.topAnchor.constraint(equalTo: topAnchor),
-            positionTabBarCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            positionTabBarCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            positionTabBarCollectionView.leadingAnchor.constraint(
+                equalTo: leadingAnchor
+            ),
+            positionTabBarCollectionView.trailingAnchor.constraint(
+                equalTo: trailingAnchor
+            ),
             positionTabBarCollectionView.heightAnchor.constraint(equalToConstant: 58)
         ])
     }
     
     private func setupIndicatorViewConstraints() {
-        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(equalToConstant: frame.width / 5)
-        indicatorViewLeadingConstraint = indicatorView.leadingAnchor.constraint(equalTo: leadingAnchor)
+        indicatorViewWidthConstraint = indicatorView.widthAnchor.constraint(
+            equalToConstant: frame.width / 5
+        )
+        indicatorViewLeadingConstraint = indicatorView.leadingAnchor.constraint(
+            equalTo: leadingAnchor
+        )
         
         NSLayoutConstraint.activate([
             indicatorViewWidthConstraint,
@@ -130,7 +144,9 @@ extension PositionTabBar: UICollectionViewDelegate, UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell: PositionTabBarCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+        let cell: PositionTabBarCollectionViewCell = collectionView.dequeueReusableCell(
+            for: indexPath
+        )
         cell.setupTitle(with: postion[indexPath.row])
         
         return cell

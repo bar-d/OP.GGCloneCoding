@@ -8,13 +8,22 @@
 import UIKit
 
 struct SummonerRankViewModel: ViewModel {
+    
+    // MARK: Properties
+    
     private let summonerRankUsecase: SummonerRankUseCase = SummonerRankUseCase()
     private let output: Output
-    lazy var input = Input(fetchSummonerRankInformation: fetchSummonerRankInformation(encryptedID:))
+    lazy var input = Input(
+        fetchSummonerRankInformation: fetchSummonerRankInformation(encryptedID:)
+    )
 
+    // MARK: - Initializers
+    
     init(output: Output) {
         self.output = output
     }
+    
+    // MARK: - Methods
 
     private func fetchSummonerRankInformation(encryptedID: String) {
         summonerRankUsecase.searchSummonerRank(encryptedId: encryptedID) { result in
@@ -24,9 +33,14 @@ struct SummonerRankViewModel: ViewModel {
                     print(summonerRankArray)
                     let archivedRankData = try? JSONEncoder().encode(summonerRankArray)
 
-                    UserDefaults.standard.set(archivedRankData, forKey: "MySummonerRankInformation")
+                    UserDefaults.standard.set(
+                        archivedRankData,
+                        forKey: "MySummonerRankInformation"
+                    )
                 case .failure(let error):
-                    output.showErrorAlert(ErrorAlertController.unknownError(error as? APIError).value)
+                    output.showErrorAlert(
+                        ErrorAlertController.unknownError(error as? APIError).value
+                    )
                 }
             }
         }

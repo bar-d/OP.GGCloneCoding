@@ -6,11 +6,18 @@
 //
 
 struct SummonerRankUseCase {
+    
+    // MARK: Properties
+    
     private let summonerRankRepository: SummonerRankRepository
+    
+    // MARK: - Initializers
 
     init(summonerRankRepository: SummonerRankRepository = DefaultSummonerRankRepository()) {
         self.summonerRankRepository = summonerRankRepository
     }
+    
+    // MARK: - Methods
 
     func searchSummonerRank(
         encryptedId: String,

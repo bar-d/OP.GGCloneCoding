@@ -12,17 +12,17 @@ extension String {
         guard let url = URL(string: self) else {
             fatalError("Failed to convert \(self) String to URL")
         }
-
+        
         return url
     }
-
+    
     func strikeThrough(value: Int) -> NSAttributedString {
         let attributeString = NSMutableAttributedString(string: self)
         attributeString.addAttribute(
             NSAttributedString.Key.strikethroughStyle,
             value: value,
             range: NSMakeRange(.zero, attributeString.length))
-
+        
         return attributeString
     }
 }

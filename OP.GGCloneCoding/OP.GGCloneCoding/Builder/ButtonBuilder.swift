@@ -46,7 +46,10 @@ final class ButtonBuilder {
         scale: UIImage.SymbolScale = .default
     ) -> ButtonBuilder {
         button.setImage(image, for: state)
-        button.setPreferredSymbolConfiguration(.init(textStyle: textStyle, scale: scale), forImageIn: state)
+        button.setPreferredSymbolConfiguration(.init(
+            textStyle: textStyle,
+            scale: scale
+        ), forImageIn: state)
         
         return self
     }
@@ -97,13 +100,17 @@ final class ButtonBuilder {
         return self
     }
     
-    func setupSemanticContentAttribute(direction: UISemanticContentAttribute) -> ButtonBuilder {
+    func setupSemanticContentAttribute(
+        direction: UISemanticContentAttribute
+    ) -> ButtonBuilder {
         button.semanticContentAttribute = direction
         
         return self
     }
     
-    func setupHorizontalAlignment(direction: UIControl.ContentHorizontalAlignment) -> ButtonBuilder {
+    func setupHorizontalAlignment(
+        direction: UIControl.ContentHorizontalAlignment
+    ) -> ButtonBuilder {
         button.contentHorizontalAlignment = direction
         
         return self
@@ -116,11 +123,21 @@ extension ButtonBuilder {
     func setupLanguageButton() -> ButtonBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupColor(tint: Design.Color.language, background: Design.Color.secondaryColor)
+            .setupColor(
+                tint: Design.Color.language,
+                background: Design.Color.secondaryColor
+            )
             .setupImage(image: Design.Image.chevronDown)
             .setupTitle(name: "KR", font: .headline, color: Design.Color.language)
-            .setupInset(titleInset: Design.Inset.languageButtonTitle, contentInset: Design.Inset.languageButtonContent)
-            .setupPriority(hugging: .defaultHigh, compression: .defaultHigh, axis: .horizontal)
+            .setupInset(
+                titleInset: Design.Inset.languageButtonTitle,
+                contentInset: Design.Inset.languageButtonContent
+            )
+            .setupPriority(
+                hugging: .defaultHigh,
+                compression: .defaultHigh,
+                axis: .horizontal
+            )
             .setupLayer(cornerRadius: Design.laguageButtonCornerRadius)
             .setupSemanticContentAttribute(direction: .forceRightToLeft)
         
@@ -130,7 +147,11 @@ extension ButtonBuilder {
     func setupSortButton() -> ButtonBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupPriority(hugging: .defaultHigh, compression: .defaultHigh, axis: .horizontal)
+            .setupPriority(
+                hugging: .defaultHigh,
+                compression: .defaultHigh,
+                axis: .horizontal
+            )
             .setupImage(image: Design.Image.sortIcon)
         
         return builder
@@ -141,16 +162,35 @@ extension ButtonBuilder {
             .setupConstraintsAutomatic(false)
             .setupColor(tint: Design.Color.language)
             .setupImage(image: Design.Image.search, textStyle: .title3, scale: .default)
-            .setupTitle(name: Design.searchButtonTitle, font: .footnote, color: Design.Color.language)
-            .setupInset(titleInset: Design.Inset.summonerSearchButtonTitle, contentInset: Design.Inset.summonerSearchButtonContent)
-            .setupPriority(hugging: .defaultHigh, compression: .defaultHigh, axis: .horizontal)
-            .setupLayer(cornerRadius: Design.laguageButtonCornerRadius, width: Design.languageButtonLayerWidth, color: Design.Color.layer)
+            .setupTitle(
+                name: Design.searchButtonTitle,
+                font: .footnote,
+                color: Design.Color.language
+            )
+            .setupInset(
+                titleInset: Design.Inset.summonerSearchButtonTitle,
+                contentInset: Design.Inset.summonerSearchButtonContent
+            )
+            .setupPriority(
+                hugging: .defaultHigh,
+                compression: .defaultHigh,
+                axis: .horizontal
+            )
+            .setupLayer(
+                cornerRadius: Design.laguageButtonCornerRadius,
+                width: Design.languageButtonLayerWidth,
+                color: Design.Color.layer
+            )
             .setupHorizontalAlignment(direction: .left)
         
         return builder
     }
     
-    func setupMainCellButton(text: String, backgroundColor: UIColor? = Design.Color.buttonBackground, tintColor: UIColor? = Design.Color.buttonTintColor) -> ButtonBuilder {
+    func setupMainCellButton(
+        text: String,
+        backgroundColor: UIColor? = Design.Color.buttonBackground,
+        tintColor: UIColor? = Design.Color.buttonTintColor
+    ) -> ButtonBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
             .setupTitle(name: text, state: .normal, font: .footnote, color: tintColor)
@@ -166,7 +206,12 @@ extension ButtonBuilder {
             .setupTitle(name: Design.moreButtonTitle, font: .caption1, color: .label)
             .setupColor(background: Design.Color.secondaryColor)
             .setupLayer(cornerRadius: 4)
-            .setupInset(contentInset: UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0))
+            .setupInset(contentInset: UIEdgeInsets(
+                top: 15,
+                left: 0,
+                bottom: 15,
+                right: 0
+            ))
         
         return builder
     }
@@ -192,10 +237,30 @@ private enum Design {
     }
     
     enum Inset {
-        static let languageButtonTitle = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
-        static let languageButtonContent = UIEdgeInsets(top: 4, left: 24, bottom: 4, right: 8)
-        static let summonerSearchButtonTitle = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
-        static let summonerSearchButtonContent = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 0)
+        static let languageButtonTitle = UIEdgeInsets(
+            top: 0,
+            left: -16,
+            bottom: 0,
+            right: 0
+        )
+        static let languageButtonContent = UIEdgeInsets(
+            top: 4,
+            left: 24,
+            bottom: 4,
+            right: 8
+        )
+        static let summonerSearchButtonTitle = UIEdgeInsets(
+            top: 0,
+            left: 8,
+            bottom: 0,
+            right: 0
+        )
+        static let summonerSearchButtonContent = UIEdgeInsets(
+            top: 8,
+            left: 12,
+            bottom: 8,
+            right: 0
+        )
     }
     
     static let searchButtonTitle = "소환사 검색"

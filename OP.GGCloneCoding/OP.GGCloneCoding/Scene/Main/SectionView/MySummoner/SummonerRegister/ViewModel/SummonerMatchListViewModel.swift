@@ -2,19 +2,28 @@
 //  SummonerMatchListViewModel.swift
 //  OP.GGCloneCoding
 //
-//  Created by 전민수 on 2022/11/10.
+//  Created by 바드, 수꿍 on 2022/11/10.
 //
 
 import UIKit
 
 struct SummonerMatchListViewModel: ViewModel {
-    private let summonerMatchListUsecase: SummonerMatchListUseCase = SummonerMatchListUseCase()
+    
+    // MARK: Properties
+    
+    private let summonerMatchListUsecase = SummonerMatchListUseCase()
     private let output: Output
-    lazy var input = Input(fetchSummonerMatchListInformation: fetchSummonerMatchListInformation(puuid:))
+    lazy var input = Input(
+        fetchSummonerMatchListInformation: fetchSummonerMatchListInformation(puuid:)
+    )
 
+    // MARK: - Initializers
+    
     init(output: Output) {
         self.output = output
     }
+    
+    // MARK: - Methods
 
     private func fetchSummonerMatchListInformation(puuid: String) {
         summonerMatchListUsecase.searchSummonerMatch(puuid: puuid) { result in
@@ -22,12 +31,19 @@ struct SummonerMatchListViewModel: ViewModel {
                 switch result {
                 case .success(let summonerMatchList):
                     print(summonerMatchList)
-                    let archivedMatchListData = try? JSONEncoder().encode(summonerMatchList)
+                    let archivedMatchListData = try? JSONEncoder().encode(
+                        summonerMatchList
+                    )
 
-                    UserDefaults.standard.set(archivedMatchListData, forKey: "MySummonerMatchListInformation")
+                    UserDefaults.standard.set(
+                        archivedMatchListData,
+                        forKey: "MySummonerMatchListInformation"
+                    )
                     output.fetchMatchInformation()
                 case .failure(let error):
-                    output.showErrorAlert(ErrorAlertController.unknownError(error as? APIError).value)
+                    output.showErrorAlert(
+                        ErrorAlertController.unknownError(error as? APIError).value
+                    )
                 }
             }
         }

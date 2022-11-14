@@ -93,8 +93,14 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
             positionTapBar.calculateIndicatorViewWidthConstraint(),
             positionTapBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             positionTapBar.trailingAnchor.constraint(equalTo: trailingAnchor),
-            positionTapBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            positionTapBar.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 2)
+            positionTapBar.topAnchor.constraint(
+                equalTo: titleLabel.bottomAnchor,
+                constant: 8
+            ),
+            positionTapBar.heightAnchor.constraint(
+                equalTo: titleLabel.heightAnchor,
+                multiplier: 2
+            )
         ])
     }
     
@@ -102,7 +108,9 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
         NSLayoutConstraint.activate([
             championTierCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             championTierCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            championTierCollectionView.topAnchor.constraint(equalTo: positionTapBar.bottomAnchor),
+            championTierCollectionView.topAnchor.constraint(
+                equalTo: positionTapBar.bottomAnchor
+            ),
             championTierCollectionView.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
@@ -131,26 +139,11 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
 
 // MARK: - Extension
 
-extension ChampionTierTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        let cell: ChampionTierCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-        
-        return cell
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        numberOfItemsInSection section: Int
-    ) -> Int {
-        
-        return 5
-    }
-    
+extension ChampionTierTableViewCell: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        positionTapBar.updateIndicatorViewLeadingConstraints(leading: scrollView.contentOffset.x / 5)
+        positionTapBar.updateIndicatorViewLeadingConstraints(
+            leading: scrollView.contentOffset.x / 5
+        )
     }
     
     func scrollViewWillEndDragging(
@@ -162,6 +155,27 @@ extension ChampionTierTableViewCell: UICollectionViewDelegate, UICollectionViewD
         let indexPath = IndexPath(item: indexPathItem, section: .zero)
 
         positionTapBar.selectTabBarItem(at: indexPath)
+    }
+}
+
+extension ChampionTierTableViewCell: UICollectionViewDataSource {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let cell: ChampionTierCollectionViewCell = collectionView.dequeueReusableCell(
+            for: indexPath
+        )
+        
+        return cell
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        
+        return 5
     }
 }
 

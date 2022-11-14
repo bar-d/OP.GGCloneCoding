@@ -103,7 +103,10 @@ final class MainSkinOnSaleView: UIView {
     private func setupNameLabelConstraints() {
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            nameLabel.bottomAnchor.constraint(equalTo: deadLineLabel.topAnchor, constant: -2)
+            nameLabel.bottomAnchor.constraint(
+                equalTo: deadLineLabel.topAnchor,
+                constant: -2
+            )
         ])
     }
     
@@ -116,24 +119,47 @@ final class MainSkinOnSaleView: UIView {
     
     private func setupOriginalPriceLabelConstraints() {
         NSLayoutConstraint.activate([
-            originalPriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            originalPriceLabel.bottomAnchor.constraint(equalTo: discountedPriceLabel.topAnchor)
+            originalPriceLabel.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -15
+            ),
+            originalPriceLabel.bottomAnchor.constraint(
+                equalTo: discountedPriceLabel.topAnchor
+            )
         ])
     }
     
     private func setupDiscountRateLabelConstraints() {
         NSLayoutConstraint.activate([
-            discountRateLabel.trailingAnchor.constraint(equalTo: discountedPriceLabel.leadingAnchor, constant: -10),
-            discountRateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            discountRateLabel.heightAnchor.constraint(equalTo: discountedPriceLabel.heightAnchor, multiplier: 0.8),
-            discountRateLabel.widthAnchor.constraint(equalTo: discountRateLabel.heightAnchor, multiplier: 1.6)
+            discountRateLabel.trailingAnchor.constraint(
+                equalTo: discountedPriceLabel.leadingAnchor,
+                constant: -10
+            ),
+            discountRateLabel.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -10
+            ),
+            discountRateLabel.heightAnchor.constraint(
+                equalTo: discountedPriceLabel.heightAnchor,
+                multiplier: 0.8
+            ),
+            discountRateLabel.widthAnchor.constraint(
+                equalTo: discountRateLabel.heightAnchor,
+                multiplier: 1.6
+            )
         ])
     }
     
     private func setupDiscountedPriceLabelConstraints() {
         NSLayoutConstraint.activate([
-            discountedPriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            discountedPriceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+            discountedPriceLabel.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -15
+            ),
+            discountedPriceLabel.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -10
+            )
         ])
     }
     
@@ -154,9 +180,10 @@ private enum Design {
     static let typeLabel = "Skin"
     static let nameLabel = "중간보스 브랜드"
     static let deadLineLabel = "~10.24"
-    static let originalPriceLabel = "1350RP".strikeThrough(value: NSUnderlineStyle.single.rawValue)
+    static let originalPriceLabel = "1350RP".strikeThrough(
+        value: NSUnderlineStyle.single.rawValue
+    )
     static let discountRateLabel = "60%"
     static let discountedPriceLabel = "540RP"
-//    static let discountRateBackgroundColor = UIColor(named: "LoseColor")
 }
 
