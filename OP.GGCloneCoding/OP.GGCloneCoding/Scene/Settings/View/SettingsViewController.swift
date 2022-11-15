@@ -50,6 +50,7 @@ final class SettingsViewController: UIViewController {
         setupScrollViewContentInset()
         setupBackgroundColor()
         setupDelegate()
+        setupDataSource()
     }
     
     private func setupSubviews() {
@@ -133,6 +134,27 @@ final class SettingsViewController: UIViewController {
     
     private func setupDelegate() {
         scrollView.delegate = self
+        tableView.delegate = self
+    }
+    
+    private func setupDataSource() {
+        tableView.dataSource = self
+    }
+    
+    private func setupCell(
+        by section: SettingsSection,
+        index: IndexPath
+    ) -> UITableViewCell {
+        if case section = SettingsSection.pushNotification {
+            return PushNotificationCell()
+        }
+
+        let title = section.array[index.row]
+        let indicatorText = section.indicator
+        let cell = SettingsCell()
+        cell.setupContent(title: title, indicatorText: indicatorText)
+
+        return cell
     }
 }
 
@@ -161,6 +183,64 @@ extension SettingsViewController: UIScrollViewDelegate {
                             ? Design.headerMinHeight : headerConstant
         
         return headerConstant
+    }
+}
+
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        guard let section = SettingsSection(rawValue: section) else { return 0 }
+        
+        switch section {
+        case .pushNotification:
+            return 1
+        default:
+            return section.array.count
+        }
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard let section = SettingsSection(rawValue: indexPath.section) else {
+            return UITableViewCell()
+        }
+
+        let cell = setupCell(by: section, index: indexPath)
+        
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return SettingsSection.allCases.count
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        if indexPath.section == 1 {
+            return 190
+        } else {
+            return 60
+        }
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        heightForHeaderInSection section: Int
+    ) -> CGFloat {
+        
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section != 1 {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
 

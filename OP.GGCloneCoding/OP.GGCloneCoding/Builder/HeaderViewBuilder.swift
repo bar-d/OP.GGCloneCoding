@@ -43,7 +43,7 @@ final class HeaderViewBuilder {
     
     func setupImage(
         with image: UIImage?,
-        for section: HeaderViewButton
+        for section: HeaderViewButtonType
     ) -> HeaderViewBuilder {
         switch section {
         case .firstLeftButton:
