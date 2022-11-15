@@ -70,21 +70,18 @@ final class SettingsTableView: UITableView {
     }
     
     private func setupCell(
-        by section: SettingsSection?,
+        by section: SettingsSection,
         index: IndexPath
-    ) -> CellCustomizable {
-        let cell: CellCustomizable
-        
-        switch section {
-        case .pushNotification:
-            cell = PushNotificationCell()
-        case .version:
-            cell = SettingsCell(font: Design.bodyFont, color: Design.languageColor)
-        default:
-            cell = SettingsCell()
+    ) -> UITableViewCell {
+        if case section = SettingsSection.pushNotification {
+            return PushNotificationCell()
         }
-        cell.setupContent(with: index)
-        
+
+        let title = section.array[index.row]
+        let indicatorText = section.indicator
+        let cell = SettingsCell()
+        cell.setupContent(title: title, indicatorText: indicatorText)
+
         return cell
     }
 }
@@ -110,7 +107,10 @@ extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let section = SettingsSection(rawValue: indexPath.section)
+        guard let section = SettingsSection(rawValue: indexPath.section) else {
+            return UITableViewCell()
+        }
+
         let cell = setupCell(by: section, index: indexPath)
         
         return cell
@@ -150,7 +150,5 @@ extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
 
 private enum Design {
     static let primitiveColor = UIColor(named: "PrimitiveColor")
-    static let languageColor = UIColor(named: "LanguageColor")
     static let tableViewEdgeInsets = UIEdgeInsets(top: -40, left: 0, bottom: 0, right: 0)
-    static let bodyFont = UIFont.preferredFont(forTextStyle: .body)
 }

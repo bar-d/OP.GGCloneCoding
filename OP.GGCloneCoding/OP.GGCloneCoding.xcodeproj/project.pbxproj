@@ -77,7 +77,6 @@
 		C440CD01290114D1008B3C16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CD00290114D1008B3C16 /* SettingsViewController.swift */; };
 		C440CD03290114E2008B3C16 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CD02290114E2008B3C16 /* SettingsCell.swift */; };
 		C440CD0729011505008B3C16 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CD0629011505008B3C16 /* SettingsSection.swift */; };
-		C440CD1029017E50008B3C16 /* CellCustomizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440CD0F29017E50008B3C16 /* CellCustomizable.swift */; };
 		C458CAE62910C239004E6D74 /* SummonerRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAE52910C239004E6D74 /* SummonerRegisterView.swift */; };
 		C458CAE92910C28F004E6D74 /* SummonerRegisterTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAE82910C28F004E6D74 /* SummonerRegisterTopView.swift */; };
 		C458CAED2910ECAD004E6D74 /* SummonerRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458CAEC2910ECAD004E6D74 /* SummonerRegisterViewController.swift */; };
@@ -185,7 +184,6 @@
 		C440CD00290114D1008B3C16 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C440CD02290114E2008B3C16 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		C440CD0629011505008B3C16 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
-		C440CD0F29017E50008B3C16 /* CellCustomizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCustomizable.swift; sourceTree = "<group>"; };
 		C458CAE52910C239004E6D74 /* SummonerRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRegisterView.swift; sourceTree = "<group>"; };
 		C458CAE82910C28F004E6D74 /* SummonerRegisterTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRegisterTopView.swift; sourceTree = "<group>"; };
 		C458CAEC2910ECAD004E6D74 /* SummonerRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRegisterViewController.swift; sourceTree = "<group>"; };
@@ -553,18 +551,9 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		C440CD0E29017E3A008B3C16 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				C440CD0F29017E50008B3C16 /* CellCustomizable.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
 		C440CD1129017E66008B3C16 /* SectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				C440CD0E29017E3A008B3C16 /* Protocol */,
 				C440CD0629011505008B3C16 /* SettingsSection.swift */,
 				C440CD02290114E2008B3C16 /* SettingsCell.swift */,
 				204600922901180C004A3417 /* PushNotificationCell.swift */,
@@ -846,7 +835,6 @@
 				C4EBCC2428FC242900402617 /* MainViewController.swift in Sources */,
 				C4F3DDD529084CBC00137AAC /* LabelBuilder.swift in Sources */,
 				203F0012290BD76300BF95F7 /* EmptySummonerView.swift in Sources */,
-				C440CD1029017E50008B3C16 /* CellCustomizable.swift in Sources */,
 				C43F3F4A290A71B800B03A04 /* PositionTabBar.swift in Sources */,
 				20336A3529150C5C001BDF7D /* APIError.swift in Sources */,
 				20336A3C29151062001BDF7D /* RiotAPIService.swift in Sources */,
