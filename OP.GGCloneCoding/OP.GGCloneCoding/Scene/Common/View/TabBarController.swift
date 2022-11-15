@@ -7,11 +7,13 @@
 
 import UIKit
 
+typealias UIComponents = (UIViewController, UITabBarItem)
+
 final class TabBarController: UITabBarController {
     
     // MARK: Properties
     
-    private let arrayOfViewControllerWithTabBarItem: [(UIViewController, UITabBarItem)] = [
+    private let arrayOfViewControllerWithTabBarItem: [UIComponents] = [
         Design.Pair.home,
         Design.Pair.champion,
         Design.Pair.esports,
