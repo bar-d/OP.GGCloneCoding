@@ -33,8 +33,6 @@ final class IndicatorView: UIView {
         commonInit()
     }
     
-    
-    
     // MARK: - Methods
     
     private func commonInit() {
