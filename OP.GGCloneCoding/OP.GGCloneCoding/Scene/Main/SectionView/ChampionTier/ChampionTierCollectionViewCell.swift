@@ -59,8 +59,14 @@ final class ChampionTierCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             championStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             championStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            championStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            championStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            championStackView.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: 16
+            ),
+            championStackView.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -16
+            )
         ])
     }
 }

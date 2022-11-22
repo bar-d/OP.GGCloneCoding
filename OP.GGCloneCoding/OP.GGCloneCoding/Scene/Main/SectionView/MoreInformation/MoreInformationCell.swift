@@ -66,7 +66,10 @@ final class MoreInformationCell: UITableViewCell {
 
     private func setupRankingButtonConstraints() {
         NSLayoutConstraint.activate([
-            rankingButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            rankingButton.topAnchor.constraint(
+                equalTo: titleLabel.bottomAnchor,
+                constant: 8
+            ),
             rankingButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             rankingButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             rankingButton.heightAnchor.constraint(equalTo: proMatchesButton.heightAnchor)
@@ -75,9 +78,14 @@ final class MoreInformationCell: UITableViewCell {
 
     private func setupProMatchesButtonConstraints() {
         NSLayoutConstraint.activate([
-            proMatchesButton.topAnchor.constraint(equalTo: rankingButton.bottomAnchor, constant: 8),
+            proMatchesButton.topAnchor.constraint(
+                equalTo: rankingButton.bottomAnchor,
+                constant: 8
+            ),
             proMatchesButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            proMatchesButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            proMatchesButton.trailingAnchor.constraint(
+                equalTo: titleLabel.trailingAnchor
+            ),
             proMatchesButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
         ])
     }

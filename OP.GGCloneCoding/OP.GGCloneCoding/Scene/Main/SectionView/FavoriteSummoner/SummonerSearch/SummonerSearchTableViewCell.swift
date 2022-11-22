@@ -103,16 +103,27 @@ final class SummonerSearchTableViewCell: UITableViewCell {
     
     private func setupSummonerIDLabelConstraints() {
         NSLayoutConstraint.activate([
-            summonerIDLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -10),
-            summonerIDLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
+            summonerIDLabel.centerYAnchor.constraint(
+                equalTo: centerYAnchor,
+                constant: -10
+            ),
+            summonerIDLabel.leadingAnchor.constraint(
+                equalTo: iconImageView.trailingAnchor,
+                constant: 8
+            ),
             
         ])
     }
     
     private func setupTierImageViewConstraints() {
         NSLayoutConstraint.activate([
-            tierImageView.topAnchor.constraint(equalTo: summonerIDLabel.bottomAnchor, constant: 4),
-            tierImageView.leadingAnchor.constraint(equalTo: summonerIDLabel.leadingAnchor),
+            tierImageView.topAnchor.constraint(
+                equalTo: summonerIDLabel.bottomAnchor,
+                constant: 4
+            ),
+            tierImageView.leadingAnchor.constraint(
+                equalTo: summonerIDLabel.leadingAnchor
+            ),
             tierImageView.heightAnchor.constraint(equalTo: tierLabel.heightAnchor),
             tierImageView.widthAnchor.constraint(equalTo: tierImageView.heightAnchor)
         ])
@@ -121,7 +132,10 @@ final class SummonerSearchTableViewCell: UITableViewCell {
     private func setupTierLabelConstraints() {
         NSLayoutConstraint.activate([
             tierLabel.topAnchor.constraint(equalTo: tierImageView.topAnchor),
-            tierLabel.leadingAnchor.constraint(equalTo: tierImageView.trailingAnchor, constant: 4),
+            tierLabel.leadingAnchor.constraint(
+                equalTo: tierImageView.trailingAnchor,
+                constant: 4
+            ),
             tierLabel.bottomAnchor.constraint(equalTo: tierImageView.bottomAnchor)
         ])
     }
@@ -129,7 +143,10 @@ final class SummonerSearchTableViewCell: UITableViewCell {
     private func setupStarButtonConstraints() {
         NSLayoutConstraint.activate([
             starButton.centerYAnchor.constraint(equalTo: cancelButton.centerYAnchor),
-            starButton.trailingAnchor.constraint(equalTo: cancelButton.leadingAnchor, constant: -8),
+            starButton.trailingAnchor.constraint(
+                equalTo: cancelButton.leadingAnchor,
+                constant: -8
+            ),
             starButton.heightAnchor.constraint(equalTo: cancelButton.heightAnchor),
             starButton.widthAnchor.constraint(equalTo: cancelButton.widthAnchor)
         ])

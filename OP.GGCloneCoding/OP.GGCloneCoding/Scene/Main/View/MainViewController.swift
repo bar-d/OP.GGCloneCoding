@@ -47,6 +47,12 @@ final class MainViewController: UIViewController {
         setupMainTableViewHeightConstraint()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        mainTableView.reloadData()
+    }
+
     // MARK: - Methods
 
     private func setupUI() {
@@ -79,40 +85,57 @@ final class MainViewController: UIViewController {
     private func setupMainTopViewConstraints() {
         NSLayoutConstraint.activate([
             mainTopView.topAnchor.constraint(equalTo: view.topAnchor),
-            mainTopView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            mainTopView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            mainTopView.leadingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.leadingAnchor
+            ),
+            mainTopView.trailingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.trailingAnchor
+            ),
             mainTopView.heightAnchor.constraint(equalToConstant: Design.headerMinHeight)
         ])
     }
 
     private func setupStickyHeaderViewConstraints() {
-        mainStickyHeaderviewTopConstraint = mainStickyHeaderView.topAnchor.constraint(equalTo: view.topAnchor)
+        mainStickyHeaderviewTopConstraint = mainStickyHeaderView.topAnchor.constraint(
+            equalTo: view.topAnchor
+        )
 
         NSLayoutConstraint.activate([
             mainStickyHeaderviewTopConstraint,
             mainStickyHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainStickyHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mainStickyHeaderView.heightAnchor.constraint(equalToConstant: Design.headerMaxHeight)
+            mainStickyHeaderView.heightAnchor.constraint(
+                equalToConstant: Design.headerMaxHeight
+            )
         ])
     }
 
     private func setupSettingsScrollViewConstraints() {
         NSLayoutConstraint.activate([
-            mainScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: Design.headerMinHeight),
+            mainScrollView.topAnchor.constraint(
+                equalTo: view.topAnchor,
+                constant: Design.headerMinHeight
+            ),
             mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mainScrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            mainScrollView.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor
+            )
         ])
     }
 
     private func setupSettingsTableViewConstraints() {
-        mainTableViewHeightConstraint = mainTableView.heightAnchor.constraint(equalToConstant: .zero)
+        mainTableViewHeightConstraint = mainTableView.heightAnchor.constraint(
+            equalToConstant: .zero
+        )
 
         NSLayoutConstraint.activate([
             mainTableView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
             mainTableView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor),
             mainTableView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
-            mainTableView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor),
+            mainTableView.trailingAnchor.constraint(
+                equalTo: mainScrollView.trailingAnchor
+            ),
             mainTableView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
             mainTableViewHeightConstraint
         ])
@@ -145,7 +168,7 @@ final class MainViewController: UIViewController {
             return
         }
         
-        cell.setupMySummonerCellDelegate(self)
+        cell.setupUnselectedSummonerViewDelegate(self)
     }
     
     private func setupFavoriteSummonersCellDelegate() {
@@ -195,15 +218,19 @@ extension MainViewController: UIScrollViewDelegate {
     }
 
     private func calculateHeaderConstant() -> CGFloat {
-        var headerConstant = mainScrollView.contentOffset.y + Design.headerMaxHeight - Design.headerMinHeight
+        var headerConstant = mainScrollView.contentOffset.y + Design.dynamicHeaderHeight
         headerConstant = headerConstant < 0 ? 0 : headerConstant
-        headerConstant = headerConstant > Design.headerMinHeight ? Design.headerMinHeight : headerConstant
+        headerConstant = headerConstant > Design.headerMinHeight
+        ? Design.headerMinHeight : headerConstant
 
         return headerConstant
     }
 }
 
-extension MainViewController: OtherGamesDelegate, PatchNoteDelegate, MySummonerCellDelegate, FavoriteSummonersCellDelegate {
+extension MainViewController:
+    OtherGamesDelegate, PatchNoteDelegate,
+    UnselectedSummonerViewDelegate,
+    FavoriteSummonersCellDelegate {
     func summonerSearchButtonDidTapped() {
         let summonerSearchViewController = SummonerSearchViewController()
         
@@ -269,6 +296,7 @@ private enum Design {
 
     static let headerMaxHeight: CGFloat = 150
     static let headerMinHeight: CGFloat = 100
+    static let dynamicHeaderHeight = headerMaxHeight - headerMinHeight
     static let scrollViewContentInsets = UIEdgeInsets(
         top: headerMaxHeight - headerMinHeight + 7,
         left: 0,

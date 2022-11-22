@@ -12,11 +12,8 @@ final class MainTableView: UITableView {
     // MARK: Properties
     
     let mainList: [MainSection] = [
-        .mySummoner, .favoriteSummoner,
-        .patchNote, .championTier,
-        .favoriteChampions, .todayTMI,
-        .saleSkinsAndChampion, .anotherGame,
-        .additionalInformation
+        .mySummoner, .favoriteSummoner, .patchNote, .championTier, .favoriteChampions,
+        .todayTMI, .saleSkinsAndChampion, .anotherGame, .additionalInformation
     ]
     
     // MARK: - Initializers
@@ -93,7 +90,10 @@ extension MainTableView: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         let section = mainList[indexPath.section]
         let cell = setupCell(by: section, index: indexPath)
         

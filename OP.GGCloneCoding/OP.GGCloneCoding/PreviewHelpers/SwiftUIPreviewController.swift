@@ -8,7 +8,8 @@
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
 
-struct UIViewControllerPreview<ViewController: UIViewController>: UIViewControllerRepresentable {
+struct UIViewControllerPreview<ViewController: UIViewController>:
+    UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: ViewController, context: Context) {
         
     }

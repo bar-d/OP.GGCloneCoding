@@ -15,7 +15,7 @@ final class ChampionTierView: UIView {
     
     private let equalImage = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(systemName: "equal"))
+        .setupImage(image: Design.equalImage)
         .setupImageTintColor(.gray)
         .build()
     
@@ -72,7 +72,10 @@ final class ChampionTierView: UIView {
     
     private func setupEqualImageConstraints() {
         NSLayoutConstraint.activate([
-            equalImage.topAnchor.constraint(equalTo: championImageView.bottomAnchor, constant: 4),
+            equalImage.topAnchor.constraint(
+                equalTo: championImageView.bottomAnchor,
+                constant: 4
+            ),
             equalImage.widthAnchor.constraint(equalTo: percentLabel.heightAnchor),
             equalImage.heightAnchor.constraint(equalTo: equalImage.widthAnchor),
             equalImage.centerXAnchor.constraint(equalTo: centerXAnchor)
@@ -81,8 +84,17 @@ final class ChampionTierView: UIView {
     
     private func setupPercentLabelConstraints() {
         NSLayoutConstraint.activate([
-            percentLabel.topAnchor.constraint(equalTo: equalImage.bottomAnchor, constant: 4),
+            percentLabel.topAnchor.constraint(
+                equalTo: equalImage.bottomAnchor,
+                constant: 4
+            ),
             percentLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let equalImage = UIImage(systemName: "equal")
 }

@@ -86,18 +86,34 @@ final class MoreInformationButton: UIButton {
 
     private func setupButtonTitleLabelConstraints() {
         NSLayoutConstraint.activate([
-            buttonTitleLabel.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
-            buttonTitleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 12)
+            buttonTitleLabel.centerYAnchor.constraint(
+                equalTo: iconImageView.centerYAnchor
+            ),
+            buttonTitleLabel.leadingAnchor.constraint(
+                equalTo: iconImageView.trailingAnchor,
+                constant: 12
+            )
         ])
     }
 
     private func setupIndicatorImageViewConstraints() {
         NSLayoutConstraint.activate([
             indicatorImageView.topAnchor.constraint(equalTo: iconImageView.topAnchor),
-            indicatorImageView.bottomAnchor.constraint(equalTo: iconImageView.bottomAnchor),
-            indicatorImageView.leadingAnchor.constraint(equalTo: buttonTitleLabel.trailingAnchor, constant: 12),
-            indicatorImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-            indicatorImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/20)
+            indicatorImageView.bottomAnchor.constraint(
+                equalTo: iconImageView.bottomAnchor
+            ),
+            indicatorImageView.leadingAnchor.constraint(
+                equalTo: buttonTitleLabel.trailingAnchor,
+                constant: 12
+            ),
+            indicatorImageView.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -12
+            ),
+            indicatorImageView.widthAnchor.constraint(
+                equalTo: widthAnchor,
+                multiplier: 1/20
+            )
         ])
     }
 

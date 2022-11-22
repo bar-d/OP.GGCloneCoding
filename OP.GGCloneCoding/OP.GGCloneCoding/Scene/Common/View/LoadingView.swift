@@ -87,8 +87,14 @@ final class LoadingView: UIView {
         NSLayoutConstraint.activate([
             loadingView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             loadingView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
-            loadingView.widthAnchor.constraint(equalTo: circleView.widthAnchor, multiplier: 1.5),
-            loadingView.heightAnchor.constraint(equalTo: circleView.heightAnchor, multiplier: 1.5)
+            loadingView.widthAnchor.constraint(
+                equalTo: circleView.widthAnchor,
+                multiplier: 1.5
+            ),
+            loadingView.heightAnchor.constraint(
+                equalTo: circleView.heightAnchor,
+                multiplier: 1.5
+            )
         ])
     }
 }

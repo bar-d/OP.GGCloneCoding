@@ -62,8 +62,13 @@ final class ChampionImageView: UIView {
     private func setupChampionImageViewConstraints() {
         NSLayoutConstraint.activate([
             championImageView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
-            championImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
-            championImageView.widthAnchor.constraint(equalTo: championImageView.heightAnchor),
+            championImageView.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -4
+            ),
+            championImageView.widthAnchor.constraint(
+                equalTo: championImageView.heightAnchor
+            ),
             championImageView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
@@ -72,8 +77,14 @@ final class ChampionImageView: UIView {
         NSLayoutConstraint.activate([
             rankingImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             rankingImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            rankingImageView.widthAnchor.constraint(equalTo: championImageView.widthAnchor, multiplier: 1/3),
-            rankingImageView.heightAnchor.constraint(equalTo: rankingImageView.widthAnchor, multiplier: 3/2),
+            rankingImageView.widthAnchor.constraint(
+                equalTo: championImageView.widthAnchor,
+                multiplier: 1/3
+            ),
+            rankingImageView.heightAnchor.constraint(
+                equalTo: rankingImageView.widthAnchor,
+                multiplier: 3/2
+            ),
             heightAnchor.constraint(equalTo: widthAnchor)
         ])
     }

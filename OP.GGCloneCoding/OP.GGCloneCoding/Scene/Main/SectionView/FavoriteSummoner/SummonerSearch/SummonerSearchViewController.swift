@@ -11,7 +11,7 @@ final class SummonerSearchViewController: UIViewController {
     
     // MARK: Properties
     
-    private let summonerSearchTopView: UIView = {
+    private let topView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -34,8 +34,7 @@ final class SummonerSearchViewController: UIViewController {
     private let summonerSearchTableView = SummonerSearchTableView()
     
     private var cancelButtonTrailingConstraint = NSLayoutConstraint()
-    private var summonerSearchTableViewWidthConstraint = NSLayoutConstraint()
-    private var summonerSearchTopViewWidthConstraint = NSLayoutConstraint()
+    private var topViewWidthConstraint = NSLayoutConstraint()
     
     // MARK: - View Life Cycle
     
@@ -64,10 +63,10 @@ final class SummonerSearchViewController: UIViewController {
     }
     
     private func setupSubviews() {
-        [summonerSearchTopView, summonerSearchTableView]
+        [topView, summonerSearchTableView]
             .forEach { view.addSubview($0) }
         [backwardButton, searchTextField, cancelButton]
-            .forEach { summonerSearchTopView.addSubview($0) }
+            .forEach { topView.addSubview($0) }
     }
     
     private func setupConstraints() {
@@ -79,47 +78,76 @@ final class SummonerSearchViewController: UIViewController {
     }
     
     private func setupSummonerSearchTopViewConstraints() {
-        summonerSearchTopViewWidthConstraint = summonerSearchTopView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 8/7)
+        topViewWidthConstraint = topView.widthAnchor.constraint(
+            equalTo: view.widthAnchor,
+            multiplier: 8/7
+        )
         
         NSLayoutConstraint.activate([
-            summonerSearchTopViewWidthConstraint,
-            summonerSearchTopView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            summonerSearchTopView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            summonerSearchTopView.heightAnchor.constraint(equalToConstant: 100)
+            topViewWidthConstraint,
+            topView.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor
+            ),
+            topView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            topView.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
     
     private func setupBackwardButtonConstraints() {
         NSLayoutConstraint.activate([
-            backwardButton.leadingAnchor.constraint(equalTo: summonerSearchTopView.leadingAnchor),
-            backwardButton.heightAnchor.constraint(equalTo: summonerSearchTopView.heightAnchor, multiplier: 1/2),
+            backwardButton.leadingAnchor.constraint(
+                equalTo: topView.leadingAnchor
+            ),
+            backwardButton.heightAnchor.constraint(
+                equalTo: topView.heightAnchor,
+                multiplier: 1/2
+            ),
             backwardButton.widthAnchor.constraint(equalTo: backwardButton.heightAnchor),
-            backwardButton.centerYAnchor.constraint(equalTo: summonerSearchTopView.centerYAnchor)
+            backwardButton.centerYAnchor.constraint(
+                equalTo: topView.centerYAnchor
+            )
         ])
     }
     
     private func setupSearchTextFieldConstraints() {
         NSLayoutConstraint.activate([
-            searchTextField.trailingAnchor.constraint(equalTo: cancelButton.leadingAnchor, constant: -8),
-            searchTextField.leadingAnchor.constraint(equalTo: backwardButton.trailingAnchor, constant: 8),
-            searchTextField.centerYAnchor.constraint(equalTo: summonerSearchTopView.centerYAnchor),
+            searchTextField.trailingAnchor.constraint(
+                equalTo: cancelButton.leadingAnchor,
+                constant: -8
+            ),
+            searchTextField.leadingAnchor.constraint(
+                equalTo: backwardButton.trailingAnchor,
+                constant: 8
+            ),
+            searchTextField.centerYAnchor.constraint(
+                equalTo: topView.centerYAnchor
+            ),
             searchTextField.heightAnchor.constraint(equalTo: backwardButton.heightAnchor)
         ])
     }
     
     private func setupCancelButtonConstraints() {
         NSLayoutConstraint.activate([
-            cancelButton.trailingAnchor.constraint(equalTo: summonerSearchTopView.trailingAnchor),
-            cancelButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/6),
-            cancelButton.centerYAnchor.constraint(equalTo: summonerSearchTopView.centerYAnchor),
+            cancelButton.trailingAnchor.constraint(
+                equalTo: topView.trailingAnchor
+            ),
+            cancelButton.widthAnchor.constraint(
+                equalTo: view.widthAnchor,
+                multiplier: 1/6
+            ),
+            cancelButton.centerYAnchor.constraint(
+                equalTo: topView.centerYAnchor
+            ),
             cancelButton.topAnchor.constraint(equalTo: backwardButton.topAnchor),
-            cancelButton.bottomAnchor.constraint(equalTo: backwardButton.bottomAnchor),
+            cancelButton.bottomAnchor.constraint(equalTo: backwardButton.bottomAnchor)
         ])
     }
     
     private func setupSummonerSearchTableViewConstraints() {
         NSLayoutConstraint.activate([
-            summonerSearchTableView.topAnchor.constraint(equalTo: summonerSearchTopView.bottomAnchor),
+            summonerSearchTableView.topAnchor.constraint(
+                equalTo: topView.bottomAnchor
+            ),
             summonerSearchTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             summonerSearchTableView.widthAnchor.constraint(equalTo: view.widthAnchor),
             summonerSearchTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -139,12 +167,20 @@ final class SummonerSearchViewController: UIViewController {
     }
     
     private func setupBackwardButton() {
-        backwardButton.addTarget(self, action: #selector(backwardButtonDidTapped), for: .touchUpInside)
+        backwardButton.addTarget(
+            self,
+            action: #selector(backwardButtonDidTapped),
+            for: .touchUpInside
+        )
     }
     
     
     private func setupCancelButton() {
-        cancelButton.addTarget(self, action: #selector(cancelButtonDidTapped), for: .touchUpInside)
+        cancelButton.addTarget(
+            self,
+            action: #selector(cancelButtonDidTapped),
+            for: .touchUpInside
+        )
     }
     
     @objc private func backwardButtonDidTapped() {
@@ -153,8 +189,11 @@ final class SummonerSearchViewController: UIViewController {
     
     @objc private func cancelButtonDidTapped() {
         searchTextField.clearTextFieldText()
-        summonerSearchTopViewWidthConstraint = summonerSearchTopView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 8/7)
-        summonerSearchTopViewWidthConstraint.isActive = true
+        topViewWidthConstraint = topView.widthAnchor.constraint(
+            equalTo: view.widthAnchor,
+            multiplier: 8/7
+        )
+        topViewWidthConstraint.isActive = true
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -174,8 +213,8 @@ final class SummonerSearchViewController: UIViewController {
 
 extension SummonerSearchViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        summonerSearchTopViewWidthConstraint = summonerSearchTopView.widthAnchor.constraint(equalTo: view.widthAnchor)
-        summonerSearchTopViewWidthConstraint.isActive = true
+        topViewWidthConstraint = topView.widthAnchor.constraint(equalTo: view.widthAnchor)
+        topViewWidthConstraint.isActive = true
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -191,8 +230,11 @@ extension SummonerSearchViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        summonerSearchTopViewWidthConstraint = summonerSearchTopView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 8/7)
-        summonerSearchTopViewWidthConstraint.isActive = true
+        topViewWidthConstraint = topView.widthAnchor.constraint(
+            equalTo: view.widthAnchor,
+            multiplier: 8/7
+        )
+        topViewWidthConstraint.isActive = true
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,

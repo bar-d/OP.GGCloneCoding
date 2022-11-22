@@ -11,12 +11,15 @@ extension UICollectionView {
     func register<T: UICollectionViewCell>(cellType: T.Type) {
         self.register(cellType.self, forCellWithReuseIdentifier: T.identifier)
     }
-
+    
     func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
-        guard let cell = self.dequeueReusableCell(withReuseIdentifier: T.identifier, for: indexPath) as? T else {
+        guard let cell = self.dequeueReusableCell(
+            withReuseIdentifier: T.identifier,
+            for: indexPath
+        ) as? T else {
             fatalError("Failed to dequeue a cell with identifier \(T.identifier) matching Type \(T.self)")
         }
-
+        
         return cell
     }
 }

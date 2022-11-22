@@ -66,7 +66,10 @@ final class FavoriteChampionCell: UITableViewCell {
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -20),
+            titleLabel.bottomAnchor.constraint(
+                equalTo: descriptionLabel.topAnchor,
+                constant: -20
+            ),
             titleLabel.heightAnchor.constraint(equalToConstant: 100),
             titleLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -50)
         ])
@@ -76,16 +79,28 @@ final class FavoriteChampionCell: UITableViewCell {
         NSLayoutConstraint.activate([
             descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             descriptionLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -140),
-            descriptionLabel.bottomAnchor.constraint(equalTo: summonerSearchButton.topAnchor, constant: -20),
-            descriptionLabel.heightAnchor.constraint(equalTo: summonerSearchButton.heightAnchor, multiplier: 2)
+            descriptionLabel.bottomAnchor.constraint(
+                equalTo: summonerSearchButton.topAnchor,
+                constant: -20
+            ),
+            descriptionLabel.heightAnchor.constraint(
+                equalTo: summonerSearchButton.heightAnchor,
+                multiplier: 2
+            )
         ])
     }
     
     private func setupSummonerSearchButtonConstraints() {
         NSLayoutConstraint.activate([
             summonerSearchButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            summonerSearchButton.widthAnchor.constraint(equalTo: widthAnchor, constant: -40),
-            summonerSearchButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
+            summonerSearchButton.widthAnchor.constraint(
+                equalTo: widthAnchor,
+                constant: -40
+            ),
+            summonerSearchButton.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -20
+            )
         ])
     }
     
@@ -104,6 +119,5 @@ private enum Design {
     static let titleLabelText = "즐겨찾기한 챔피언"
     static let descriptionLabelText = "⭐️ 즐겨찾기한 챔피언이 없습니다.\n즐겨찾는 챔피언을 등록해주세요!"
     static let summonerSearchButtonTitle = "챔피언 살펴보기"
-//    static let descriptionLabelTextColor = UIColor(named: "IconColor")
     static let cellBackgroundColor = UIColor(named: "PrimitiveColor")
 }

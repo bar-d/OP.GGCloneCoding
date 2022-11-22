@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingsCell: UITableViewCell, CellCustomizable {
+final class SettingsCell: UITableViewCell {
     
     // MARK: Properties
     
@@ -35,7 +35,6 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
         super.init(style: .default, reuseIdentifier: nil)
         
         commonInit()
-        setupTitleAttributes(font: font, color: color)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -51,33 +50,46 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
     }
     
     // MARK: - Methods
-    
-    func setupContent(with indexPath: IndexPath) {
-        setupTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[indexPath.row])
-        setupIndicatorLabelText(with: SettingsSection(rawValue: indexPath.section)?.indicator)
+
+    func setupContent(title: String?, indicatorText: String?) {
+        if isVersionSection(by: title) {
+            setupTitleAttributes(font: Design.bodyFont, color: Design.indicatorTintColor)
+            setupIndicatorHidden(true)
+        }
+
+        setupTitleLabel(with: title)
+        setupIndicatorLabelText(with: indicatorText)
     }
-    
-    func setupTitleAttributes(font: UIFont?, color: UIColor?) {
+
+    private func isVersionSection(by title: String?) -> Bool {
+        return title == SettingsSection.version.array.first ? true : false
+    }
+
+    private func setupTitleAttributes(font: UIFont?, color: UIColor?) {
         setupTitleFont(font)
         setupTitleColor(color)
     }
-    
-    private func setupTitleLabel(with text: String?) {
-        titleLabel.text = text
-    }
-    
-    private func setupIndicatorLabelText(with text: String?) {
-        indicatorLabel.text = text
-    }
-    
+
     private func setupTitleFont(_ font: UIFont?) {
         titleLabel.font = font
     }
-    
+
     private func setupTitleColor(_ color: UIColor?) {
         titleLabel.textColor = color
     }
-    
+
+    private func setupIndicatorHidden(_ bool: Bool) {
+        indicator.isHidden = bool
+    }
+
+    private func setupTitleLabel(with text: String?) {
+        titleLabel.text = text
+    }
+
+    private func setupIndicatorLabelText(with text: String?) {
+        indicatorLabel.text = text
+    }
+
     private func commonInit() {
         setupSubviews()
         setupConstraints()
@@ -107,14 +119,20 @@ final class SettingsCell: UITableViewCell, CellCustomizable {
         NSLayoutConstraint.activate([
             indicatorLabel.topAnchor.constraint(equalTo: topAnchor),
             indicatorLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            indicatorLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20)
+            indicatorLabel.leadingAnchor.constraint(
+                equalTo: titleLabel.trailingAnchor,
+                constant: 20
+            )
         ])
     }
     
     private func setupIndicatorConstraints() {
         NSLayoutConstraint.activate([
             indicator.centerYAnchor.constraint(equalTo: centerYAnchor),
-            indicator.leadingAnchor.constraint(equalTo: indicatorLabel.trailingAnchor, constant: 20),
+            indicator.leadingAnchor.constraint(
+                equalTo: indicatorLabel.trailingAnchor,
+                constant: 20
+            ),
             indicator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }
@@ -130,4 +148,5 @@ private enum Design {
     static let indicatorImage = UIImage(systemName: "chevron.right")
     static let indicatorTintColor = UIColor(named: "LanguageColor")
     static let backgroundColor = UIColor(named: "SecondaryColor")
+    static let bodyFont = UIFont.preferredFont(forTextStyle: .body)
 }

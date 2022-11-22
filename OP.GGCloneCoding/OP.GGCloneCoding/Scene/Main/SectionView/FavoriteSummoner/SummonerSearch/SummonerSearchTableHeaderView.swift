@@ -5,21 +5,21 @@
 //  Created by 바드, 수꿍 on 2022/11/01.
 //
 
-import SwiftUI
+import UIKit
 
 final class SummonerSearchTableHeaderView: UIView {
-
+    
     // MARK: Properties
     
     private let recentSearchLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: "최근 검색", color: .label)
+        .setupLabelText(text: Design.recentSearchLabelText, color: .label)
         .setupLabelTextAttributes(alignment: .left)
         .build()
     
     private let deleteAllButton = ButtonBuilder()
         .setupConstraintsAutomatic(false)
-        .setupTitle(name: "전체 삭제", font: .footnote, color: .lightGray)
+        .setupTitle(name: Design.deleteAllButtonTitle, font: .footnote, color: .lightGray)
         .build()
     
     // MARK: - Initializers
@@ -60,32 +60,29 @@ final class SummonerSearchTableHeaderView: UIView {
     
     private func setupRecentSearchLabelConstraints() {
         NSLayoutConstraint.activate([
-            recentSearchLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            recentSearchLabel.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: 20
+            ),
             recentSearchLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
     private func setupDeleteAllButtonContraints() {
         NSLayoutConstraint.activate([
-            deleteAllButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            deleteAllButton.heightAnchor.constraint(equalTo: recentSearchLabel.heightAnchor),
+            deleteAllButton.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            ),
+            deleteAllButton.heightAnchor.constraint(
+                equalTo: recentSearchLabel.heightAnchor
+            ),
             deleteAllButton.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }
 
-
-
-// MARK: - Preview
-
- struct SummonerSearchTableHeaderView_Preview: PreviewProvider {
-     static var previews: some View {
-         UIViewPreview {
-             let view = SummonerSearchTableHeaderView()
-             view.translatesAutoresizingMaskIntoConstraints = true
-             
-             return view
-         }
-         .previewLayout(.fixed(width: 300, height: 100))   
-     }
- }
+private enum Design {
+    static let recentSearchLabelText = "최근 검색"
+    static let deleteAllButtonTitle = "전체 삭제"
+}

@@ -10,25 +10,25 @@ import UIKit
 final class HeaderViewBuilder {
     
     // MARK: Properties
-
+    
     private var headerView = HeaderView()
-
+    
     // MARK: - Initizliers
-
+    
     init() { }
-
+    
     // MARK: - Methods
-
+    
     func build() -> HeaderView {
         return headerView
     }
     
     func setupConstraintsAutomatic(_ bool: Bool) -> HeaderViewBuilder {
         headerView.translatesAutoresizingMaskIntoConstraints = bool
-
+        
         return self
     }
-
+    
     func setupTitleLabel(with text: String) -> HeaderViewBuilder {
         headerView.setupTitleLabel(with: text)
         
@@ -41,7 +41,10 @@ final class HeaderViewBuilder {
         return self
     }
     
-    func setupImage(with image: UIImage?, for section: HeaderViewButton) -> HeaderViewBuilder {
+    func setupImage(
+        with image: UIImage?,
+        for section: HeaderViewButtonType
+    ) -> HeaderViewBuilder {
         switch section {
         case .firstLeftButton:
             headerView.setupFirstLeftButtonImage(with: image)
@@ -63,7 +66,7 @@ extension HeaderViewBuilder {
     func setupChampionHeaderView() -> HeaderViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupTitleLabel(with: "챔피언 분석")
+            .setupTitleLabel(with: Design.championHeaderViewTitle)
         
         return builder
     }
@@ -71,7 +74,7 @@ extension HeaderViewBuilder {
     func setupCommunityHeaderView() -> HeaderViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupTitleLabel(with: "전체")
+            .setupTitleLabel(with: Design.communityHeaderViewTitle)
         
         return builder
     }
@@ -79,8 +82,16 @@ extension HeaderViewBuilder {
     func setupSettingHeaderView() -> HeaderViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupTitleLabel(with: "설정")
+            .setupTitleLabel(with: Design.settingHeaderViewTitle)
         
         return builder
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let championHeaderViewTitle = "챔피언 분석"
+    static let communityHeaderViewTitle = "전체"
+    static let settingHeaderViewTitle = "설정"
 }

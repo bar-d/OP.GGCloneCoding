@@ -63,16 +63,25 @@ final class TodayTMICell: UITableViewCell {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            titleLabel.heightAnchor.constraint(equalTo: TMIDescription.heightAnchor, multiplier: 2/3)
+            titleLabel.heightAnchor.constraint(
+                equalTo: TMIDescription.heightAnchor,
+                multiplier: 2/3
+            )
         ])
     }
     
     private func setupTMIDescriptionConstraints() {
         NSLayoutConstraint.activate([
-            TMIDescription.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            TMIDescription.topAnchor.constraint(
+                equalTo: titleLabel.bottomAnchor,
+                constant: 8
+            ),
             TMIDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             TMIDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            TMIDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            TMIDescription.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            )
         ])
     }
     

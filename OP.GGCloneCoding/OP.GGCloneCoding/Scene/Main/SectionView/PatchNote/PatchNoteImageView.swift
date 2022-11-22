@@ -16,7 +16,11 @@ final class PatchNoteImageView: UIView {
         .build()
     
     private let titleLabel = LabelBuilder()
-        .setupMainCellTitleLabel(text: Design.titleLabelText, color: .white, font: .footnote)
+        .setupMainCellTitleLabel(
+            text: Design.titleLabelText,
+            color: .white,
+            font: .footnote
+        )
         .build()
     
     private let indicatorImageView = ImageViewBuilder()
@@ -41,7 +45,7 @@ final class PatchNoteImageView: UIView {
     
     func changeImage(with imageName: String) {
         patchImageView.image = UIImage(named: imageName)
-        titleLabel.text = "패치 노트 \(imageName)"
+        titleLabel.text = "\(Design.titleLabelText) \(imageName)"
     }
     
     private func commonInit() {
@@ -86,11 +90,18 @@ final class PatchNoteImageView: UIView {
     
     private func setupIndicatorImageViewConstraints() {
         NSLayoutConstraint.activate([
-            indicatorImageView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            indicatorImageView.centerYAnchor.constraint(
+                equalTo: titleLabel.centerYAnchor
+            ),
             indicatorImageView.topAnchor.constraint(equalTo: titleLabel.topAnchor),
             indicatorImageView.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            indicatorImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-            indicatorImageView.widthAnchor.constraint(equalTo: indicatorImageView.heightAnchor)
+            indicatorImageView.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -12
+            ),
+            indicatorImageView.widthAnchor.constraint(
+                equalTo: indicatorImageView.heightAnchor
+            )
         ])
     }
 }

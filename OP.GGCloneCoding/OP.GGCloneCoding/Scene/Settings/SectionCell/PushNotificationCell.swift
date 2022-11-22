@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PushNotificationCell: UITableViewCell, CellCustomizable {
+final class PushNotificationCell: UITableViewCell {
     
     // MARK: Properties
     
@@ -93,12 +93,6 @@ final class PushNotificationCell: UITableViewCell, CellCustomizable {
     
     // MARK: - Methods
     
-    func setupContent(with indexPath: IndexPath) {
-        setupTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[0])
-        setupFirstContentTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[1])
-        setupSecondContentTitleLabel(with: SettingsSection(rawValue: indexPath.section)?.array[2])
-    }
-    
     func setupTitleAttributes(font: UIFont?, color: UIColor?) {
         setupTitleFont(font)
         setupTitleColor(color)
@@ -130,6 +124,7 @@ final class PushNotificationCell: UITableViewCell, CellCustomizable {
         setupBackgroundColor(Design.secondaryColor)
         setupUserInterationEnabled(false)
         setupSelectionStyle(.none)
+        setupContent()
     }
     
     private func setupSubviews() {
@@ -153,7 +148,10 @@ final class PushNotificationCell: UITableViewCell, CellCustomizable {
             totalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             totalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             totalStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
-            totalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            totalStackView.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            )
         ])
     }
     
@@ -171,6 +169,16 @@ final class PushNotificationCell: UITableViewCell, CellCustomizable {
     
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {
         selectionStyle = .none
+    }
+
+    private func setupContent() {
+        setupTitleLabel(with: SettingsSection.pushNotification.array[0])
+        setupFirstContentTitleLabel(
+            with: SettingsSection.pushNotification.array[1]
+        )
+        setupSecondContentTitleLabel(
+            with: SettingsSection.pushNotification.array[2]
+        )
     }
 }
 

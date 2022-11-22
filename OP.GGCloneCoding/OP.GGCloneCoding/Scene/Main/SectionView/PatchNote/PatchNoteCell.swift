@@ -94,8 +94,14 @@ final class PatchNoteCell: UITableViewCell {
     private func setupFirstPatchNoteImageViewConstraints() {
         [firstPatchNoteImageView, secondPatchNoteImageView, thirdPatchNoteImageView]
             .forEach {
-                $0.heightAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 3/5).isActive = true
-                $0.widthAnchor.constraint(equalTo: $0.heightAnchor, multiplier: 3/2).isActive = true
+                $0.heightAnchor.constraint(
+                    equalTo: titleLabel.widthAnchor,
+                    multiplier: 3/5
+                ).isActive = true
+                $0.widthAnchor.constraint(
+                    equalTo: $0.heightAnchor,
+                    multiplier: 3/2
+                ).isActive = true
             }
     }
     
@@ -109,7 +115,10 @@ final class PatchNoteCell: UITableViewCell {
     
     private func setupPatchNoteScrollViewConstraints() {
         NSLayoutConstraint.activate([
-            patchNoteScrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+            patchNoteScrollView.topAnchor.constraint(
+                equalTo: titleLabel.bottomAnchor,
+                constant: 4
+            ),
             patchNoteScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
             patchNoteScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             patchNoteScrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
@@ -118,16 +127,38 @@ final class PatchNoteCell: UITableViewCell {
     
     private func setupPatchNoteStackViewConstraints() {
         NSLayoutConstraint.activate([
-            patchNoteStackView.topAnchor.constraint(equalTo: patchNoteScrollView.topAnchor),
-            patchNoteStackView.bottomAnchor.constraint(equalTo: patchNoteScrollView.bottomAnchor, constant: -20),
-            patchNoteStackView.leadingAnchor.constraint(equalTo: patchNoteScrollView.leadingAnchor),
-            patchNoteStackView.trailingAnchor.constraint(equalTo: patchNoteScrollView.trailingAnchor),
-            patchNoteStackView.heightAnchor.constraint(equalTo: patchNoteScrollView.heightAnchor, constant: -20)
+            patchNoteStackView.topAnchor.constraint(
+                equalTo: patchNoteScrollView.topAnchor
+            ),
+            patchNoteStackView.bottomAnchor.constraint(
+                equalTo: patchNoteScrollView.bottomAnchor,
+                constant: -20
+            ),
+            patchNoteStackView.leadingAnchor.constraint(
+                equalTo: patchNoteScrollView.leadingAnchor
+            ),
+            patchNoteStackView.trailingAnchor.constraint(
+                equalTo: patchNoteScrollView.trailingAnchor
+            ),
+            patchNoteStackView.heightAnchor.constraint(
+                equalTo: patchNoteScrollView.heightAnchor,
+                constant: -20
+            )
         ])
     }
     
-    private func setupContentInset(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) {
-        patchNoteScrollView.contentInset = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
+    private func setupContentInset(
+        top: CGFloat,
+        left: CGFloat,
+        bottom: CGFloat,
+        right: CGFloat
+    ) {
+        patchNoteScrollView.contentInset = UIEdgeInsets(
+            top: top,
+            left: left,
+            bottom: bottom,
+            right: right
+        )
     }
     
     private func setupBackgroundColor(_ color: UIColor?) {
@@ -157,7 +188,10 @@ final class PatchNoteCell: UITableViewCell {
             .forEach { setupTapGestureRecognizer(in: $0.0, action: $0.1) }
     }
 
-    private func setupTapGestureRecognizer(in imageView: PatchNoteImageView, action: Selector) {
+    private func setupTapGestureRecognizer(
+        in imageView: PatchNoteImageView,
+        action: Selector
+    ) {
         let tapGesture = UITapGestureRecognizer(target: self, action: action)
         imageView.addGestureRecognizer(tapGesture)
         imageView.isUserInteractionEnabled = true

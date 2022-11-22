@@ -11,17 +11,15 @@ final class MySummonerCell: UITableViewCell {
     
     // MARK: Properties
     
-    private weak var mySummonerCellDelegate: MySummonerCellDelegate?
+    private let emptyView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
     
-    private let emptySummonerView = EmptySummonerView()
-    
-    private let descriptionLabel = LabelBuilder()
-        .setupMainCellDescriptionLabel(text: Design.descriptionLabelText)
-        .build()
-    
-    private let summonerRegisterButton = ButtonBuilder()
-        .setupMainCellButton(text: Design.summonerRegisterButtonTitle)
-        .build()
+    private let unselectedSummonerView = UnselectedSummonerView()
+    private let selectedSummoenrView = SelectedSummonerView()
     
     // MARK: - Initializers
     
@@ -33,18 +31,14 @@ final class MySummonerCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        emptySummonerView.addDashedBorder(cornerRadius: 10)
+        
+        commonInit()
     }
     
     // MARK: - Methods
-    
-    func setupMySummonerCellDelegate(_ delegate: MySummonerCellDelegate) {
-        mySummonerCellDelegate = delegate
+
+    func setupUnselectedSummonerViewDelegate(_ delegate: UnselectedSummonerViewDelegate) {
+        unselectedSummonerView.setupUnselectedSummonerViewDelegate(delegate)
     }
     
     private func commonInit() {
@@ -53,7 +47,21 @@ final class MySummonerCell: UITableViewCell {
         setupConstraints()
         setupBackgroundColor(Design.cellBackgroundColor)
         setupSelectionStyle(.none)
-        setupRegisterButton()
+        checkSummonerRegistrationForHidingView()
+    }
+
+    private func checkSummonerRegistrationForHidingView() {
+        guard UserDefaults.standard.object(
+            forKey: Design.userDefaultsKey
+        ) is Data else {
+            setupUnselectedSummonerViewHidden(false)
+            setupSelectedSummonerViewHidden(true)
+
+            return
+        }
+
+        setupUnselectedSummonerViewHidden(true)
+        setupSelectedSummonerViewHidden(false)
     }
     
     private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
@@ -61,40 +69,56 @@ final class MySummonerCell: UITableViewCell {
     }
     
     private func setupSubviews() {
-        [emptySummonerView, descriptionLabel, summonerRegisterButton]
+        [emptyView]
             .forEach { addSubview($0) }
+        [unselectedSummonerView, selectedSummoenrView]
+            .forEach { emptyView.addSubview($0) }
     }
     
     private func setupConstraints() {
-        setupEmptySummonerViewConstraints()
-        setupDescriptionLabelConstraints()
-        setupSummonerRegisterButtonConstraints()
+        setupEmptyViewConstraints()
+        setupUnselectedSummonerViewConstraints()
+        setupSelectedSummonerViewConstraints()
     }
     
-    private func setupEmptySummonerViewConstraints() {
+    private func setupEmptyViewConstraints() {
         NSLayoutConstraint.activate([
-            emptySummonerView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            emptySummonerView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
-            emptySummonerView.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -20),
-            emptySummonerView.heightAnchor.constraint(equalToConstant: 100),
-            emptySummonerView.widthAnchor.constraint(equalTo: widthAnchor, constant: -50)
+            emptyView.topAnchor.constraint(equalTo: topAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            emptyView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     
-    private func setupDescriptionLabelConstraints() {
+    private func setupUnselectedSummonerViewConstraints() {
         NSLayoutConstraint.activate([
-            descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            descriptionLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -140),
-            descriptionLabel.bottomAnchor.constraint(equalTo: summonerRegisterButton.topAnchor, constant: -20),
-            descriptionLabel.heightAnchor.constraint(equalTo: summonerRegisterButton.heightAnchor, multiplier: 2)
+            unselectedSummonerView.topAnchor.constraint(
+                equalTo: emptyView.topAnchor
+            ),
+            unselectedSummonerView.bottomAnchor.constraint(
+                equalTo: emptyView.bottomAnchor
+            ),
+            unselectedSummonerView.leadingAnchor.constraint(
+                equalTo: emptyView.leadingAnchor
+            ),
+            unselectedSummonerView.trailingAnchor.constraint(
+                equalTo: emptyView.trailingAnchor
+            )
         ])
     }
     
-    private func setupSummonerRegisterButtonConstraints() {
+    private func setupSelectedSummonerViewConstraints() {
         NSLayoutConstraint.activate([
-            summonerRegisterButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            summonerRegisterButton.widthAnchor.constraint(equalTo: widthAnchor, constant: -40),
-            summonerRegisterButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
+            selectedSummoenrView.topAnchor.constraint(equalTo: emptyView.topAnchor),
+            selectedSummoenrView.bottomAnchor.constraint(
+                equalTo: emptyView.bottomAnchor
+            ),
+            selectedSummoenrView.leadingAnchor.constraint(
+                equalTo: emptyView.leadingAnchor
+            ),
+            selectedSummoenrView.trailingAnchor.constraint(
+                equalTo: emptyView.trailingAnchor
+            )
         ])
     }
     
@@ -105,17 +129,13 @@ final class MySummonerCell: UITableViewCell {
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {
         selectionStyle = style
     }
-    
-    private func setupRegisterButton() {
-        summonerRegisterButton.addTarget(
-            self,
-            action: #selector(searchButtonDidTapped),
-            for: .touchUpInside
-        )
+
+    private func setupUnselectedSummonerViewHidden(_ bool: Bool) {
+        unselectedSummonerView.isHidden = bool
     }
-    
-    @objc private func searchButtonDidTapped() {
-        mySummonerCellDelegate?.searchButtonDidTapped()
+
+    private func setupSelectedSummonerViewHidden(_ bool: Bool) {
+        selectedSummoenrView.isHidden = bool
     }
 }
 
@@ -125,4 +145,5 @@ private enum Design {
     static let descriptionLabelText = "소환사를 검색해서 등록해주세요!\n나의 전적을 분석해 도움을 줍니다."
     static let summonerRegisterButtonTitle = "소환사 등록하기"
     static let cellBackgroundColor = UIColor(named: "PrimitiveColor")
+    static let userDefaultsKey = "MySummonerInformation"
 }

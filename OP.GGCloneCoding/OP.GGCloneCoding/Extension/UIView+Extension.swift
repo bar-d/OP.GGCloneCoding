@@ -16,7 +16,11 @@ extension UIView {
         lineJoin: CAShapeLayerLineJoin = .round,
         dashPattern: [NSNumber] = [6, 3]
     ) {
-        let shapeRect = CGRect(x: .zero, y: .zero, width: frame.size.width, height: frame.size.height)
+        let shapeRect = CGRect(
+            x: .zero, y: .zero,
+            width: frame.size.width,
+            height: frame.size.height
+        )
         let shapeLayer = CAShapeLayer()
         shapeLayer.bounds = shapeRect
         shapeLayer.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
@@ -25,8 +29,11 @@ extension UIView {
         shapeLayer.lineWidth = lineWidth
         shapeLayer.lineJoin = lineJoin
         shapeLayer.lineDashPattern = dashPattern
-        shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: cornerRadius).cgPath
-
+        shapeLayer.path = UIBezierPath(
+            roundedRect: shapeRect,
+            cornerRadius: cornerRadius
+        ).cgPath
+        
         layer.cornerRadius = cornerRadius
         layer.addSublayer(shapeLayer)
     }
