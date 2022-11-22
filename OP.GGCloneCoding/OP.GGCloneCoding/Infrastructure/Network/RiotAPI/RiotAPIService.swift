@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 struct RiotAPIService: APIService {
 
@@ -73,11 +74,13 @@ struct RiotAPIService: APIService {
             return .failure(.emptyData)
         }
 
-        guard let parsedData: T = parse(verifiedData) else {
+        if let parsedData: T = parse(verifiedData) {
+            return .success(parsedData)
+        } else if let parsedPNGData = parse(verifiedData) as? T {
+            return .success(parsedPNGData)
+        } else {
             return .failure(.failedToParse)
         }
-
-        return .success(parsedData)
     }
 }
 
