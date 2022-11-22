@@ -108,6 +108,10 @@
 		C4AC806D291B682700C5A550 /* SummonerDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC806C291B682700C5A550 /* SummonerDescriptionView.swift */; };
 		C4AC807A291B88F200C5A550 /* UnselectedSummonerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC8079291B88F200C5A550 /* UnselectedSummonerView.swift */; };
 		C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */; };
+		C4C7AEA1292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7AEA0292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift */; };
+		C4C7AEA3292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7AEA2292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift */; };
+		C4C7AEA9292CFCF000DB75F1 /* DataDragonChampionIconRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7AEA8292CFCF000DB75F1 /* DataDragonChampionIconRepository.swift */; };
+		C4C7AEAB292CFD3600DB75F1 /* DataDragonChampionIconUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7AEAA292CFD3600DB75F1 /* DataDragonChampionIconUseCase.swift */; };
 		C4C977A429222D28000436D0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C977A329222D28000436D0 /* ViewModel.swift */; };
 		C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */; };
 		C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EBCC1F28FC242900402617 /* AppDelegate.swift */; };
@@ -228,6 +232,10 @@
 		C4AC806C291B682700C5A550 /* SummonerDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerDescriptionView.swift; sourceTree = "<group>"; };
 		C4AC8079291B88F200C5A550 /* UnselectedSummonerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectedSummonerView.swift; sourceTree = "<group>"; };
 		C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteDelegate.swift; sourceTree = "<group>"; };
+		C4C7AEA0292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataDragonChampionIconRepository.swift; sourceTree = "<group>"; };
+		C4C7AEA2292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDragonChampionIconAPIRequest.swift; sourceTree = "<group>"; };
+		C4C7AEA8292CFCF000DB75F1 /* DataDragonChampionIconRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDragonChampionIconRepository.swift; sourceTree = "<group>"; };
+		C4C7AEAA292CFD3600DB75F1 /* DataDragonChampionIconUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDragonChampionIconUseCase.swift; sourceTree = "<group>"; };
 		C4C977A329222D28000436D0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		C4E505E828FE8E3600EEA8C8 /* ImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewBuilder.swift; sourceTree = "<group>"; };
 		C4EBCC1C28FC242900402617 /* OP.GGCloneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OP.GGCloneCoding.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,6 +320,7 @@
 				2043E9DE2924BC9800F087A9 /* DataDragonAPIRequest.swift */,
 				2043E9E02924BF9300F087A9 /* DataDragonVersionAPIRequest.swift */,
 				2043E9ED2924C74300F087A9 /* DataDragonProfileIconAPIRequest.swift */,
+				C4C7AEA2292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift */,
 			);
 			path = RiotAPI;
 			sourceTree = "<group>";
@@ -351,6 +360,7 @@
 				20C162D629237F82005308AF /* DefaultSummonerMatchRepository.swift */,
 				2043E9E62924C1E900F087A9 /* DefaultDataDragonVersionRepository.swift */,
 				2043E9F32924D2D100F087A9 /* DefaultDataDragonProfileIconRepository.swift */,
+				C4C7AEA0292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift */,
 				20336A5529154928001BDF7D /* DTOError.swift */,
 			);
 			path = Repositories;
@@ -385,6 +395,7 @@
 				20C162D829238091005308AF /* SummonerMatchUseCase.swift */,
 				2043E9E82924C35A00F087A9 /* DataDragonVersionUseCase.swift */,
 				2043E9F52924D46F00F087A9 /* DataDragonProfileIconUseCase.swift */,
+				C4C7AEAA292CFD3600DB75F1 /* DataDragonChampionIconUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -406,6 +417,7 @@
 				20C162D429237F2D005308AF /* SummonerMatchRepository.swift */,
 				2043E9E42924C1B300F087A9 /* DataDragonVersionRepository.swift */,
 				2043E9F12924D26100F087A9 /* DataDragonProfileIconRepository.swift */,
+				C4C7AEA8292CFCF000DB75F1 /* DataDragonChampionIconRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -875,6 +887,7 @@
 				C4EBCC2428FC242900402617 /* MainViewController.swift in Sources */,
 				C4F3DDD529084CBC00137AAC /* LabelBuilder.swift in Sources */,
 				203F0012290BD76300BF95F7 /* EmptySummonerView.swift in Sources */,
+				C4C7AEAB292CFD3600DB75F1 /* DataDragonChampionIconUseCase.swift in Sources */,
 				C43F3F4A290A71B800B03A04 /* PositionTabBar.swift in Sources */,
 				20336A3529150C5C001BDF7D /* APIError.swift in Sources */,
 				20336A3C29151062001BDF7D /* RiotAPIService.swift in Sources */,
@@ -927,6 +940,7 @@
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
 				20C76694291CC30500E94133 /* RiotSummonerRankAPIRequest.swift in Sources */,
 				20336A442915444B001BDF7D /* RiotAPIResponseDTO.swift in Sources */,
+				C4C7AEA1292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift in Sources */,
 				20336A2F29150C14001BDF7D /* URLHost.swift in Sources */,
 				C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */,
 				202B4C47291B76510078A03E /* SummonerRegisterViewDelegate.swift in Sources */,
@@ -973,8 +987,10 @@
 				204600932901180C004A3417 /* PushNotificationCell.swift in Sources */,
 				20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */,
 				2043E9F22924D26100F087A9 /* DataDragonProfileIconRepository.swift in Sources */,
+				C4C7AEA9292CFCF000DB75F1 /* DataDragonChampionIconRepository.swift in Sources */,
 				20C7669A291CCDAA00E94133 /* DefaultSummonerRankRepository.swift in Sources */,
 				C440CD01290114D1008B3C16 /* SettingsViewController.swift in Sources */,
+				C4C7AEA3292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift in Sources */,
 				20C7669C291CCE7100E94133 /* SummonerRankUseCase.swift in Sources */,
 				C4AC8067291B680400C5A550 /* SelectedSummonerView.swift in Sources */,
 			);
