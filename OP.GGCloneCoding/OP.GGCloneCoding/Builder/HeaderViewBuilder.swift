@@ -5,24 +5,30 @@
 //  Created by 바드, 수꿍 on 2022/10/24.
 //
 
-import SwiftUI
+import UIKit
 
 final class HeaderViewBuilder {
     
     // MARK: Properties
-
+    
     private var headerView = HeaderView()
-
+    
     // MARK: - Initizliers
-
+    
     init() { }
-
+    
     // MARK: - Methods
-
+    
     func build() -> HeaderView {
         return headerView
     }
-
+    
+    func setupConstraintsAutomatic(_ bool: Bool) -> HeaderViewBuilder {
+        headerView.translatesAutoresizingMaskIntoConstraints = bool
+        
+        return self
+    }
+    
     func setupTitleLabel(with text: String) -> HeaderViewBuilder {
         headerView.setupTitleLabel(with: text)
         
@@ -35,7 +41,10 @@ final class HeaderViewBuilder {
         return self
     }
     
-    func setupImage(with image: UIImage?, for section: NavigationBarButton) -> HeaderViewBuilder {
+    func setupImage(
+        with image: UIImage?,
+        for section: HeaderViewButtonType
+    ) -> HeaderViewBuilder {
         switch section {
         case .firstLeftButton:
             headerView.setupFirstLeftButtonImage(with: image)
@@ -56,37 +65,33 @@ final class HeaderViewBuilder {
 extension HeaderViewBuilder {
     func setupChampionHeaderView() -> HeaderViewBuilder {
         let builder = self
-            .setupTitleLabel(with: "챔피언 분석")
+            .setupConstraintsAutomatic(false)
+            .setupTitleLabel(with: Design.championHeaderViewTitle)
         
         return builder
     }
     
     func setupCommunityHeaderView() -> HeaderViewBuilder {
         let builder = self
-            .setupTitleLabel(with: "전체")
+            .setupConstraintsAutomatic(false)
+            .setupTitleLabel(with: Design.communityHeaderViewTitle)
         
         return builder
     }
     
     func setupSettingHeaderView() -> HeaderViewBuilder {
         let builder = self
-            .setupTitleLabel(with: "설정")
+            .setupConstraintsAutomatic(false)
+            .setupTitleLabel(with: Design.settingHeaderViewTitle)
         
         return builder
     }
 }
 
-// MARK: - Preview
+// MARK: - Namespace
 
-struct ButtonBuilder_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = HeaderView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            view.changeTitleLabelAlpha(with: 1)
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 400, height: 100))
-    }
+private enum Design {
+    static let championHeaderViewTitle = "챔피언 분석"
+    static let communityHeaderViewTitle = "전체"
+    static let settingHeaderViewTitle = "설정"
 }

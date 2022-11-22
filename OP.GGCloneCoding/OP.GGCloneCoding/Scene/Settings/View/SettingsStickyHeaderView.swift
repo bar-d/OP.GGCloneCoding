@@ -8,55 +8,44 @@
 import UIKit
 
 final class SettingsStickyHeaderView: UIView {
-
+    
     // MARK: Properties
-
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .label
-        label.textAlignment = .left
-        label.font = .preferredFont(forTextStyle: .largeTitle)
-
-        return label
-    }()
-
+    
+    private let titleLabel = LabelBuilder()
+        .setupSettingsStickyHeaderTitleLabel()
+        .build()
+    
     // MARK: - Initializers
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-
+        
         commonInit()
     }
-
+    
     // MARK: - Methods
-
-    func setupTitleLabel(with text: String) {
-        titleLabel.text = text
-    }
-
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
-        setupLabel()
         setupBackgroundColor()
     }
-
+    
     private func setupConstraintsAutomatic(_ bool: Bool) {
         translatesAutoresizingMaskIntoConstraints = bool
     }
-
+    
     private func setupSubviews() {
         addSubview(titleLabel)
     }
-
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 80),
@@ -65,11 +54,7 @@ final class SettingsStickyHeaderView: UIView {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
-
-    private func setupLabel() {
-        titleLabel.text = Design.titleLabel
-    }
-
+    
     private func setupBackgroundColor() {
         backgroundColor = Design.backgroundColor
     }
@@ -79,5 +64,4 @@ final class SettingsStickyHeaderView: UIView {
 
 private enum Design {
     static let backgroundColor = UIColor(named: "SecondaryColor")
-    static let titleLabel = "설정"
 }
