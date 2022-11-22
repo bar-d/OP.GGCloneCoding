@@ -25,4 +25,3 @@ struct RiotSummonerAPIRequest: RiotAPIRequest {
         path = .summoner(summonerID: summonerID)
     }
 }
-
