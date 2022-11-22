@@ -61,7 +61,7 @@ extension RiotAPIResponseDTO.LeagueEntryDTO {
         return .init(
             queueType: queueType,
             tier: tier,
-            rank: rank,
+            rank: rank.convertRomanToNumeric(),
             leaguePoints: leaguePoints,
             wins: wins,
             losses: losses
@@ -103,6 +103,10 @@ extension RiotAPIResponseDTO.MatchDTO {
             case queueID = "queueId"
             case teams, tournamentCode
         }
+    }
+
+    func toDomain() -> SummonerMatch? {
+        return .init(participants: info.participants.map { $0.toDomain() })
     }
 }
 
@@ -224,6 +228,17 @@ extension RiotAPIResponseDTO.MatchDTO.InfoDTO.ParticipantDTO {
     struct PerksDTO: Decodable {
         let statPerks: StatPerksDTO
         let styles: [StyleDTO]
+    }
+
+    func toDomain() -> SummonerMatch.Participant {
+        return .init(
+            summonerName: summonerName,
+            assists: assists,
+            deaths: deaths,
+            kills: kills,
+            win: win,
+            kda: challenges["kda"] ?? 0
+        )
     }
 }
 
