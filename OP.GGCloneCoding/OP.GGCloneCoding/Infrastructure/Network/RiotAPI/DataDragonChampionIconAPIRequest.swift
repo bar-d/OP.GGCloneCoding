@@ -8,6 +8,7 @@
 import Foundation
 
 struct DataDragonChampionIconAPIRequest: DataDragonAPIRequest {
+    
     typealias APIResponse = CodableImage
 
     var httpMethod: HTTPMethod = .get

@@ -8,6 +8,7 @@
 import Foundation
 
 struct RiotSummonerAPIRequest: RiotAPIRequest {
+    
     typealias APIResponse = RiotAPIResponseDTO.SummonerDTO
 
     var httpMethod: HTTPMethod = .get

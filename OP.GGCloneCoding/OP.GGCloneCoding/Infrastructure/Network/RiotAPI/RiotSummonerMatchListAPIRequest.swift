@@ -8,6 +8,7 @@
 import Foundation
 
 struct RiotSummonerMatchListAPIRequest: RiotAPIRequest {
+    
     typealias APIResponse = [String]
 
     var host: URLHost = .riotAsiaAPI
