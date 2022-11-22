@@ -14,7 +14,7 @@ struct RiotSummonerMatchListAPIRequest: RiotAPIRequest {
     var queryItems: [String : String]? {
         [
             "start": "0",
-            "count": "20",
+            "count": "10",
             "api_key": "RGAPI-e722b504-9a93-4a83-b664-37ea5f85ac71"
         ]
     }

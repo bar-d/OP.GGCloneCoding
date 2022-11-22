@@ -11,6 +11,8 @@ enum URLPath {
     case matchList(puuid: String)
     case match(matchID: String)
     case spectator(encryptedSummonerID: String)
+    case version
+    case profileIcon(version: String, iconID: String)
 
     var url: String {
         switch self {
@@ -24,6 +26,10 @@ enum URLPath {
             return "/lol/match/v5/matches/\(matchID)"
         case .spectator(let encryptedSummonerID):
             return "/lol/spectator/v4/active-games/by-summoner/\(encryptedSummonerID)"
+        case .version:
+            return "/api/versions.json"
+        case .profileIcon(let version, let iconID):
+            return "/cdn/\(version)/img/profileicon/\(iconID).png"
         }
     }
 }
