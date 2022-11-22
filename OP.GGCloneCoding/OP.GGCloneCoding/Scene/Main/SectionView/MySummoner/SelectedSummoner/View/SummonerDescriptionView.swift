@@ -11,6 +11,12 @@ final class SummonerDescriptionView: UIView {
     
     // MARK: Properties
     
+
+    private lazy var dataDragonVersionViewModel = DataDragonVersionViewModel(output: .init(
+        fetchProfileIconImage: fetchProfileIconImage,
+        fetchChampionIconImage: fetchChampionIconImage,
+        showErrorAlert: showErrorAlert(from:))
+    )
     private let iconImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: UIImage(named: "OP.GGIcon"))
@@ -91,6 +97,7 @@ final class SummonerDescriptionView: UIView {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
+        fetchGameVersionIfSummonerSelected()
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -163,6 +170,27 @@ final class SummonerDescriptionView: UIView {
             cancelButton.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
+
+    private func fetchGameVersionIfSummonerSelected() {
+        guard UserDefaults.standard.object(
+            forKey: Design.userDefaultsKey
+        ) is Data else {
+            return
+        }
+
+        dataDragonVersionViewModel.input.fetchGameVersion()
+    }
+    private func fetchProfileIconImage(with versionID: String) {
+        dataDragonProfileIconViewModel.input.fetchProfileIconImage(versionID)
+    }
+
+    private func fetchChampionIconImage(with versionID: String) {
+        championIconFetcher?.fetchChampionInformation(with: versionID)
+    }
+
+    private func showErrorAlert(from alert: UIAlertController) {
+        summonerDescriptionViewDelegate?.showAlert(from: alert)
+    }
 }
 
 // MARK: - Namespace
@@ -170,4 +198,6 @@ final class SummonerDescriptionView: UIView {
 private enum Design {
     static let tierLabelText = "Unranked"
     static let cancelButtonImage = UIImage(systemName:"xmark")
+    static let userDefaultsKey = "MySummonerInformation"
+}
 }
