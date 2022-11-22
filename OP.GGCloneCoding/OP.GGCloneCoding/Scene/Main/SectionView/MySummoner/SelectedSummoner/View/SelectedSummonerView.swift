@@ -11,6 +11,7 @@ final class SelectedSummonerView: UIView {
     
     // MARK: Properties
     
+    private weak var summonerDescriptionViewDelegate: SummonerDescriptionViewDelegate?
     private let totalStackView: UIStackView = {
        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +48,10 @@ final class SelectedSummonerView: UIView {
     
     // MARK: - Methods
     
+
+    func setupSummonerDescriptionViewDelegate(_ delegate: SummonerDescriptionViewDelegate) {
+        summonerDescriptionViewDelegate = delegate
+    }
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()

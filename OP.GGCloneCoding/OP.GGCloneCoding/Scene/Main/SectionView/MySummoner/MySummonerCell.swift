@@ -40,7 +40,10 @@ final class MySummonerCell: UITableViewCell {
     func setupUnselectedSummonerViewDelegate(_ delegate: UnselectedSummonerViewDelegate) {
         unselectedSummonerView.setupUnselectedSummonerViewDelegate(delegate)
     }
-    
+
+    func setupSummonerDescriptionViewDelegate(_ delegate: SummonerDescriptionViewDelegate) {
+        selectedSummoenrView.setupSummonerDescriptionViewDelegate(delegate)
+    }
     private func commonInit() {
         setupContentViewUserInteractionEnabled(false)
         setupSubviews()

@@ -17,6 +17,12 @@ final class SummonerDescriptionView: UIView {
         fetchChampionIconImage: fetchChampionIconImage,
         showErrorAlert: showErrorAlert(from:))
     )
+
+    private lazy var dataDragonProfileIconViewModel = DataDragonProfileIconViewModel(output: .init(
+        setupContents: setupContents(with:),
+        showErrorAlert: showErrorAlert(from:))
+    )
+    private weak var summonerDescriptionViewDelegate: SummonerDescriptionViewDelegate?
     private let iconImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: UIImage(named: "OP.GGIcon"))
@@ -93,6 +99,9 @@ final class SummonerDescriptionView: UIView {
     
     // MARK: - Methods
     
+    func setupSummonerDescriptionViewDelegate(_ delegate: SummonerDescriptionViewDelegate) {
+        summonerDescriptionViewDelegate = delegate
+    }
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
@@ -190,6 +199,33 @@ final class SummonerDescriptionView: UIView {
 
     private func showErrorAlert(from alert: UIAlertController) {
         summonerDescriptionViewDelegate?.showAlert(from: alert)
+    }
+    private func setupContents(with profileIcon: UIImage) {
+        guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
+              let summoner = try? JSONDecoder().decode(Summoner.self, from: unarchivedSummonerData) else {
+            return
+        }
+
+        iconImageView.image = profileIcon.resize(width: iconImageView.frame.size.width)
+
+        levelLabel.text = String(" \(summoner.summonerLevel) ")
+        summonerIDLabel.text = summoner.name
+
+        // queueType enum으로 만들기
+
+        guard let unarchivedSummonerRankData = UserDefaults.standard.object(forKey: "MySummonerRankInformation") as? Data,
+              let summonerRankArray = try? JSONDecoder().decode([SummonerRank].self, from: unarchivedSummonerRankData),
+              let summonerSoloRank = summonerRankArray.filter({ $0.queueType == "RANKED_SOLO_5x5" }).first else {
+            return
+        }
+
+        tierLabel.text = "\(summonerSoloRank.tier) \(summonerSoloRank.rank)"
+        // summonerRank 이미지화
+
+        tierIconImageView.image = UIImage(named: summonerSoloRank.tier.firstLetterUppercased())?
+            .resize(width: tierStackView.frame.size.height)
+
+        tierPointLabel.text = "\(summonerSoloRank.leaguePoints) LP"
     }
 }
 
