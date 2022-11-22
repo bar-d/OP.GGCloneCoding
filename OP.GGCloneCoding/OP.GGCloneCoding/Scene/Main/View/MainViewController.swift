@@ -33,6 +33,11 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+
+        // UserDefaults 초기화 구문
+        for key in UserDefaults.standard.dictionaryRepresentation().keys {
+            UserDefaults.standard.removeObject(forKey: key.description)
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
