@@ -6,6 +6,7 @@
 //
 
 struct SummonerMatchUseCase {
+    
     typealias SummonerMathcRepository = DefaultSummonerMatchRepository
     
     // MARK: Properties
