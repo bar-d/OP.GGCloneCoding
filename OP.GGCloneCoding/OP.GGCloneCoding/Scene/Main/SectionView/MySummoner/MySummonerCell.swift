@@ -8,33 +8,33 @@
 import UIKit
 
 final class MySummonerCell: UITableViewCell {
-    
+
     // MARK: Properties
-    
+
     private let emptyView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        
+
         return view
     }()
-    
+
     private let unselectedSummonerView = UnselectedSummonerView()
     private let selectedSummoenrView = SelectedSummonerView()
-    
+
     // MARK: - Initializers
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         commonInit()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+
         commonInit()
     }
-    
+
     // MARK: - Methods
 
     func setupUnselectedSummonerViewDelegate(_ delegate: UnselectedSummonerViewDelegate) {
@@ -71,24 +71,24 @@ final class MySummonerCell: UITableViewCell {
         setupUnselectedSummonerViewHidden(true)
         setupSelectedSummonerViewHidden(false)
     }
-    
+
     private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
         contentView.isUserInteractionEnabled = bool
     }
-    
+
     private func setupSubviews() {
         [emptyView]
             .forEach { addSubview($0) }
         [unselectedSummonerView, selectedSummoenrView]
             .forEach { emptyView.addSubview($0) }
     }
-    
+
     private func setupConstraints() {
         setupEmptyViewConstraints()
         setupUnselectedSummonerViewConstraints()
         setupSelectedSummonerViewConstraints()
     }
-    
+
     private func setupEmptyViewConstraints() {
         NSLayoutConstraint.activate([
             emptyView.topAnchor.constraint(equalTo: topAnchor),
@@ -97,7 +97,7 @@ final class MySummonerCell: UITableViewCell {
             emptyView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
-    
+
     private func setupUnselectedSummonerViewConstraints() {
         NSLayoutConstraint.activate([
             unselectedSummonerView.topAnchor.constraint(
@@ -114,7 +114,7 @@ final class MySummonerCell: UITableViewCell {
             )
         ])
     }
-    
+
     private func setupSelectedSummonerViewConstraints() {
         NSLayoutConstraint.activate([
             selectedSummoenrView.topAnchor.constraint(equalTo: emptyView.topAnchor),
@@ -129,11 +129,11 @@ final class MySummonerCell: UITableViewCell {
             )
         ])
     }
-    
+
     private func setupBackgroundColor(_ color: UIColor?) {
         backgroundColor = color
     }
-    
+
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {
         selectionStyle = style
     }

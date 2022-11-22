@@ -160,26 +160,26 @@ final class MainViewController: UIViewController {
         setupMySummonerDelegate()
         setupFavoriteSummonersCellDelegate()
     }
-    
+
     private func setupMySummonerDelegate() {
         guard let cell = mainTableView.cellForRow(
             at: Design.mySummonerCellIndex
         ) as? MySummonerCell else {
             return
         }
-        
+
         cell.setupUnselectedSummonerViewDelegate(self)
         cell.setupSummonerDescriptionViewDelegate(self)
         cell.setupSummonerDetailViewDelegate(self)
     }
-    
+
     private func setupFavoriteSummonersCellDelegate() {
         guard let cell = mainTableView.cellForRow(
             at: Design.favoriteSummonerCellIndex
         ) as? FavoriteSummonersCell else {
             return
         }
-        
+
         cell.setupFavoriteSummonersCellDelegate(self)
     }
 
@@ -231,21 +231,21 @@ extension MainViewController: UIScrollViewDelegate {
 
 extension MainViewController:
     OtherGamesDelegate, PatchNoteDelegate,
-    UnselectedSummonerViewDelegate,
     UnselectedSummonerViewDelegate, SummonerDescriptionViewDelegate, SummonerDetailViewDelegate,
     FavoriteSummonersCellDelegate {
+
     func summonerSearchButtonDidTapped() {
         let summonerSearchViewController = SummonerSearchViewController()
-        
+
         present(summonerSearchViewController, animated: true)
     }
-    
+
     func searchButtonDidTapped() {
         let summonerRegisterViewController = SummonerRegisterViewController()
-        
+
         present(summonerRegisterViewController, animated: true)
     }
-    
+
     func valorantImageDidTapped() {
         presentSafariViewController(using: Design.URL.valorant)
     }
@@ -279,6 +279,7 @@ extension MainViewController:
 
         present(safari, animated: true)
     }
+
     func showAlert(from alert: UIAlertController) {
         present(alert, animated: true)
     }

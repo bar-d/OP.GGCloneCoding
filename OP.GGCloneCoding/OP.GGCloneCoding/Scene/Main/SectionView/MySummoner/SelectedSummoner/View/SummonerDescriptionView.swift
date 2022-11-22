@@ -8,9 +8,8 @@
 import UIKit
 
 final class SummonerDescriptionView: UIView {
-    
+
     // MARK: Properties
-    
 
     private lazy var dataDragonVersionViewModel = DataDragonVersionViewModel(output: .init(
         fetchProfileIconImage: fetchProfileIconImage,
@@ -22,85 +21,87 @@ final class SummonerDescriptionView: UIView {
         setupContents: setupContents(with:),
         showErrorAlert: showErrorAlert(from:))
     )
+
     private weak var summonerDescriptionViewDelegate: SummonerDescriptionViewDelegate?
     private weak var championIconFetcher: ChampionIconFetcher?
 
     private let iconImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: UIImage(named: "OP.GGIcon"))
+        .setupContentMode(.scaleAspectFit)
         .setupLayer(cornerRadius: 28)
         .build()
-    
+
     private let levelLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
         .setupLabelText(text: " 100 " ,color: .label)
         .setupLayer(cornerRadius: 10)
         .setupLayerBackgroundColor(.lightGray)
         .build()
-    
+
     private let summonerIDLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
         .setupLabelText(text: "바드의협곡여행")
         .setupLabelTextAttributes(font: .title3)
         .build()
-    
+
     private let tierStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = 4
-        
+
         return stackView
     }()
-    
+
     private let tierLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
         .setupLabelText(text: Design.tierLabelText)
         .setupLabelTextAttributes(font: .footnote)
         .build()
-    
+
     private let tierIconImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: UIImage(named: "OP.GGIcon"))
         .build()
-    
+
     private let separatorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .lightGray
         view.widthAnchor.constraint(equalToConstant: 1).isActive = true
-        
+
         return view
     }()
-    
+
     private let tierPointLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
         .setupLabelText(text: "23 LP")
         .setupLabelTextAttributes(font: .footnote)
         .build()
-    
+
     private let cancelButton = ButtonBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: Design.cancelButtonImage, scale: .large)
         .setupColor(tint: .label)
         .build()
-    
+
     // MARK: - Initializers
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         commonInit()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+
         commonInit()
     }
-    
+
     // MARK: - Methods
-    
+
     func setupSummonerDescriptionViewDelegate(_ delegate: SummonerDescriptionViewDelegate) {
         summonerDescriptionViewDelegate = delegate
     }
@@ -115,18 +116,18 @@ final class SummonerDescriptionView: UIView {
         setupConstraints()
         fetchGameVersionIfSummonerSelected()
     }
-    
+
     private func setupConstraintsAutomatic(_ bool: Bool) {
         translatesAutoresizingMaskIntoConstraints = bool
     }
-    
+
     private func setupSubviews() {
         [iconImageView, levelLabel, summonerIDLabel, tierStackView, cancelButton]
             .forEach { addSubview($0) }
         [tierLabel, tierIconImageView, separatorView, tierPointLabel]
             .forEach { tierStackView.addArrangedSubview($0) }
     }
-    
+
     private func setupConstraints() {
         setupIconImageViewConstraints()
         setupLevelLabelConstraints()
@@ -134,7 +135,7 @@ final class SummonerDescriptionView: UIView {
         setupTierStackViewConstraints()
         setupCancelButtonConstraints()
     }
-    
+
     private func setupIconImageViewConstraints() {
         NSLayoutConstraint.activate([
             iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -146,7 +147,7 @@ final class SummonerDescriptionView: UIView {
             iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
-    
+
     private func setupLevelLabelConstraints() {
         NSLayoutConstraint.activate([
             levelLabel.centerYAnchor.constraint(
@@ -156,7 +157,7 @@ final class SummonerDescriptionView: UIView {
             levelLabel.centerXAnchor.constraint(equalTo: iconImageView.centerXAnchor)
         ])
     }
-    
+
     private func setupSummonerIDLabelConstraints() {
         NSLayoutConstraint.activate([
             summonerIDLabel.leadingAnchor.constraint(
@@ -166,7 +167,7 @@ final class SummonerDescriptionView: UIView {
             summonerIDLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -8)
         ])
     }
-    
+
     private func setupTierStackViewConstraints() {
         NSLayoutConstraint.activate([
             tierStackView.leadingAnchor.constraint(
@@ -179,7 +180,7 @@ final class SummonerDescriptionView: UIView {
             )
         ])
     }
-    
+
     private func setupCancelButtonConstraints() {
         NSLayoutConstraint.activate([
             cancelButton.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -196,6 +197,7 @@ final class SummonerDescriptionView: UIView {
 
         dataDragonVersionViewModel.input.fetchGameVersion()
     }
+
     private func fetchProfileIconImage(with versionID: String) {
         dataDragonProfileIconViewModel.input.fetchProfileIconImage(versionID)
     }
@@ -207,6 +209,7 @@ final class SummonerDescriptionView: UIView {
     private func showErrorAlert(from alert: UIAlertController) {
         summonerDescriptionViewDelegate?.showAlert(from: alert)
     }
+
     private func setupContents(with profileIcon: UIImage) {
         guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
               let summoner = try? JSONDecoder().decode(Summoner.self, from: unarchivedSummonerData) else {
@@ -242,8 +245,4 @@ private enum Design {
     static let tierLabelText = "Unranked"
     static let cancelButtonImage = UIImage(systemName:"xmark")
     static let userDefaultsKey = "MySummonerInformation"
-}
-
-protocol ChampionIconFetcher: AnyObject {
-    func fetchChampionInformation(with versionID: String)
 }

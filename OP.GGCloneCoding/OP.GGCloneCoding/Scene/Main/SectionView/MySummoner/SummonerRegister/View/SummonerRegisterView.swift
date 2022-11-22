@@ -8,7 +8,7 @@
 import UIKit
 
 final class SummonerRegisterView: UIView {
-    
+
     // MARK: Properties
 
     private lazy var viewModel = SummonerSearchViewModel(output: .init(
@@ -20,67 +20,68 @@ final class SummonerRegisterView: UIView {
     private weak var summonerRegisterViewDelegate: SummonerRegisterViewDelegate?
 
     private let summonerRegisterTopView = SummonerRegisterTopView()
-    
+
     private let logoImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: Design.iconImage)
         .setupContentMode(.scaleAspectFill)
         .setupLayer(cornerRadius: 20)
         .build()
-    
+
     private let descriptionLabel = LabelBuilder()
         .setupMainCellDescriptionLabel(text: Design.descriptionLabelText)
         .setupLabelTextAttributes(numberOfLines: 2, font: .title3)
         .build()
-    
+
     private let textFieldLayer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.borderColor = UIColor.gray.cgColor
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 4
-        
+
         return view
     }()
-    
+
     private let searchTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = Design.summonerID
-        
+        textField.clearButtonMode = .whileEditing
+
         return textField
     }()
-    
+
     private let completeButton = ButtonBuilder()
         .setupConstraintsAutomatic(false)
         .setupTitle(name: Design.completeButtonText)
         .setupColor(background: .gray)
         .setupLayer(cornerRadius: 4)
         .build()
-    
+
     // MARK: - Initializers
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         commonInit()
 
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+
         commonInit()
     }
-    
+
     // MARK: - Methods
-    
+
     func setupSummonerRegisterTopViewDelegate(
         _ delegate: SummonerRegisterTopViewDelegate
     ) {
         summonerRegisterTopView.setupSummonerRegisterTopViewDelegate(delegate)
     }
-    
+
     func setupSummonerRegisterViewDelegate(_ delegate: SummonerRegisterViewDelegate) {
         summonerRegisterViewDelegate = delegate
     }
@@ -98,24 +99,25 @@ final class SummonerRegisterView: UIView {
     private func showErrorAlert(from alert: UIAlertController) {
         summonerRegisterViewDelegate?.showAlert(from: alert)
     }
-    
+
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
+        setupSearchTextField()
         setupCompletionButton()
     }
-    
+
     private func setupConstraintsAutomatic(_ bool: Bool) {
         translatesAutoresizingMaskIntoConstraints = bool
     }
-    
+
     private func setupSubviews() {
         [summonerRegisterTopView, logoImageView, textFieldLayer,
          descriptionLabel, searchTextField, completeButton]
             .forEach { addSubview($0) }
     }
-    
+
     private func setupConstraints() {
         setupSummonerRegisterTopViewConstraints()
         setupLogoImageViewConstraints()
@@ -124,7 +126,7 @@ final class SummonerRegisterView: UIView {
         setupSearchTextFieldConstraints()
         setupCompleteButtonConstraints()
     }
-    
+
     private func setupSummonerRegisterTopViewConstraints() {
         NSLayoutConstraint.activate([
             summonerRegisterTopView.topAnchor.constraint(equalTo: topAnchor),
@@ -133,7 +135,7 @@ final class SummonerRegisterView: UIView {
             summonerRegisterTopView.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
-    
+
     private func setupLogoImageViewConstraints() {
         NSLayoutConstraint.activate([
             logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/5),
@@ -145,7 +147,7 @@ final class SummonerRegisterView: UIView {
             logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
     }
-    
+
     private func setupDescriptionLabelConstraints() {
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(
@@ -159,7 +161,7 @@ final class SummonerRegisterView: UIView {
             descriptionLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
-    
+
     private func setupTextFieldLayerConstraints() {
         NSLayoutConstraint.activate([
             textFieldLayer.topAnchor.constraint(
@@ -177,7 +179,7 @@ final class SummonerRegisterView: UIView {
             )
         ])
     }
-    
+
     private func setupSearchTextFieldConstraints() {
         NSLayoutConstraint.activate([
             searchTextField.centerXAnchor.constraint(
@@ -196,7 +198,7 @@ final class SummonerRegisterView: UIView {
             )
         ])
     }
-    
+
     private func setupCompleteButtonConstraints() {
         NSLayoutConstraint.activate([
             completeButton.topAnchor.constraint(

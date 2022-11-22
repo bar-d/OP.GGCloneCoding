@@ -8,43 +8,43 @@
 import UIKit
 
 final class ChampionRateView: UIView {
-    
+
     // MARK: Properties
-    
+
     private let championImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: UIImage(named: "OP.GGIcon"))
         .setupLayer(cornerRadius: 10)
         .build()
-    
+
     private let winRateLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
         .setupLabelText(text: "38%", color: .label)
         .setupLabelTextAttributes(alignment: .left)
         .build()
-    
+
     private let KDALabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
         .setupLabelText(text: "5.20:1")
         .setupLabelTextAttributes(font: .footnote)
         .build()
-    
+
     // MARK: - Initializers
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         commonInit()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+
         commonInit()
     }
-    
+
     // MARK: - Methods
-    
+
     func setupImage(with image: UIImage?) {
         championImageView.image = image
     }
@@ -53,27 +53,28 @@ final class ChampionRateView: UIView {
         winRateLabel.text = winRate
         KDALabel.text = kda
     }
+
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
     }
-    
+
     private func setupConstraintsAutomatic(_ bool: Bool) {
         translatesAutoresizingMaskIntoConstraints = bool
     }
-    
+
     private func setupSubviews() {
         [championImageView, winRateLabel, KDALabel]
             .forEach { addSubview($0) }
     }
-    
+
     private func setupConstraints() {
         setupChampionImageViewConstraints()
         setupWiinRateLabelConstraints()
         setupKDALabelConstraints()
     }
-    
+
     private func setupChampionImageViewConstraints() {
         NSLayoutConstraint.activate([
             championImageView.topAnchor.constraint(equalTo: topAnchor),
@@ -88,7 +89,7 @@ final class ChampionRateView: UIView {
             )
         ])
     }
-    
+
     private func setupWiinRateLabelConstraints() {
         NSLayoutConstraint.activate([
             winRateLabel.leadingAnchor.constraint(
@@ -98,7 +99,7 @@ final class ChampionRateView: UIView {
             winRateLabel.bottomAnchor.constraint(equalTo: KDALabel.topAnchor)
         ])
     }
-    
+
     private func setupKDALabelConstraints() {
         NSLayoutConstraint.activate([
             KDALabel.bottomAnchor.constraint(

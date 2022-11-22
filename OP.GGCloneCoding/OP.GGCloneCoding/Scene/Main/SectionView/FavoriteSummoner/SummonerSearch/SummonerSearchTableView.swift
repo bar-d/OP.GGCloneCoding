@@ -61,7 +61,6 @@ final class SummonerSearchTableView: UITableView {
     }
     
     private func setupCell() {
-        
         register(SummonerSearchTableViewCell.self,
                  forCellReuseIdentifier: SummonerSearchTableViewCell.identifier)
     }

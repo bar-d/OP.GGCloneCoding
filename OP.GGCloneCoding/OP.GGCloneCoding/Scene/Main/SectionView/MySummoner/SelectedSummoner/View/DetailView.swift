@@ -8,9 +8,8 @@
 import UIKit
 
 final class DetailView: UIView {
-    
+
     // MARK: Properties
-    
 
     private lazy var summonerDetailViewModel = SummonerDetailViewModel(output: .init(
         setupChampionIconImage: setupChampionIconImage(with:),
@@ -19,65 +18,67 @@ final class DetailView: UIView {
     )
 
     private weak var summonerDetailViewDelegate: SummonerDetailViewDelegate?
+
     private let labelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = 4
-        
+
         return stackView
     }()
-    
+
     private let winRateLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
         .setupLabelText(text: "9승 11패 45%", color: .label)
         .setupLabelTextAttributes(font: .headline)
         .build()
-    
+
     private let KDALabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
         .setupLabelText(text: Design.KDALabelText, color: .label)
         .setupLabelTextAttributes(font: .headline)
         .build()
-    
+
     private let KDARateLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
         .setupLabelText(text: "2.74:1", color: .lightGray)
         .setupLabelTextAttributes(font: .headline)
         .build()
-    
+
     private let championStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        
+
         return stackView
     }()
-    
+
     private let firstChampionRateView = ChampionRateView()
     private let secondChampionRateView = ChampionRateView()
     private let thirdChampionRateView = ChampionRateView()
-    
+
     // MARK: - Initializers
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         commonInit()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+
         commonInit()
     }
-    
+
     // MARK: - Methods
-    
+
     func setupSummonerDetailViewDelegate(_ delegate: SummonerDetailViewDelegate) {
         summonerDetailViewDelegate = delegate
     }
+
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
@@ -86,11 +87,11 @@ final class DetailView: UIView {
         setupCornerRadius(10)
         setupContents()
     }
-    
+
     private func setupConstraintsAutomatic(_ bool: Bool) {
         translatesAutoresizingMaskIntoConstraints = bool
     }
-    
+
     private func setupSubviews() {
         [labelStackView, championStackView]
             .forEach { addSubview($0) }
@@ -99,12 +100,12 @@ final class DetailView: UIView {
         [firstChampionRateView, secondChampionRateView, thirdChampionRateView]
             .forEach { championStackView.addArrangedSubview($0) }
     }
-    
+
     private func setupConstraints() {
         setupLabelStackViewConstraints()
         setupChampionStackViewConstraints()
     }
-    
+
     private func setupLabelStackViewConstraints() {
         NSLayoutConstraint.activate([
             labelStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -114,7 +115,7 @@ final class DetailView: UIView {
             )
         ])
     }
-    
+
     private func setupChampionStackViewConstraints() {
         NSLayoutConstraint.activate([
             championStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -136,14 +137,15 @@ final class DetailView: UIView {
             )
         ])
     }
-    
+
     private func setupBackgroundColor(_ color: UIColor?) {
         backgroundColor = color
     }
-    
+
     private func setupCornerRadius(_ radius: CGFloat) {
         layer.cornerRadius = radius
     }
+
     private func setupContents() {
         guard let unarchivedSummonerMatchData = UserDefaults.standard.object(forKey: "MySummonerMatchInformation") as? Data,
               let summonerMatchArray = try? JSONDecoder().decode([SummonerMatch].self, from: unarchivedSummonerMatchData) else {

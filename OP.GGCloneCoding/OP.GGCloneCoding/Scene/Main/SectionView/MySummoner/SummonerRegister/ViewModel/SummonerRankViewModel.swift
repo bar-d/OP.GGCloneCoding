@@ -8,9 +8,9 @@
 import UIKit
 
 struct SummonerRankViewModel: ViewModel {
-    
+
     // MARK: Properties
-    
+
     private let summonerRankUsecase: SummonerRankUseCase = SummonerRankUseCase()
     private let output: Output
     lazy var input = Input(
@@ -18,11 +18,11 @@ struct SummonerRankViewModel: ViewModel {
     )
 
     // MARK: - Initializers
-    
+
     init(output: Output) {
         self.output = output
     }
-    
+
     // MARK: - Methods
 
     private func fetchSummonerRankInformation(encryptedID: String) {
@@ -30,7 +30,6 @@ struct SummonerRankViewModel: ViewModel {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let summonerRankArray):
-                    print(summonerRankArray)
                     let archivedRankData = try? JSONEncoder().encode(summonerRankArray)
                     // UserDefaults는 비즈니스 로직인가?
                     UserDefaults.standard.set(
