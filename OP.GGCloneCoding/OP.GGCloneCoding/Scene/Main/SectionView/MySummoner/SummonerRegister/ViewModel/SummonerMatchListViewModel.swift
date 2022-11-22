@@ -8,9 +8,9 @@
 import UIKit
 
 struct SummonerMatchListViewModel: ViewModel {
-    
+
     // MARK: Properties
-    
+
     private let summonerMatchListUsecase = SummonerMatchListUseCase()
     private let output: Output
     lazy var input = Input(
@@ -18,11 +18,11 @@ struct SummonerMatchListViewModel: ViewModel {
     )
 
     // MARK: - Initializers
-    
+
     init(output: Output) {
         self.output = output
     }
-    
+
     // MARK: - Methods
 
     private func fetchSummonerMatchListInformation(puuid: String) {
@@ -30,16 +30,16 @@ struct SummonerMatchListViewModel: ViewModel {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let summonerMatchList):
-                    print(summonerMatchList)
-                    let archivedMatchListData = try? JSONEncoder().encode(
-                        summonerMatchList
-                    )
+                    // 별도 저장까진 필요없을 것 같으니 보류
+//                    let archivedMatchListData = try? JSONEncoder().encode(summonerMatchList)
 
-                    UserDefaults.standard.set(
-                        archivedMatchListData,
-                        forKey: "MySummonerMatchListInformation"
-                    )
-                    output.fetchMatchInformation()
+                    // match userdefaults 저장을 matchID로 해서 필요 -> 다시 필요 없어져서 보류
+//                    UserDefaults.standard.set(
+//                        archivedMatchListData,
+//                        forKey: Design.userDefaultsKey
+//                    )
+
+                    output.fetchSummonerMatchInformation(summonerMatchList)
                 case .failure(let error):
                     output.showErrorAlert(
                         ErrorAlertController.unknownError(error as? APIError).value
@@ -56,7 +56,7 @@ extension SummonerMatchListViewModel {
     }
 
     struct Output {
-        let fetchMatchInformation: () -> Void
+        let fetchSummonerMatchInformation: ([String]) -> Void
         let showErrorAlert: (UIAlertController) -> Void
     }
 }
