@@ -216,7 +216,7 @@ final class OtherGamesCell: UITableViewCell {
 private enum Design {
     static let titleLabelText = "다른 게임 전적 보기"
     static let valorantImage = UIImage(named: "ValorantImage")
-    static let battlegroundsImage = UIImage(named: "BattlegroundsImage")
+    static let battlegroundsImage = UIImage(named: "BattleGroundsImage")
     static let eternalReturnImage = UIImage(named: "EternalReturnImage")
     static let overwatchImage = UIImage(named: "OverwatchImage")
 }
