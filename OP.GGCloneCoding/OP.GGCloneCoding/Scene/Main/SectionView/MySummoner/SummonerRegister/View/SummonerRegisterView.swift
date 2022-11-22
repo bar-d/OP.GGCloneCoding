@@ -217,6 +217,14 @@ final class SummonerRegisterView: UIView {
         ])
     }
 
+    private func setupSearchTextField() {
+        searchTextField.addTarget(
+            self,
+            action: #selector(didSearchTextFieldChanged),
+            for: .editingChanged
+        )
+    }
+
     private func setupCompletionButton() {
         completeButton.addTarget(
             self,
@@ -231,6 +239,14 @@ final class SummonerRegisterView: UIView {
         }
 
         viewModel.input.completeButtonDidTap(text)
+    }
+
+    @objc private func didSearchTextFieldChanged(_ sender: UITextField) {
+        if sender.text?.isEmpty == true {
+            completeButton.backgroundColor = .gray
+        } else {
+            completeButton.backgroundColor = .systemBlue
+        }
     }
 }
 
