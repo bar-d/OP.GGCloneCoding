@@ -12,6 +12,7 @@ final class SelectedSummonerView: UIView {
     // MARK: Properties
     
     private weak var summonerDescriptionViewDelegate: SummonerDescriptionViewDelegate?
+    private weak var summonerDetailViewDelegate: SummonerDetailViewDelegate?
     private let totalStackView: UIStackView = {
        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,10 +53,16 @@ final class SelectedSummonerView: UIView {
     func setupSummonerDescriptionViewDelegate(_ delegate: SummonerDescriptionViewDelegate) {
         summonerDescriptionViewDelegate = delegate
     }
+
+    func setupSummonerDetailViewDelegate(_ delegate: SummonerDetailViewDelegate) {
+        summonerDetailViewDelegate = delegate
+    }
+
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
+        setupChampionIconFetcherDelegate()
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -94,6 +101,10 @@ final class SelectedSummonerView: UIView {
                 multiplier: 1
             )
         ])
+    }
+
+    private func setupChampionIconFetcherDelegate() {
+        summonerDescriptionView.setupChampionIconFetcherDelegate(detailView)
     }
 }
 

@@ -11,6 +11,14 @@ final class DetailView: UIView {
     
     // MARK: Properties
     
+
+    private lazy var summonerDetailViewModel = SummonerDetailViewModel(output: .init(
+        setupChampionIconImage: setupChampionIconImage(with:),
+        setupChampionLabels: setupChampionLabels(with:),
+        showErrorAlert: showErrorAlert(from:))
+    )
+
+    private weak var summonerDetailViewDelegate: SummonerDetailViewDelegate?
     private let labelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -67,12 +75,16 @@ final class DetailView: UIView {
     
     // MARK: - Methods
     
+    func setupSummonerDetailViewDelegate(_ delegate: SummonerDetailViewDelegate) {
+        summonerDetailViewDelegate = delegate
+    }
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
         setupBackgroundColor(Design.backgroundColor)
         setupCornerRadius(10)
+        setupContents()
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -131,6 +143,70 @@ final class DetailView: UIView {
     
     private func setupCornerRadius(_ radius: CGFloat) {
         layer.cornerRadius = radius
+    }
+    private func setupContents() {
+        guard let unarchivedSummonerMatchData = UserDefaults.standard.object(forKey: "MySummonerMatchInformation") as? Data,
+              let summonerMatchArray = try? JSONDecoder().decode([SummonerMatch].self, from: unarchivedSummonerMatchData) else {
+            return
+        }
+
+        let myMatch = summonerMatchArray.map { (match) -> SummonerMatch.Participant in
+            match.participants.filter { participant in
+                guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
+                      let summoner = try? JSONDecoder().decode(Summoner.self, from: unarchivedSummonerData) else {
+                    return false
+                }
+
+                return participant.summonerName == summoner.name
+            }[0]
+        }
+
+        let kda = myMatch.reduce(0) { partialResult, participant in
+            return partialResult + participant.kda / Double(myMatch.count)
+        }
+
+        KDARateLabel.text = "\(String(format: "%.2f", kda)):1"
+
+        let win = myMatch.filter({ $0.win == true }).count
+        let lose = myMatch.count - win
+        winRateLabel.text = "\(win)승 \(lose)패 \(100 * win / myMatch.count)%"
+    }
+
+    private func setupChampionIconImage(with championIcon: [UIImage]) {
+        let imageViewArray = [firstChampionRateView, secondChampionRateView, thirdChampionRateView]
+
+        for i in 0..<championIcon.count {
+            imageViewArray[i].setupImage(with: championIcon[i])
+        }
+
+        for i in 0..<(3 - championIcon.count) {
+            imageViewArray[2 - i].setupImage(with: nil)
+        }
+    }
+
+    private func setupChampionLabels(with labels: [(Int, Double)]) {
+        let imageViewArray = [firstChampionRateView, secondChampionRateView, thirdChampionRateView]
+
+        for i in 0..<labels.count {
+            imageViewArray[i].setupLabels(
+                winRate: "\(String(labels[i].0))%",
+                kda: "\(String(format: "%.2f", labels[i].1)):1"
+            )
+        }
+
+        for i in 0..<(3 - labels.count) {
+            imageViewArray[2 - i].setupLabels(winRate: nil, kda: nil)
+        }
+    }
+
+    private func showErrorAlert(from alert: UIAlertController) {
+        summonerDetailViewDelegate?.showAlert(from: alert)
+    }
+}
+
+extension DetailView: ChampionIconFetcher {
+    func fetchChampionInformation(with versionID: String) {
+        summonerDetailViewModel.input.fetchChampionInformation(versionID)
     }
 }
 

@@ -170,6 +170,7 @@ final class MainViewController: UIViewController {
         
         cell.setupUnselectedSummonerViewDelegate(self)
         cell.setupSummonerDescriptionViewDelegate(self)
+        cell.setupSummonerDetailViewDelegate(self)
     }
     
     private func setupFavoriteSummonersCellDelegate() {

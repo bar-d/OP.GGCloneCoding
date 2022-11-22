@@ -23,6 +23,8 @@ final class SummonerDescriptionView: UIView {
         showErrorAlert: showErrorAlert(from:))
     )
     private weak var summonerDescriptionViewDelegate: SummonerDescriptionViewDelegate?
+    private weak var championIconFetcher: ChampionIconFetcher?
+
     private let iconImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: UIImage(named: "OP.GGIcon"))
@@ -102,6 +104,11 @@ final class SummonerDescriptionView: UIView {
     func setupSummonerDescriptionViewDelegate(_ delegate: SummonerDescriptionViewDelegate) {
         summonerDescriptionViewDelegate = delegate
     }
+
+    func setupChampionIconFetcherDelegate(_ delegate: ChampionIconFetcher) {
+        championIconFetcher = delegate
+    }
+
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
@@ -236,4 +243,7 @@ private enum Design {
     static let cancelButtonImage = UIImage(systemName:"xmark")
     static let userDefaultsKey = "MySummonerInformation"
 }
+
+protocol ChampionIconFetcher: AnyObject {
+    func fetchChampionInformation(with versionID: String)
 }

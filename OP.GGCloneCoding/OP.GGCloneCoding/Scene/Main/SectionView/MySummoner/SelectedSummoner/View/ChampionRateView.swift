@@ -45,6 +45,14 @@ final class ChampionRateView: UIView {
     
     // MARK: - Methods
     
+    func setupImage(with image: UIImage?) {
+        championImageView.image = image
+    }
+
+    func setupLabels(winRate: String?, kda: String?) {
+        winRateLabel.text = winRate
+        KDALabel.text = kda
+    }
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()

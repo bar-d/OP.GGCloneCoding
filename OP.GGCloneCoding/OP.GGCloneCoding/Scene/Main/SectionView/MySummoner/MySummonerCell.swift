@@ -44,6 +44,11 @@ final class MySummonerCell: UITableViewCell {
     func setupSummonerDescriptionViewDelegate(_ delegate: SummonerDescriptionViewDelegate) {
         selectedSummoenrView.setupSummonerDescriptionViewDelegate(delegate)
     }
+
+    func setupSummonerDetailViewDelegate(_ delegate: SummonerDetailViewDelegate) {
+        selectedSummoenrView.setupSummonerDetailViewDelegate(delegate)
+    }
+
     private func commonInit() {
         setupContentViewUserInteractionEnabled(false)
         setupSubviews()
