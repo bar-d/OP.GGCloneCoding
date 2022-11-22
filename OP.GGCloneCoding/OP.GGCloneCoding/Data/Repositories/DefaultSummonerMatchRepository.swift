@@ -42,9 +42,12 @@ extension DefaultSummonerMatchRepository {
                         
                         return
                     }
-                    
+
+                    print("😍")
                     array.append(summonerMatchInformation)
-                    completion(.success(array))
+                    if array.count == 10 {
+                        completion(.success(array))
+                    }
                     
                 case .failure(let error):
                     print("🥵🥵🥵🥵")
