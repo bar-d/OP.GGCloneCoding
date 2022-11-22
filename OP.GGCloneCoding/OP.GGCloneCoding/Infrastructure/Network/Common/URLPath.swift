@@ -13,6 +13,7 @@ enum URLPath {
     case spectator(encryptedSummonerID: String)
     case version
     case profileIcon(version: String, iconID: String)
+    case championIcon(version: String, championName: String)
 
     var url: String {
         switch self {
@@ -30,6 +31,8 @@ enum URLPath {
             return "/api/versions.json"
         case .profileIcon(let version, let iconID):
             return "/cdn/\(version)/img/profileicon/\(iconID).png"
+        case .championIcon(let version, let championName):
+            return "/cdn/\(version)/img/champion/\(championName).png"
         }
     }
 }

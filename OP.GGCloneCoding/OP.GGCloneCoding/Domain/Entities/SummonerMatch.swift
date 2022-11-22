@@ -15,15 +15,13 @@ struct SummonerMatch: Codable {
 
 extension SummonerMatch {
     struct Participant: Codable {
-        let summonerName: String
-        let assists: Int
-        let deaths: Int
-        let kills: Int
+        let summonerName, championName: String
+        let assists, deaths, kills: Int
         let win: Bool
         let kda: Double
 
         enum CodingKeys: String, CodingKey {
-            case summonerName, assists, deaths, kills, win, kda
+            case summonerName, championName, assists, deaths, kills, win, kda
         }
     }
 }

@@ -11,4 +11,3 @@ protocol SummonerMatchRepository {
         completion: @escaping (Result<[SummonerMatch], Error>) -> Void
     )
 }
-
