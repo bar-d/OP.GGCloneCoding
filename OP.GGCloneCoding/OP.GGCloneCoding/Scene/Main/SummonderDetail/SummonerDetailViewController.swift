@@ -1,5 +1,5 @@
 //
-//  SummonerInformationViewController.swift
+//  SummonerDetailViewController.swift
 //  OP.GGCloneCoding
 //
 //  Created by 바드, 수꿍 on 2022/11/08.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SummonerInformationViewController: UIViewController {
+final class SummonerDetailViewController: UIViewController {
     
     // MARK: Properties
     
@@ -132,7 +132,7 @@ final class SummonerInformationViewController: UIViewController {
 
 // MARK: - Extension
 
-extension SummonerInformationViewController: UITableViewDelegate, UITableViewDataSource {
+extension SummonerDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -168,7 +168,7 @@ extension SummonerInformationViewController: UITableViewDelegate, UITableViewDat
     }
 }
 
-extension SummonerInformationViewController: UIScrollViewDelegate {
+extension SummonerDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         stickyHeaderView.scroliviewDidScroll(
             scrollView,

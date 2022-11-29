@@ -41,7 +41,9 @@ final class MySummonerCell: UITableViewCell {
         unselectedSummonerView.setupUnselectedSummonerViewDelegate(delegate)
     }
 
-    func setupSummonerDescriptionViewDelegate(_ delegate: SummonerDescriptionViewDelegate) {
+    func setupSummonerDescriptionViewDelegate(
+        _ delegate: SummonerDescriptionViewDelegate
+    ) {
         selectedSummoenrView.setupSummonerDescriptionViewDelegate(delegate)
     }
 
