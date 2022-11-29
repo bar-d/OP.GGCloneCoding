@@ -120,6 +120,7 @@
 		C4BD16EA29359FEA00DB736B /* MostChampionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD16E929359FEA00DB736B /* MostChampionView.swift */; };
 		C4BD16EC2935A09800DB736B /* ChampionInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD16EB2935A09800DB736B /* ChampionInformationView.swift */; };
 		C4BD16EE2935A3C300DB736B /* RecentGameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD16ED2935A3C300DB736B /* RecentGameSummaryView.swift */; };
+		C4BD16F02935A42A00DB736B /* SummonerAdditionalInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD16EF2935A42A00DB736B /* SummonerAdditionalInformationView.swift */; };
 		C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */; };
 		C4C7AEA1292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7AEA0292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift */; };
 		C4C7AEA3292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7AEA2292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift */; };
@@ -257,6 +258,7 @@
 		C4BD16E929359FEA00DB736B /* MostChampionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostChampionView.swift; sourceTree = "<group>"; };
 		C4BD16EB2935A09800DB736B /* ChampionInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionInformationView.swift; sourceTree = "<group>"; };
 		C4BD16ED2935A3C300DB736B /* RecentGameSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentGameSummaryView.swift; sourceTree = "<group>"; };
+		C4BD16EF2935A42A00DB736B /* SummonerAdditionalInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerAdditionalInformationView.swift; sourceTree = "<group>"; };
 		C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteDelegate.swift; sourceTree = "<group>"; };
 		C4C7AEA0292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataDragonChampionIconRepository.swift; sourceTree = "<group>"; };
 		C4C7AEA2292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDragonChampionIconAPIRequest.swift; sourceTree = "<group>"; };
@@ -722,6 +724,7 @@
 			isa = PBXGroup;
 			children = (
 				C4BD16ED2935A3C300DB736B /* RecentGameSummaryView.swift */,
+				C4BD16EF2935A42A00DB736B /* SummonerAdditionalInformationView.swift */,
 				C4BD16E729359F7100DB736B /* RecentGameInformationView.swift */,
 				C4BD16E929359FEA00DB736B /* MostChampionView.swift */,
 				C4BD16EB2935A09800DB736B /* ChampionInformationView.swift */,
@@ -1060,6 +1063,7 @@
 				C458CAE92910C28F004E6D74 /* SummonerRegisterTopView.swift in Sources */,
 				C4F3DDC72907F7CE00137AAC /* MainStickyHeaderView.swift in Sources */,
 				C4F3DDD32908179600137AAC /* PaddingLabel.swift in Sources */,
+				C4BD16F02935A42A00DB736B /* SummonerAdditionalInformationView.swift in Sources */,
 				C406923E29067C3100A4E48D /* HeaderViewButtonType.swift in Sources */,
 				208AF19E292D078E0047466D /* DataDragonProfileIconViewModel.swift in Sources */,
 				20336A3129150C2F001BDF7D /* URLPath.swift in Sources */,
