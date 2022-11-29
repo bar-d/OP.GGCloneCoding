@@ -11,15 +11,19 @@ final class SummonerDescriptionView: UIView {
     
     // MARK: Properties
     
-    private lazy var dataDragonVersionViewModel = DataDragonVersionViewModel(output: .init(
-        fetchProfileIconImage: fetchProfileIconImage,
-        fetchChampionIconImage: fetchChampionIconImage,
-        showErrorAlert: showErrorAlert(from:))
+    private lazy var dataDragonVersionViewModel = DataDragonVersionViewModel(
+        output: .init(
+            fetchProfileIconImage: fetchProfileIconImage,
+            fetchChampionIconImage: fetchChampionIconImage,
+            showErrorAlert: showErrorAlert(from:)
+        )
     )
     
-    private lazy var dataDragonProfileIconViewModel = DataDragonProfileIconViewModel(output: .init(
-        setupContents: setupContents(with:),
-        showErrorAlert: showErrorAlert(from:))
+    private lazy var dataDragonProfileIconViewModel = DataDragonProfileIconViewModel(
+        output: .init(
+            setupContents: setupContents(with:),
+            showErrorAlert: showErrorAlert(from:)
+        )
     )
     
     private weak var summonerDescriptionViewDelegate: SummonerDescriptionViewDelegate?

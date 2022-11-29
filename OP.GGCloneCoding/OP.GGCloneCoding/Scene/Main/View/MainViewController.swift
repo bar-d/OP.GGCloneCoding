@@ -236,8 +236,8 @@ extension MainViewController: UIScrollViewDelegate {
 
 extension MainViewController:
     OtherGamesDelegate, PatchNoteDelegate,
-    UnselectedSummonerViewDelegate, SummonerDescriptionViewDelegate, SummonerDetailViewDelegate,
-    FavoriteSummonersCellDelegate {
+    UnselectedSummonerViewDelegate, SummonerDescriptionViewDelegate,
+        SummonerDetailViewDelegate, FavoriteSummonersCellDelegate {
 
     func summonerSearchButtonDidTapped() {
         let summonerSearchViewController = SummonerSearchViewController()
