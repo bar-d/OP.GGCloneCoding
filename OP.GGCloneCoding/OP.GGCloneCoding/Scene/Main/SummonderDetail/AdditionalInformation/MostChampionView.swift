@@ -13,13 +13,13 @@ final class MostChampionView: UIView {
     
     private let titleLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: "가장 잘하는\n챔피언은?")
+        .setupLabelText(text: Design.titleLabelText)
         .setupLabelTextAttributes(numberOfLines: 2)
         .build()
     
     private let championImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(named: "OP.GGIcon"))
+        .setupImage(image: Design.championImageViewImage)
         .setupLayer(cornerRadius: 20)
         .build()
     
@@ -39,7 +39,10 @@ final class MostChampionView: UIView {
     
     private let additionalInformationLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: "승률 100%", color: UIColor(named: "LanguageColor"))
+        .setupLabelText(
+            text: Design.additionalInformationLabelText,
+            color: Design.additionalInformationLabelTextColor
+        )
         .build()
     
     // MARK: - Initializers
@@ -133,6 +136,15 @@ final class MostChampionView: UIView {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 2
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let titleLabelText = "가장 잘하는\n챔피언은?"
+    static let championImageViewImage = UIImage(named: "OP.GGIcon")
+    static let additionalInformationLabelText = "승률 100%"
+    static let additionalInformationLabelTextColor = UIColor(named: "LanguageColor")
 }
 
 // MARK: - Preview

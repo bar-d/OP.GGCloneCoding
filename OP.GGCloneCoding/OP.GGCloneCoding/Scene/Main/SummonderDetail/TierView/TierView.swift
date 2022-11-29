@@ -13,7 +13,7 @@ final class TierView: UIView {
     
     private let tierIconImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(named: "OP.GGIcon"))
+        .setupImage(image: Design.tierIconImageViewImage)
         .build()
     
     private let labelStackView: UIStackView = {
@@ -28,9 +28,9 @@ final class TierView: UIView {
     
     private let queueTypeLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: " 개인/2인 랭크 ", color: UIColor(named: "LoadingView"))
+        .setupLabelText(text: " 개인/2인 랭크 ", color: Design.queueTypeLabelColor)
         .setupLayer(cornerRadius: 4)
-        .setupLayerBackgroundColor(UIColor(named: "ButtonFontColor"))
+        .setupLayerBackgroundColor(Design.queueTypeLabelBackgroundColor)
         .build()
     
     private let tierLabel = LabelBuilder()
@@ -50,7 +50,7 @@ final class TierView: UIView {
     
     private let indicatorButton = ButtonBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(systemName: "chevron.right"))
+        .setupImage(image: Design.indicatorButtonImage)
         .setupColor(tint: .lightGray)
         .build()
     
@@ -126,6 +126,15 @@ final class TierView: UIView {
             )
         ])
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let tierIconImageViewImage = UIImage(named: "OP.GGIcon")
+    static let queueTypeLabelColor = UIColor(named: "LoadingView")
+    static let queueTypeLabelBackgroundColor = UIColor(named: "ButtonFontColor")
+    static let indicatorButtonImage = UIImage(systemName: "chevron.right")
 }
 
 // MARK: - Preview

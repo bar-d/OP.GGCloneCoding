@@ -13,26 +13,26 @@ final class RecentGameInformationView: UIView {
     
     private let titleLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: "최근 20경기\n가장 많은 Kill")
+        .setupLabelText(text: Design.titleLabelText)
         .setupLabelTextAttributes(numberOfLines: 2)
         .build()
     
     private let championImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(named: "OP.GGIcon"))
+        .setupImage(image: Design.championImageViewImage)
         .setupLayer(cornerRadius: 20)
         .build()
     
     private let mostNumberLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: "18")
+        .setupLabelText(text: Design.mostNumberLabelText)
         .setupLabelTextAttributes(font: .title3)
         .build()
     
     private let indicatorButton = ButtonBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(systemName: "chevron.right"), scale: .large)
-        .setupColor(tint: UIColor(named: "LanguageColor"))
+        .setupImage(image: Design.indicatorButtonImage, scale: .large)
+        .setupColor(tint: Design.indicatorButtonTintColor)
         .build()
     
     // MARK: - Initializers
@@ -137,6 +137,16 @@ final class RecentGameInformationView: UIView {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 2
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let titleLabelText = "최근 20경기\n가장 많은 Kill"
+    static let championImageViewImage = UIImage(named: "OP.GGIcon")
+    static let mostNumberLabelText = "18"
+    static let indicatorButtonImage = UIImage(systemName: "chevron.right")
+    static let indicatorButtonTintColor = UIColor(named: "LanguageColor")
 }
 
 // MARK: - Preview

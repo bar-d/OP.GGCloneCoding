@@ -13,12 +13,12 @@ final class ChampionInformationView: UIView {
     
     private let titleLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: "챔프 스코어")
+        .setupLabelText(text: Design.titleLabelText)
         .build()
     
     private let championImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(named: "OP.GGIcon"))
+        .setupImage(image: Design.championImageViewImage)
         .setupLayer(cornerRadius: 20)
         .build()
     
@@ -38,13 +38,13 @@ final class ChampionInformationView: UIView {
     
     private let additionalInformationLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: "397 게임", color: UIColor(named: "LanguageColor"))
+        .setupLabelText(text: "397 게임", color: Design.additionalInformationLabelTextColor)
         .build()
     
     private let indicatorButton = ButtonBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(systemName: "chevron.right"), scale: .large)
-        .setupColor(tint: UIColor(named: "LanguageColor"))
+        .setupImage(image: Design.indicatorButtonImage, scale: .large)
+        .setupColor(tint: Design.indicatorButtonTintColor)
         .build()
     
     // MARK: - Initializers
@@ -156,16 +156,26 @@ final class ChampionInformationView: UIView {
     }
 }
 
+// MARK: - Namespace
+
+private enum Design {
+    static let titleLabelText = "챔프 스코어"
+    static let championImageViewImage = UIImage(named: "OP.GGIcon")
+    static let additionalInformationLabelTextColor = UIColor(named: "LanguageColor")
+    static let indicatorButtonImage = UIImage(systemName: "chevron.right")
+    static let indicatorButtonTintColor = UIColor(named: "LanguageColor")
+}
+
 // MARK: - Preview
 
- struct ChampionInformationView_Preview: PreviewProvider {
-     static var previews: some View {
-         UIViewPreview {
-             let view = ChampionInformationView()
-             view.translatesAutoresizingMaskIntoConstraints = true
-             
-             return view
-         }
-         .previewLayout(.fixed(width: 200, height: 150))
-     }
- }
+struct ChampionInformationView_Preview: PreviewProvider {
+    static var previews: some View {
+        UIViewPreview {
+            let view = ChampionInformationView()
+            view.translatesAutoresizingMaskIntoConstraints = true
+            
+            return view
+        }
+        .previewLayout(.fixed(width: 200, height: 150))
+    }
+}
