@@ -138,7 +138,7 @@ extension SummonerInformationViewController: UITableViewDelegate, UITableViewDat
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 20
+        return 10
     }
     
     func tableView(

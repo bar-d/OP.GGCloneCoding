@@ -147,15 +147,25 @@ final class DetailView: UIView {
     }
 
     private func setupContents() {
-        guard let unarchivedSummonerMatchData = UserDefaults.standard.object(forKey: "MySummonerMatchInformation") as? Data,
-              let summonerMatchArray = try? JSONDecoder().decode([SummonerMatch].self, from: unarchivedSummonerMatchData) else {
+        guard let unarchivedSummonerMatchData = UserDefaults.standard.object(
+            forKey: "MySummonerMatchInformation"
+        ) as? Data,
+              let summonerMatchArray = try? JSONDecoder().decode(
+                [SummonerMatch].self,
+                from: unarchivedSummonerMatchData
+              ) else {
             return
         }
-
+        
         let myMatch = summonerMatchArray.map { (match) -> SummonerMatch.Participant in
             match.participants.filter { participant in
-                guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-                      let summoner = try? JSONDecoder().decode(Summoner.self, from: unarchivedSummonerData) else {
+                guard let unarchivedSummonerData = UserDefaults.standard.object(
+                    forKey: "MySummonerInformation"
+                ) as? Data,
+                      let summoner = try? JSONDecoder().decode(
+                        Summoner.self,
+                        from: unarchivedSummonerData
+                      ) else {
                     return false
                 }
 
@@ -175,7 +185,8 @@ final class DetailView: UIView {
     }
 
     private func setupChampionIconImage(with championIcon: [UIImage]) {
-        let imageViewArray = [firstChampionRateView, secondChampionRateView, thirdChampionRateView]
+        let imageViewArray = [firstChampionRateView, secondChampionRateView,
+                              thirdChampionRateView]
 
         for i in 0..<championIcon.count {
             imageViewArray[i].setupImage(with: championIcon[i])
@@ -187,7 +198,8 @@ final class DetailView: UIView {
     }
 
     private func setupChampionLabels(with labels: [(Int, Double)]) {
-        let imageViewArray = [firstChampionRateView, secondChampionRateView, thirdChampionRateView]
+        let imageViewArray = [firstChampionRateView, secondChampionRateView,
+                              thirdChampionRateView]
 
         for i in 0..<labels.count {
             imageViewArray[i].setupLabels(

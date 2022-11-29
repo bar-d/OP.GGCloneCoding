@@ -50,7 +50,9 @@ final class SelectedSummonerView: UIView {
 
     // MARK: - Methods
 
-    func setupSummonerDescriptionViewDelegate(_ delegate: SummonerDescriptionViewDelegate) {
+    func setupSummonerDescriptionViewDelegate(
+        _ delegate: SummonerDescriptionViewDelegate
+    ) {
         summonerDescriptionViewDelegate = delegate
     }
 
