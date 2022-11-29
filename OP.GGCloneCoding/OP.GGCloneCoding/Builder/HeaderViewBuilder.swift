@@ -41,7 +41,11 @@ final class HeaderViewBuilder {
         return self
     }
     
-    func setupImage(with image: UIImage?, for section: HeaderViewButtonType, tint: UIColor? = .none) -> HeaderViewBuilder {
+    func setupImage(
+        with image: UIImage?,
+        for section: HeaderViewButtonType,
+        tint: UIColor? = .none
+    ) -> HeaderViewBuilder {
         switch section {
         case .firstLeftButton:
             headerView.setupFirstLeftButtonImage(with: image, tint: tint)

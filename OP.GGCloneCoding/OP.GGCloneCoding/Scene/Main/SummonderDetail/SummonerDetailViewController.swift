@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/08.
 //
 
-import SwiftUI
+import UIKit
 
 final class SummonerInformationViewController: UIViewController {
     
@@ -16,19 +16,19 @@ final class SummonerInformationViewController: UIViewController {
         .setupConstraintsAutomatic(false)
         .setupTitleLabel(with: "바드의협곡여행")
         .setupImage(
-            with: UIImage(systemName: "chevron.left"),
+            with: Design.indicatorImage,
             for: .firstLeftButton, tint: .label
         )
         .setupBackgroundColor(color: .clear)
         .activateTopBottomConstraints()
         .build()
     
-    private let headerViewContainer: UILabel = {
+    private let stickyHeaderViewContainer: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "바드의협곡여행"
         label.textAlignment = .center
-        label.backgroundColor = UIColor(named: "PrimitiveColor")
+        label.backgroundColor = Design.stickyHeaderViewContainerBackgroundColor
         label.alpha = 0
         
         return label
@@ -78,7 +78,7 @@ final class SummonerInformationViewController: UIViewController {
     }
     
     private func setupSubviews() {
-        [summonerInformationTableView, headerViewContainer, headerView]
+        [summonerInformationTableView, stickyHeaderViewContainer, headerView]
             .forEach { view.addSubview($0) }
     }
     
@@ -97,17 +97,17 @@ final class SummonerInformationViewController: UIViewController {
     
     private func setupHeaderViewContainerConstraints() {
         NSLayoutConstraint.activate([
-            headerViewContainer.centerXAnchor.constraint(
+            stickyHeaderViewContainer.centerXAnchor.constraint(
                 equalTo: headerView.centerXAnchor
             ),
-            headerViewContainer.centerYAnchor.constraint(
+            stickyHeaderViewContainer.centerYAnchor.constraint(
                 equalTo: headerView.centerYAnchor
             ),
-            headerViewContainer.topAnchor.constraint(equalTo: view.topAnchor),
-            headerViewContainer.leadingAnchor.constraint(
+            stickyHeaderViewContainer.topAnchor.constraint(equalTo: view.topAnchor),
+            stickyHeaderViewContainer.leadingAnchor.constraint(
                 equalTo: headerView.leadingAnchor
             ),
-            headerViewContainer.trailingAnchor.constraint(
+            stickyHeaderViewContainer.trailingAnchor.constraint(
                 equalTo: headerView.trailingAnchor
             )
         ])
@@ -170,19 +170,16 @@ extension SummonerInformationViewController: UITableViewDelegate, UITableViewDat
 
 extension SummonerInformationViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        stickyHeaderView.scroliviewDidScroll(scrollView, headerView: headerViewContainer)
+        stickyHeaderView.scroliviewDidScroll(
+            scrollView,
+            headerView: stickyHeaderViewContainer
+        )
     }
 }
 
-// MARK: - Preview
+// MARK: - Namespace
 
-struct SummonerSearchViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewControllerPreview {
-            let view = SummonerInformationViewController()
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 300, height: 550))
-    }
+private enum Design {
+    static let indicatorImage = UIImage(systemName: "chevron.left")
+    static let stickyHeaderViewContainerBackgroundColor = UIColor(named: "PrimitiveColor")
 }

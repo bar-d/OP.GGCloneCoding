@@ -139,7 +139,10 @@ final class HeaderView: UIView {
     private func setupRightBarItemConstraints() {
         NSLayoutConstraint.activate([
             rightBarItem.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            rightBarItem.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            rightBarItem.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            ),
             rightBarItem.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             rightBarItem.widthAnchor.constraint(equalTo: leftBarItem.widthAnchor)
         ])
