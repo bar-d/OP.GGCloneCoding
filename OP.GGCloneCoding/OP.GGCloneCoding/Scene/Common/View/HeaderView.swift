@@ -102,6 +102,24 @@ final class HeaderView: UIView {
         ])
     }
     
+    func setupButtonTarget(
+        to button: HeaderViewButtonType,
+        target: Any?,
+        action: Selector,
+        for controlEvents: UIControl.Event
+    ) {
+        switch button {
+        case .firstLeftButton:
+            firstLeftButton.addTarget(target, action: action, for: controlEvents)
+        case .secondLeftButton:
+            secondLeftButton.addTarget(target, action: action, for: controlEvents)
+        case .firstRightButton:
+            firstRightButton.addTarget(target, action: action, for: controlEvents)
+        case .secondRightButton:
+            secondRightButton.addTarget(target, action: action, for: controlEvents)
+        }
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
