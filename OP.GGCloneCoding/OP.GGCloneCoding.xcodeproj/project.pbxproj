@@ -117,6 +117,7 @@
 		C4AC807A291B88F200C5A550 /* UnselectedSummonerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC8079291B88F200C5A550 /* UnselectedSummonerView.swift */; };
 		C4BD16E629359EB900DB736B /* TierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD16E529359EB900DB736B /* TierView.swift */; };
 		C4BD16E829359F7100DB736B /* RecentGameInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD16E729359F7100DB736B /* RecentGameInformationView.swift */; };
+		C4BD16EA29359FEA00DB736B /* MostChampionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD16E929359FEA00DB736B /* MostChampionView.swift */; };
 		C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */; };
 		C4C7AEA1292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7AEA0292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift */; };
 		C4C7AEA3292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7AEA2292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift */; };
@@ -251,6 +252,7 @@
 		C4AC8079291B88F200C5A550 /* UnselectedSummonerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectedSummonerView.swift; sourceTree = "<group>"; };
 		C4BD16E529359EB900DB736B /* TierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TierView.swift; sourceTree = "<group>"; };
 		C4BD16E729359F7100DB736B /* RecentGameInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentGameInformationView.swift; sourceTree = "<group>"; };
+		C4BD16E929359FEA00DB736B /* MostChampionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostChampionView.swift; sourceTree = "<group>"; };
 		C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteDelegate.swift; sourceTree = "<group>"; };
 		C4C7AEA0292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataDragonChampionIconRepository.swift; sourceTree = "<group>"; };
 		C4C7AEA2292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDragonChampionIconAPIRequest.swift; sourceTree = "<group>"; };
@@ -716,6 +718,7 @@
 			isa = PBXGroup;
 			children = (
 				C4BD16E729359F7100DB736B /* RecentGameInformationView.swift */,
+				C4BD16E929359FEA00DB736B /* MostChampionView.swift */,
 			);
 			path = AdditionalInformation;
 			sourceTree = "<group>";
@@ -963,6 +966,7 @@
 				20336A3529150C5C001BDF7D /* APIError.swift in Sources */,
 				20336A3C29151062001BDF7D /* RiotAPIService.swift in Sources */,
 				20528ED02902799E003046A3 /* SettingsStickyHeaderView.swift in Sources */,
+				C4BD16EA29359FEA00DB736B /* MostChampionView.swift in Sources */,
 				20336A3329150C48001BDF7D /* HTTPMethod.swift in Sources */,
 				C458CAFA29111F44004E6D74 /* SummonerSearchTableHeaderView.swift in Sources */,
 				C4F3DDC52907F5E200137AAC /* MainSection.swift in Sources */,
