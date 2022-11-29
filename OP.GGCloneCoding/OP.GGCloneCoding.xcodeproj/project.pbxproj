@@ -121,6 +121,7 @@
 		C4BD16EC2935A09800DB736B /* ChampionInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD16EB2935A09800DB736B /* ChampionInformationView.swift */; };
 		C4BD16EE2935A3C300DB736B /* RecentGameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD16ED2935A3C300DB736B /* RecentGameSummaryView.swift */; };
 		C4BD16F02935A42A00DB736B /* SummonerAdditionalInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD16EF2935A42A00DB736B /* SummonerAdditionalInformationView.swift */; };
+		C4BD16F42935A4BE00DB736B /* ItemStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BD16F32935A4BE00DB736B /* ItemStackView.swift */; };
 		C4BDF010290BFA4500352994 /* PatchNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */; };
 		C4C7AEA1292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7AEA0292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift */; };
 		C4C7AEA3292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7AEA2292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift */; };
@@ -259,6 +260,7 @@
 		C4BD16EB2935A09800DB736B /* ChampionInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionInformationView.swift; sourceTree = "<group>"; };
 		C4BD16ED2935A3C300DB736B /* RecentGameSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentGameSummaryView.swift; sourceTree = "<group>"; };
 		C4BD16EF2935A42A00DB736B /* SummonerAdditionalInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerAdditionalInformationView.swift; sourceTree = "<group>"; };
+		C4BD16F32935A4BE00DB736B /* ItemStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStackView.swift; sourceTree = "<group>"; };
 		C4BDF00F290BFA4500352994 /* PatchNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchNoteDelegate.swift; sourceTree = "<group>"; };
 		C4C7AEA0292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataDragonChampionIconRepository.swift; sourceTree = "<group>"; };
 		C4C7AEA2292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDragonChampionIconAPIRequest.swift; sourceTree = "<group>"; };
@@ -707,6 +709,7 @@
 			children = (
 				C4BD16E329359E4A00DB736B /* AdditionalInformation */,
 				C4BD16E229359E4600DB736B /* TierView */,
+				C4BD16F12935A48600DB736B /* SummonerInformationTableView */,
 				C4BD16E429359E7D00DB736B /* SummonerInformationTableViewCell */,
 			);
 			path = SummonderDetail;
@@ -735,8 +738,24 @@
 		C4BD16E429359E7D00DB736B /* SummonerInformationTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				C4BD16F22935A49D00DB736B /* LeftView */,
 			);
 			path = SummonerInformationTableViewCell;
+			sourceTree = "<group>";
+		};
+		C4BD16F12935A48600DB736B /* SummonerInformationTableView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SummonerInformationTableView;
+			sourceTree = "<group>";
+		};
+		C4BD16F22935A49D00DB736B /* LeftView */ = {
+			isa = PBXGroup;
+			children = (
+				C4BD16F32935A4BE00DB736B /* ItemStackView.swift */,
+			);
+			path = LeftView;
 			sourceTree = "<group>";
 		};
 		C4E505EA28FE91AA00EEA8C8 /* Builder */ = {
@@ -962,6 +981,7 @@
 				203F1D47290918D4002C5F5A /* MoreInformationCell.swift in Sources */,
 				20336A5029154668001BDF7D /* Summoner.swift in Sources */,
 				205BC1A52907E85B004053F3 /* String+Extension.swift in Sources */,
+				C4BD16F42935A4BE00DB736B /* ItemStackView.swift in Sources */,
 				C4BD16E629359EB900DB736B /* TierView.swift in Sources */,
 				2043E9E52924C1B300F087A9 /* DataDragonVersionRepository.swift in Sources */,
 				C43F3F48290A717100B03A04 /* PositionTabBarDelegate.swift in Sources */,
