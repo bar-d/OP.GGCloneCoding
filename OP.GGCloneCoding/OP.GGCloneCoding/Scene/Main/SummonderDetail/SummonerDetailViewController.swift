@@ -65,8 +65,10 @@ final class SummonerDetailViewController: UIViewController {
         setupConstraints()
         setupDelegate()
         setupDataSource()
+        setupModalPersentationStyle(.fullScreen)
         setupSummonerInformationTableView()
         setupsummonerInformationTableViewFrame(view.bounds)
+        setupHeaderViewButtonsTarget()
     }
     
     private func setupDelegate() {
@@ -113,6 +115,10 @@ final class SummonerDetailViewController: UIViewController {
         ])
     }
     
+    private func setupModalPersentationStyle(_ style: UIModalPresentationStyle) {
+        modalPresentationStyle = style
+    }
+    
     private func setupsummonerInformationTableViewFrame(_ frame: CGRect) {
         summonerInformationTableView.frame = frame
     }
@@ -127,6 +133,19 @@ final class SummonerDetailViewController: UIViewController {
         stickyHeaderView.setupImage(UIImage(named: "a"))
         
         summonerInformationTableView.tableHeaderView = stickyHeaderView
+    }
+    
+    private func setupHeaderViewButtonsTarget() {
+        headerView.setupButtonTarget(
+            to: .firstLeftButton,
+            target: self,
+            action: #selector(indicatorButtonDidTapped(_ :)),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func indicatorButtonDidTapped(_ sender: UIButton) {
+        dismiss(animated: true)
     }
 }
 

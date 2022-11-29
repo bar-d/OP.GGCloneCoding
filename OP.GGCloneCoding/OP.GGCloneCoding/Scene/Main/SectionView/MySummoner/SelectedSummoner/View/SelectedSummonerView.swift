@@ -13,6 +13,7 @@ final class SelectedSummonerView: UIView {
 
     private weak var summonerDescriptionViewDelegate: SummonerDescriptionViewDelegate?
     private weak var summonerDetailViewDelegate: SummonerDetailViewDelegate?
+    private weak var selectedSummonerViewDelegate: SelectedSummonerViewDelegate?
 
     private let totalStackView: UIStackView = {
        let stackView = UIStackView()
@@ -59,12 +60,17 @@ final class SelectedSummonerView: UIView {
     func setupSummonerDetailViewDelegate(_ delegate: SummonerDetailViewDelegate) {
         summonerDetailViewDelegate = delegate
     }
+    
+    func setupSelectedSummonerViewDelegate(_ delegate: SelectedSummonerViewDelegate) {
+        selectedSummonerViewDelegate = delegate
+    }
 
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
         setupChampionIconFetcherDelegate()
+        setupDetailButton()
     }
 
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -107,6 +113,18 @@ final class SelectedSummonerView: UIView {
 
     private func setupChampionIconFetcherDelegate() {
         summonerDescriptionView.setupChampionIconFetcherDelegate(detailView)
+    }
+    
+    private func setupDetailButton() {
+        detailButton.addTarget(
+            self,
+            action: #selector(detailButtonDidTapped(_ :)),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func detailButtonDidTapped(_ sender: UIButton) {
+        selectedSummonerViewDelegate?.detailButtonDidTapped()
     }
 }
 
