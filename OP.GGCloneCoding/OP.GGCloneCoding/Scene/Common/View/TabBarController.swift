@@ -62,7 +62,7 @@ final class TabBarController: UITabBarController {
 private enum Design {
     enum Pair {
         static let home = (MainViewController(), TabBarItem.home)
-        static let champion = (SummonerInformationViewController(), TabBarItem.champion)
+        static let champion = (MainViewController(), TabBarItem.champion)
         static let esports = (MainViewController(), TabBarItem.esports)
         static let community = (MainViewController(), TabBarItem.community)
         static let settings = (SettingsViewController(), TabBarItem.settings)
