@@ -57,4 +57,8 @@ extension String {
 
         return firstLetter + restLetter
     }
+
+    func convertToIdentifier() -> Self {
+        return self.lowercased().trimmingCharacters(in: .whitespaces)
+    }
 }
