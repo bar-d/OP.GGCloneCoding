@@ -13,6 +13,7 @@ final class SelectedSummonerView: UIView {
 
     private weak var summonerDetailViewDelegate: SummonerDetailViewDelegate?
     private weak var selectedSummonerViewDelegate: SelectedSummonerViewDelegate?
+    
 
     private let totalStackView: UIStackView = {
        let stackView = UIStackView()
