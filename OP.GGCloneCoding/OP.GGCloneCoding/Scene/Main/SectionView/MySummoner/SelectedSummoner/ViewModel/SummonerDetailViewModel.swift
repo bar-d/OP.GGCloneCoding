@@ -33,7 +33,7 @@ struct SummonerDetailViewModel: ViewModel {
         let myChampionPicks = summonerMatchArray.map { (match) -> String in
             match.participants.filter { participant in
                 guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-                      let summoner = try? JSONDecoder().decode(Summoner.self, from: unarchivedSummonerData) else {
+                      let summoner = try? JSONDecoder().decode(SummonerUnit.self, from: unarchivedSummonerData) else {
                     return false
                 }
 
@@ -90,7 +90,7 @@ struct SummonerDetailViewModel: ViewModel {
         let myChampionPicks = summonerMatchArray.map { (match) -> SummonerMatch.Participant in
             match.participants.filter { participant in
                 guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-                      let summoner = try? JSONDecoder().decode(Summoner.self, from: unarchivedSummonerData) else {
+                      let summoner = try? JSONDecoder().decode(SummonerUnit.self, from: unarchivedSummonerData) else {
                     return false
                 }
 

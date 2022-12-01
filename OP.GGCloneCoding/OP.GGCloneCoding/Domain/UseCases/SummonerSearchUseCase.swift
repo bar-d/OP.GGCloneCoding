@@ -20,10 +20,10 @@ struct SummonerSearchUseCase {
     // MARK: - Methods
 
     func searchSummoner(
-        id: String,
-        completion: @escaping (Result<Summoner, Error>) -> Void
+        name: String,
+        completion: @escaping (Result<SummonerUnit, Error>) -> Void
     ) {
-        repository.fetchSummonerInformation(id: id) { result in
+        repository.fetchSummonerInformation(name: name) { result in
             switch result {
             case .success(let summoner):
                 completion(.success(summoner))

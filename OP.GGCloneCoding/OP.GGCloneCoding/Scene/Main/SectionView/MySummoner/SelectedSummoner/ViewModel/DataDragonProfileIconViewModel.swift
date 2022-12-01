@@ -25,7 +25,7 @@ struct DataDragonProfileIconViewModel: ViewModel {
 
     private func fetchProfileIconImage(with version: String) {
         guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-              let summoner = try? JSONDecoder().decode(Summoner.self, from: unarchivedSummonerData) else {
+              let summoner = try? JSONDecoder().decode(SummonerUnit.self, from: unarchivedSummonerData) else {
             return
         }
 

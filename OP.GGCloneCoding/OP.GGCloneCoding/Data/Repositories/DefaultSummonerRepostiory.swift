@@ -26,8 +26,8 @@ private typealias Request = RiotSummonerAPIRequest
 
 extension DefaultSummonerRepostiory {
     func fetchSummonerInformation(
-        id: String,
-        completion: @escaping (Result<Summoner, Error>) -> Void
+        name: String,
+        completion: @escaping (Result<SummonerUnit, Error>) -> Void
     ) {
         let summonerRequest = Request(summonerID: id)
 

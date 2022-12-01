@@ -38,7 +38,7 @@ extension RiotAPIResponseDTO {
 }
 
 extension RiotAPIResponseDTO.SummonerDTO {
-    func toDomain() -> Summoner? {
+    func toDomain() -> SummonerUnit? {
         return .init(
             id: id,
             puuid: puuid,

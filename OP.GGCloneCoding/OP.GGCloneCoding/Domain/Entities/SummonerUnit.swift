@@ -1,11 +1,11 @@
 //
-//  Summoner.swift
+//  SummonerUnit.swift
 //  OP.GGCloneCoding
 //
 //  Created by 바드, 수꿍 on 2022/11/04.
 //
 
-struct Summoner: Codable {
+struct SummonerUnit: Codable {
     let id: String
     let puuid: String
     let name: String

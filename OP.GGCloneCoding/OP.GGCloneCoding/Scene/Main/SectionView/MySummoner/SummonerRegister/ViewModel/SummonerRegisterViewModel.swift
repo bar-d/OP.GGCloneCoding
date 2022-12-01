@@ -13,7 +13,7 @@ struct SummonerSearchViewModel: ViewModel {
     
     private let summonerSearchUsecase: SummonerSearchUseCase = SummonerSearchUseCase()
     private let output: Output
-    lazy var input = Input(completeButtonDidTap: completeButtonDidTap(id:))
+    lazy var input = Input(completeButtonDidTap: completeButtonDidTap(name:))
 
     // MARK: - Initializers
     
@@ -23,8 +23,8 @@ struct SummonerSearchViewModel: ViewModel {
     
     // MARK: - Methods
 
-    private func completeButtonDidTap(id: String) {
-        summonerSearchUsecase.searchSummoner(id: id) { result in
+    private func completeButtonDidTap(name: String) {
+        summonerSearchUsecase.searchSummoner(name: name) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let summoner):
