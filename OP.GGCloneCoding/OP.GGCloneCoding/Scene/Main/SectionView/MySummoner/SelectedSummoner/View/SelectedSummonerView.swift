@@ -11,7 +11,6 @@ final class SelectedSummonerView: UIView {
 
     // MARK: Properties
 
-    private weak var summonerDescriptionViewDelegate: SummonerDescriptionViewDelegate?
     private weak var summonerDetailViewDelegate: SummonerDetailViewDelegate?
     private weak var selectedSummonerViewDelegate: SelectedSummonerViewDelegate?
 
@@ -51,10 +50,8 @@ final class SelectedSummonerView: UIView {
 
     // MARK: - Methods
 
-    func setupSummonerDescriptionViewDelegate(
-        _ delegate: SummonerDescriptionViewDelegate
-    ) {
-        summonerDescriptionViewDelegate = delegate
+    func setupSummonerDescriptionViewDelegate(_ delegate: SummonerDescriptionViewDelegate) {
+        summonerDescriptionView.setupSummonerDescriptionViewDelegate(delegate)
     }
 
     func setupSummonerDetailViewDelegate(_ delegate: SummonerDetailViewDelegate) {

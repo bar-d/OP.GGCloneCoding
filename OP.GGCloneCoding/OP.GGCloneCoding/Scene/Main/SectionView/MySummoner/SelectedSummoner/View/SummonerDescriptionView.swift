@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 final class SummonerDescriptionView: UIView {
     
@@ -96,6 +97,16 @@ final class SummonerDescriptionView: UIView {
         super.init(frame: frame)
         
         commonInit()
+        
+        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
+              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
+              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request)?.toDTO(),
+              let mySummonerInformation = storedData.toDomain() else {
+            return
+        }
+        
+        levelLabel.text = String(" \(mySummonerInformation.summonerLevel) ")
+        summonerIDLabel.text = mySummonerInformation.name
     }
     
     required init?(coder: NSCoder) {
@@ -121,6 +132,7 @@ final class SummonerDescriptionView: UIView {
         setupSubviews()
         setupConstraints()
         fetchGameVersionIfSummonerSelected()
+        setupCancelButton()
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -202,6 +214,21 @@ final class SummonerDescriptionView: UIView {
         }
         
         dataDragonVersionViewModel.input.fetchGameVersion()
+    }
+    
+    private func setupCancelButton() {
+        cancelButton.addTarget(
+            self,
+            action: #selector(cancelButtonDidTapped),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func cancelButtonDidTapped() {
+        UserDefaults.standard.set(false, forKey: "DidSummonerSelected")
+        
+        summonerDescriptionViewDelegate?.reloadData()
+        summonerDescriptionViewDelegate?.resetDelegate()
     }
     
     private func fetchProfileIconImage(with versionID: String) {

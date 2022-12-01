@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 final class MySummonerCell: UITableViewCell {
 
@@ -41,18 +42,12 @@ final class MySummonerCell: UITableViewCell {
         unselectedSummonerView.setupUnselectedSummonerViewDelegate(delegate)
     }
 
-    func setupSummonerDescriptionViewDelegate(
-        _ delegate: SummonerDescriptionViewDelegate
-    ) {
-        selectedSummoenrView.setupSummonerDescriptionViewDelegate(delegate)
+    func setupSummonerDescriptionViewDelegate(_ delegate: SummonerDescriptionViewDelegate) {
+        selectedSummonerView.setupSummonerDescriptionViewDelegate(delegate)
     }
 
     func setupSummonerDetailViewDelegate(_ delegate: SummonerDetailViewDelegate) {
-        selectedSummoenrView.setupSummonerDetailViewDelegate(delegate)
-    }
-    
-    func setupSelectedSummonerViewDelegate(_ delegate: SelectedSummonerViewDelegate) {
-        selectedSummoenrView.setupSelectedSummonerViewDelegate(delegate)
+        selectedSummonerView.setupSummonerDetailViewDelegate(delegate)
     }
 
     private func commonInit() {

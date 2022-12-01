@@ -169,9 +169,9 @@ final class MainViewController: UIViewController {
         }
 
         cell.setupUnselectedSummonerViewDelegate(self)
-        cell.setupSummonerDescriptionViewDelegate(self)
+//        cell.setupSummonerDescriptionViewDelegate(self)
         cell.setupSummonerDetailViewDelegate(self)
-        cell.setupSelectedSummonerViewDelegate(self)
+        cell.setupSummonerDescriptionViewDelegate(self)
     }
 
     private func setupFavoriteSummonersCellDelegate() {
@@ -232,16 +232,16 @@ extension MainViewController: UIScrollViewDelegate {
 
 extension MainViewController:
     OtherGamesDelegate, PatchNoteDelegate,
-    UnselectedSummonerViewDelegate, SummonerDescriptionViewDelegate,
-    SummonerDetailViewDelegate, FavoriteSummonersCellDelegate,
-    SelectedSummonerViewDelegate {
-    
-    func detailButtonDidTapped() {
-        let summonerDetailViewController = SummonerDetailViewController()
-        
-        present(summonerDetailViewController, animated: true)
+    UnselectedSummonerViewDelegate, SummonerDescriptionViewDelegate, SummonerDetailViewDelegate,
+    FavoriteSummonersCellDelegate {
+    func resetDelegate() {
+        setupMySummonerDelegate()
     }
-    
+
+    func reloadData() {
+        mainTableView.reloadData()
+    }
+
     func summonerSearchButtonDidTapped() {
         let summonerSearchViewController = SummonerSearchViewController()
 
