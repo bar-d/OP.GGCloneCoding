@@ -60,9 +60,7 @@ final class MySummonerCell: UITableViewCell {
     }
 
     private func checkSummonerRegistrationForHidingView() {
-        guard UserDefaults.standard.object(
-            forKey: Design.userDefaultsKey
-        ) is Data else {
+        guard UserDefaults.standard.bool(forKey: "DidSummonerSelected") else {
             setupUnselectedSummonerViewHidden(false)
             setupSelectedSummonerViewHidden(true)
 

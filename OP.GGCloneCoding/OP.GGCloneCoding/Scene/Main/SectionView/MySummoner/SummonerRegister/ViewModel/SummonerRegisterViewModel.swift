@@ -28,12 +28,9 @@ struct SummonerSearchViewModel: ViewModel {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let summoner):
-                    let archivedData = try? JSONEncoder().encode(summoner)
+                    UserDefaults.standard.set(true, forKey: "DidSummonerSelected")
+                    UserDefaults.standard.set(summoner.name, forKey: "MySummoner")
 
-                    UserDefaults.standard.set(
-                        archivedData,
-                        forKey: Design.userDefaultsKey
-                    )
                     output.fetchSummonerRankInformation(summoner.id)
                     output.fetchSummonerMatchListInformation(summoner.puuid)
                 case .failure(_):
@@ -54,10 +51,4 @@ extension SummonerSearchViewModel {
         let fetchSummonerMatchListInformation: (String) -> Void
         let showErrorAlert: (UIAlertController) -> Void
     }
-}
-
-// MARK: - Namespace
-
-private enum Design {
-    static let userDefaultsKey = "MySummonerInformation"
 }
