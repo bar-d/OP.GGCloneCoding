@@ -65,7 +65,6 @@ final class SummonerRegisterView: UIView {
         super.init(frame: frame)
 
         commonInit()
-
     }
 
     required init?(coder: NSCoder) {
@@ -87,13 +86,13 @@ final class SummonerRegisterView: UIView {
     }
 
     private func fetchSummonerRankInformation(encryptedID: String) {
-        summonerRegisterViewDelegate?.fetchSummonerRankInformation(
-            encryptedID: encryptedID
-        )
+//        summonerRegisterViewDelegate?.fetchSummonerRankInformation(
+//            encryptedID: encryptedID
+//        )
     }
 
     private func fetchSummonerMatchListInformation(puuid: String) {
-        summonerRegisterViewDelegate?.fetchSummonerMatchListInformation(puuid: puuid)
+//        summonerRegisterViewDelegate?.fetchSummonerMatchListInformation(puuid: puuid)
     }
 
     private func showErrorAlert(from alert: UIAlertController) {

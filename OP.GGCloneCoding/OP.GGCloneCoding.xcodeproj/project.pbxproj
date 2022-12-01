@@ -11,6 +11,9 @@
 		202B4C42291B71860078A03E /* ErrorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B4C41291B71860078A03E /* ErrorAlertController.swift */; };
 		202B4C45291B71CC0078A03E /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B4C44291B71CC0078A03E /* AlertViewModel.swift */; };
 		202B4C47291B76510078A03E /* SummonerRegisterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B4C46291B76510078A03E /* SummonerRegisterViewDelegate.swift */; };
+		203052A229349D9300C82344 /* Summoner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 203052A029349D9300C82344 /* Summoner.xcdatamodeld */; };
+		203052A529349E0200C82344 /* SummonerInformation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203052A329349E0200C82344 /* SummonerInformation+CoreDataClass.swift */; };
+		203052A629349E0200C82344 /* SummonerInformation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203052A429349E0200C82344 /* SummonerInformation+CoreDataProperties.swift */; };
 		2033279D28FE7479005EF522 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279C28FE7479005EF522 /* ButtonBuilder.swift */; };
 		2033279F28FEA531005EF522 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2033279E28FEA531005EF522 /* TabBarController.swift */; };
 		20336A2D29150B29001BDF7D /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A2C29150B29001BDF7D /* APIRequest.swift */; };
@@ -24,7 +27,7 @@
 		20336A442915444B001BDF7D /* RiotAPIResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A432915444B001BDF7D /* RiotAPIResponseDTO.swift */; };
 		20336A4629154508001BDF7D /* RiotSummonerAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A4529154508001BDF7D /* RiotSummonerAPIRequest.swift */; };
 		20336A4929154571001BDF7D /* DefaultSummonerRepostiory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A4829154571001BDF7D /* DefaultSummonerRepostiory.swift */; };
-		20336A5029154668001BDF7D /* Summoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A4F29154668001BDF7D /* Summoner.swift */; };
+		20336A5029154668001BDF7D /* SummonerUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A4F29154668001BDF7D /* SummonerUnit.swift */; };
 		20336A52291546A3001BDF7D /* SummonerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A51291546A3001BDF7D /* SummonerRepository.swift */; };
 		20336A5429154723001BDF7D /* SummonerSearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A5329154723001BDF7D /* SummonerSearchUseCase.swift */; };
 		20336A5629154928001BDF7D /* DTOError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20336A5529154928001BDF7D /* DTOError.swift */; };
@@ -61,7 +64,11 @@
 		208AF1A6292D087D0047466D /* SummonerMatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AF1A5292D087D0047466D /* SummonerMatchViewModel.swift */; };
 		208AF1A8292D13460047466D /* ChampionIconFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AF1A7292D13460047466D /* ChampionIconFetcher.swift */; };
 		208D8BFE292609A400209210 /* CodableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208D8BFD292609A400209210 /* CodableImage.swift */; };
+		209420112935F89700A678FE /* CoreDataSummonerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209420102935F89700A678FE /* CoreDataSummonerStorage.swift */; };
+		209420132935F8FD00A678FE /* CoreDataSummonerStorage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209420122935F8FD00A678FE /* CoreDataSummonerStorage+Extension.swift */; };
 		20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */; };
+		20C11C522930FE09006E6F0B /* CoreDataSummonerInformationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C11C512930FE09006E6F0B /* CoreDataSummonerInformationStorage.swift */; };
+		20C11C552930FE9D006E6F0B /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C11C542930FE9D006E6F0B /* CoreDataStorage.swift */; };
 		20C162D529237F2D005308AF /* SummonerMatchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C162D429237F2D005308AF /* SummonerMatchRepository.swift */; };
 		20C162D729237F82005308AF /* DefaultSummonerMatchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C162D629237F82005308AF /* DefaultSummonerMatchRepository.swift */; };
 		20C162D929238091005308AF /* SummonerMatchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C162D829238091005308AF /* SummonerMatchUseCase.swift */; };
@@ -159,6 +166,9 @@
 		202B4C41291B71860078A03E /* ErrorAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertController.swift; sourceTree = "<group>"; };
 		202B4C44291B71CC0078A03E /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
 		202B4C46291B76510078A03E /* SummonerRegisterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRegisterViewDelegate.swift; sourceTree = "<group>"; };
+		203052A129349D9300C82344 /* Summoner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Summoner.xcdatamodel; sourceTree = "<group>"; };
+		203052A329349E0200C82344 /* SummonerInformation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SummonerInformation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		203052A429349E0200C82344 /* SummonerInformation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SummonerInformation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2033279C28FE7479005EF522 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		2033279E28FEA531005EF522 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		20336A2C29150B29001BDF7D /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
@@ -172,7 +182,7 @@
 		20336A432915444B001BDF7D /* RiotAPIResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiotAPIResponseDTO.swift; sourceTree = "<group>"; };
 		20336A4529154508001BDF7D /* RiotSummonerAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiotSummonerAPIRequest.swift; sourceTree = "<group>"; };
 		20336A4829154571001BDF7D /* DefaultSummonerRepostiory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSummonerRepostiory.swift; sourceTree = "<group>"; };
-		20336A4F29154668001BDF7D /* Summoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summoner.swift; sourceTree = "<group>"; };
+		20336A4F29154668001BDF7D /* SummonerUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerUnit.swift; sourceTree = "<group>"; };
 		20336A51291546A3001BDF7D /* SummonerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRepository.swift; sourceTree = "<group>"; };
 		20336A5329154723001BDF7D /* SummonerSearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerSearchUseCase.swift; sourceTree = "<group>"; };
 		20336A5529154928001BDF7D /* DTOError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOError.swift; sourceTree = "<group>"; };
@@ -209,7 +219,11 @@
 		208AF1A5292D087D0047466D /* SummonerMatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchViewModel.swift; sourceTree = "<group>"; };
 		208AF1A7292D13460047466D /* ChampionIconFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionIconFetcher.swift; sourceTree = "<group>"; };
 		208D8BFD292609A400209210 /* CodableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableImage.swift; sourceTree = "<group>"; };
+		209420102935F89700A678FE /* CoreDataSummonerStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSummonerStorage.swift; sourceTree = "<group>"; };
+		209420122935F8FD00A678FE /* CoreDataSummonerStorage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataSummonerStorage+Extension.swift"; sourceTree = "<group>"; };
 		20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
+		20C11C512930FE09006E6F0B /* CoreDataSummonerInformationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSummonerInformationStorage.swift; sourceTree = "<group>"; };
+		20C11C542930FE9D006E6F0B /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		20C162D429237F2D005308AF /* SummonerMatchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchRepository.swift; sourceTree = "<group>"; };
 		20C162D629237F82005308AF /* DefaultSummonerMatchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSummonerMatchRepository.swift; sourceTree = "<group>"; };
 		20C162D829238091005308AF /* SummonerMatchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchUseCase.swift; sourceTree = "<group>"; };
@@ -376,6 +390,7 @@
 			children = (
 				20336A472915454C001BDF7D /* Repositories */,
 				20336A412915441D001BDF7D /* Network */,
+				20C11C362930884E006E6F0B /* PersistentStorages */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -425,7 +440,7 @@
 		20336A4B291545FB001BDF7D /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				20336A4F29154668001BDF7D /* Summoner.swift */,
+				20336A4F29154668001BDF7D /* SummonerUnit.swift */,
 				20C76695291CC9F600E94133 /* SummonerRank.swift */,
 				20C766AF291D250100E94133 /* SummonerMatch.swift */,
 			);
@@ -555,6 +570,60 @@
 				208AF19F292D07A40047466D /* SummonerDetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2094200F2935F82400A678FE /* SummonerStorage */ = {
+			isa = PBXGroup;
+			children = (
+				209420102935F89700A678FE /* CoreDataSummonerStorage.swift */,
+				209420122935F8FD00A678FE /* CoreDataSummonerStorage+Extension.swift */,
+				20C11C4F2930FD2E006E6F0B /* SummonerInformationStorage */,
+			);
+			path = SummonerStorage;
+			sourceTree = "<group>";
+		};
+		20C11C362930884E006E6F0B /* PersistentStorages */ = {
+			isa = PBXGroup;
+			children = (
+				2094200F2935F82400A678FE /* SummonerStorage */,
+				20C11C402930D696006E6F0B /* CoreDataStorage */,
+			);
+			path = PersistentStorages;
+			sourceTree = "<group>";
+		};
+		20C11C402930D696006E6F0B /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				20C11C542930FE9D006E6F0B /* CoreDataStorage.swift */,
+				20C11C532930FE1C006E6F0B /* CoreDataStorage */,
+			);
+			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		20C11C4F2930FD2E006E6F0B /* SummonerInformationStorage */ = {
+			isa = PBXGroup;
+			children = (
+				20C11C512930FE09006E6F0B /* CoreDataSummonerInformationStorage.swift */,
+				20C11C502930FDD5006E6F0B /* Entity */,
+			);
+			path = SummonerInformationStorage;
+			sourceTree = "<group>";
+		};
+		20C11C502930FDD5006E6F0B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				203052A329349E0200C82344 /* SummonerInformation+CoreDataClass.swift */,
+				203052A429349E0200C82344 /* SummonerInformation+CoreDataProperties.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		20C11C532930FE1C006E6F0B /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				203052A029349D9300C82344 /* Summoner.xcdatamodeld */,
+			);
+			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
 		20C7668C291CBB7D00E94133 /* View */ = {
@@ -1011,7 +1080,8 @@
 				203F0010290BC34600BF95F7 /* OtherGamesDelegate.swift in Sources */,
 				C440CCFF290114BD008B3C16 /* SettingsTableView.swift in Sources */,
 				203F1D47290918D4002C5F5A /* MoreInformationCell.swift in Sources */,
-				20336A5029154668001BDF7D /* Summoner.swift in Sources */,
+				209420132935F8FD00A678FE /* CoreDataSummonerStorage+Extension.swift in Sources */,
+				20336A5029154668001BDF7D /* SummonerUnit.swift in Sources */,
 				205BC1A52907E85B004053F3 /* String+Extension.swift in Sources */,
 				C4BD16F42935A4BE00DB736B /* ItemStackView.swift in Sources */,
 				C4BD16E629359EB900DB736B /* TierView.swift in Sources */,
@@ -1048,6 +1118,7 @@
 				2043E9F62924D46F00F087A9 /* DataDragonProfileIconUseCase.swift in Sources */,
 				203F1D49290918DB002C5F5A /* MoreInformationButton.swift in Sources */,
 				2043E9EE2924C74300F087A9 /* DataDragonProfileIconAPIRequest.swift in Sources */,
+				203052A629349E0200C82344 /* SummonerInformation+CoreDataProperties.swift in Sources */,
 				C440CCFA290113C6008B3C16 /* SwiftUIPreview.swift in Sources */,
 				20336A5629154928001BDF7D /* DTOError.swift in Sources */,
 				208AF19C292D077A0047466D /* DataDragonVersionViewModel.swift in Sources */,
@@ -1085,6 +1156,7 @@
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
 				20C76694291CC30500E94133 /* RiotSummonerRankAPIRequest.swift in Sources */,
 				20336A442915444B001BDF7D /* RiotAPIResponseDTO.swift in Sources */,
+				20C11C552930FE9D006E6F0B /* CoreDataStorage.swift in Sources */,
 				C4C7AEA1292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift in Sources */,
 				C4BD16EE2935A3C300DB736B /* RecentGameSummaryView.swift in Sources */,
 				20336A2F29150C14001BDF7D /* URLHost.swift in Sources */,
@@ -1093,6 +1165,8 @@
 				205BC1A82907ECCF004053F3 /* FavoriteChampionCell.swift in Sources */,
 				C4AC80352913942600C5A550 /* FavoriteSummonerCellDelegate.swift in Sources */,
 				20C766A4291CF2CD00E94133 /* SummonerMatchListRepository.swift in Sources */,
+				203052A529349E0200C82344 /* SummonerInformation+CoreDataClass.swift in Sources */,
+				20C11C522930FE09006E6F0B /* CoreDataSummonerInformationStorage.swift in Sources */,
 				C4AC806B291B681800C5A550 /* ChampionRateView.swift in Sources */,
 				20C76698291CCD7900E94133 /* SummonerRankRepository.swift in Sources */,
 				20C162D529237F2D005308AF /* SummonerMatchRepository.swift in Sources */,
@@ -1112,11 +1186,13 @@
 				C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */,
 				C4AC806D291B682700C5A550 /* SummonerDescriptionView.swift in Sources */,
 				C458CAF829110D4F004E6D74 /* SummonerSearchTableViewCell.swift in Sources */,
+				209420112935F89700A678FE /* CoreDataSummonerStorage.swift in Sources */,
 				2043E9F42924D2D100F087A9 /* DefaultDataDragonProfileIconRepository.swift in Sources */,
 				C43F3F43290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift in Sources */,
 				C4F3DDB52907E9AD00137AAC /* FavoriteSummonerCell.swift in Sources */,
 				20C162D929238091005308AF /* SummonerMatchUseCase.swift in Sources */,
 				C458CAE92910C28F004E6D74 /* SummonerRegisterTopView.swift in Sources */,
+				203052A229349D9300C82344 /* Summoner.xcdatamodeld in Sources */,
 				C4F3DDC72907F7CE00137AAC /* MainStickyHeaderView.swift in Sources */,
 				C4F3DDD32908179600137AAC /* PaddingLabel.swift in Sources */,
 				C4BD16F02935A42A00DB736B /* SummonerAdditionalInformationView.swift in Sources */,
@@ -1377,6 +1453,19 @@
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		203052A029349D9300C82344 /* Summoner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				203052A129349D9300C82344 /* Summoner.xcdatamodel */,
+			);
+			currentVersion = 203052A129349D9300C82344 /* Summoner.xcdatamodel */;
+			path = Summoner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C4EBCC1428FC242900402617 /* Project object */;
 }

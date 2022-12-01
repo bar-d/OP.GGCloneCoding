@@ -85,7 +85,7 @@ final class DetailView: UIView {
         setupConstraints()
         setupBackgroundColor(Design.backgroundColor)
         setupCornerRadius(10)
-        setupContents()
+//        setupContents()
     }
 
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -159,13 +159,8 @@ final class DetailView: UIView {
         
         let myMatch = summonerMatchArray.map { (match) -> SummonerMatch.Participant in
             match.participants.filter { participant in
-                guard let unarchivedSummonerData = UserDefaults.standard.object(
-                    forKey: "MySummonerInformation"
-                ) as? Data,
-                      let summoner = try? JSONDecoder().decode(
-                        Summoner.self,
-                        from: unarchivedSummonerData
-                      ) else {
+                guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
+                      let summoner = try? JSONDecoder().decode(SummonerUnit.self, from: unarchivedSummonerData) else {
                     return false
                 }
 

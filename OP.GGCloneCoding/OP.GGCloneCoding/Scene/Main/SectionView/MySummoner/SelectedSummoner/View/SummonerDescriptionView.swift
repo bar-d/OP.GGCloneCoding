@@ -244,20 +244,28 @@ final class SummonerDescriptionView: UIView {
     }
     
     private func setupContents(with profileIcon: UIImage) {
-        guard let unarchivedSummonerData = UserDefaults.standard.object(
-            forKey: "MySummonerInformation"
-        ) as? Data,
-              let summoner = try? JSONDecoder().decode(
-                Summoner.self,
-                from: unarchivedSummonerData
-              ) else {
-            return
-        }
+        //        guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
+        //              let summoner = try? JSONDecoder().decode(SummonerUnit.self, from: unarchivedSummonerData) else {
+        //            return
+        //        }
         
         iconImageView.image = profileIcon.resize(width: iconImageView.frame.size.width)
         
-        levelLabel.text = String(" \(summoner.summonerLevel) ")
-        summonerIDLabel.text = summoner.name
+        //        guard let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: "MySummoner"),
+        //              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request)?.toDTO(),
+        //              let mySummonerInformation = storedData.toDomain() else {
+        //            return
+        //        }
+        //        levelLabel.text = String(" \(mySummonerInformation.summonerLevel) ")
+        //        summonerIDLabel.text = mySummonerInformation.name
+        
+        
+        //        levelLabel.text = String(" \(summoner.summonerLevel) ")
+        //        summonerIDLabel.text = summoner.name
+        
+        
+        //        levelLabel.text = String(" \(summoner.summonerLevel) ")
+        //        summonerIDLabel.text = summoner.name
         
         // queueType enum으로 만들기
         
@@ -285,10 +293,12 @@ final class SummonerDescriptionView: UIView {
     }
 }
 
-// MARK: - Namespace
 
-private enum Design {
-    static let tierLabelText = "Unranked"
-    static let cancelButtonImage = UIImage(systemName:"xmark")
-    static let userDefaultsKey = "MySummonerInformation"
-}
+    // MARK: - Namespace
+
+    private enum Design {
+        static let tierLabelText = "Unranked"
+        static let cancelButtonImage = UIImage(systemName:"xmark")
+        static let userDefaultsKey = "MySummonerInformation"
+    }
+
