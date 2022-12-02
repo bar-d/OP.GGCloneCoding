@@ -35,7 +35,7 @@ extension DefaultSummonerRepostiory {
         completion: @escaping (Result<SummonerUnit, Error>) -> Void
     ) {
         guard let request: NSFetchRequest<SummonerInformation> = cache.fetchRequest(by: name),
-              let cachedData = cache.read(name: request)?.toDTO() else {
+              let cachedData = cache.read(by: request)?.toDTO() else {
             connectToNetwork(
                 by: name,
                 with: completion

@@ -26,7 +26,7 @@ extension CoreDataSummonerStorage {
         return T.fetchRequest() as? NSFetchRequest<T>
     }
 
-    func read<T: NSManagedObject>(name request: NSFetchRequest<T>) -> T? {
+    func read<T: NSManagedObject>(by request: NSFetchRequest<T>) -> T? {
         let context = CoreDataStorage.shared.loadContext()
 
         do {

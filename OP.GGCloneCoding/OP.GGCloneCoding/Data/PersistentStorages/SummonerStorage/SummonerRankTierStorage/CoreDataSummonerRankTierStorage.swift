@@ -23,7 +23,6 @@ final class CoreDataSummonerRankTierStorage: CoreDataSummonerStorage {
     // MARK: - Methods
 
     func fetchRequest<T: NSManagedObject>(id: String) -> NSFetchRequest<T>? {
-
         guard let request = T.fetchRequest() as? NSFetchRequest<T> else {
             return nil
         }

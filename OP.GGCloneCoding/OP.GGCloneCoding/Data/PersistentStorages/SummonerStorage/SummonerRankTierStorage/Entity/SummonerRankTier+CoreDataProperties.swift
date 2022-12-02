@@ -39,7 +39,7 @@ extension SummonerRankTier {
     class func toEntity(by data: RiotAPIResponseDTO.LeagueEntryDTO, in context: NSManagedObjectContext) throws {
         guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
               let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
-              let storedData = CoreDataSummonerInformationStorage.shared.read(name: request) else {
+              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request) else {
             return
         }
 
