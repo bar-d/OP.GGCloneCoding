@@ -92,7 +92,7 @@ final class SummonerRegisterView: UIView {
     }
 
     private func fetchSummonerMatchListInformation(puuid: String) {
-//        summonerRegisterViewDelegate?.fetchSummonerMatchListInformation(puuid: puuid)
+        summonerRegisterViewDelegate?.fetchSummonerMatchListInformation(puuid: puuid)
     }
 
     private func showErrorAlert(from alert: UIAlertController) {
