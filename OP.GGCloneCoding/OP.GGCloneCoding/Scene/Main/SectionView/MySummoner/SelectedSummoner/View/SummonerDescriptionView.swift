@@ -100,7 +100,7 @@ final class SummonerDescriptionView: UIView {
         
         guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
               let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
-              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request)?.toDTO(),
+              let storedData = CoreDataSummonerInformationStorage.shared.read(name: request)?.toDTO(),
               let mySummonerInformation = storedData.toDomain() else {
             return
         }
@@ -293,12 +293,10 @@ final class SummonerDescriptionView: UIView {
     }
 }
 
+// MARK: - Namespace
 
-    // MARK: - Namespace
-
-    private enum Design {
-        static let tierLabelText = "Unranked"
-        static let cancelButtonImage = UIImage(systemName:"xmark")
-        static let userDefaultsKey = "MySummonerInformation"
-    }
-
+private enum Design {
+    static let tierLabelText = "Unranked"
+    static let cancelButtonImage = UIImage(systemName:"xmark")
+    static let userDefaultsKey = "MySummonerInformation"
+}

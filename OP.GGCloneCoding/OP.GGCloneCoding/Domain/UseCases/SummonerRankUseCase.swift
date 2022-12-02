@@ -20,11 +20,11 @@ struct SummonerRankUseCase {
     // MARK: - Methods
 
     func searchSummonerRank(
-        encryptedId: String,
+        encryptedID: String,
         completion: @escaping (Result<[SummonerRank], Error>) -> Void
     ) {
         repository.fetchSummonerInformation(
-            encryptedSummonerID: encryptedId
+            encryptedSummonerID: encryptedID
         ) {
             result in
             switch result {

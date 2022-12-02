@@ -9,7 +9,6 @@
 import CoreData
 
 extension SummonerInformation {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<SummonerInformation> {
         return NSFetchRequest<SummonerInformation>(entityName: "SummonerInformation")
     }

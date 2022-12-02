@@ -26,7 +26,7 @@ struct SummonerRankViewModel: ViewModel {
     // MARK: - Methods
 
     private func fetchSummonerRankInformation(encryptedID: String) {
-        summonerRankUsecase.searchSummonerRank(encryptedId: encryptedID) { result in
+        summonerRankUsecase.searchSummonerRank(encryptedID: encryptedID) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let summonerRankArray):
