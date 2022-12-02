@@ -23,12 +23,12 @@ extension RiotAPIResponseDTO {
     }
 
     struct LeagueEntryDTO: Decodable {
-        let summonerID, summonerName, queueType, tier, rank: String
+        let summonerID, queueType, tier, rank: String
         let leaguePoints, wins, losses: Int
 
         private enum CodingKeys: String, CodingKey {
             case summonerID = "summonerId"
-            case summonerName, queueType, tier, rank, leaguePoints, wins, losses
+            case queueType, tier, rank, leaguePoints, wins, losses
         }
     }
 
