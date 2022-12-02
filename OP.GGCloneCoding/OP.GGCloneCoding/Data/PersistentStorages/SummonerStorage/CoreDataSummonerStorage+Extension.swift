@@ -40,6 +40,18 @@ extension CoreDataSummonerStorage {
         }
     }
 
+    func readAll<T: NSManagedObject>(by request: NSFetchRequest<T>) -> [T]? {
+        let context = CoreDataStorage.shared.loadContext()
+
+        do {
+            let requestEntity = try context.fetch(request)
+
+            return requestEntity
+        } catch {
+            return nil
+        }
+    }
+
     func delete<T: NSManagedObject>(by request: NSFetchRequest<T>) {
         let context = CoreDataStorage.shared.loadContext()
 
