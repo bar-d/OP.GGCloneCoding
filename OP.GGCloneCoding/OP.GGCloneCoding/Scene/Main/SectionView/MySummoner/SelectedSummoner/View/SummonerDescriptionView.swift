@@ -255,12 +255,7 @@ final class SummonerDescriptionView: UIView {
     }
     
     @objc private func cancelButtonDidTapped() {
-//        UserDefaults.standard.set(false, forKey: "DidSummonerSelected")
-        
         summonerDescriptionViewDelegate?.cancelButtonDidTapped()
-        
-//        summonerDescriptionViewDelegate?.reloadData()
-//        summonerDescriptionViewDelegate?.resetDelegate()
     }
     
     private func fetchProfileIconImage(with versionID: String) {
