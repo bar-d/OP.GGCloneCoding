@@ -86,9 +86,9 @@ final class SummonerRegisterView: UIView {
     }
 
     private func fetchSummonerRankInformation(encryptedID: String) {
-//        summonerRegisterViewDelegate?.fetchSummonerRankInformation(
-//            encryptedID: encryptedID
-//        )
+        summonerRegisterViewDelegate?.fetchSummonerRankInformation(
+            encryptedID: encryptedID
+        )
     }
 
     private func fetchSummonerMatchListInformation(puuid: String) {

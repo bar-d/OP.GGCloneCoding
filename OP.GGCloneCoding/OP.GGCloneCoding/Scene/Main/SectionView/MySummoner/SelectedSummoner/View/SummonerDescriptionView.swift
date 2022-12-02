@@ -133,6 +133,36 @@ final class SummonerDescriptionView: UIView {
         setupConstraints()
         fetchGameVersionIfSummonerSelected()
         setupCancelButton()
+
+        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
+              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
+              let storedData = CoreDataSummonerInformationStorage.shared.read(name: request)?.toDTO(),
+              let mySummonerInformation = storedData.toDomain() else {
+            return
+        }
+
+        levelLabel.text = String(" \(mySummonerInformation.summonerLevel) ")
+        summonerIDLabel.text = mySummonerInformation.name
+
+
+        guard let rankRequest: NSFetchRequest<SummonerRankTier> = CoreDataSummonerRankTierStorage.shared.fetchRequest(id: mySummonerInformation.id),
+              let summonerRankArray = CoreDataSummonerRankTierStorage.shared.readAll(by: rankRequest),
+              let summonerSoloRank = summonerRankArray.filter(
+                { $0.queueType == "RANKED_SOLO_5x5" }
+              ).first?.toDTO(),
+              let mySummonerSoloRank = summonerSoloRank.toDomain() else {
+            return
+        }
+
+
+        tierLabel.text = "\(mySummonerSoloRank.tier) \(mySummonerSoloRank.rank)"
+
+        tierIconImageView.image = UIImage(
+            named: mySummonerSoloRank.tier.firstLetterUppercased()
+        )?.resize(width: tierStackView.frame.size.height)
+
+        tierPointLabel.text = "\(mySummonerSoloRank.leaguePoints) LP"
+
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -244,52 +274,37 @@ final class SummonerDescriptionView: UIView {
     }
     
     private func setupContents(with profileIcon: UIImage) {
-        //        guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-        //              let summoner = try? JSONDecoder().decode(SummonerUnit.self, from: unarchivedSummonerData) else {
-        //            return
-        //        }
-        
-        iconImageView.image = profileIcon.resize(width: iconImageView.frame.size.width)
-        
-        //        guard let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: "MySummoner"),
+        //        iconImageView.image = profileIcon.resize(width: iconImageView.frame.size.width)
+        //
+        //        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
+        //              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
         //              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request)?.toDTO(),
         //              let mySummonerInformation = storedData.toDomain() else {
         //            return
         //        }
+        //
         //        levelLabel.text = String(" \(mySummonerInformation.summonerLevel) ")
         //        summonerIDLabel.text = mySummonerInformation.name
-        
-        
-        //        levelLabel.text = String(" \(summoner.summonerLevel) ")
-        //        summonerIDLabel.text = summoner.name
-        
-        
-        //        levelLabel.text = String(" \(summoner.summonerLevel) ")
-        //        summonerIDLabel.text = summoner.name
-        
-        // queueType enum으로 만들기
-        
-        guard let unarchivedSummonerRankData = UserDefaults.standard.object(
-            forKey: "MySummonerRankInformation"
-        ) as? Data,
-              let summonerRankArray = try? JSONDecoder().decode(
-                [SummonerRank].self,
-                from: unarchivedSummonerRankData
-              ),
-              let summonerSoloRank = summonerRankArray.filter(
-                { $0.queueType == "RANKED_SOLO_5x5" }
-              ).first else {
-            return
-        }
-        
-        tierLabel.text = "\(summonerSoloRank.tier) \(summonerSoloRank.rank)"
-        // summonerRank 이미지화
-        
-        tierIconImageView.image = UIImage(
-            named: summonerSoloRank.tier.firstLetterUppercased()
-        )?.resize(width: tierStackView.frame.size.height)
-        
-        tierPointLabel.text = "\(summonerSoloRank.leaguePoints) LP"
+        //
+        //
+        //        guard let rankRequest: NSFetchRequest<SummonerRankTier> = CoreDataSummonerRankTierStorage.shared.fetchRequest(by: mySummonerInformation.id),
+        //              let summonerRankArray = CoreDataSummonerRankTierStorage.shared.readAll(by: rankRequest),
+        //              let summonerSoloRank = summonerRankArray.filter(
+        //                { $0.queueType == "RANKED_SOLO_5x5" }
+        //              ).first?.toDTO(),
+        //              let mySummonerSoloRank = summonerSoloRank.toDomain() else {
+        //            return
+        //        }
+        //
+        //
+        //        tierLabel.text = "\(mySummonerSoloRank.tier) \(mySummonerSoloRank.rank)"
+        //
+        //        tierIconImageView.image = UIImage(
+        //            named: mySummonerSoloRank.tier.firstLetterUppercased()
+        //        )?.resize(width: tierStackView.frame.size.height)
+        //
+        //        tierPointLabel.text = "\(mySummonerSoloRank.leaguePoints) LP"
+        //    }
     }
 }
 
