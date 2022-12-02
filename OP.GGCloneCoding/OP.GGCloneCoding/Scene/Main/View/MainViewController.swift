@@ -235,18 +235,37 @@ extension MainViewController:
     UnselectedSummonerViewDelegate, SelectedSummonerViewDelegate,
     SummonerDescriptionViewDelegate, SummonerDetailViewDelegate,
     FavoriteSummonersCellDelegate {
+    
+    func cancelButtonDidTapped() {
+        let alertcontroller = UIAlertController(
+            title: Design.alertControllerTitle,
+            message: Design.alertControllerMessage,
+            preferredStyle: .alert
+        )
+        
+        let cancelAction = UIAlertAction(title: Design.cancelActionTitle, style: .cancel)
+        let deleteAction = UIAlertAction(
+            title: Design.deleteActionTitle,
+            style: .destructive
+        ) { [weak self] _ in
+            UserDefaults.standard.set(
+                false,
+                forKey: Design.didSummonerSelectedUserDefaultKey
+            )
+            self?.mainTableView.reloadData()
+            self?.setupMySummonerDelegate()
+        }
+        
+        [cancelAction, deleteAction]
+            .forEach { alertcontroller.addAction($0) }
+        
+        present(alertcontroller, animated: true)
+    }
+    
     func detailButtonDidTapped() {
         let summonerDetailViewController = SummonerDetailViewController()
 
         present(summonerDetailViewController, animated: true)
-    }
-
-    func resetDelegate() {
-        setupMySummonerDelegate()
-    }
-
-    func reloadData() {
-        mainTableView.reloadData()
     }
 
     func summonerSearchButtonDidTapped() {
@@ -312,6 +331,12 @@ private enum Design {
         static let secondPatchNote = "https://www.leagueoflegends.com/ko-kr/news/game-updates/patch-12-19-notes/".url
         static let thirdPatchNote = "https://www.leagueoflegends.com/ko-kr/news/game-updates/patch-12-18-notes/".url
     }
+    
+    static let alertControllerTitle = "알림"
+    static let alertControllerMessage = "내 소환사를 삭제하시겠어요?"
+    static let cancelActionTitle = "취소"
+    static let deleteActionTitle = "삭제"
+    static let didSummonerSelectedUserDefaultKey = "DidSummonerSelected"
 
     static let backgroundColor = UIColor(named: "PrimitiveColor")
     static let secondaryColor = UIColor(named: "SecondaryColor")

@@ -9,6 +9,5 @@ import UIKit.UIAlertController
 
 protocol SummonerDescriptionViewDelegate: AnyObject {
     func showAlert(from alert: UIAlertController)
-    func reloadData()
-    func resetDelegate()
+    func cancelButtonDidTapped()
 }
