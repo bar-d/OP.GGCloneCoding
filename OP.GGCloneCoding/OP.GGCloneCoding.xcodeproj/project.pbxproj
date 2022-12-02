@@ -66,6 +66,9 @@
 		208D8BFE292609A400209210 /* CodableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208D8BFD292609A400209210 /* CodableImage.swift */; };
 		209420112935F89700A678FE /* CoreDataSummonerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209420102935F89700A678FE /* CoreDataSummonerStorage.swift */; };
 		209420132935F8FD00A678FE /* CoreDataSummonerStorage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209420122935F8FD00A678FE /* CoreDataSummonerStorage+Extension.swift */; };
+		20B7C9342938E0A40032F4AB /* CoreDataSummonerRankTierStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B7C9332938E0A40032F4AB /* CoreDataSummonerRankTierStorage.swift */; };
+		20B7C93B2938F5650032F4AB /* SummonerRankTier+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B7C9372938F5650032F4AB /* SummonerRankTier+CoreDataClass.swift */; };
+		20B7C93C2938F5650032F4AB /* SummonerRankTier+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B7C9382938F5650032F4AB /* SummonerRankTier+CoreDataProperties.swift */; };
 		20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */; };
 		20C11C522930FE09006E6F0B /* CoreDataSummonerInformationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C11C512930FE09006E6F0B /* CoreDataSummonerInformationStorage.swift */; };
 		20C11C552930FE9D006E6F0B /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C11C542930FE9D006E6F0B /* CoreDataStorage.swift */; };
@@ -221,6 +224,9 @@
 		208D8BFD292609A400209210 /* CodableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableImage.swift; sourceTree = "<group>"; };
 		209420102935F89700A678FE /* CoreDataSummonerStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSummonerStorage.swift; sourceTree = "<group>"; };
 		209420122935F8FD00A678FE /* CoreDataSummonerStorage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataSummonerStorage+Extension.swift"; sourceTree = "<group>"; };
+		20B7C9332938E0A40032F4AB /* CoreDataSummonerRankTierStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSummonerRankTierStorage.swift; sourceTree = "<group>"; };
+		20B7C9372938F5650032F4AB /* SummonerRankTier+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SummonerRankTier+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20B7C9382938F5650032F4AB /* SummonerRankTier+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SummonerRankTier+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		20BEA4BB28FD8BA2009F1969 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		20C11C512930FE09006E6F0B /* CoreDataSummonerInformationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSummonerInformationStorage.swift; sourceTree = "<group>"; };
 		20C11C542930FE9D006E6F0B /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
@@ -578,8 +584,27 @@
 				209420102935F89700A678FE /* CoreDataSummonerStorage.swift */,
 				209420122935F8FD00A678FE /* CoreDataSummonerStorage+Extension.swift */,
 				20C11C4F2930FD2E006E6F0B /* SummonerInformationStorage */,
+				20B7C9312938E05D0032F4AB /* SummonerRankTierStorage */,
 			);
 			path = SummonerStorage;
+			sourceTree = "<group>";
+		};
+		20B7C9312938E05D0032F4AB /* SummonerRankTierStorage */ = {
+			isa = PBXGroup;
+			children = (
+				20B7C9332938E0A40032F4AB /* CoreDataSummonerRankTierStorage.swift */,
+				20B7C9322938E08D0032F4AB /* Entity */,
+			);
+			path = SummonerRankTierStorage;
+			sourceTree = "<group>";
+		};
+		20B7C9322938E08D0032F4AB /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				20B7C9372938F5650032F4AB /* SummonerRankTier+CoreDataClass.swift */,
+				20B7C9382938F5650032F4AB /* SummonerRankTier+CoreDataProperties.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		20C11C362930884E006E6F0B /* PersistentStorages */ = {
@@ -1135,6 +1160,7 @@
 				20C766A0291CEF5B00E94133 /* RiotSummonerMatchListAPIRequest.swift in Sources */,
 				C4C977A429222D28000436D0 /* ViewModel.swift in Sources */,
 				20C766A8291CF56A00E94133 /* SummonerMatchListUseCase.swift in Sources */,
+				20B7C9342938E0A40032F4AB /* CoreDataSummonerRankTierStorage.swift in Sources */,
 				C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */,
 				20C766A6291CF43500E94133 /* DefaultSummonerMatchListRepository.swift in Sources */,
 				20336A4629154508001BDF7D /* RiotSummonerAPIRequest.swift in Sources */,
@@ -1195,6 +1221,7 @@
 				203052A229349D9300C82344 /* Summoner.xcdatamodeld in Sources */,
 				C4F3DDC72907F7CE00137AAC /* MainStickyHeaderView.swift in Sources */,
 				C4F3DDD32908179600137AAC /* PaddingLabel.swift in Sources */,
+				20B7C93C2938F5650032F4AB /* SummonerRankTier+CoreDataProperties.swift in Sources */,
 				C4BD16F02935A42A00DB736B /* SummonerAdditionalInformationView.swift in Sources */,
 				C406923E29067C3100A4E48D /* HeaderViewButtonType.swift in Sources */,
 				208AF19E292D078E0047466D /* DataDragonProfileIconViewModel.swift in Sources */,
@@ -1203,6 +1230,7 @@
 				C458CAF629110B27004E6D74 /* SummonerSearchTableView.swift in Sources */,
 				C458CAFC29112276004E6D74 /* SummonerSearchViewController.swift in Sources */,
 				204A9C37290A7A4500D70FC4 /* UICollectionView+Extension.swift in Sources */,
+				20B7C93B2938F5650032F4AB /* SummonerRankTier+CoreDataClass.swift in Sources */,
 				C4BD16FC2935A79000DB736B /* SummonerInformationTableViewCell.swift in Sources */,
 				20336A52291546A3001BDF7D /* SummonerRepository.swift in Sources */,
 				20C766AC291D149400E94133 /* RiotSummonerMatchAPIRequest.swift in Sources */,
