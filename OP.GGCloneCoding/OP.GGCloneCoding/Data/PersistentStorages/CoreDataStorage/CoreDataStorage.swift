@@ -14,6 +14,8 @@ final class CoreDataStorage {
     static let shared = CoreDataStorage()
 
     private let persistentContainer: NSPersistentContainer = {
+        ValueTransformer.setValueTransformer(NSMatchTransformer(), forName: NSValueTransformerName("NSMatchTransformer"))
+
         let container = NSPersistentContainer(name: "Summoner")
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {

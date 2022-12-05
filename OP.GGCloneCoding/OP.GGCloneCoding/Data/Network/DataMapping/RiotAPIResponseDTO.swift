@@ -119,6 +119,39 @@ extension RiotAPIResponseDTO.MatchDTO.InfoDTO {
             case teamID = "teamId"
             case tripleKills, win
         }
+
+        func toEntity() -> InfoEntity.ParticipantEntity {
+            return .init(
+                assists: assists,
+                challenges: challenges,
+                championID: championID,
+                championName: championName,
+                deaths: deaths,
+                doubleKills: doubleKills,
+                item0: item0,
+                item1: item1,
+                item2: item2,
+                item3: item3,
+                item4: item4,
+                item5: item5,
+                item6: item6,
+                kills: kills,
+                participantID: participantID,
+                pentaKills: pentaKills,
+                perks: perks.toEntity(),
+                profileIcon: profileIcon,
+                puuid: puuid,
+                quadraKills: quadraKills,
+                summoner1ID: summoner1ID,
+                summoner2ID: summoner2ID,
+                summonerID: summonerID,
+                summonerLevel: summonerLevel,
+                summonerName: summonerName,
+                teamID: teamID,
+                tripleKills: tripleKills,
+                win: win
+            )
+        }
     }
 
     struct TeamDTO: Decodable {
@@ -129,12 +162,33 @@ extension RiotAPIResponseDTO.MatchDTO.InfoDTO {
             case teamID = "teamId"
             case win
         }
+
+        func toEntity() -> InfoEntity.TeamEntity {
+            return .init(teamID: teamID, win: win)
+        }
+    }
+
+    func toEntity() -> InfoEntity {
+        return .init(
+            gameCreation: gameCreation,
+            gameDuration: gameDuration,
+            gameEndTimestamp: gameEndTimestamp,
+            gameMode: gameMode,
+            gameStartTimestamp: gameEndTimestamp,
+            participants: participants.map { $0.toEntity() },
+            queueID: queueID,
+            teams: teams.map { $0.toEntity() }
+        )
     }
 }
 
 extension RiotAPIResponseDTO.MatchDTO.InfoDTO.ParticipantDTO {
     struct PerksDTO: Decodable {
         let styles: [StyleDTO]
+
+        func toEntity() -> InfoEntity.ParticipantEntity.PerksEntity {
+            return .init(styles: styles.map { $0.toEntity() })
+        }
     }
 
     func toDomain() -> SummonerMatch.Participant {
@@ -153,7 +207,7 @@ extension RiotAPIResponseDTO.MatchDTO.InfoDTO.ParticipantDTO {
 extension RiotAPIResponseDTO.MatchDTO.InfoDTO.ParticipantDTO.PerksDTO {
 
     struct StyleDTO: Decodable {
-        let styleDescription: DescriptionDTO
+        let styleDescription: String
         let selections: [SelectionDTO]
         let style: Int
 
@@ -161,16 +215,23 @@ extension RiotAPIResponseDTO.MatchDTO.InfoDTO.ParticipantDTO.PerksDTO {
             case styleDescription = "description"
             case selections, style
         }
+
+        func toEntity() -> InfoEntity.ParticipantEntity.PerksEntity.StyleEntity {
+            return .init(
+                styleDescription: styleDescription,
+                selections: selections.map { $0.toEntity() },
+                style: style
+            )
+        }
     }
 }
 
 extension RiotAPIResponseDTO.MatchDTO.InfoDTO.ParticipantDTO.PerksDTO.StyleDTO {
-    enum DescriptionDTO: String, Decodable {
-        case primaryStyle = "primaryStyle"
-        case subStyle = "subStyle"
-    }
-
     struct SelectionDTO: Decodable {
         let perk, var1, var2, var3: Int
+
+        func toEntity() -> InfoEntity.ParticipantEntity.PerksEntity.StyleEntity.SelectionEntity {
+            return .init(perk: perk, var1: var1, var2: var2, var3: var3)
+        }
     }
 }
