@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/08.
 //
 
-import SwiftUI
+import UIKit
 
 final class SpellAndRuneStackView: UIStackView {
     
@@ -130,18 +130,4 @@ final class SpellAndRuneStackView: UIStackView {
 
 private enum Design {
     static let imageBackgroundColor = UIColor(named: "LanguageColor")
-}
-
-// MARK: - Preview
-
-struct SpellAndRuneView_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = SpellAndRuneStackView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 300, height: 300))
-    }
 }

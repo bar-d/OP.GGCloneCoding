@@ -186,4 +186,3 @@ private enum Design {
     static let discountRateLabel = "60%"
     static let discountedPriceLabel = "540RP"
 }
-

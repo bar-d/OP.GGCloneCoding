@@ -62,4 +62,3 @@ extension SummonerMatchViewModel {
 private enum Design {
     static let userDefaultsKey = "MySummonerMatchInformation"
 }
-

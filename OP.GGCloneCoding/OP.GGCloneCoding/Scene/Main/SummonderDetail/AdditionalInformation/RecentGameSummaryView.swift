@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/10.
 //
 
-import SwiftUI
+import UIKit
 
 final class RecentGameSummaryView: UIView {
     
@@ -107,19 +107,5 @@ final class RecentGameSummaryView: UIView {
         layer.cornerRadius = 10
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 2
-    }
-}
-
-// MARK: - Preview
-
-struct RecentGameSummaryView_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = RecentGameSummaryView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 300, height: 250))
     }
 }

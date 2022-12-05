@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/28.
 //
 
-import SwiftUI
+import UIKit
 
 final class SummonerInformationStickyHeaderView: UIView {
     
@@ -253,17 +253,4 @@ private enum Design {
     static let updateButtonColor = UIColor(named:"ButtonFontColor")
     static let ingameButtonTitle = "인게임"
     static let ingameButtonColor = UIColor(named:"LanguageColor")
-}
-
-// MARK: - Preview
-
-struct StretchHeaderView_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = SummonerInformationStickyHeaderView()
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 300, height: 200))
-    }
 }

@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/10.
 //
 
-import SwiftUI
+import UIKit
 
 final class SummonerAdditionalInformationView: UIScrollView {
     
@@ -71,19 +71,5 @@ final class SummonerAdditionalInformationView: UIScrollView {
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
-    }
-}
-
-// MARK: - Preview
-
-struct SummonerAdditionalInformationView_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = SummonerAdditionalInformationView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 500, height: 330))
     }
 }

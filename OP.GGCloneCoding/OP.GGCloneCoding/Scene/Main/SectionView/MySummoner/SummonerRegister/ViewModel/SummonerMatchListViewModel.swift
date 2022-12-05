@@ -30,14 +30,14 @@ struct SummonerMatchListViewModel: ViewModel {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let summonerMatchList):
-                    // 별도 저장까진 필요없을 것 같으니 보류
-//                    let archivedMatchListData = try? JSONEncoder().encode(summonerMatchList)
+                    /// 별도 저장까진 필요없을 것 같으니 보류
+                    // let archivedMatchListData = try? JSONEncoder().encode(summonerMatchList)
 
                     // match userdefaults 저장을 matchID로 해서 필요 -> 다시 필요 없어져서 보류
-//                    UserDefaults.standard.set(
-//                        archivedMatchListData,
-//                        forKey: Design.userDefaultsKey
-//                    )
+                    // UserDefaults.standard.set(
+                    //     archivedMatchListData,
+                    //     forKey: Design.userDefaultsKey
+                    // )
 
                     output.fetchSummonerMatchInformation(summonerMatchList)
                 case .failure(let error):

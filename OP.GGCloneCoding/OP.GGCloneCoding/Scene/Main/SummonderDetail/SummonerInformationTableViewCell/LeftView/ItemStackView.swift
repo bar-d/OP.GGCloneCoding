@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/09.
 //
 
-import SwiftUI
+import UIKit
 
 final class ItemStackView: UIStackView {
     
@@ -119,19 +119,5 @@ final class ItemStackView: UIStackView {
     
     private func setupDistribution(_ myDistribution: Distribution) {
         distribution = myDistribution
-    }
-}
-
-// MARK: - Preview
-
-struct ItemStackView_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = ItemStackView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 300, height: 50))
     }
 }

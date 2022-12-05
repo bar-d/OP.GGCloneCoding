@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/08.
 //
 
-import SwiftUI
+import UIKit
 
 final class GameResultView: UIView {
     
@@ -106,19 +106,5 @@ final class GameResultView: UIView {
         } else {
             backgroundColor = UIColor(named: "LoseColor")
         }
-    }
-}
-
-// MARK: - Preview
-
-struct GameResultView_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = GameResultView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 100, height: 300))
     }
 }

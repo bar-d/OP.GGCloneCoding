@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/09.
 //
 
-import SwiftUI
+import UIKit
 
 final class SummonerInformationLeftView: UIView {
     
@@ -192,18 +192,4 @@ final class SummonerInformationLeftView: UIView {
 private enum Design {
     static let imageBackgroundColor = UIColor(named: "LanguageColor")
     static let killPercentLabelText = "킬 관여 55%"
-}
-
-// MARK: - Preview
-
-struct SummonerInformationLeftView_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = SummonerInformationLeftView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 320, height: 150))
-    }
 }

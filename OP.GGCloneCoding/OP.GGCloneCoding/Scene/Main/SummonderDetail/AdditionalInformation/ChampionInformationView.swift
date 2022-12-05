@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/10.
 //
 
-import SwiftUI
+import UIKit
 
 final class ChampionInformationView: UIView {
     
@@ -164,18 +164,4 @@ private enum Design {
     static let additionalInformationLabelTextColor = UIColor(named: "LanguageColor")
     static let indicatorButtonImage = UIImage(systemName: "chevron.right")
     static let indicatorButtonTintColor = UIColor(named: "LanguageColor")
-}
-
-// MARK: - Preview
-
-struct ChampionInformationView_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = ChampionInformationView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 200, height: 150))
-    }
 }

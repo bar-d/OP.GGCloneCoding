@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/08.
 //
 
-import SwiftUI
+import UIKit
 
 final class SummonerInformationTableViewCell: UITableViewCell {
     
@@ -123,18 +123,4 @@ private enum Design {
     static let killingSpreeLabelLayerBackgroundColor = UIColor(
         named: "KillBackgroundColor"
     )
-}
-
-// MARK: - Preview
-
-struct SummonerInformationTableViewCell_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = SummonerInformationTableViewCell()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 400, height: 100))
-    }
 }

@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/10.
 //
 
-import SwiftUI
+import UIKit
 
 final class MostChampionView: UIView {
     
@@ -146,18 +146,3 @@ private enum Design {
     static let additionalInformationLabelText = "승률 100%"
     static let additionalInformationLabelTextColor = UIColor(named: "LanguageColor")
 }
-
-// MARK: - Preview
-
-struct MostChampionView_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = MostChampionView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 200, height: 150))
-    }
-}
-

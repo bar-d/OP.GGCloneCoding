@@ -5,7 +5,7 @@
 //  Created by 바드, 수꿍 on 2022/11/09.
 //
 
-import SwiftUI
+import UIKit
 
 final class TierView: UIView {
     
@@ -135,18 +135,4 @@ private enum Design {
     static let queueTypeLabelColor = UIColor(named: "LoadingView")
     static let queueTypeLabelBackgroundColor = UIColor(named: "ButtonFontColor")
     static let indicatorButtonImage = UIImage(systemName: "chevron.right")
-}
-
-// MARK: - Preview
-
-struct TierView_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = TierView()
-            view.translatesAutoresizingMaskIntoConstraints = true
-            
-            return view
-        }
-        .previewLayout(.fixed(width: 300, height: 150))
-    }
 }
