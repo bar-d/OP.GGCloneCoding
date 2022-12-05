@@ -147,30 +147,10 @@ final class DetailView: UIView {
     }
 
     private func setupContents() {
-        guard let unarchivedSummonerMatchData = UserDefaults.standard.object(
-            forKey: "MySummonerMatchInformation"
-        ) as? Data,
-              let summonerMatchArray = try? JSONDecoder().decode(
-                [SummonerMatch].self,
-                from: unarchivedSummonerMatchData
-              ) else {
+        let summonerMatchArray = getSummonerMatch()
+        let myMatch = filterMySummonerMatch()
+        if summonerMatchArray.count == 0 {
             return
-        }
-        
-        let myMatch = summonerMatchArray.map { (match) -> SummonerMatch.Participant in
-            match.participants.filter { participant in
-                guard let unarchivedSummonerData = UserDefaults.standard.object(
-                    forKey: "MySummonerInformation"
-                ) as? Data,
-                      let summoner = try? JSONDecoder().decode(
-                        Summoner.self,
-                        from: unarchivedSummonerData
-                      ) else {
-                    return false
-                }
-
-                return participant.summonerName == summoner.name
-            }[0]
         }
 
         let kda = myMatch.reduce(0) { partialResult, participant in
@@ -181,7 +161,47 @@ final class DetailView: UIView {
 
         let win = myMatch.filter({ $0.win == true }).count
         let lose = myMatch.count - win
+        
         winRateLabel.text = "\(win)승 \(lose)패 \(100 * win / myMatch.count)%"
+    }
+    
+    private func getSummonerMatch() -> [SummonerMatch] {
+        guard let unarchivedSummonerMatchData = UserDefaults.standard.object(
+            forKey: "MySummonerMatchInformation"
+        ) as? Data,
+              let summonerMatchArray = try? JSONDecoder().decode(
+                [SummonerMatch].self,
+                from: unarchivedSummonerMatchData
+              ) else {
+            return []
+        }
+        
+        return summonerMatchArray
+    }
+    
+    private func filterMySummonerMatch() -> [SummonerMatch.Participant] {
+        let summonerMatchArray = getSummonerMatch()
+        
+        guard let unarchivedSummonerData = UserDefaults.standard.object(
+            forKey: "MySummonerInformation"
+        ) as? Data,
+              let summoner = try? JSONDecoder().decode(
+                Summoner.self,
+                from: unarchivedSummonerData
+              ) else {
+            return []
+        }
+        
+        let myMatch = summonerMatchArray.map { (match) -> SummonerMatch.Participant in
+            var myMatchList = match.participants.filter { participant in
+                
+                /// myMatchList에 아무것도 없을 때 어떻게 처리할 것인지 해결 필요
+                return participant.summonerName == summoner.name
+            }
+            
+            return myMatchList[0]
+        }
+        return myMatch
     }
 
     private func setupChampionIconImage(with championIcon: [UIImage]) {
