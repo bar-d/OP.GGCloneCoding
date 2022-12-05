@@ -80,6 +80,13 @@
 		20C766B0291D250100E94133 /* SummonerMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766AF291D250100E94133 /* SummonerMatch.swift */; };
 		C406923B2906759D00A4E48D /* HeaderViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */; };
 		C406923E29067C3100A4E48D /* HeaderViewButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406923D29067C3100A4E48D /* HeaderViewButtonType.swift */; };
+		C40F9A65293E310F006E1051 /* ThemeSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9A64293E310F006E1051 /* ThemeSelectionTableViewCell.swift */; };
+		C40F9A67293E3120006E1051 /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9A66293E3120006E1051 /* ThemeSelectionViewController.swift */; };
+		C40F9A69293E3135006E1051 /* ThemeSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9A68293E3135006E1051 /* ThemeSelectionTableView.swift */; };
+		C40F9A6C293E3176006E1051 /* LanguageSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9A6B293E3176006E1051 /* LanguageSelectionTableView.swift */; };
+		C40F9A6E293E3183006E1051 /* LanguageSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9A6D293E3183006E1051 /* LanguageSelectionTableViewCell.swift */; };
+		C40F9A70293E318F006E1051 /* LanguageSelectionTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9A6F293E318F006E1051 /* LanguageSelectionTableViewCellDelegate.swift */; };
+		C40F9A72293E319D006E1051 /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F9A71293E319D006E1051 /* LanguageSelectionViewController.swift */; };
 		C41BF02428FD4D90008D0BD8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C41BF02328FD4D90008D0BD8 /* Lottie */; };
 		C436A08028FD63BF00E261F7 /* LoadingIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */; };
 		C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C436A08128FD640C00E261F7 /* LoadingView.swift */; };
@@ -228,6 +235,13 @@
 		20C766AF291D250100E94133 /* SummonerMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatch.swift; sourceTree = "<group>"; };
 		C406923A2906759D00A4E48D /* HeaderViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewBuilder.swift; sourceTree = "<group>"; };
 		C406923D29067C3100A4E48D /* HeaderViewButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewButtonType.swift; sourceTree = "<group>"; };
+		C40F9A64293E310F006E1051 /* ThemeSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		C40F9A66293E3120006E1051 /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
+		C40F9A68293E3135006E1051 /* ThemeSelectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionTableView.swift; sourceTree = "<group>"; };
+		C40F9A6B293E3176006E1051 /* LanguageSelectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableView.swift; sourceTree = "<group>"; };
+		C40F9A6D293E3183006E1051 /* LanguageSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		C40F9A6F293E318F006E1051 /* LanguageSelectionTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		C40F9A71293E319D006E1051 /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
 		C436A07F28FD63BE00E261F7 /* LoadingIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingIndicator.json; sourceTree = "<group>"; };
 		C436A08128FD640C00E261F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
@@ -614,6 +628,27 @@
 			path = Section;
 			sourceTree = "<group>";
 		};
+		C40F9A63293E3100006E1051 /* ThemeSelection */ = {
+			isa = PBXGroup;
+			children = (
+				C40F9A66293E3120006E1051 /* ThemeSelectionViewController.swift */,
+				C40F9A68293E3135006E1051 /* ThemeSelectionTableView.swift */,
+				C40F9A64293E310F006E1051 /* ThemeSelectionTableViewCell.swift */,
+			);
+			path = ThemeSelection;
+			sourceTree = "<group>";
+		};
+		C40F9A6A293E315A006E1051 /* LanguageSelection */ = {
+			isa = PBXGroup;
+			children = (
+				C40F9A71293E319D006E1051 /* LanguageSelectionViewController.swift */,
+				C40F9A6B293E3176006E1051 /* LanguageSelectionTableView.swift */,
+				C40F9A6D293E3183006E1051 /* LanguageSelectionTableViewCell.swift */,
+				C40F9A6F293E318F006E1051 /* LanguageSelectionTableViewCellDelegate.swift */,
+			);
+			path = LanguageSelection;
+			sourceTree = "<group>";
+		};
 		C43F3F3A290A6CBC00B03A04 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -680,6 +715,8 @@
 				C440CD00290114D1008B3C16 /* SettingsViewController.swift */,
 				C440CCFE290114BD008B3C16 /* SettingsTableView.swift */,
 				20528ECF2902799E003046A3 /* SettingsStickyHeaderView.swift */,
+				C40F9A63293E3100006E1051 /* ThemeSelection */,
+				C40F9A6A293E315A006E1051 /* LanguageSelection */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1017,6 +1054,7 @@
 				C4BD16E629359EB900DB736B /* TierView.swift in Sources */,
 				2043E9E52924C1B300F087A9 /* DataDragonVersionRepository.swift in Sources */,
 				C43F3F48290A717100B03A04 /* PositionTabBarDelegate.swift in Sources */,
+				C40F9A6C293E3176006E1051 /* LanguageSelectionTableView.swift in Sources */,
 				C440CD0729011505008B3C16 /* SettingsSection.swift in Sources */,
 				20336A5429154723001BDF7D /* SummonerSearchUseCase.swift in Sources */,
 				C4EBCC2428FC242900402617 /* MainViewController.swift in Sources */,
@@ -1085,8 +1123,10 @@
 				C436A08228FD640C00E261F7 /* LoadingView.swift in Sources */,
 				20C76694291CC30500E94133 /* RiotSummonerRankAPIRequest.swift in Sources */,
 				20336A442915444B001BDF7D /* RiotAPIResponseDTO.swift in Sources */,
+				C40F9A6E293E3183006E1051 /* LanguageSelectionTableViewCell.swift in Sources */,
 				C4C7AEA1292CFB9600DB75F1 /* DefaultDataDragonChampionIconRepository.swift in Sources */,
 				C4BD16EE2935A3C300DB736B /* RecentGameSummaryView.swift in Sources */,
+				C40F9A72293E319D006E1051 /* LanguageSelectionViewController.swift in Sources */,
 				20336A2F29150C14001BDF7D /* URLHost.swift in Sources */,
 				C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */,
 				202B4C47291B76510078A03E /* SummonerRegisterViewDelegate.swift in Sources */,
@@ -1108,6 +1148,7 @@
 				C4F3DDC92907F7DF00137AAC /* MainTableView.swift in Sources */,
 				C458CAE62910C239004E6D74 /* SummonerRegisterView.swift in Sources */,
 				C43F3F83290BCCBF00B03A04 /* ChampionTierView.swift in Sources */,
+				C40F9A65293E310F006E1051 /* ThemeSelectionTableViewCell.swift in Sources */,
 				205BC1AF2907EEF3004053F3 /* ChampionsAndSkinsOnSaleView.swift in Sources */,
 				C4EBCC2028FC242900402617 /* AppDelegate.swift in Sources */,
 				C4AC806D291B682700C5A550 /* SummonerDescriptionView.swift in Sources */,
@@ -1118,6 +1159,7 @@
 				20C162D929238091005308AF /* SummonerMatchUseCase.swift in Sources */,
 				C458CAE92910C28F004E6D74 /* SummonerRegisterTopView.swift in Sources */,
 				C4F3DDC72907F7CE00137AAC /* MainStickyHeaderView.swift in Sources */,
+				C40F9A70293E318F006E1051 /* LanguageSelectionTableViewCellDelegate.swift in Sources */,
 				C4F3DDD32908179600137AAC /* PaddingLabel.swift in Sources */,
 				C4BD16F02935A42A00DB736B /* SummonerAdditionalInformationView.swift in Sources */,
 				C406923E29067C3100A4E48D /* HeaderViewButtonType.swift in Sources */,
@@ -1127,6 +1169,7 @@
 				C458CAF629110B27004E6D74 /* SummonerSearchTableView.swift in Sources */,
 				C458CAFC29112276004E6D74 /* SummonerSearchViewController.swift in Sources */,
 				204A9C37290A7A4500D70FC4 /* UICollectionView+Extension.swift in Sources */,
+				C40F9A67293E3120006E1051 /* ThemeSelectionViewController.swift in Sources */,
 				C4BD16FC2935A79000DB736B /* SummonerInformationTableViewCell.swift in Sources */,
 				20336A52291546A3001BDF7D /* SummonerRepository.swift in Sources */,
 				20C766AC291D149400E94133 /* RiotSummonerMatchAPIRequest.swift in Sources */,
@@ -1138,6 +1181,7 @@
 				20C766B0291D250100E94133 /* SummonerMatch.swift in Sources */,
 				C43F3F4C290A751100B03A04 /* ChampionTierTableViewCell.swift in Sources */,
 				204600932901180C004A3417 /* PushNotificationCell.swift in Sources */,
+				C40F9A69293E3135006E1051 /* ThemeSelectionTableView.swift in Sources */,
 				20BEA4BC28FD8BA2009F1969 /* MainTopView.swift in Sources */,
 				2043E9F22924D26100F087A9 /* DataDragonProfileIconRepository.swift in Sources */,
 				C4C7AEA9292CFCF000DB75F1 /* DataDragonChampionIconRepository.swift in Sources */,
