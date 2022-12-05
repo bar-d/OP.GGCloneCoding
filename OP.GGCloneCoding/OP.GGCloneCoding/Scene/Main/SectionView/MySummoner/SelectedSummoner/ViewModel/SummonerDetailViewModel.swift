@@ -25,7 +25,10 @@ struct SummonerDetailViewModel: ViewModel {
 
     private func fetchChampionIconImage(with version: String) {
         guard let unarchivedSummonerMatchData = UserDefaults.standard.object(forKey: "MySummonerMatchInformation") as? Data,
-              let summonerMatchArray = try? JSONDecoder().decode([SummonerMatch].self, from: unarchivedSummonerMatchData) else {
+              let summonerMatchArray = try? JSONDecoder().decode(
+                [SummonerMatch].self,
+                from: unarchivedSummonerMatchData
+              ) else {
             return
         }
 
@@ -43,7 +46,9 @@ struct SummonerDetailViewModel: ViewModel {
 
         let selectedChampionSet = NSCountedSet(array: myChampionPicks)
         let sortedSelectedChampionArray = selectedChampionSet
-            .sorted { selectedChampionSet.count(for: $0) > selectedChampionSet.count(for: $1) }
+            .sorted {
+                selectedChampionSet.count(for: $0) > selectedChampionSet.count(for: $1)
+            }
             .map { element in
                 guard let stringElement = element as? String else {
                     return ""
@@ -55,7 +60,9 @@ struct SummonerDetailViewModel: ViewModel {
         let labels = setupChampionLabels(champions: sortedSelectedChampionArray)
         output.setupChampionLabels(labels)
         
-        let count = sortedSelectedChampionArray.count >= 3 ? 3 : sortedSelectedChampionArray.count
+        let count = sortedSelectedChampionArray.count >= 3
+                    ? 3
+                    : sortedSelectedChampionArray.count
         var fetchedChampionIconArray: [UIImage] = []
 
         for i in 0..<count {
@@ -82,11 +89,14 @@ struct SummonerDetailViewModel: ViewModel {
 
     private func setupChampionLabels(champions: [String]) -> [(Int, Double)] {
         guard let unarchivedSummonerMatchData = UserDefaults.standard.object(forKey: "MySummonerMatchInformation") as? Data,
-              let summonerMatchArray = try? JSONDecoder().decode([SummonerMatch].self, from: unarchivedSummonerMatchData) else {
+              let summonerMatchArray = try? JSONDecoder().decode(
+                [SummonerMatch].self,
+                from: unarchivedSummonerMatchData
+              ) else {
             return []
         }
 
-        // 그냥 모델에 넣을때 내 소환사 정보만 넣어야 하나...?
+        /// 그냥 모델에 넣을때 내 소환사 정보만 넣어야 하나...?
         let myChampionPicks = summonerMatchArray.map { (match) -> SummonerMatch.Participant in
             match.participants.filter { participant in
                 guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,

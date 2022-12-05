@@ -38,7 +38,10 @@ final class ChampionInformationView: UIView {
     
     private let additionalInformationLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: "397 게임", color: Design.additionalInformationLabelTextColor)
+        .setupLabelText(
+            text: "397 게임",
+            color: Design.additionalInformationLabelTextColor
+        )
         .build()
     
     private let indicatorButton = ButtonBuilder()

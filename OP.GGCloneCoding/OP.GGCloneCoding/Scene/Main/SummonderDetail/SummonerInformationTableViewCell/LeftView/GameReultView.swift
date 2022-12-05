@@ -101,10 +101,18 @@ final class GameResultView: UIView {
     }
     
     private func setupBackgroundColor() {
-        if gameResultLabel.text == "승" {
-            backgroundColor = UIColor(named: "WinColor")
+        if gameResultLabel.text == Design.winLabelText {
+            backgroundColor = Design.winColor
         } else {
-            backgroundColor = UIColor(named: "LoseColor")
+            backgroundColor = Design.loseColor
         }
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let winLabelText = "승"
+ static let winColor = UIColor(named: "WinColor")
+    static let loseColor = UIColor(named: "LoseColor")
 }

@@ -757,8 +757,8 @@
 		C4BD16E429359E7D00DB736B /* SummonerInformationTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C4BD16F22935A49D00DB736B /* LeftView */,
 				C4BD16FB2935A79000DB736B /* SummonerInformationTableViewCell.swift */,
+				C4BD16F22935A49D00DB736B /* LeftView */,
 			);
 			path = SummonerInformationTableViewCell;
 			sourceTree = "<group>";

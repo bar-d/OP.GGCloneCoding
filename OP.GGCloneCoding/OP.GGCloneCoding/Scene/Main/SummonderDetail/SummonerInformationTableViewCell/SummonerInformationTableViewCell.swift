@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/// 추후 개선 필요
 final class SummonerInformationTableViewCell: UITableViewCell {
     
     // MARK: Properties

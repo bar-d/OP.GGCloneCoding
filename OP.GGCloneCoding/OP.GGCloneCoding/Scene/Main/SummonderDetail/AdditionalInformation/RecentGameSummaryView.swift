@@ -13,7 +13,7 @@ final class RecentGameSummaryView: UIView {
     
     private let titleLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
-        .setupLabelText(text: "최근 20경기\n요약 정보", color: .label)
+        .setupLabelText(text: Design.titleLabelText, color: .label)
         .setupLabelTextAttributes(numberOfLines: 2)
         .build()
     
@@ -21,7 +21,7 @@ final class RecentGameSummaryView: UIView {
         .setupConstraintsAutomatic(false)
         .setupLabelText(text: " 2.87:1 ", color: .systemBackground)
         .setupLayer(cornerRadius: 4)
-        .setupLayerBackgroundColor(UIColor(named: "LanguageColor"))
+        .setupLayerBackgroundColor(Design.languageColor)
         .build()
     
     private let winRateLabel = LabelBuilder()
@@ -108,4 +108,9 @@ final class RecentGameSummaryView: UIView {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 2
     }
+}
+
+private enum Design {
+    static let titleLabelText = "최근 20경기\n요약 정보"
+    static let languageColor = UIColor(named: "LanguageColor")
 }

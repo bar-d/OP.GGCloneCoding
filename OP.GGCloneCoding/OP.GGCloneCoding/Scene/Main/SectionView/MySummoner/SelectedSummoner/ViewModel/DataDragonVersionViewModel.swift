@@ -28,8 +28,10 @@ struct DataDragonVersionViewModel: ViewModel {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let version):
+                    /// 추후 제거 필요
+                    /// version 바탕으로 프로필 아이콘 가져오기
                     print(version)
-                    // version 바탕으로 프로필 아이콘 가져오기
+                    
                     output.fetchProfileIconImage(version)
                     output.fetchChampionIconImage(version)
                 case .failure(let error):

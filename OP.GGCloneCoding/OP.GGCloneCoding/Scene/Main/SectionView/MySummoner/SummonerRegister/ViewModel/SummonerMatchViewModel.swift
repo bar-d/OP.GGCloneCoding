@@ -32,13 +32,17 @@ struct SummonerMatchViewModel: ViewModel {
                 switch result {
                 case .success(let summonerMatchArray):
                     let archivedMatchData = try? JSONEncoder().encode(summonerMatchArray)
-                    UserDefaults.standard.set(archivedMatchData, forKey: Design.userDefaultsKey)
+                    UserDefaults.standard.set(
+                        archivedMatchData,
+                        forKey: Design.userDefaultsKey
+                    )
 
                     output.dismissController()
                 case .failure(let error):
                     output.showErrorAlert(
                         ErrorAlertController.unknownError(error as? APIError).value
                     )
+                    /// 추후 제거 필요
                     print("👏👏👏👏")
                 }
             }

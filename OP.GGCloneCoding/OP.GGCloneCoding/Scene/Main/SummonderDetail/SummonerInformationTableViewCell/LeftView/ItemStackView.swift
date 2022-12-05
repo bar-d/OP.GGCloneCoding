@@ -13,43 +13,43 @@ final class ItemStackView: UIStackView {
     
     private let firstItemImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupBackgroundColor(UIColor(named: "LanguageColor"))
+        .setupBackgroundColor(Design.languageColor)
         .setupLayer(cornerRadius: 8)
         .build()
     
     private let secondItemImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupBackgroundColor(UIColor(named: "LanguageColor"))
+        .setupBackgroundColor(Design.languageColor)
         .setupLayer(cornerRadius: 8)
         .build()
     
     private let thirdItemImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupBackgroundColor(UIColor(named: "LanguageColor"))
+        .setupBackgroundColor(Design.languageColor)
         .setupLayer(cornerRadius: 8)
         .build()
     
     private let fourthItemImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupBackgroundColor(UIColor(named: "LanguageColor"))
+        .setupBackgroundColor(Design.languageColor)
         .setupLayer(cornerRadius: 8)
         .build()
     
     private let fifthItemImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupBackgroundColor(UIColor(named: "LanguageColor"))
+        .setupBackgroundColor(Design.languageColor)
         .setupLayer(cornerRadius: 8)
         .build()
     
     private let sixthItemImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupBackgroundColor(UIColor(named: "LanguageColor"))
+        .setupBackgroundColor(Design.languageColor)
         .setupLayer(cornerRadius: 8)
         .build()
     
     private let accessoryItemImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupBackgroundColor(UIColor(named: "LanguageColor"))
+        .setupBackgroundColor(Design.languageColor)
         .setupLayer(cornerRadius: 8)
         .build()
     
@@ -120,4 +120,10 @@ final class ItemStackView: UIStackView {
     private func setupDistribution(_ myDistribution: Distribution) {
         distribution = myDistribution
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let languageColor = UIColor(named: "LanguageColor")
 }
