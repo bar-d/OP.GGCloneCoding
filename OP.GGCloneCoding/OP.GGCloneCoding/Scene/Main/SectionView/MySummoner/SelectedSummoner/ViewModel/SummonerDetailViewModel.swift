@@ -75,7 +75,7 @@ struct SummonerDetailViewModel: ViewModel {
                     switch result {
                     case .success(let profileIcon):
                         fetchedChampionIconArray.append(profileIcon)
-                        if i == count - 1 {
+                        if fetchedChampionIconArray.count == count {
                             output.setupChampionIconImage(fetchedChampionIconArray)
                         }
                     case .failure(let error):
