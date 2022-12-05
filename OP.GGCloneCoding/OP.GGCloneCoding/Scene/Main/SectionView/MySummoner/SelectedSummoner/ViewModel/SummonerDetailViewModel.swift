@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 struct SummonerDetailViewModel: ViewModel {
 
@@ -29,16 +30,23 @@ struct SummonerDetailViewModel: ViewModel {
             return
         }
 
-        // 그냥 모델에 넣을때 내 소환사 정보만 넣어야 하나...?
-        let myChampionPicks = summonerMatchArray.map { (match) -> String in
-            match.participants.filter { participant in
-                guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-                      let summoner = try? JSONDecoder().decode(SummonerUnit.self, from: unarchivedSummonerData) else {
-                    return false
-                }
+        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
+              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
+              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request) else {
+            return
+        }
 
-                return participant.summonerName == summoner.name
-            }[0].championName
+        let myChampionPicks = summonerMatchArray.compactMap { (match) -> String? in
+            let filteredArray = match.participants.filter { participant in
+
+                return participant.summonerName == storedData.name
+            }
+
+            return filteredArray.first?.championName
+        }
+
+        guard !myChampionPicks.isEmpty else {
+            return
         }
 
         let selectedChampionSet = NSCountedSet(array: myChampionPicks)
@@ -54,7 +62,7 @@ struct SummonerDetailViewModel: ViewModel {
 
         let labels = setupChampionLabels(champions: sortedSelectedChampionArray)
         output.setupChampionLabels(labels)
-        
+
         let count = sortedSelectedChampionArray.count >= 3 ? 3 : sortedSelectedChampionArray.count
         var fetchedChampionIconArray: [UIImage] = []
 
@@ -86,19 +94,24 @@ struct SummonerDetailViewModel: ViewModel {
             return []
         }
 
-        // 그냥 모델에 넣을때 내 소환사 정보만 넣어야 하나...?
-        let myChampionPicks = summonerMatchArray.map { (match) -> SummonerMatch.Participant in
-            match.participants.filter { participant in
-                guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-                      let summoner = try? JSONDecoder().decode(SummonerUnit.self, from: unarchivedSummonerData) else {
-                    return false
-                }
-
-                return participant.summonerName == summoner.name
-            }[0]
+        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
+              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
+              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request) else {
+            return []
         }
 
+        let myChampionPicks = summonerMatchArray.compactMap { (match) -> SummonerMatch.Participant? in
+            let filteredArray = match.participants.filter { participant in
 
+                return participant.summonerName == storedData.name
+            }
+
+            return filteredArray.first
+        }
+
+        guard !myChampionPicks.isEmpty else {
+            return []
+        }
 
         var arrayOfChampionWinRateAndKDA: [(Int, Double)] = []
 

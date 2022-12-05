@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 struct DataDragonProfileIconViewModel: ViewModel {
 
@@ -24,12 +25,13 @@ struct DataDragonProfileIconViewModel: ViewModel {
     // MARK: - Methods
 
     private func fetchProfileIconImage(with version: String) {
-        guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-              let summoner = try? JSONDecoder().decode(SummonerUnit.self, from: unarchivedSummonerData) else {
+        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
+              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
+              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request) else {
             return
         }
 
-        dataDragonProfileIconUseCase.searchProfileIcon(version: version, iconID: String(summoner.profileIconID)) { result in
+        dataDragonProfileIconUseCase.searchProfileIcon(version: version, iconID: String(storedData.profileIconID)) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let profileIcon):

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 final class DetailView: UIView {
 
@@ -85,7 +86,7 @@ final class DetailView: UIView {
         setupConstraints()
         setupBackgroundColor(Design.backgroundColor)
         setupCornerRadius(10)
-//        setupContents()
+        setupContents()
     }
 
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -156,16 +157,24 @@ final class DetailView: UIView {
               ) else {
             return
         }
-        
-        let myMatch = summonerMatchArray.map { (match) -> SummonerMatch.Participant in
-            match.participants.filter { participant in
-                guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-                      let summoner = try? JSONDecoder().decode(SummonerUnit.self, from: unarchivedSummonerData) else {
-                    return false
-                }
 
-                return participant.summonerName == summoner.name
-            }[0]
+        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
+              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
+              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request) else {
+            return
+        }
+
+        let myMatch = summonerMatchArray.compactMap { (match) -> SummonerMatch.Participant? in
+            let filteredArray = match.participants.filter { participant in
+
+                return participant.summonerName == storedData.name
+            }
+
+            return filteredArray.first
+        }
+
+        guard !myMatch.isEmpty else {
+            return
         }
 
         let kda = myMatch.reduce(0) { partialResult, participant in

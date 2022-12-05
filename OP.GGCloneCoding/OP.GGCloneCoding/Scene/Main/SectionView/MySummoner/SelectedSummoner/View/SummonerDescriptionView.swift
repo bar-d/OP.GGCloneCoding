@@ -67,7 +67,7 @@ final class SummonerDescriptionView: UIView {
     
     private let tierIconImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(named: "OP.GGIcon"))
+        .setupImage(image: UIImage(named: "Unranked"))
         .build()
     
     private let separatorView: UIView = {
@@ -97,16 +97,6 @@ final class SummonerDescriptionView: UIView {
         super.init(frame: frame)
         
         commonInit()
-        
-        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
-              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
-              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request)?.toDTO(),
-              let mySummonerInformation = storedData.toDomain() else {
-            return
-        }
-        
-        levelLabel.text = String(" \(mySummonerInformation.summonerLevel) ")
-        summonerIDLabel.text = mySummonerInformation.name
     }
     
     required init?(coder: NSCoder) {
@@ -133,36 +123,7 @@ final class SummonerDescriptionView: UIView {
         setupConstraints()
         fetchGameVersionIfSummonerSelected()
         setupCancelButton()
-
-        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
-              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
-              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request)?.toDTO(),
-              let mySummonerInformation = storedData.toDomain() else {
-            return
-        }
-
-        levelLabel.text = String(" \(mySummonerInformation.summonerLevel) ")
-        summonerIDLabel.text = mySummonerInformation.name
-
-
-        guard let rankRequest: NSFetchRequest<SummonerRankTier> = CoreDataSummonerRankTierStorage.shared.fetchRequest(id: mySummonerInformation.id),
-              let summonerRankArray = CoreDataSummonerRankTierStorage.shared.readAll(by: rankRequest),
-              let summonerSoloRank = summonerRankArray.filter(
-                { $0.queueType == "RANKED_SOLO_5x5" }
-              ).first?.toDTO(),
-              let mySummonerSoloRank = summonerSoloRank.toDomain() else {
-            return
-        }
-
-
-        tierLabel.text = "\(mySummonerSoloRank.tier) \(mySummonerSoloRank.rank)"
-
-        tierIconImageView.image = UIImage(
-            named: mySummonerSoloRank.tier.firstLetterUppercased()
-        )?.resize(width: tierStackView.frame.size.height)
-
-        tierPointLabel.text = "\(mySummonerSoloRank.leaguePoints) LP"
-
+        setupContents()
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -175,7 +136,7 @@ final class SummonerDescriptionView: UIView {
         [tierLabel, tierIconImageView, separatorView, tierPointLabel]
             .forEach { tierStackView.addArrangedSubview($0) }
     }
-    
+
     private func setupConstraints() {
         setupIconImageViewConstraints()
         setupLevelLabelConstraints()
@@ -183,7 +144,7 @@ final class SummonerDescriptionView: UIView {
         setupTierStackViewConstraints()
         setupCancelButtonConstraints()
     }
-    
+
     private func setupIconImageViewConstraints() {
         NSLayoutConstraint.activate([
             iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -195,7 +156,7 @@ final class SummonerDescriptionView: UIView {
             iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
-    
+
     private func setupLevelLabelConstraints() {
         NSLayoutConstraint.activate([
             levelLabel.centerYAnchor.constraint(
@@ -205,7 +166,7 @@ final class SummonerDescriptionView: UIView {
             levelLabel.centerXAnchor.constraint(equalTo: iconImageView.centerXAnchor)
         ])
     }
-    
+
     private func setupSummonerIDLabelConstraints() {
         NSLayoutConstraint.activate([
             summonerIDLabel.leadingAnchor.constraint(
@@ -215,7 +176,7 @@ final class SummonerDescriptionView: UIView {
             summonerIDLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -8)
         ])
     }
-    
+
     private func setupTierStackViewConstraints() {
         NSLayoutConstraint.activate([
             tierStackView.leadingAnchor.constraint(
@@ -228,7 +189,7 @@ final class SummonerDescriptionView: UIView {
             )
         ])
     }
-    
+
     private func setupCancelButtonConstraints() {
         NSLayoutConstraint.activate([
             cancelButton.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -237,12 +198,12 @@ final class SummonerDescriptionView: UIView {
     }
     
     private func fetchGameVersionIfSummonerSelected() {
-        guard UserDefaults.standard.object(
-            forKey: Design.userDefaultsKey
-        ) is Data else {
+        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
+              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
+              CoreDataSummonerInformationStorage.shared.read(by: request) != nil else {
             return
         }
-        
+
         dataDragonVersionViewModel.input.fetchGameVersion()
     }
     
@@ -269,39 +230,40 @@ final class SummonerDescriptionView: UIView {
     private func showErrorAlert(from alert: UIAlertController) {
         summonerDescriptionViewDelegate?.showAlert(from: alert)
     }
+
+    private func setupContents() {
+        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
+              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
+              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request)?.toDTO(),
+              let mySummonerInformation = storedData.toDomain() else {
+            return
+        }
+
+        levelLabel.text = String(" \(mySummonerInformation.summonerLevel) ")
+        summonerIDLabel.text = mySummonerInformation.name
+
+
+        guard let rankRequest: NSFetchRequest<SummonerRankTier> = CoreDataSummonerRankTierStorage.shared.fetchRequest(id: mySummonerInformation.id),
+              let summonerRankArray = CoreDataSummonerRankTierStorage.shared.readAll(by: rankRequest),
+              let summonerSoloRank = summonerRankArray.filter(
+                { $0.queueType == "RANKED_SOLO_5x5" }
+              ).first?.toDTO(),
+              let mySummonerSoloRank = summonerSoloRank.toDomain() else {
+            return
+        }
+
+        tierLabel.text = "\(mySummonerSoloRank.tier) \(mySummonerSoloRank.rank)"
+
+        tierIconImageView.image = UIImage(
+            named: mySummonerSoloRank.tier.firstLetterUppercased()
+        )?.resize(width: tierStackView.frame.size.height)
+
+        tierPointLabel.text = "\(mySummonerSoloRank.leaguePoints) LP"
+    }
     
     private func setupContents(with profileIcon: UIImage) {
-        //        iconImageView.image = profileIcon.resize(width: iconImageView.frame.size.width)
-        //
-        //        guard let mySummoner = UserDefaults.standard.string(forKey: "MySummoner"),
-        //              let request: NSFetchRequest<SummonerInformation> = CoreDataSummonerInformationStorage.shared.fetchRequest(by: mySummoner),
-        //              let storedData = CoreDataSummonerInformationStorage.shared.read(by: request)?.toDTO(),
-        //              let mySummonerInformation = storedData.toDomain() else {
-        //            return
-        //        }
-        //
-        //        levelLabel.text = String(" \(mySummonerInformation.summonerLevel) ")
-        //        summonerIDLabel.text = mySummonerInformation.name
-        //
-        //
-        //        guard let rankRequest: NSFetchRequest<SummonerRankTier> = CoreDataSummonerRankTierStorage.shared.fetchRequest(by: mySummonerInformation.id),
-        //              let summonerRankArray = CoreDataSummonerRankTierStorage.shared.readAll(by: rankRequest),
-        //              let summonerSoloRank = summonerRankArray.filter(
-        //                { $0.queueType == "RANKED_SOLO_5x5" }
-        //              ).first?.toDTO(),
-        //              let mySummonerSoloRank = summonerSoloRank.toDomain() else {
-        //            return
-        //        }
-        //
-        //
-        //        tierLabel.text = "\(mySummonerSoloRank.tier) \(mySummonerSoloRank.rank)"
-        //
-        //        tierIconImageView.image = UIImage(
-        //            named: mySummonerSoloRank.tier.firstLetterUppercased()
-        //        )?.resize(width: tierStackView.frame.size.height)
-        //
-        //        tierPointLabel.text = "\(mySummonerSoloRank.leaguePoints) LP"
-        //    }
+        iconImageView.image = profileIcon.resize(width: iconImageView.frame.size.width)
+        setupContents()
     }
 }
 
