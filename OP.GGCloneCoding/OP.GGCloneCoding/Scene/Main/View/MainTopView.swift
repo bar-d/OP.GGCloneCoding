@@ -8,60 +8,84 @@
 import UIKit
 
 final class MainTopView: UIView {
-
-    // MARK: - Properties
-
+    
+    // MARK: Properties
+    
     private let logoImageView = ImageViewBuilder()
         .setupLoadImageView()
         .build()
-
+    
     private let languageButton = ButtonBuilder()
         .setupLanguageButton()
         .build()
-
+    
     private let sortButton = ButtonBuilder()
         .setupSortButton()
         .build()
-
+    
     // MARK: - Initializers
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-
+        
         commonInit()
     }
-
+    
     // MARK: - Methods
-
+    
     private func commonInit() {
-        translatesAutoresizingMaskIntoConstraints = false
+        setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
     }
-
+    
+    private func setupConstraintsAutomatic(_ bool: Bool) {
+        translatesAutoresizingMaskIntoConstraints = bool
+    }
+    
     private func setupSubviews() {
         [logoImageView, languageButton, sortButton]
             .forEach { addSubview($0) }
     }
-
+    
     private func setupConstraints() {
+        setupLogoImageViewConstraints()
+        setupLanguageButtonConstraints()
+        setupSortButtonConstraints()
+    }
+    
+    private func setupLogoImageViewConstraints() {
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: topAnchor),
+            logoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            logoImageView.trailingAnchor.constraint(equalTo: languageButton.leadingAnchor, constant: -20),
-
-            languageButton.topAnchor.constraint(equalTo: topAnchor),
+            logoImageView.trailingAnchor.constraint(
+                equalTo: languageButton.leadingAnchor,
+                constant: -20
+            )
+        ])
+    }
+    
+    private func setupLanguageButtonConstraints() {
+        NSLayoutConstraint.activate([
+            languageButton.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             languageButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            languageButton.trailingAnchor.constraint(equalTo: sortButton.leadingAnchor, constant: -20),
-
-            sortButton.topAnchor.constraint(equalTo: topAnchor),
+            languageButton.trailingAnchor.constraint(
+                equalTo: sortButton.leadingAnchor,
+                constant: -20
+            )
+        ])
+    }
+    
+    private func setupSortButtonConstraints() {
+        NSLayoutConstraint.activate([
+            sortButton.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             sortButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             sortButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])

@@ -26,4 +26,3 @@ struct UIViewPreview<View: UIView>: UIViewRepresentable {
     }
 }
 #endif
-

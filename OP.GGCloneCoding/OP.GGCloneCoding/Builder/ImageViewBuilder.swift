@@ -9,7 +9,7 @@ import UIKit
 
 final class ImageViewBuilder {
     
-    // MARK: - Properties
+    // MARK: Properties
     
     private let imageView = UIImageView()
     
@@ -25,7 +25,7 @@ final class ImageViewBuilder {
     
     func setupConstraintsAutomatic(_ bool: Bool) -> ImageViewBuilder {
         imageView.translatesAutoresizingMaskIntoConstraints = bool
-
+        
         return self
     }
     
@@ -37,6 +37,31 @@ final class ImageViewBuilder {
     
     func setupContentMode(_ contentMode: UIView.ContentMode) -> ImageViewBuilder {
         imageView.contentMode = contentMode
+        
+        return self
+    }
+    
+    func setupImageTintColor(_ color: UIColor?) -> ImageViewBuilder {
+        imageView.tintColor = color
+        
+        return self
+    }
+    
+    func setupBackgroundColor(_ color: UIColor?) -> ImageViewBuilder {
+        imageView.backgroundColor = color
+        
+        return self
+    }
+    
+    func setupLayer(
+        cornerRadius: CGFloat = 0,
+        width: CGFloat = 0,
+        color: CGColor? = UIColor.clear.cgColor
+    ) -> ImageViewBuilder {
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = cornerRadius
+        imageView.layer.borderWidth = width
+        imageView.layer.borderColor = color
         
         return self
     }
@@ -53,10 +78,59 @@ extension ImageViewBuilder {
         
         return builder
     }
+    
+    func setupEmptySummonerImageView() -> ImageViewBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupImage(image: Design.emptySummonerIconImage)
+            .setupLayer(cornerRadius: 20)
+        
+        return builder
+    }
+    
+    func setupEmptyPatchImageView() -> ImageViewBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupImage(image: Design.patchImageViewImage)
+            .setupContentMode(.scaleAspectFill)
+            .setupBackgroundColor(.darkGray)
+            .setupLayer(cornerRadius: 10, width: 1)
+        
+        return builder
+    }
+    
+    func setupIndicatorImageView(tintColor: UIColor?) -> ImageViewBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupImage(image: Design.indicatorImage)
+            .setupContentMode(.scaleAspectFit)
+            .setupImageTintColor(tintColor)
+        
+        return builder
+    }
+    
+    func setupAnotherGameImageView(image: UIImage?) -> ImageViewBuilder {
+        let builder = self
+            .setupConstraintsAutomatic(false)
+            .setupImage(image: image)
+            .setupContentMode(.scaleAspectFit)
+            .setupLayer(cornerRadius: 10, width: 1)
+        
+        return builder
+    }
+    
+    func setupClipstoBounds(_ bool: Bool) -> ImageViewBuilder {
+        imageView.clipsToBounds = bool
+        
+        return self
+    }
 }
 
 // MARK: - Namespace
 
 private enum Design {
     static let logoImage = UIImage(named: "OP.GGMainLogo")
+    static let patchImageViewImage = UIImage(named: "OP.GGLoadLogo")
+    static let indicatorImage = UIImage(systemName: "chevron.right")
+    static let emptySummonerIconImage = UIImage(named: "EmptySummonerIcon")
 }
