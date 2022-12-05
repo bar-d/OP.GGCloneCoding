@@ -169,7 +169,7 @@ final class SummonerSearchViewController: UIViewController {
     private func setupBackwardButton() {
         backwardButton.addTarget(
             self,
-            action: #selector(backwardButtonDidTapped),
+            action: #selector(backwardButtonDidTap),
             for: .touchUpInside
         )
     }
@@ -178,16 +178,16 @@ final class SummonerSearchViewController: UIViewController {
     private func setupCancelButton() {
         cancelButton.addTarget(
             self,
-            action: #selector(cancelButtonDidTapped),
+            action: #selector(cancelButtonDidTap),
             for: .touchUpInside
         )
     }
     
-    @objc private func backwardButtonDidTapped() {
+    @objc private func backwardButtonDidTap() {
         dismiss(animated: true)
     }
     
-    @objc private func cancelButtonDidTapped() {
+    @objc private func cancelButtonDidTap() {
         searchTextField.clearTextFieldText()
         topViewWidthConstraint = topView.widthAnchor.constraint(
             equalTo: view.widthAnchor,
@@ -273,7 +273,7 @@ extension SummonerSearchViewController: UITextFieldDelegate {
         return true
     }
     
-    // 검색하고 메인뷰로 나가야 됨
+    /// 검색하고 메인뷰로 나가야 됨
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         return true

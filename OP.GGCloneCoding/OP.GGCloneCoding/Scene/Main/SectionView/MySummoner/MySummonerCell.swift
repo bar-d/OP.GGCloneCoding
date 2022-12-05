@@ -8,39 +8,53 @@
 import UIKit
 
 final class MySummonerCell: UITableViewCell {
-    
+
     // MARK: Properties
-    
+
     private let emptyView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        
+
         return view
     }()
-    
+
     private let unselectedSummonerView = UnselectedSummonerView()
     private let selectedSummoenrView = SelectedSummonerView()
-    
+
     // MARK: - Initializers
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         commonInit()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+
         commonInit()
     }
-    
+
     // MARK: - Methods
 
     func setupUnselectedSummonerViewDelegate(_ delegate: UnselectedSummonerViewDelegate) {
         unselectedSummonerView.setupUnselectedSummonerViewDelegate(delegate)
     }
+
+    func setupSummonerDescriptionViewDelegate(
+        _ delegate: SummonerDescriptionViewDelegate
+    ) {
+        selectedSummoenrView.setupSummonerDescriptionViewDelegate(delegate)
+    }
+
+    func setupSummonerDetailViewDelegate(_ delegate: SummonerDetailViewDelegate) {
+        selectedSummoenrView.setupSummonerDetailViewDelegate(delegate)
+    }
     
+    func setupSelectedSummonerViewDelegate(_ delegate: SelectedSummonerViewDelegate) {
+        selectedSummoenrView.setupSelectedSummonerViewDelegate(delegate)
+    }
+
     private func commonInit() {
         setupContentViewUserInteractionEnabled(false)
         setupSubviews()
@@ -51,9 +65,7 @@ final class MySummonerCell: UITableViewCell {
     }
 
     private func checkSummonerRegistrationForHidingView() {
-        guard UserDefaults.standard.object(
-            forKey: Design.userDefaultsKey
-        ) is Data else {
+        guard UserDefaults.standard.bool(forKey: Design.userDefaultsKey) else {
             setupUnselectedSummonerViewHidden(false)
             setupSelectedSummonerViewHidden(true)
 
@@ -63,24 +75,24 @@ final class MySummonerCell: UITableViewCell {
         setupUnselectedSummonerViewHidden(true)
         setupSelectedSummonerViewHidden(false)
     }
-    
+
     private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
         contentView.isUserInteractionEnabled = bool
     }
-    
+
     private func setupSubviews() {
         [emptyView]
             .forEach { addSubview($0) }
         [unselectedSummonerView, selectedSummoenrView]
             .forEach { emptyView.addSubview($0) }
     }
-    
+
     private func setupConstraints() {
         setupEmptyViewConstraints()
         setupUnselectedSummonerViewConstraints()
         setupSelectedSummonerViewConstraints()
     }
-    
+
     private func setupEmptyViewConstraints() {
         NSLayoutConstraint.activate([
             emptyView.topAnchor.constraint(equalTo: topAnchor),
@@ -89,7 +101,7 @@ final class MySummonerCell: UITableViewCell {
             emptyView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
-    
+
     private func setupUnselectedSummonerViewConstraints() {
         NSLayoutConstraint.activate([
             unselectedSummonerView.topAnchor.constraint(
@@ -106,7 +118,7 @@ final class MySummonerCell: UITableViewCell {
             )
         ])
     }
-    
+
     private func setupSelectedSummonerViewConstraints() {
         NSLayoutConstraint.activate([
             selectedSummoenrView.topAnchor.constraint(equalTo: emptyView.topAnchor),
@@ -121,11 +133,11 @@ final class MySummonerCell: UITableViewCell {
             )
         ])
     }
-    
+
     private func setupBackgroundColor(_ color: UIColor?) {
         backgroundColor = color
     }
-    
+
     private func setupSelectionStyle(_ style: UITableViewCell.SelectionStyle) {
         selectionStyle = style
     }
@@ -145,5 +157,5 @@ private enum Design {
     static let descriptionLabelText = "소환사를 검색해서 등록해주세요!\n나의 전적을 분석해 도움을 줍니다."
     static let summonerRegisterButtonTitle = "소환사 등록하기"
     static let cellBackgroundColor = UIColor(named: "PrimitiveColor")
-    static let userDefaultsKey = "MySummonerInformation"
+    static let userDefaultsKey = "DidSummonerSelected"
 }

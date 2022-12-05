@@ -198,15 +198,15 @@ final class PatchNoteCell: UITableViewCell {
     }
 
     @objc private func goToFirstPatchNote() {
-        patchNoteDelegate?.firstPatchNoteImageDidTapped()
+        patchNoteDelegate?.firstPatchNoteImageDidTap()
     }
 
     @objc private func goToSecondPatchNote() {
-        patchNoteDelegate?.secondPatchNoteImageDidTapped()
+        patchNoteDelegate?.secondPatchNoteImageDidTap()
     }
 
     @objc private func goToThirdPatchNote() {
-        patchNoteDelegate?.thirdPatchNoteImageDidTapped()
+        patchNoteDelegate?.thirdPatchNoteImageDidTap()
     }
 }
 

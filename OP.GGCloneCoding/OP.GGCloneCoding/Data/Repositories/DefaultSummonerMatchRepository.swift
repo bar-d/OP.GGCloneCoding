@@ -42,12 +42,20 @@ extension DefaultSummonerMatchRepository {
                         
                         return
                     }
-                    
+
+                    print("😍")
+                    /// 네트워크 딜레이 추후 해결 필요
                     array.append(summonerMatchInformation)
-                    completion(.success(array))
+                    if array.count == 10 {
+                        completion(.success(array))
+                    }
                     
                 case .failure(let error):
                     print("🥵🥵🥵🥵")
+                    UserDefaults.standard.set(
+                        false,
+                        forKey: "didSummonerSelected"
+                    )
                     completion(.failure(error))
                 }
             }

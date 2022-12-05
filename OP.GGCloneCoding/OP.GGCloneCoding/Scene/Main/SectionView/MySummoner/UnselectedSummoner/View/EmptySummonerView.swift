@@ -100,4 +100,3 @@ final class EmptySummonerView: UIView {
 private enum Design {
     static let backgroundColor = UIColor(named: "SecondaryColor")
 }
-

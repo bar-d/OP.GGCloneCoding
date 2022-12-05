@@ -11,9 +11,28 @@ final class SummonerDescriptionView: UIView {
     
     // MARK: Properties
     
+    private lazy var dataDragonVersionViewModel = DataDragonVersionViewModel(
+        output: .init(
+            fetchProfileIconImage: fetchProfileIconImage,
+            fetchChampionIconImage: fetchChampionIconImage,
+            showErrorAlert: showErrorAlert(from:)
+        )
+    )
+    
+    private lazy var dataDragonProfileIconViewModel = DataDragonProfileIconViewModel(
+        output: .init(
+            setupContents: setupContents(with:),
+            showErrorAlert: showErrorAlert(from:)
+        )
+    )
+    
+    private weak var summonerDescriptionViewDelegate: SummonerDescriptionViewDelegate?
+    private weak var championIconFetcher: ChampionIconFetcher?
+    
     private let iconImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: UIImage(named: "OP.GGIcon"))
+        .setupContentMode(.scaleAspectFit)
         .setupLayer(cornerRadius: 28)
         .build()
     
@@ -47,7 +66,7 @@ final class SummonerDescriptionView: UIView {
     
     private let tierIconImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(named: "OP.GGIcon"))
+        .setupImage(image: UIImage(named: "Unranked")?.resize(width: 20))
         .build()
     
     private let separatorView: UIView = {
@@ -68,7 +87,7 @@ final class SummonerDescriptionView: UIView {
     private let cancelButton = ButtonBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: Design.cancelButtonImage, scale: .large)
-        .setupColor(tint: .label)
+        .setupColor(tint: .label, background: .clear)
         .build()
     
     // MARK: - Initializers
@@ -87,10 +106,22 @@ final class SummonerDescriptionView: UIView {
     
     // MARK: - Methods
     
+    func setupSummonerDescriptionViewDelegate(
+        _ delegate: SummonerDescriptionViewDelegate
+    ) {
+        summonerDescriptionViewDelegate = delegate
+    }
+    
+    func setupChampionIconFetcherDelegate(_ delegate: ChampionIconFetcher) {
+        championIconFetcher = delegate
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
+        fetchGameVersionIfSummonerSelected()
+        setupCancelButton()
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -163,6 +194,81 @@ final class SummonerDescriptionView: UIView {
             cancelButton.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
+    
+    private func fetchGameVersionIfSummonerSelected() {
+        guard UserDefaults.standard.object(
+            forKey: Design.userDefaultsKey
+        ) is Data else {
+            return
+        }
+        
+        dataDragonVersionViewModel.input.fetchGameVersion()
+    }
+    
+    private func fetchProfileIconImage(with versionID: String) {
+        dataDragonProfileIconViewModel.input.fetchProfileIconImage(versionID)
+    }
+    
+    private func fetchChampionIconImage(with versionID: String) {
+        championIconFetcher?.fetchChampionInformation(with: versionID)
+    }
+    
+    private func showErrorAlert(from alert: UIAlertController) {
+        summonerDescriptionViewDelegate?.showAlert(from: alert)
+    }
+    
+    private func setupContents(with profileIcon: UIImage) {
+        guard let unarchivedSummonerData = UserDefaults.standard.object(
+            forKey: "MySummonerInformation"
+        ) as? Data,
+              let summoner = try? JSONDecoder().decode(
+                Summoner.self,
+                from: unarchivedSummonerData
+              ) else {
+            return
+        }
+        
+        iconImageView.image = profileIcon.resize(width: iconImageView.frame.size.width)
+        
+        levelLabel.text = String(" \(summoner.summonerLevel) ")
+        summonerIDLabel.text = summoner.name
+        
+        /// queueType enum으로 만들기
+        /// 비동기가 늦어지면 해당 정보를 네트워킹 하기전에 가져오는 것인가
+        guard let unarchivedSummonerRankData = UserDefaults.standard.object(
+            forKey: "MySummonerRankInformation"
+        ) as? Data,
+              let summonerRankArray = try? JSONDecoder().decode(
+                [SummonerRank].self,
+                from: unarchivedSummonerRankData
+              ),
+              let summonerSoloRank = summonerRankArray.filter(
+                { $0.queueType == "RANKED_SOLO_5x5" }
+              ).first else {
+            return
+        }
+        
+        tierLabel.text = "\(summonerSoloRank.tier) \(summonerSoloRank.rank)"
+        // summonerRank 이미지화
+        
+        tierIconImageView.image = UIImage(
+            named: summonerSoloRank.tier.firstLetterUppercased()
+        )?.resize(width: tierStackView.frame.size.height)
+        
+        tierPointLabel.text = "\(summonerSoloRank.leaguePoints) LP"
+    }
+    
+    private func setupCancelButton() {
+        cancelButton.addTarget(
+            self,
+            action: #selector(cancelButtonDidTap),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func cancelButtonDidTap() {
+        summonerDescriptionViewDelegate?.cancelButtonDidTap()
+    }
 }
 
 // MARK: - Namespace
@@ -170,4 +276,5 @@ final class SummonerDescriptionView: UIView {
 private enum Design {
     static let tierLabelText = "Unranked"
     static let cancelButtonImage = UIImage(systemName:"xmark")
+    static let userDefaultsKey = "MySummonerInformation"
 }

@@ -10,25 +10,25 @@ import UIKit
 final class HeaderViewBuilder {
     
     // MARK: Properties
-    
+
     private var headerView = HeaderView()
-    
+
     // MARK: - Initizliers
-    
+
     init() { }
-    
+
     // MARK: - Methods
-    
+
     func build() -> HeaderView {
         return headerView
     }
     
     func setupConstraintsAutomatic(_ bool: Bool) -> HeaderViewBuilder {
         headerView.translatesAutoresizingMaskIntoConstraints = bool
-        
+
         return self
     }
-    
+
     func setupTitleLabel(with text: String) -> HeaderViewBuilder {
         headerView.setupTitleLabel(with: text)
         
@@ -43,18 +43,37 @@ final class HeaderViewBuilder {
     
     func setupImage(
         with image: UIImage?,
-        for section: HeaderViewButtonType
+        for section: HeaderViewButtonType,
+        tint: UIColor? = .none
     ) -> HeaderViewBuilder {
         switch section {
         case .firstLeftButton:
-            headerView.setupFirstLeftButtonImage(with: image)
+            headerView.setupFirstLeftButtonImage(with: image, tint: tint)
         case .secondLeftButton:
-            headerView.setupSecondLeftButtonImage(with: image)
+            headerView.setupSecondLeftButtonImage(with: image, tint: tint)
         case .firstRightButton:
-            headerView.setupFirstRightButtonImage(with: image)
+            headerView.setupFirstRightButtonImage(with: image, tint: tint)
         case .secondRightButton:
-            headerView.setupSecondRightButtonImage(with: image)
+            headerView.setupSecondRightButtonImage(with: image, tint: tint)
         }
+        
+        return self
+    }
+    
+    func setupBackgroundColor(color: UIColor?) -> HeaderViewBuilder {
+        headerView.backgroundColor = color
+        
+        return self
+    }
+    
+    func activateTopBottomConstraints() -> HeaderViewBuilder {
+        headerView.setupViewConstraints()
+        
+        return self
+    }
+    
+    func activateTitleLabelConstraints() -> HeaderViewBuilder {
+        headerView.setupTitleLabelConstraints()
         
         return self
     }
@@ -66,7 +85,7 @@ extension HeaderViewBuilder {
     func setupChampionHeaderView() -> HeaderViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupTitleLabel(with: Design.championHeaderViewTitle)
+            .setupTitleLabel(with: "챔피언 분석")
         
         return builder
     }
@@ -74,7 +93,7 @@ extension HeaderViewBuilder {
     func setupCommunityHeaderView() -> HeaderViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupTitleLabel(with: Design.communityHeaderViewTitle)
+            .setupTitleLabel(with: "전체")
         
         return builder
     }
@@ -82,16 +101,9 @@ extension HeaderViewBuilder {
     func setupSettingHeaderView() -> HeaderViewBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
-            .setupTitleLabel(with: Design.settingHeaderViewTitle)
+            .setupTitleLabel(with: "설정")
+            .activateTitleLabelConstraints()
         
         return builder
     }
-}
-
-// MARK: - Namespace
-
-private enum Design {
-    static let championHeaderViewTitle = "챔피언 분석"
-    static let communityHeaderViewTitle = "전체"
-    static let settingHeaderViewTitle = "설정"
 }

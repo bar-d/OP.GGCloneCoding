@@ -121,13 +121,13 @@ final class UnselectedSummonerView: UIView {
     private func setupRegisterButton() {
         summonerRegisterButton.addTarget(
             self,
-            action: #selector(searchButtonDidTapped),
+            action: #selector(searchButtonDidTap),
             for: .touchUpInside
         )
     }
     
-    @objc private func searchButtonDidTapped() {
-        emptySummonerViewDelegate?.searchButtonDidTapped()
+    @objc private func searchButtonDidTap() {
+        emptySummonerViewDelegate?.searchButtonDidTap()
     }
 }
 

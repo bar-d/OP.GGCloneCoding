@@ -34,7 +34,22 @@ extension DefaultSummonerMatchListRepository {
         riotAPIService.execute(summonerMatchListRequest) { result in
             switch result {
             case .success(let response):
+                if response.isEmpty {
+                    UserDefaults.standard.removeObject(forKey: "MySummonerInformation")
+                    completion(.success(response))
+                }
+                
+                UserDefaults.standard.set(response, forKey: "MatchList")
+                guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MatchList") as? [String] else { return }
+                
+                if unarchivedSummonerData == response {
+                    UserDefaults.standard.set(true, forKey: "DidMatchListChanged")
+                } else {
+                    UserDefaults.standard.set(false, forKey: "DidMatchListChanged")
+                }
+                
                 completion(.success(response))
+                
             case .failure(let error):
                 completion(.failure(error))
             }

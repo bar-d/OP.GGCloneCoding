@@ -32,7 +32,11 @@ struct SummonerSearchViewModel: ViewModel {
 
                     UserDefaults.standard.set(
                         archivedData,
-                        forKey: Design.userDefaultsKey
+                        forKey: Design.mySummonerInformationUserDefaultKey
+                    )
+                    UserDefaults.standard.set(
+                        true,
+                        forKey: Design.didSummonerSelectedUserDefaultKey
                     )
                     output.fetchSummonerRankInformation(summoner.id)
                     output.fetchSummonerMatchListInformation(summoner.puuid)
@@ -59,5 +63,6 @@ extension SummonerSearchViewModel {
 // MARK: - Namespace
 
 private enum Design {
-    static let userDefaultsKey = "MySummonerInformation"
+    static let mySummonerInformationUserDefaultKey = "MySummonerInformation"
+    static let didSummonerSelectedUserDefaultKey = "DidSummonerSelected"
 }

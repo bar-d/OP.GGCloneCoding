@@ -8,7 +8,7 @@
 import UIKit
 
 final class SummonerRegisterViewController: UIViewController {
-    
+
     // MARK: Properties
 
     private lazy var summonerRankViewModel = SummonerRankViewModel(output: .init(
@@ -17,27 +17,34 @@ final class SummonerRegisterViewController: UIViewController {
 
     private lazy var summonerMatchListViewModel = SummonerMatchListViewModel(
         output: .init(
-            fetchMatchInformation: fetchMatchInformation,
+            fetchSummonerMatchInformation: fetchSummonerMatchInformation,
             showErrorAlert: showErrorAlert
         )
     )
-    
+
+    private lazy var summonerMatchViewModel = SummonerMatchViewModel(
+        output: .init(
+            dismissController: dismissController,
+            showErrorAlert: showErrorAlert
+        )
+    )
+
     private let summonerRegisterView = SummonerRegisterView()
 
     // MARK: - Initializers
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
-        
+
         setupUI()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+
         setupUI()
     }
-    
+
     // MARK: - Methods
 
     func setupUI() {
@@ -47,15 +54,15 @@ final class SummonerRegisterViewController: UIViewController {
         setupBackgroundColor(Design.backgroundColor ?? .systemBackground)
         setupDelegate()
     }
-    
+
     private func setupModalPresentationStyle(_ style: UIModalPresentationStyle) {
         modalPresentationStyle = style
     }
-    
+
     private func setupSubviews() {
         view.addSubview(summonerRegisterView)
     }
-    
+
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             summonerRegisterView.topAnchor.constraint(
@@ -66,7 +73,7 @@ final class SummonerRegisterViewController: UIViewController {
             summonerRegisterView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
-    
+
     private func setupBackgroundColor(_ color: UIColor) {
         view.backgroundColor = color
     }
@@ -76,23 +83,23 @@ final class SummonerRegisterViewController: UIViewController {
         summonerRegisterView.setupSummonerRegisterViewDelegate(self)
     }
 
-    private func dismissController() {
-        dismiss(animated: true)
-    }
-
-    private func fetchMatchInformation() {
-
+    private func fetchSummonerMatchInformation(matchIDList: [String]) {
+        summonerMatchViewModel.input.fetchSummonerMatchInformation(matchIDList)
     }
 
     private func showErrorAlert(from alert: UIAlertController) {
         present(alert, animated: true)
+    }
+
+    private func dismissController() {
+        dismiss(animated: true)
     }
 }
 
 // MARK: - Extension
 
 extension SummonerRegisterViewController: SummonerRegisterTopViewDelegate {
-    func cancelButtonDidTapped() {
+    func cancelButtonDidTap() {
         dismiss(animated: true)
     }
 }
