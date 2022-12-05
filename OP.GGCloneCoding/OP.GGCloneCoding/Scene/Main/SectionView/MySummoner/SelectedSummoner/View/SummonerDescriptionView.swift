@@ -66,7 +66,7 @@ final class SummonerDescriptionView: UIView {
     
     private let tierIconImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(named: "OP.GGIcon"))
+        .setupImage(image: UIImage(named: "Unranked")?.resize(width: 20))
         .build()
     
     private let separatorView: UIView = {
@@ -233,8 +233,8 @@ final class SummonerDescriptionView: UIView {
         levelLabel.text = String(" \(summoner.summonerLevel) ")
         summonerIDLabel.text = summoner.name
         
-        // queueType enum으로 만들기
-        
+        /// queueType enum으로 만들기
+        /// 비동기가 늦어지면 해당 정보를 네트워킹 하기전에 가져오는 것인가
         guard let unarchivedSummonerRankData = UserDefaults.standard.object(
             forKey: "MySummonerRankInformation"
         ) as? Data,
