@@ -44,6 +44,7 @@ extension DefaultSummonerMatchRepository {
                     }
 
                     print("😍")
+                    /// 네트워크 딜레이 추후 해결 필요
                     array.append(summonerMatchInformation)
                     if array.count == 10 {
                         completion(.success(array))
@@ -51,6 +52,10 @@ extension DefaultSummonerMatchRepository {
                     
                 case .failure(let error):
                     print("🥵🥵🥵🥵")
+                    UserDefaults.standard.set(
+                        false,
+                        forKey: "didSummonerSelected"
+                    )
                     completion(.failure(error))
                 }
             }

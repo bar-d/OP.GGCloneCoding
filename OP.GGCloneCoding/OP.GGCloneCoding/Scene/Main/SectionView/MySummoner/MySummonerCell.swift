@@ -65,9 +65,7 @@ final class MySummonerCell: UITableViewCell {
     }
 
     private func checkSummonerRegistrationForHidingView() {
-        guard UserDefaults.standard.object(
-            forKey: Design.userDefaultsKey
-        ) is Data else {
+        guard UserDefaults.standard.bool(forKey: Design.userDefaultsKey) else {
             setupUnselectedSummonerViewHidden(false)
             setupSelectedSummonerViewHidden(true)
 
@@ -159,5 +157,5 @@ private enum Design {
     static let descriptionLabelText = "소환사를 검색해서 등록해주세요!\n나의 전적을 분석해 도움을 줍니다."
     static let summonerRegisterButtonTitle = "소환사 등록하기"
     static let cellBackgroundColor = UIColor(named: "PrimitiveColor")
-    static let userDefaultsKey = "MySummonerInformation"
+    static let userDefaultsKey = "DidSummonerSelected"
 }
