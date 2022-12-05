@@ -193,7 +193,7 @@ final class DetailView: UIView {
         }
         
         let myMatch = summonerMatchArray.map { (match) -> SummonerMatch.Participant in
-            var myMatchList = match.participants.filter { participant in
+            let myMatchList = match.participants.filter { participant in
                 
                 /// myMatchList에 아무것도 없을 때 어떻게 처리할 것인지 해결 필요
                 return participant.summonerName == summoner.name
