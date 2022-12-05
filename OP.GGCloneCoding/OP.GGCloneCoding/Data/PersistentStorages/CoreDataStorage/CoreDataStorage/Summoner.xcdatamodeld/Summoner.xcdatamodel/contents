@@ -8,6 +8,11 @@
         <attribute name="profileIconID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="puuid" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="SummonerMatchEntity" representedClassName="SummonerMatchEntity" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String"/>
+        <attribute name="info" optional="YES" attributeType="Transformable" valueTransformerName="NSMatchTransformer" customClassName="InfoEntity"/>
+        <attribute name="matchID" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromData"/>
+    </entity>
     <entity name="SummonerMatchListEntity" representedClassName="SummonerMatchListEntity" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String"/>
         <attribute name="matchList" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
