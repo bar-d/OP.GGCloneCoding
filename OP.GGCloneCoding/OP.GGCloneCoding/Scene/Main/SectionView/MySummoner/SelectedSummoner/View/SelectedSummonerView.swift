@@ -117,13 +117,13 @@ final class SelectedSummonerView: UIView {
     private func setupDetailButton() {
         detailButton.addTarget(
             self,
-            action: #selector(detailButtonDidTapped(_ :)),
+            action: #selector(detailButtonDidTap(_ :)),
             for: .touchUpInside
         )
     }
     
-    @objc private func detailButtonDidTapped(_ sender: UIButton) {
-        selectedSummonerViewDelegate?.detailButtonDidTapped()
+    @objc private func detailButtonDidTap(_ sender: UIButton) {
+        selectedSummonerViewDelegate?.detailButtonDidTap()
     }
 }
 

@@ -139,12 +139,12 @@ final class SummonerDetailViewController: UIViewController {
         headerView.setupButtonTarget(
             to: .firstLeftButton,
             target: self,
-            action: #selector(indicatorButtonDidTapped(_ :)),
+            action: #selector(indicatorButtonDidTap(_ :)),
             for: .touchUpInside
         )
     }
     
-    @objc private func indicatorButtonDidTapped(_ sender: UIButton) {
+    @objc private func indicatorButtonDidTap(_ sender: UIButton) {
         dismiss(animated: true)
     }
 }

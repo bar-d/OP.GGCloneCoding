@@ -6,5 +6,5 @@
 //
 
 protocol SummonerRegisterTopViewDelegate: AnyObject {
-    func cancelButtonDidTapped()
+    func cancelButtonDidTap()
 }

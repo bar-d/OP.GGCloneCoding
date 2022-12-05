@@ -6,7 +6,7 @@
 //
 
 protocol PatchNoteDelegate: AnyObject {
-    func firstPatchNoteImageDidTapped()
-    func secondPatchNoteImageDidTapped()
-    func thirdPatchNoteImageDidTapped()
+    func firstPatchNoteImageDidTap()
+    func secondPatchNoteImageDidTap()
+    func thirdPatchNoteImageDidTap()
 }

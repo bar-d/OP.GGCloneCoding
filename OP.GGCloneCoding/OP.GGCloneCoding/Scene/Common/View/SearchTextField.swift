@@ -130,12 +130,12 @@ final class SearchTextField: UIView {
     private func setupClearButton() {
         clearButton.addTarget(
             self,
-            action: #selector(clearButtonDidTapped),
+            action: #selector(clearButtonDidTap),
             for: .touchUpInside
         )
     }
     
-    @objc private func clearButtonDidTapped() {
+    @objc private func clearButtonDidTap() {
         textField.text?.removeAll()
     }
 }

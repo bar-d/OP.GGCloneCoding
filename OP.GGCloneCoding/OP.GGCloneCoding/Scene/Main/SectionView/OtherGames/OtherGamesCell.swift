@@ -195,19 +195,19 @@ final class OtherGamesCell: UITableViewCell {
     }
 
     @objc private func goToValorant() {
-        otherGamesDelegate?.valorantImageDidTapped()
+        otherGamesDelegate?.valorantImageDidTap()
     }
 
     @objc private func goToBattlegrounds() {
-        otherGamesDelegate?.battlegroundsImageDidTapped()
+        otherGamesDelegate?.battlegroundsImageDidTap()
     }
 
     @objc private func goToEternalReturn() {
-        otherGamesDelegate?.eternalReturnImageDidTapped()
+        otherGamesDelegate?.eternalReturnImageDidTap()
     }
 
     @objc private func goToOverwatch() {
-        otherGamesDelegate?.overwatchDidTapped()
+        otherGamesDelegate?.overwatchDidTap()
     }
 }
 

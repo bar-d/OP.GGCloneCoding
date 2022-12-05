@@ -99,7 +99,7 @@ final class SummonerRegisterViewController: UIViewController {
 // MARK: - Extension
 
 extension SummonerRegisterViewController: SummonerRegisterTopViewDelegate {
-    func cancelButtonDidTapped() {
+    func cancelButtonDidTap() {
         dismiss(animated: true)
     }
 }

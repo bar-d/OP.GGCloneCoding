@@ -261,13 +261,13 @@ final class SummonerDescriptionView: UIView {
     private func setupCancelButton() {
         cancelButton.addTarget(
             self,
-            action: #selector(cancelButtonDidTapped),
+            action: #selector(cancelButtonDidTap),
             for: .touchUpInside
         )
     }
     
-    @objc private func cancelButtonDidTapped() {
-        summonerDescriptionViewDelegate?.cancelButtonDidTapped()
+    @objc private func cancelButtonDidTap() {
+        summonerDescriptionViewDelegate?.cancelButtonDidTap()
     }
 }
 

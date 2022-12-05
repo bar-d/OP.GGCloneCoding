@@ -6,5 +6,5 @@
 //
 
 protocol FavoriteSummonersCellDelegate: AnyObject {
-    func summonerSearchButtonDidTapped()
+    func summonerSearchButtonDidTap()
 }

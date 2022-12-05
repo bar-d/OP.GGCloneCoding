@@ -6,8 +6,8 @@
 //
 
 protocol OtherGamesDelegate: AnyObject {
-    func valorantImageDidTapped()
-    func battlegroundsImageDidTapped()
-    func eternalReturnImageDidTapped()
-    func overwatchDidTapped()
+    func valorantImageDidTap()
+    func battlegroundsImageDidTap()
+    func eternalReturnImageDidTap()
+    func overwatchDidTap()
 }

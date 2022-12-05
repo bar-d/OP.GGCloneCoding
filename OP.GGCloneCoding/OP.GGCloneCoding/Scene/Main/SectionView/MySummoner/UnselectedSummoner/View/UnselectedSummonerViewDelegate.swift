@@ -6,5 +6,5 @@
 //
 
 protocol UnselectedSummonerViewDelegate: AnyObject {
-    func searchButtonDidTapped()
+    func searchButtonDidTap()
 }

@@ -236,7 +236,7 @@ extension MainViewController:
     SummonerDescriptionViewDelegate, SummonerDetailViewDelegate,
     FavoriteSummonersCellDelegate {
     
-    func cancelButtonDidTapped() {
+    func cancelButtonDidTap() {
         let alertcontroller = UIAlertController(
             title: Design.alertControllerTitle,
             message: Design.alertControllerMessage,
@@ -262,49 +262,49 @@ extension MainViewController:
         present(alertcontroller, animated: true)
     }
     
-    func detailButtonDidTapped() {
+    func detailButtonDidTap() {
         let summonerDetailViewController = SummonerDetailViewController()
 
         present(summonerDetailViewController, animated: true)
     }
 
-    func summonerSearchButtonDidTapped() {
+    func summonerSearchButtonDidTap() {
         let summonerSearchViewController = SummonerSearchViewController()
 
         present(summonerSearchViewController, animated: true)
     }
 
-    func searchButtonDidTapped() {
+    func searchButtonDidTap() {
         let summonerRegisterViewController = SummonerRegisterViewController()
 
         present(summonerRegisterViewController, animated: true)
     }
 
-    func valorantImageDidTapped() {
+    func valorantImageDidTap() {
         presentSafariViewController(using: Design.URL.valorant)
     }
 
-    func battlegroundsImageDidTapped() {
+    func battlegroundsImageDidTap() {
         presentSafariViewController(using: Design.URL.battlegrounds)
     }
 
-    func eternalReturnImageDidTapped() {
+    func eternalReturnImageDidTap() {
         presentSafariViewController(using: Design.URL.eternalReturn)
     }
 
-    func overwatchDidTapped() {
+    func overwatchDidTap() {
         presentSafariViewController(using: Design.URL.overwatch)
     }
 
-    func firstPatchNoteImageDidTapped() {
+    func firstPatchNoteImageDidTap() {
         presentSafariViewController(using: Design.URL.firstPatchNote)
     }
 
-    func secondPatchNoteImageDidTapped() {
+    func secondPatchNoteImageDidTap() {
         presentSafariViewController(using: Design.URL.secondPatchNote)
     }
 
-    func thirdPatchNoteImageDidTapped() {
+    func thirdPatchNoteImageDidTap() {
         presentSafariViewController(using: Design.URL.thirdPatchNote)
     }
 

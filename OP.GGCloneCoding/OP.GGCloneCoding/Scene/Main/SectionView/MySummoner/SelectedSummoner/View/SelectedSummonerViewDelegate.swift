@@ -6,5 +6,5 @@
 //
 
 protocol SelectedSummonerViewDelegate: AnyObject {
-    func detailButtonDidTapped()
+    func detailButtonDidTap()
 }

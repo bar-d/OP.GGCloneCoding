@@ -228,12 +228,12 @@ final class SummonerRegisterView: UIView {
     private func setupCompletionButton() {
         completeButton.addTarget(
             self,
-            action: #selector(didTapCompleteButton),
+            action: #selector(completeButtonDidTap),
             for: .touchUpInside
         )
     }
 
-    @objc private func didTapCompleteButton() {
+    @objc private func completeButtonDidTap() {
         guard let text = searchTextField.text else {
             return
         }

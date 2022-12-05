@@ -122,13 +122,13 @@ final class FavoriteSummonersCell: UITableViewCell {
     private func setupSummonerSearchButton() {
         summonerSearchButton.addTarget(
             self,
-            action: #selector(summonerSearchButtonDidTapped),
+            action: #selector(summonerSearchButtonDidTap),
             for: .touchUpInside
         )
     }
     
-    @objc private func summonerSearchButtonDidTapped() {
-        favoriteSummonersCellDelegate?.summonerSearchButtonDidTapped()
+    @objc private func summonerSearchButtonDidTap() {
+        favoriteSummonersCellDelegate?.summonerSearchButtonDidTap()
     }
 }
 

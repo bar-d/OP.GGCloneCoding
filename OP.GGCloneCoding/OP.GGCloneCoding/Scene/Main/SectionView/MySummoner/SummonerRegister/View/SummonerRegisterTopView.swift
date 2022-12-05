@@ -32,7 +32,7 @@ final class SummonerRegisterTopView: UIView {
         commonInit()
         cancelButton.addTarget(
             self,
-            action: #selector(cancelButtonDidTapped),
+            action: #selector(cancelButtonDidTap),
             for: .touchUpInside
         )
     }
@@ -88,8 +88,8 @@ final class SummonerRegisterTopView: UIView {
         ])
     }
     
-    @objc private func cancelButtonDidTapped() {
-        summonerRegisterTopViewDelegate?.cancelButtonDidTapped()
+    @objc private func cancelButtonDidTap() {
+        summonerRegisterTopViewDelegate?.cancelButtonDidTap()
     }
 }
 
