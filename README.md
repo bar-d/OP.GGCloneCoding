@@ -162,6 +162,6 @@
 ---
 
 
-## [Network_Wiki](https://github.com/bar-d/ios-diary/wiki/Step1)
-## [Scene_Wiki](https://github.com/bar-d/ios-diary/wiki/Step2)
-## [TroubleShooting](https://github.com/bar-d/ios-diary/wiki/TroubleShooting)
+## [Network_Wiki]()
+## [Scene_Wiki]()
+## [TroubleShooting]()
