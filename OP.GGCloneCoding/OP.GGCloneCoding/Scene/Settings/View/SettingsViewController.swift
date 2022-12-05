@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import SafariServices
 
 final class SettingsViewController: UIViewController {
     
     // MARK: Properties
     
     private let stickyHeaderView = SettingsStickyHeaderView()
-    private let tableView = SettingsTableView()
+    private let settingsTableView = SettingsTableView()
     private let headerView = HeaderViewBuilder()
         .setupSettingHeaderView()
         .build()
@@ -39,7 +40,7 @@ final class SettingsViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        tableViewHeightConstraint.constant = tableView.contentSize.height
+        tableViewHeightConstraint.constant = settingsTableView.contentSize.height
     }
     
     // MARK: - Methods
@@ -56,7 +57,7 @@ final class SettingsViewController: UIViewController {
     private func setupSubviews() {
         [scrollView, stickyHeaderView, headerView]
             .forEach { view.addSubview($0) }
-        [tableView]
+        [settingsTableView]
             .forEach { scrollView.addSubview($0) }
     }
     
@@ -109,16 +110,18 @@ final class SettingsViewController: UIViewController {
     }
     
     private func setupSettingsTableViewConstraints() {
-        tableViewHeightConstraint = tableView.heightAnchor.constraint(
+        tableViewHeightConstraint = settingsTableView.heightAnchor.constraint(
             equalToConstant: .zero
         )
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            tableView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            settingsTableView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            settingsTableView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            settingsTableView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            settingsTableView.trailingAnchor.constraint(
+                equalTo: scrollView.trailingAnchor
+            ),
+            settingsTableView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             tableViewHeightConstraint
         ])
     }
@@ -134,11 +137,11 @@ final class SettingsViewController: UIViewController {
     
     private func setupDelegate() {
         scrollView.delegate = self
-        tableView.delegate = self
+        settingsTableView.delegate = self
     }
     
     private func setupDataSource() {
-        tableView.dataSource = self
+        settingsTableView.dataSource = self
     }
     
     private func setupCell(
@@ -238,7 +241,31 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if indexPath.section != 1 {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        switch indexPath.section {
+        case 4:
+            let themeSelectionViewController = ThemeSelectionViewController()
+            present(themeSelectionViewController, animated: true)
+        case 3:
+            let languageViewController = LanguageSelectionViewController()
+            present(languageViewController, animated: true)
+        case 6:
+            if indexPath.row == 0 {
+                let termsOfUseController = SFSafariViewController(
+                    url: Design.URL.termsOfUse
+                )
+                present(termsOfUseController, animated: true)
+            } else if indexPath.row == 1 {
+                let privacyPolecyController = SFSafariViewController(
+                    url: Design.URL.privacyPolicy
+                )
+                present(privacyPolecyController, animated: true)
+            }
+            
+        default:
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
@@ -247,14 +274,19 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Namespace
 
 private enum Design {
+    
+    enum URL {
+        static let termsOfUse = "https://policy.op.gg/last/TERMS_OF_USE?country=KR&locale=ko".url
+        static let privacyPolicy = "https://policy.op.gg/last/PRIVACY_POLICY?country=KR&locale=ko".url
+    }
     static let secondaryColor = UIColor(named: "SecondaryColor")
-    static let headerMaxHeight: CGFloat = 150
-    static let headerMinHeight: CGFloat = 100
-    static let dynamicHeaderHeight = headerMaxHeight - headerMinHeight
     static let scrollViewContentInsets = UIEdgeInsets(
         top: headerMaxHeight - headerMinHeight,
         left: 0,
         bottom: -(headerMaxHeight - headerMinHeight),
         right: 0
     )
+    static let headerMaxHeight: CGFloat = 150
+    static let headerMinHeight: CGFloat = 100
+    static let dynamicHeaderHeight = headerMaxHeight - headerMinHeight
 }
