@@ -2,7 +2,7 @@
 //  SummonerMatchListEntity+CoreDataClass.swift
 //  OP.GGCloneCoding
 //
-//  Created by 전민수 on 2022/12/02.
+//  Created by 바드, 수꿍 on 2022/12/02.
 //
 //
 
