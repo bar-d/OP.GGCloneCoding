@@ -20,4 +20,3 @@ struct RiotSummonerRankAPIRequest: RiotAPIRequest {
         path = .league(encryptedSummonerID: encryptedSummonerID)
     }
 }
-
