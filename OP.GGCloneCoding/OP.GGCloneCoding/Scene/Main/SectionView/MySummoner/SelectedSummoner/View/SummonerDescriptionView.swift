@@ -87,7 +87,7 @@ final class SummonerDescriptionView: UIView {
     private let cancelButton = ButtonBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: Design.cancelButtonImage, scale: .large)
-        .setupColor(tint: .label)
+        .setupColor(tint: .label, background: .clear)
         .build()
     
     // MARK: - Initializers
@@ -121,6 +121,7 @@ final class SummonerDescriptionView: UIView {
         setupSubviews()
         setupConstraints()
         fetchGameVersionIfSummonerSelected()
+        setupCancelButton()
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -255,6 +256,18 @@ final class SummonerDescriptionView: UIView {
         )?.resize(width: tierStackView.frame.size.height)
         
         tierPointLabel.text = "\(summonerSoloRank.leaguePoints) LP"
+    }
+    
+    private func setupCancelButton() {
+        cancelButton.addTarget(
+            self,
+            action: #selector(cancelButtonDidTapped),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func cancelButtonDidTapped() {
+        summonerDescriptionViewDelegate?.cancelButtonDidTapped()
     }
 }
 
