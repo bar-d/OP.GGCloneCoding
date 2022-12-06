@@ -67,6 +67,10 @@ final class ChampionsAndSkinsOnSaleView: UIView {
     
     // MARK: - Methods
     
+    func setupImage(with image: UIImage?) {
+        imageView.image = image
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()

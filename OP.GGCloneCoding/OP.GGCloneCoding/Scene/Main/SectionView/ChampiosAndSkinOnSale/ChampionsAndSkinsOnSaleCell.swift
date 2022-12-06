@@ -62,6 +62,15 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
     
     // MARK: - Methods
     
+    private func setupDemoImages() {
+        mainImageView.setupImage(with: UIImage(named: "Urgot"))
+        firstSubImageView.setupImage(with: UIImage(named: "Rengar")?.resize(width: 112))
+        secondSubImageView.setupImage(with: UIImage(named: "Lux")?.resize(width: 112))
+        thirdSubImageView.setupImage(with: UIImage(named: "Lulu")?.resize(width: 112))
+        fourthSubImageView.setupImage(with: UIImage(named: "Soraka_1")?.resize(width: 112))
+        fifthSubImageView.setupImage(with: UIImage(named: "Ezreal_1")?.resize(width: 112))
+    }
+    
     private func commonInit() {
         setupContentViewUserInteractionEnabled(false)
         setupSubviews()
@@ -69,6 +78,7 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
         setupSelectionStyle(.none)
         setupTitleLabel()
         setupContentInset(top: 0, left: 20, bottom: 0, right: 20)
+        setupDemoImages()
     }
   
     private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
