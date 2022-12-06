@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 typealias UIComponents = (UIViewController, UITabBarItem)
 
@@ -62,9 +63,9 @@ final class TabBarController: UITabBarController {
 private enum Design {
     enum Pair {
         static let home = (MainViewController(), TabBarItem.home)
-        static let champion = (MainViewController(), TabBarItem.champion)
-        static let esports = (MainViewController(), TabBarItem.esports)
-        static let community = (MainViewController(), TabBarItem.community)
+        static let champion = (SFSafariViewController(url: Design.URL.champion), TabBarItem.champion)
+        static let esports = (SFSafariViewController(url: Design.URL.esports), TabBarItem.esports)
+        static let community = (SFSafariViewController(url: Design.URL.commumity), TabBarItem.community)
         static let settings = (SettingsViewController(), TabBarItem.settings)
     }
     
@@ -94,6 +95,12 @@ private enum Design {
             image: UIImage(named: "SettingsIcon"),
             tag: 4
         )
+    }
+    
+    enum URL {
+        static let champion = "https://www.op.gg/champions?region=kr".url
+        static let esports = "https://esports.op.gg".url
+        static let commumity = "https://talk.op.gg/s/lol/all?sort=popular".url
     }
     
     static let iconColor = UIColor(named: "IconColor")
