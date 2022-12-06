@@ -41,6 +41,10 @@ final class ChampionTierView: UIView {
     
     // MARK: - Methods
     
+    func setupImage(with image: UIImage?) {
+        championImageView.setupChampionImage(with: image)
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()

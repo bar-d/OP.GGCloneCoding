@@ -167,6 +167,57 @@ extension ChampionTierTableViewCell: UICollectionViewDataSource {
             for: indexPath
         )
         
+        switch indexPath.row {
+        case 0:
+            cell.setupChampionImages(
+                first: UIImage(named: "Teemo"),
+                second: UIImage(named: "Janna"),
+                third: UIImage(named: "Soraka"),
+                fourth: UIImage(named: "Zilean"),
+                fifth: UIImage(named: "Vayne")
+            )
+        case 1:
+            cell.setupChampionImages(
+                first: UIImage(named: "Blitzcrank"),
+                second: UIImage(named: "Ezreal"),
+                third: UIImage(named: "Shen"),
+                fourth: UIImage(named: "Aphelios"),
+                fifth: UIImage(named: "Braum")
+            )
+        case 2:
+            cell.setupChampionImages(
+                first: UIImage(named: "Riven"),
+                second: UIImage(named: "Nidalee"),
+                third: UIImage(named: "Khazix"),
+                fourth: UIImage(named: "Karma"),
+                fifth: UIImage(named: "Evelynn")
+            )
+        case 3:
+            cell.setupChampionImages(
+                first: UIImage(named: "Heimerdinger"),
+                second: UIImage(named: "Bard"),
+                third: UIImage(named: "Renata"),
+                fourth: UIImage(named: "Gangplank"),
+                fifth: UIImage(named: "Graves")
+            )
+        case 4:
+            cell.setupChampionImages(
+                first: UIImage(named: "Belveth"),
+                second: UIImage(named: "Nasus"),
+                third: UIImage(named: "Camille"),
+                fourth: UIImage(named: "Shaco"),
+                fifth: UIImage(named: "Volibear")
+            )
+        default:
+            cell.setupChampionImages(
+                first: UIImage(named: "Heimerdinger"),
+                second: UIImage(named: "Bard"),
+                third: UIImage(named: "Renata"),
+                fourth: UIImage(named: "Gangplank"),
+                fifth: UIImage(named: "Graves")
+            )
+        }
+        
         return cell
     }
     

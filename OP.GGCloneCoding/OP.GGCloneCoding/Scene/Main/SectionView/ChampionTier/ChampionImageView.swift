@@ -18,9 +18,9 @@ final class ChampionImageView: UIView {
         .setupLayer(cornerRadius: 20)
         .build()
     
-    private let rankingImageView = ImageViewBuilder()
+    private let championTierImageView = ImageViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupImage(image: UIImage(named: "OP.GGLaunchLogo"))
+        .setupImage(image: UIImage(named: "OPTier"))
         .build()
     
     // MARK: - Initialzers
@@ -39,6 +39,14 @@ final class ChampionImageView: UIView {
     
     // MARK: - Methods
     
+    func setupChampionImage(with image: UIImage?) {
+        championImageView.image = image
+    }
+    
+    func setupTierIcon(with image: UIImage?) {
+        championTierImageView.image = image
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
@@ -50,7 +58,7 @@ final class ChampionImageView: UIView {
     }
     
     private func setupSubviews() {
-        [championImageView, rankingImageView]
+        [championImageView, championTierImageView]
             .forEach { addSubview($0) }
     }
     
@@ -75,14 +83,14 @@ final class ChampionImageView: UIView {
     
     private func setupRankingImageViewConstraints() {
         NSLayoutConstraint.activate([
-            rankingImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            rankingImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            rankingImageView.widthAnchor.constraint(
+            championTierImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            championTierImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            championTierImageView.widthAnchor.constraint(
                 equalTo: championImageView.widthAnchor,
                 multiplier: 1/3
             ),
-            rankingImageView.heightAnchor.constraint(
-                equalTo: rankingImageView.widthAnchor,
+            championTierImageView.heightAnchor.constraint(
+                equalTo: championTierImageView.widthAnchor,
                 multiplier: 3/2
             ),
             heightAnchor.constraint(equalTo: widthAnchor)

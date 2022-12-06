@@ -42,6 +42,20 @@ final class ChampionTierCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Methods
     
+    func setupChampionImages(
+        first: UIImage?,
+        second: UIImage?,
+        third: UIImage?,
+        fourth: UIImage?,
+        fifth: UIImage?
+    ) {
+        firstChampionTierView.setupImage(with: first)
+        secondChampionTierView.setupImage(with: second)
+        thirdChampionTierView.setupImage(with: third)
+        fourthChampionTierView.setupImage(with: fourth)
+        fifthChampionTierView.setupImage(with: fifth)
+    }
+    
     private func commonInit() {
         setupSubviews()
         setupConstraints()
