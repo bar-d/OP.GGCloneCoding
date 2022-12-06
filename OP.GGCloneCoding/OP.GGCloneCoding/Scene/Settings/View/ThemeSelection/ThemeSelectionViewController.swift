@@ -214,7 +214,8 @@ extension ThemeSelectionViewController: UITableViewDelegate, UITableViewDataSour
     }
 }
 
-extension ThemeSelectionViewController: UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+extension ThemeSelectionViewController: UIViewControllerTransitioningDelegate,
+                                        UIViewControllerAnimatedTransitioning {
     func animationController(
         forPresented presented: UIViewController,
         presenting: UIViewController,
