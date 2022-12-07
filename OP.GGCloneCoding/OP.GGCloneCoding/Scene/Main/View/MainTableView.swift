@@ -69,7 +69,7 @@ final class MainTableView: UITableView {
     }
     
     private func setupBackgroundColor() {
-        backgroundColor = Design.primitiveColor
+        backgroundColor = Design.secondaryColor
     }
     
     private func setupScrollIndicatorVisible(_ bool: Bool) {
@@ -113,7 +113,7 @@ extension MainTableView: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Namespace
 
 private enum Design {
-    static let primitiveColor = UIColor(named: "PrimitiveColor")
+    static let secondaryColor = UIColor(named: "SecondaryColor")
     static let languageColor = UIColor(named: "LanguageColor")
     static let tableViewEdgeInsets = UIEdgeInsets(top: -40, left: 0, bottom: 0, right: 0)
     static let bodyFont = UIFont.preferredFont(forTextStyle: .body)

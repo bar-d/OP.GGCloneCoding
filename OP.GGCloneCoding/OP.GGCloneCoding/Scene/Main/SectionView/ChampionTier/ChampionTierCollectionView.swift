@@ -45,6 +45,7 @@ final class ChampionTierCollectionView: UICollectionView {
         setupScrollIndicator(horizontal: false, vertical: false)
         setupPagingEnable(true)
         registerCell()
+        setupBackgroundColor(Design.primitiveColor)
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -68,4 +69,14 @@ final class ChampionTierCollectionView: UICollectionView {
             register(cellType: ChampionTierCollectionViewCell.self)
         }
     }
+
+    private func setupBackgroundColor(_ color: UIColor?) {
+        backgroundColor = color
+    }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let primitiveColor = UIColor(named: "PrimitiveColor")
 }

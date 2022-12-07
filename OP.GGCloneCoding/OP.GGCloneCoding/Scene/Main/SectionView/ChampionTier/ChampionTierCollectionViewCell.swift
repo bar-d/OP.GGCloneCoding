@@ -59,6 +59,7 @@ final class ChampionTierCollectionViewCell: UICollectionViewCell {
     private func commonInit() {
         setupSubviews()
         setupConstraints()
+        setupBackgroundColor(Design.primitiveColor)
     }
     
     private func setupSubviews() {
@@ -83,4 +84,14 @@ final class ChampionTierCollectionViewCell: UICollectionViewCell {
             )
         ])
     }
+
+    private func setupBackgroundColor(_ color: UIColor?) {
+        backgroundColor = color
+    }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let primitiveColor = UIColor(named: "PrimitiveColor")
 }

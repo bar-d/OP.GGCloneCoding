@@ -60,6 +60,7 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
         setupConstraints()
         setupDelegate()
         setupDataSource()
+        setupBackgroundColor(Design.primitiveColor)
     }
     
     private func setupContentViewUserInteractionEnabled(_ bool: Bool) {
@@ -134,6 +135,10 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
     
     private func setupDataSource() {
         championTierCollectionView.dataSource = self
+    }
+
+    private func setupBackgroundColor(_ color: UIColor?) {
+        backgroundColor = color
     }
 }
 
@@ -257,4 +262,5 @@ extension ChampionTierTableViewCell: UICollectionViewDelegateFlowLayout {
 
 private enum Design {
     static let titleLabelText = "챔피언 티어"
+    static let primitiveColor = UIColor(named: "PrimitiveColor")
 }
