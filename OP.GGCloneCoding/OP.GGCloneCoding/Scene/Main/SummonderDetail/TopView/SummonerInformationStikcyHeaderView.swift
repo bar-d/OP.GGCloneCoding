@@ -50,8 +50,8 @@ final class SummonerInformationStickyHeaderView: UIView {
         .setupLabelTextAttributes(alignment: .left, font: .title3)
         .build()
     
-    // 추후 숫자만 파란색으로 변경
-    // 랭크 전적 기록 가져오면 fetch하도록 변경해야 될까
+    /// 추후 숫자만 파란색으로 변경
+    /// 랭크 전적 기록 가져오면 fetch하도록 변경해야 될까
     private let rankingLabel = LabelBuilder()
         .setupConstraintsAutomatic(false)
         .setupLabelText(text: Design.rankingLabelText, color: .lightGray)
