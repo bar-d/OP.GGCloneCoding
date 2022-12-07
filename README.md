@@ -142,12 +142,11 @@
 </div>
 </details>
 
-
 ## 구현화면
 ### 메인뷰
 |라이트모드|다크모드|
 |:---:|:---:|
-| <img src = "https://i.imgur.com/hlNtlDs.gif" width="300" height="600">| <img src = "https://i.imgur.com/IVWRWNc.gif" width="300" height="600"> |
+| <img src = "https://user-images.githubusercontent.com/99063327/206126914-b8d0f37f-edd7-4d9d-ae8e-e6bfb0978811.gif" width="300" height="600">| <img src = "https://i.imgur.com/IVWRWNc.gif" width="300" height="600"> |
 
 
 ### 설정뷰
