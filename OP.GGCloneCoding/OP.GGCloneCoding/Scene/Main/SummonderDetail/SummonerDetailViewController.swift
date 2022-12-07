@@ -14,7 +14,6 @@ final class SummonerDetailViewController: UIViewController {
     private let stickyHeaderView = SummonerInformationStickyHeaderView()
     private let headerView = HeaderViewBuilder()
         .setupConstraintsAutomatic(false)
-        .setupTitleLabel(with: "바드의협곡여행")
         .setupImage(
             with: Design.indicatorImage,
             for: .firstLeftButton, tint: .label
@@ -23,7 +22,7 @@ final class SummonerDetailViewController: UIViewController {
         .activateTopBottomConstraints()
         .build()
     
-    private let stickyHeaderViewContainer: UILabel = {
+    private let headerViewTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "바드의협곡여행"
@@ -80,7 +79,7 @@ final class SummonerDetailViewController: UIViewController {
     }
     
     private func setupSubviews() {
-        [summonerInformationTableView, stickyHeaderViewContainer, headerView]
+        [summonerInformationTableView, headerViewTitle, headerView]
             .forEach { view.addSubview($0) }
     }
     
@@ -99,17 +98,17 @@ final class SummonerDetailViewController: UIViewController {
     
     private func setupHeaderViewContainerConstraints() {
         NSLayoutConstraint.activate([
-            stickyHeaderViewContainer.centerXAnchor.constraint(
+            headerViewTitle.centerXAnchor.constraint(
                 equalTo: headerView.centerXAnchor
             ),
-            stickyHeaderViewContainer.centerYAnchor.constraint(
+            headerViewTitle.centerYAnchor.constraint(
                 equalTo: headerView.centerYAnchor
             ),
-            stickyHeaderViewContainer.topAnchor.constraint(equalTo: view.topAnchor),
-            stickyHeaderViewContainer.leadingAnchor.constraint(
+            headerViewTitle.topAnchor.constraint(equalTo: view.topAnchor),
+            headerViewTitle.leadingAnchor.constraint(
                 equalTo: headerView.leadingAnchor
             ),
-            stickyHeaderViewContainer.trailingAnchor.constraint(
+            headerViewTitle.trailingAnchor.constraint(
                 equalTo: headerView.trailingAnchor
             )
         ])
@@ -191,7 +190,7 @@ extension SummonerDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         stickyHeaderView.scroliviewDidScroll(
             scrollView,
-            headerView: stickyHeaderViewContainer
+            headerView: headerViewTitle
         )
     }
 }
