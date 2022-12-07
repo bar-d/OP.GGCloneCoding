@@ -21,7 +21,7 @@ final class SummonerSearchViewController: UIViewController {
     private let backwardButton = ButtonBuilder()
         .setupConstraintsAutomatic(false)
         .setupImage(image: Design.backwardButtonImage)
-        .setupColor(tint: .label)
+        .setupColor(tint: .label, background: .clear)
         .build()
     
     private let searchTextField = SearchTextField()
