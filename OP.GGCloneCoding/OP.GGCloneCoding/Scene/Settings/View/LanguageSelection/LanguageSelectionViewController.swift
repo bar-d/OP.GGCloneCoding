@@ -132,7 +132,7 @@ final class LanguageSelectionViewController: UIViewController {
     private func setupTabGesture() {
         let tapGesture = UITapGestureRecognizer(
             target: self,
-            action: #selector(backgroundViewDidTapped)
+            action: #selector(backgroundViewDidTap)
         )
         view.addGestureRecognizer(tapGesture)
     }
@@ -141,8 +141,20 @@ final class LanguageSelectionViewController: UIViewController {
         transitioningDelegate = self
     }
     
-    @objc private func backgroundViewDidTapped() {
-        dismiss(animated: true, completion: nil)
+    private func setupCancelButton() {
+        cancelButton.addTarget(
+            self,
+            action: #selector(cancelButtonDidTap),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func backgroundViewDidTap() {
+        dismiss(animated: true)
+    }
+    
+    @objc private func cancelButtonDidTap() {
+        dismiss(animated: true)
     }
 }
 

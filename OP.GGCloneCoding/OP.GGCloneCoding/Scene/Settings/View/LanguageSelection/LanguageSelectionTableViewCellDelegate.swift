@@ -6,5 +6,5 @@
 //
 
 protocol LanguageSelectionTableViewCellDelegate: AnyObject {
-    func languageSelectionTableViewCellDidTapped()
+    func languageSelectionTableViewCellDidTap()
 }

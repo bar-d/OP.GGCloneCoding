@@ -83,6 +83,7 @@ final class ThemeSelectionViewController: UIViewController {
         setupCancelButtonConstraints()
         setupTitleLabelConstraints()
         setupLanguageSelectionTableViewConstraints()
+        setupCancelButton()
     }
     
     private func setupEmptyViewConstraints() {
@@ -151,7 +152,7 @@ final class ThemeSelectionViewController: UIViewController {
     private func setupTabGesture() {
         let tapGesture = UITapGestureRecognizer(
             target: self,
-            action: #selector(backgroundViewDidTapped)
+            action: #selector(backgroundViewDidTap)
         )
         emptyView.addGestureRecognizer(tapGesture)
     }
@@ -165,8 +166,20 @@ final class ThemeSelectionViewController: UIViewController {
         themeSelectionTableView.dataSource = self
     }
     
-    @objc private func backgroundViewDidTapped() {
-        dismiss(animated: true, completion: nil)
+    private func setupCancelButton() {
+        cancelButton.addTarget(
+            self,
+            action: #selector(cancelButtonDidTap),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func backgroundViewDidTap() {
+        dismiss(animated: true)
+    }
+    
+    @objc private func cancelButtonDidTap() {
+        dismiss(animated: true)
     }
 }
 
