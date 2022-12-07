@@ -64,11 +64,21 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
     
     private func setupDemoImages() {
         mainImageView.setupImage(with: UIImage(named: "Urgot"))
-        firstSubImageView.setupImage(with: UIImage(named: "Rengar")?.resize(width: 112))
-        secondSubImageView.setupImage(with: UIImage(named: "Lux")?.resize(width: 112))
-        thirdSubImageView.setupImage(with: UIImage(named: "Lulu")?.resize(width: 112))
-        fourthSubImageView.setupImage(with: UIImage(named: "Soraka_1")?.resize(width: 112))
-        fifthSubImageView.setupImage(with: UIImage(named: "Ezreal_1")?.resize(width: 112))
+        firstSubImageView.setupImage(
+            with: UIImage(named: "Rengar")?.resize(width: frame.width * 1/3)
+        )
+        secondSubImageView.setupImage(
+            with: UIImage(named: "Lux")?.resize(width: frame.width * 1/3)
+        )
+        thirdSubImageView.setupImage(
+            with: UIImage(named: "Lulu")?.resize(width: frame.width * 1/3)
+        )
+        fourthSubImageView.setupImage(
+            with: UIImage(named: "Soraka_1")?.resize(width: frame.width * 1/3)
+        )
+        fifthSubImageView.setupImage(
+            with: UIImage(named: "Ezreal_1")?.resize(width: frame.width * 1/3)
+        )
     }
     
     private func commonInit() {
@@ -144,7 +154,7 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.heightAnchor.constraint(
                 equalTo: mainImageView.widthAnchor,
-                multiplier: 2/3
+                multiplier: 1/2
             )
         ])
     }
