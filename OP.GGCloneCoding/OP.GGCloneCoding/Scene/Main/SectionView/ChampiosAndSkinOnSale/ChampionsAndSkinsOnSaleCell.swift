@@ -155,16 +155,21 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
             scrollView.heightAnchor.constraint(
                 equalTo: mainImageView.widthAnchor,
                 multiplier: 1/2
-            )
+            ),
+            scrollView.contentLayoutGuide.heightAnchor.constraint(equalTo: stackView.heightAnchor)
         ])
     }
     
     private func setupStackViewConstraints() {
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            stackView.topAnchor.constraint(
+                equalTo: scrollView.frameLayoutGuide.topAnchor
+            ),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            stackView.bottomAnchor.constraint(
+                equalTo: scrollView.frameLayoutGuide.bottomAnchor
+            )
         ])
     }
     
