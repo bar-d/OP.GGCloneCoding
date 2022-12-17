@@ -97,6 +97,7 @@ final class OtherGamesCell: UITableViewCell {
     }
 
     private func setupConstraints() {
+        setupHeightAnchorConstraints()
         setupFirstPatchNoteImageViewConstraints()
         setupTitleLabelConstraints()
         setupPatchNoteScrollViewConstraints()
@@ -125,14 +126,26 @@ final class OtherGamesCell: UITableViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }
+    
+    private func setupHeightAnchorConstraints() {
+        let heightAnchor = heightAnchor.constraint(
+            equalTo: widthAnchor,
+            multiplier: 3/5
+        )
+        heightAnchor.isActive = true
+        heightAnchor.priority = .defaultHigh
+    }
 
     private func setupPatchNoteScrollViewConstraints() {
         NSLayoutConstraint.activate([
             otherGamesScrollView.topAnchor.constraint(
                 equalTo: titleLabel.bottomAnchor,
-                constant: 4
+                constant: 8
             ),
-            otherGamesScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            otherGamesScrollView.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -12
+            ),
             otherGamesScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             otherGamesScrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
