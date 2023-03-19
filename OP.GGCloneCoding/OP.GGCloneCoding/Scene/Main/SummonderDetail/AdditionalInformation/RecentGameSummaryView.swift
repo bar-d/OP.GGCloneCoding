@@ -68,7 +68,7 @@ final class RecentGameSummaryView: UIView {
     
     private func setupConstraints() {
         setupRecentGameSummaryViewConstraints()
-        setupLabelLeadingAnchorConstriants()
+        setupLabelLeadingAnchorConstraints()
         setupLabelTopAnchorConstraints()
     }
     
@@ -78,7 +78,7 @@ final class RecentGameSummaryView: UIView {
         ])
     }
     
-    private func setupLabelLeadingAnchorConstriants() {
+    private func setupLabelLeadingAnchorConstraints() {
         [titleLabel, kdaRateLabel, winRateLabel, kdaLabel]
             .forEach {
                 $0.leadingAnchor.constraint(

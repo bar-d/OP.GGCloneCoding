@@ -1,5 +1,5 @@
 //
-//  DefaultSummonerRepostiory.swift
+//  DefaultSummonerRepository.swift
 //  OP.GGCloneCoding
 //
 //  Created by 바드, 수꿍 on 2022/11/04.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DefaultSummonerRepostiory: SummonerRepository {
+struct DefaultSummonerRepository: SummonerRepository {
     
     // MARK: Properties
     
@@ -24,7 +24,7 @@ struct DefaultSummonerRepostiory: SummonerRepository {
 
 private typealias Request = RiotSummonerAPIRequest
 
-extension DefaultSummonerRepostiory {
+extension DefaultSummonerRepository {
     func fetchSummonerInformation(
         id: String,
         completion: @escaping (Result<Summoner, Error>) -> Void

@@ -13,7 +13,7 @@ final class LabelBuilder {
     
     private var label = UILabel()
     
-    // MARK: - Initizliers
+    // MARK: - Initializers
     
     init() {}
     
@@ -210,7 +210,7 @@ extension LabelBuilder {
         return builder
     }
     
-    func setupEmptySummonerDescrptionLabel() -> LabelBuilder {
+    func setupEmptySummonerDescriptionLabel() -> LabelBuilder {
         let builder = self
             .setupConstraintsAutomatic(false)
             .setupLabelText(text: Design.emptySummonerDescriptionLabelText, color: .label)
@@ -231,7 +231,7 @@ extension LabelBuilder {
 
 private enum Design {
     static let emptyString = ""
-    static let otherGamestitleLabelText = "다른 게임 전적 보기"
+    static let otherGamesTitleLabelText = "다른 게임 전적 보기"
     static let settingsStickyHeaderTitleLabel = "설정"
     static let settingsTitleLabelText = "Title Label"
     static let settingsIndicatorLabelText = "Indicator Label"

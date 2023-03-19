@@ -15,7 +15,7 @@ final class SummonerInformationStickyHeaderView: UIView {
         .setupConstraintsAutomatic(false)
         .setupImage(image: UIImage(named: "a"))
         .setupBackgroundColor(.gray)
-        .setupClipstoBounds(true)
+        .setupClipsToBounds(true)
         .setupContentMode(.scaleAspectFill)
         .build()
     
@@ -109,7 +109,7 @@ final class SummonerInformationStickyHeaderView: UIView {
     
     // MARK: - Methods
     
-    func scroliviewDidScroll(_ scrollView: UIScrollView, headerView: UIView) {
+    func scrollviewDidScroll(_ scrollView: UIScrollView, headerView: UIView) {
         setupImageViewConstraints(with: scrollView)
         
         let headerConstant = scrollView.contentOffset.y

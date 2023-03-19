@@ -7,7 +7,7 @@
 
 struct SummonerMatchUseCase {
     
-    typealias SummonerMathcRepository = DefaultSummonerMatchRepository
+    typealias SummonerMatchRepository = DefaultSummonerMatchRepository
     
     // MARK: Properties
     
@@ -15,7 +15,7 @@ struct SummonerMatchUseCase {
     
     // MARK: - Initializers
     
-    init(repository: SummonerMatchRepository = SummonerMathcRepository()) {
+    init(repository: SummonerMatchRepository = SummonerMatchRepository()) {
         self.repository = repository
     }
     

@@ -237,7 +237,7 @@ extension MainViewController:
     FavoriteSummonersCellDelegate {
     
     func cancelButtonDidTap() {
-        let alertcontroller = UIAlertController(
+        let alertController = UIAlertController(
             title: Design.alertControllerTitle,
             message: Design.alertControllerMessage,
             preferredStyle: .alert
@@ -257,9 +257,9 @@ extension MainViewController:
         }
         
         [cancelAction, deleteAction]
-            .forEach { alertcontroller.addAction($0) }
+            .forEach { alertController.addAction($0) }
         
-        present(alertcontroller, animated: true)
+        present(alertController, animated: true)
     }
     
     func detailButtonDidTap() {

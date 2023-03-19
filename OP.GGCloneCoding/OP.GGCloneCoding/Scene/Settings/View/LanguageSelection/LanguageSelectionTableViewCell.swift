@@ -11,7 +11,7 @@ final class LanguageSelectionTableViewCell: UITableViewCell {
     
     typealias tableViewCellDelegate = LanguageSelectionTableViewCellDelegate
     
-    // MARK: Properites
+    // MARK: Properties
     
     private weak var languageSelectionTableViewCellDelegate: tableViewCellDelegate?
     

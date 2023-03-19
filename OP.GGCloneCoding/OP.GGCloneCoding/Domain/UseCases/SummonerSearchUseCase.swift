@@ -13,7 +13,7 @@ struct SummonerSearchUseCase {
     
     // MARK: - Initializers
 
-    init(repository: SummonerRepository = DefaultSummonerRepostiory()) {
+    init(repository: SummonerRepository = DefaultSummonerRepository()) {
         self.repository = repository
     }
     

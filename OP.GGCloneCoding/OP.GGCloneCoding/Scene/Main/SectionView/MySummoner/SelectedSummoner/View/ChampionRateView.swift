@@ -71,7 +71,7 @@ final class ChampionRateView: UIView {
 
     private func setupConstraints() {
         setupChampionImageViewConstraints()
-        setupWiinRateLabelConstraints()
+        setupWinRateLabelConstraints()
         setupKDALabelConstraints()
     }
 
@@ -90,7 +90,7 @@ final class ChampionRateView: UIView {
         ])
     }
 
-    private func setupWiinRateLabelConstraints() {
+    private func setupWinRateLabelConstraints() {
         NSLayoutConstraint.activate([
             winRateLabel.leadingAnchor.constraint(
                 equalTo: championImageView.trailingAnchor,

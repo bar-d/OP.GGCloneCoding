@@ -26,7 +26,7 @@ final class SettingsViewController: UIViewController {
         return scrollView
     }()
     
-    private var stickyHeaderviewTopConstraint = NSLayoutConstraint()
+    private var stickyHeaderViewTopConstraint = NSLayoutConstraint()
     private var tableViewHeightConstraint = NSLayoutConstraint()
     
     // MARK: - View Life Cycle
@@ -78,12 +78,12 @@ final class SettingsViewController: UIViewController {
     }
     
     private func setupStickyHeaderViewConstraints() {
-        stickyHeaderviewTopConstraint = stickyHeaderView.topAnchor.constraint(
+        stickyHeaderViewTopConstraint = stickyHeaderView.topAnchor.constraint(
             equalTo: view.topAnchor
         )
         
         NSLayoutConstraint.activate([
-            stickyHeaderviewTopConstraint,
+            stickyHeaderViewTopConstraint,
             stickyHeaderView.leadingAnchor.constraint(
                 equalTo: view.leadingAnchor,
                 constant: 16
@@ -170,7 +170,7 @@ extension SettingsViewController: UIScrollViewDelegate {
     }
     
     private func updateStickyHeaderView() {
-        stickyHeaderviewTopConstraint.constant = -calculateHeaderConstant()
+        stickyHeaderViewTopConstraint.constant = -calculateHeaderConstant()
     }
     
     private func updateHeaderView() {

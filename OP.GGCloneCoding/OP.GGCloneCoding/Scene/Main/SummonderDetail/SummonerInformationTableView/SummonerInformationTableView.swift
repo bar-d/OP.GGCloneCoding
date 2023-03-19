@@ -23,7 +23,7 @@ final class SummonerInformationTableView: UITableView {
         commonInit()
     }
     
-    // MARK: - Mehtods
+    // MARK: - Methods
     
     func setupDelegate(_ delegate: UITableViewDelegate) {
         self.delegate = delegate

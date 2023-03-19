@@ -12,7 +12,7 @@ struct SummonerMatchViewModel: ViewModel {
     // MARK: Properties
 
     private var count: Int = 0
-    private let summonerMatchUsecase = SummonerMatchUseCase()
+    private let summonerMatchUseCase = SummonerMatchUseCase()
     private let output: Output
     lazy var input = Input(
         fetchSummonerMatchInformation: fetchSummonerMatchInformation(matchIDList:)
@@ -27,7 +27,7 @@ struct SummonerMatchViewModel: ViewModel {
     // MARK: - Methods
 
     private func fetchSummonerMatchInformation(matchIDList: [String]) {
-        summonerMatchUsecase.searchSummoner(matchIDList: matchIDList) { result in
+        summonerMatchUseCase.searchSummoner(matchIDList: matchIDList) { result in
             DispatchQueue.main.async() {
                 switch result {
                 case .success(let summonerMatchArray):

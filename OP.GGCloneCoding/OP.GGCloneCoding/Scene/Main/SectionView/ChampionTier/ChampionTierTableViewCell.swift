@@ -130,7 +130,7 @@ final class ChampionTierTableViewCell: UITableViewCell, PositionTabBarDelegate {
     
     private func setupDelegate() {
         championTierCollectionView.delegate = self
-        positionTapBar.setupPostionTabBarDelegate(self)
+        positionTapBar.setupPositionTabBarDelegate(self)
     }
     
     private func setupDataSource() {

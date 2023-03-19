@@ -65,7 +65,7 @@ private enum Design {
         static let home = (MainViewController(), TabBarItem.home)
         static let champion = (SFSafariViewController(url: Design.URL.champion), TabBarItem.champion)
         static let esports = (SFSafariViewController(url: Design.URL.esports), TabBarItem.esports)
-        static let community = (SFSafariViewController(url: Design.URL.commumity), TabBarItem.community)
+        static let community = (SFSafariViewController(url: Design.URL.community), TabBarItem.community)
         static let settings = (SettingsViewController(), TabBarItem.settings)
     }
     
@@ -100,7 +100,7 @@ private enum Design {
     enum URL {
         static let champion = "https://www.op.gg/champions?region=kr".url
         static let esports = "https://esports.op.gg".url
-        static let commumity = "https://talk.op.gg/s/lol/all?sort=popular".url
+        static let community = "https://talk.op.gg/s/lol/all?sort=popular".url
     }
     
     static let iconColor = UIColor(named: "IconColor")

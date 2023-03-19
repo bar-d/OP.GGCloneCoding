@@ -11,7 +11,7 @@ struct SummonerRankViewModel: ViewModel {
 
     // MARK: Properties
 
-    private let summonerRankUsecase: SummonerRankUseCase = SummonerRankUseCase()
+    private let summonerRankUseCase: SummonerRankUseCase = SummonerRankUseCase()
     private let output: Output
     lazy var input = Input(
         fetchSummonerRankInformation: fetchSummonerRankInformation(encryptedID:)
@@ -26,7 +26,7 @@ struct SummonerRankViewModel: ViewModel {
     // MARK: - Methods
 
     private func fetchSummonerRankInformation(encryptedID: String) {
-        summonerRankUsecase.searchSummonerRank(encryptedId: encryptedID) { result in
+        summonerRankUseCase.searchSummonerRank(encryptedId: encryptedID) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let summonerRankArray):

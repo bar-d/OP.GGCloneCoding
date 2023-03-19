@@ -103,14 +103,14 @@ final class SummonerInformationLeftView: UIView {
     }
     
     private func setupConstraints() {
-        setupGameResulViewConstraints()
+        setupGameResultViewConstraints()
         setupChampionImageViewConstraints()
         setupSpellAndRuneViewConstraints()
         setupLabelStackViewConstraints()
         setupItemListViewConstraints()
     }
     
-    private func setupGameResulViewConstraints() {
+    private func setupGameResultViewConstraints() {
         NSLayoutConstraint.activate([
             gameResultView.topAnchor.constraint(equalTo: topAnchor),
             gameResultView.bottomAnchor.constraint(equalTo: bottomAnchor),

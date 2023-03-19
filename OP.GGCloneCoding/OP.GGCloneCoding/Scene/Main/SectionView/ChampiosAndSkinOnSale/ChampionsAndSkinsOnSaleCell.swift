@@ -12,7 +12,7 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
     // MARK: Properties
     
     private let titleLabel = LabelBuilder()
-        .setupMainCellTitleLabel(text: Design.titlelabelText, numberOfLines: 2)
+        .setupMainCellTitleLabel(text: Design.titleLabelText, numberOfLines: 2)
         .build()
     
     private let mainImageView = MainSkinOnSaleView()
@@ -201,7 +201,7 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
     }
     
     private func setupTitleLabel() {
-        titleLabel.text = Design.titlelabelText
+        titleLabel.text = Design.titleLabelText
     }
     
     private func setupContentInset(
@@ -222,7 +222,7 @@ final class ChampionsAndSkinsOnSaleCell: UITableViewCell {
 // MARK: - Namespace
 
 private enum Design {
-    static let titlelabelText = "놓치지 마세요!\n지금 할인중인 스킨 & 챔피언"
+    static let titleLabelText = "놓치지 마세요!\n지금 할인중인 스킨 & 챔피언"
     static let languageColor = UIColor(named: "LanguageColor")
     static let secondaryColor = UIColor(named: "SecondaryColor")
 }

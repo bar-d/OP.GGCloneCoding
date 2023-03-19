@@ -188,7 +188,7 @@ extension SummonerDetailViewController: UITableViewDelegate, UITableViewDataSour
 
 extension SummonerDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        stickyHeaderView.scroliviewDidScroll(
+        stickyHeaderView.scrollviewDidScroll(
             scrollView,
             headerView: headerViewTitle
         )

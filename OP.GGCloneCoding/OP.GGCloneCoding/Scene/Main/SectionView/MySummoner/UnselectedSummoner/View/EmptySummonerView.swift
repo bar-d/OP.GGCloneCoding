@@ -16,7 +16,7 @@ final class EmptySummonerView: UIView {
         .build()
 
     private let descriptionLabel = LabelBuilder()
-        .setupEmptySummonerDescrptionLabel()
+        .setupEmptySummonerDescriptionLabel()
         .build()
 
     private let questionMarkLabel = LabelBuilder()

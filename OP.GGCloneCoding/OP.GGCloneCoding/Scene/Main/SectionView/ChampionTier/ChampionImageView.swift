@@ -23,7 +23,7 @@ final class ChampionImageView: UIView {
         .setupImage(image: UIImage(named: "OPTier"))
         .build()
     
-    // MARK: - Initialzers
+    // MARK: - Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -20,7 +20,7 @@ final class PositionTabBar: UIView {
     
     private var indicatorViewLeadingConstraint = NSLayoutConstraint()
     private var indicatorViewWidthConstraint = NSLayoutConstraint()
-    private let postion = Design.position
+    private let position = Design.position
     
     // MARK: - Initializers
     
@@ -38,7 +38,7 @@ final class PositionTabBar: UIView {
     
     // MARK: - Methods
     
-    func setupPostionTabBarDelegate(_ delegate: PositionTabBarDelegate) {
+    func setupPositionTabBarDelegate(_ delegate: PositionTabBarDelegate) {
         positionTabBarDelegate = delegate
     }
     
@@ -147,7 +147,7 @@ extension PositionTabBar: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell: PositionTabBarCollectionViewCell = collectionView.dequeueReusableCell(
             for: indexPath
         )
-        cell.setupTitle(with: postion[indexPath.row])
+        cell.setupTitle(with: position[indexPath.row])
         
         return cell
     }
@@ -157,7 +157,7 @@ extension PositionTabBar: UICollectionViewDelegate, UICollectionViewDataSource {
         numberOfItemsInSection section: Int
     ) -> Int {
         
-        return postion.count
+        return position.count
     }
     
     func collectionView(
