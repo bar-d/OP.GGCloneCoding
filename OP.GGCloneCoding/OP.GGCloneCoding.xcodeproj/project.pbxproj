@@ -841,6 +841,9 @@
 		C4E505EB28FE91BC00EEA8C8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				C440CCF82901139D008B3C16 /* PreviewHelpers */,
+				C43F3F3A290A6CBC00B03A04 /* Protocol */,
+				C4E505EA28FE91AA00EEA8C8 /* Builder */,
 				C4E505ED28FE91E700EEA8C8 /* Common */,
 				C4E505EE28FE91FD00EEA8C8 /* Main */,
 				C440CCFD29011486008B3C16 /* Settings */,
@@ -898,16 +901,13 @@
 		C4EBCC1E28FC242900402617 /* OP.GGCloneCoding */ = {
 			isa = PBXGroup;
 			children = (
+				203CD71628FC36470037B457 /* Application */,
 				20336A4A291545F3001BDF7D /* Domain */,
 				20336A4029154412001BDF7D /* Data */,
 				20336A2829150ACA001BDF7D /* Infrastructure */,
-				C440CCF82901139D008B3C16 /* PreviewHelpers */,
-				203CD71628FC36470037B457 /* Application */,
-				203CD71528FC35D40037B457 /* Resource */,
 				205BC1A32907E84E004053F3 /* Extension */,
-				C43F3F3A290A6CBC00B03A04 /* Protocol */,
-				C4E505EA28FE91AA00EEA8C8 /* Builder */,
 				C4E505EB28FE91BC00EEA8C8 /* Scene */,
+				203CD71528FC35D40037B457 /* Resource */,
 			);
 			path = OP.GGCloneCoding;
 			sourceTree = "<group>";
