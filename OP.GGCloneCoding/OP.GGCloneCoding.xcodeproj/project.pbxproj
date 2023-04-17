@@ -390,6 +390,7 @@
 			children = (
 				20336A472915454C001BDF7D /* Repositories */,
 				20336A412915441D001BDF7D /* Network */,
+				C43EAC0529ED333500CECECC /* PersistentStorages */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -647,6 +648,13 @@
 				C40F9A6F293E318F006E1051 /* LanguageSelectionTableViewCellDelegate.swift */,
 			);
 			path = LanguageSelection;
+			sourceTree = "<group>";
+		};
+		C43EAC0529ED333500CECECC /* PersistentStorages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PersistentStorages;
 			sourceTree = "<group>";
 		};
 		C43F3F3A290A6CBC00B03A04 /* Protocol */ = {
