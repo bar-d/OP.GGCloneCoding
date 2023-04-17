@@ -653,8 +653,16 @@
 		C43EAC0529ED333500CECECC /* PersistentStorages */ = {
 			isa = PBXGroup;
 			children = (
+				C43EAC0629ED347C00CECECC /* UserDefaultsStorages */,
 			);
 			path = PersistentStorages;
+			sourceTree = "<group>";
+		};
+		C43EAC0629ED347C00CECECC /* UserDefaultsStorages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserDefaultsStorages;
 			sourceTree = "<group>";
 		};
 		C43F3F3A290A6CBC00B03A04 /* Protocol */ = {
