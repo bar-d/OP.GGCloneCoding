@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MatchListStorage {
+protocol MatchListStorage: AnyObject {
     func save(_ matchList: [String])
     func getResponse(
         maxCount: Int,

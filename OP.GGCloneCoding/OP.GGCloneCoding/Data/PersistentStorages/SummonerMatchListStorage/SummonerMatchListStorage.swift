@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SummonerMatchListStorage {
+protocol SummonerMatchListStorage: AnyObject {
     func save(_ summonerMatchList: [SummonerMatch])
     func getResponse(
         maxCount: Int,
