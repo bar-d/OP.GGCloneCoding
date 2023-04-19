@@ -74,7 +74,7 @@
 		20C766A0291CEF5B00E94133 /* RiotSummonerMatchListAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7669F291CEF5B00E94133 /* RiotSummonerMatchListAPIRequest.swift */; };
 		20C766A4291CF2CD00E94133 /* SummonerMatchListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766A3291CF2CD00E94133 /* SummonerMatchListRepository.swift */; };
 		20C766A6291CF43500E94133 /* DefaultSummonerMatchListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766A5291CF43500E94133 /* DefaultSummonerMatchListRepository.swift */; };
-		20C766A8291CF56A00E94133 /* SummonerMatchListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766A7291CF56A00E94133 /* SummonerMatchListUseCase.swift */; };
+		20C766A8291CF56A00E94133 /* SummonerMatchIDListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766A7291CF56A00E94133 /* SummonerMatchIDListUseCase.swift */; };
 		20C766AA291CF9A800E94133 /* SummonerMatchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766A9291CF9A800E94133 /* SummonerMatchListViewModel.swift */; };
 		20C766AC291D149400E94133 /* RiotSummonerMatchAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766AB291D149400E94133 /* RiotSummonerMatchAPIRequest.swift */; };
 		20C766B0291D250100E94133 /* SummonerMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C766AF291D250100E94133 /* SummonerMatch.swift */; };
@@ -237,7 +237,7 @@
 		20C7669F291CEF5B00E94133 /* RiotSummonerMatchListAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiotSummonerMatchListAPIRequest.swift; sourceTree = "<group>"; };
 		20C766A3291CF2CD00E94133 /* SummonerMatchListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchListRepository.swift; sourceTree = "<group>"; };
 		20C766A5291CF43500E94133 /* DefaultSummonerMatchListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSummonerMatchListRepository.swift; sourceTree = "<group>"; };
-		20C766A7291CF56A00E94133 /* SummonerMatchListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchListUseCase.swift; sourceTree = "<group>"; };
+		20C766A7291CF56A00E94133 /* SummonerMatchIDListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchIDListUseCase.swift; sourceTree = "<group>"; };
 		20C766A9291CF9A800E94133 /* SummonerMatchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchListViewModel.swift; sourceTree = "<group>"; };
 		20C766AB291D149400E94133 /* RiotSummonerMatchAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiotSummonerMatchAPIRequest.swift; sourceTree = "<group>"; };
 		20C766AF291D250100E94133 /* SummonerMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatch.swift; sourceTree = "<group>"; };
@@ -468,7 +468,7 @@
 			children = (
 				20336A5329154723001BDF7D /* SummonerSearchUseCase.swift */,
 				20C7669B291CCE7100E94133 /* SummonerRankUseCase.swift */,
-				20C766A7291CF56A00E94133 /* SummonerMatchListUseCase.swift */,
+				20C766A7291CF56A00E94133 /* SummonerMatchIDListUseCase.swift */,
 				20C162D829238091005308AF /* SummonerMatchUseCase.swift */,
 				2043E9E82924C35A00F087A9 /* DataDragonVersionUseCase.swift */,
 				2043E9F52924D46F00F087A9 /* DataDragonProfileIconUseCase.swift */,
@@ -1169,7 +1169,7 @@
 				203F0014290BE31100BF95F7 /* UIView+Extension.swift in Sources */,
 				20C766A0291CEF5B00E94133 /* RiotSummonerMatchListAPIRequest.swift in Sources */,
 				C4C977A429222D28000436D0 /* ViewModel.swift in Sources */,
-				20C766A8291CF56A00E94133 /* SummonerMatchListUseCase.swift in Sources */,
+				20C766A8291CF56A00E94133 /* SummonerMatchIDListUseCase.swift in Sources */,
 				C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */,
 				20C766A6291CF43500E94133 /* DefaultSummonerMatchListRepository.swift in Sources */,
 				20336A4629154508001BDF7D /* RiotSummonerAPIRequest.swift in Sources */,
