@@ -53,10 +53,10 @@ extension UserDefaultsMatchListStorage: MatchListStorage {
         maxCount: Int = 10,
         completion: @escaping (Result<[String], Error>) -> Void
     ) {
-        guard var matchList = self?.fetchMatchList(),
-              let maxCount = self?.maxStorageLimit else {
+        guard let maxCount = maxStorageLimit else {
             return
         }
+        var matchList = fetchMatchList()
         let range = 0..<maxCount
         
         matchList = matchList.count <= maxCount ? matchList : Array(matchList[range])

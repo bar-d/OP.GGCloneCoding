@@ -59,7 +59,7 @@ extension UserDefaultsSummonerStorage: SummonerStorage {
     }
     
     func getResponse(completion: @escaping (Result<Summoner, Error>) -> Void) {
-        guard let summoner = self?.fetchSummoner() else {
+        guard let summoner = fetchSummoner() else {
             return
         }
         
