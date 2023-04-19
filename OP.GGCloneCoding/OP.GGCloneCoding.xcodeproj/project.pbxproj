@@ -98,6 +98,7 @@
 		C43EAC1529EFDD1600CECECC /* SummonerMatchListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1429EFDD1600CECECC /* SummonerMatchListStorage.swift */; };
 		C43EAC1729EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1629EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift */; };
 		C43EAC1929F03E6200CECECC /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1829F03E6200CECECC /* UserDefaults+Extension.swift */; };
+		C43EAC1D29F05FA100CECECC /* SummonerRankListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1C29F05FA100CECECC /* SummonerRankListStorage.swift */; };
 		C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */; };
 		C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */; };
 		C43F3F43290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */; };
@@ -260,6 +261,7 @@
 		C43EAC1429EFDD1600CECECC /* SummonerMatchListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchListStorage.swift; sourceTree = "<group>"; };
 		C43EAC1629EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSummonerMatchListStorage.swift; sourceTree = "<group>"; };
 		C43EAC1829F03E6200CECECC /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		C43EAC1C29F05FA100CECECC /* SummonerRankListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRankListStorage.swift; sourceTree = "<group>"; };
 		C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTierCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -673,6 +675,7 @@
 				C43EAC0B29EE5A4200CECECC /* SummonerStorage */,
 				C43EAC0E29EFC91D00CECECC /* MatchListStorage */,
 				C43EAC1329EFDCBC00CECECC /* SummonerMatchListStorage */,
+				C43EAC1B29F05F5D00CECECC /* SummonerRankListStorage */,
 				C43EAC0629ED347C00CECECC /* UserDefaultsStorages */,
 			);
 			path = PersistentStorages;
@@ -711,6 +714,14 @@
 				C43EAC1429EFDD1600CECECC /* SummonerMatchListStorage.swift */,
 			);
 			path = SummonerMatchListStorage;
+			sourceTree = "<group>";
+		};
+		C43EAC1B29F05F5D00CECECC /* SummonerRankListStorage */ = {
+			isa = PBXGroup;
+			children = (
+				C43EAC1C29F05FA100CECECC /* SummonerRankListStorage.swift */,
+			);
+			path = SummonerRankListStorage;
 			sourceTree = "<group>";
 		};
 		C43F3F3A290A6CBC00B03A04 /* Protocol */ = {
@@ -1211,6 +1222,7 @@
 				C458CAED2910ECAD004E6D74 /* SummonerRegisterViewController.swift in Sources */,
 				C43F3F81290BCCAF00B03A04 /* ChampionImageView.swift in Sources */,
 				20C162D729237F82005308AF /* DefaultSummonerMatchRepository.swift in Sources */,
+				C43EAC1D29F05FA100CECECC /* SummonerRankListStorage.swift in Sources */,
 				C4E505E928FE8E3700EEA8C8 /* ImageViewBuilder.swift in Sources */,
 				20336A3F29152D78001BDF7D /* RiotAPIRequest.swift in Sources */,
 				C406923B2906759D00A4E48D /* HeaderViewBuilder.swift in Sources */,
