@@ -12,11 +12,16 @@ struct SummonerMatchUseCase {
     // MARK: Properties
     
     private let repository: SummonerMatchRepository
+    private let cache: SummonerMatchListStorage
     
     // MARK: - Initializers
     
-    init(repository: SummonerMatchRepository = SummonerMatchRepository()) {
+    init(
+        repository: SummonerMatchRepository = SummonerMatchRepository(),
+        cache: SummonerMatchListStorage = UserDefaultsSummonerMatchListStorage()
+    ) {
         self.repository = repository
+        self.cache = cache
     }
     
     // MARK: - Methods
@@ -27,8 +32,9 @@ struct SummonerMatchUseCase {
     ) {
         repository.fetchSummonerInformation(matchIDList: matchIDList) { result in
             switch result {
-            case .success(let summoner):
-                completion(.success(summoner))
+            case .success(let summonerMatchList):
+                cache.save(summonerMatchList)
+                completion(.success(summonerMatchList))
             case .failure(let error):
                 completion(.failure(error))
             }
