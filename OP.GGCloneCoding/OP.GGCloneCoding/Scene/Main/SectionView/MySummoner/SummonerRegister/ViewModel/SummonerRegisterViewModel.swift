@@ -49,10 +49,3 @@ extension SummonerSearchViewModel {
         let showErrorAlert: (UIAlertController) -> Void
     }
 }
-
-// MARK: - Namespace
-
-private enum Design {
-    static let mySummonerInformationUserDefaultKey = "MySummonerInformation"
-    static let didSummonerSelectedUserDefaultKey = "DidSummonerSelected"
-}
