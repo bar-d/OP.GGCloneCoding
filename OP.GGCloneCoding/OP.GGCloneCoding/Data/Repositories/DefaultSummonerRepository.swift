@@ -12,11 +12,16 @@ struct DefaultSummonerRepository: SummonerRepository {
     // MARK: Properties
     
     private let riotAPIService: RiotAPIService
+    private let cache: SummonerStorage
 
     // MARK: - Initializers
     
-    init(riotAPIService: RiotAPIService = RiotAPIService()) {
+    init(
+        riotAPIService: RiotAPIService = RiotAPIService(),
+        cache: SummonerStorage = UserDefaultsSummonerStorage()
+    ) {
         self.riotAPIService = riotAPIService
+        self.cache = cache
     }
 }
 
@@ -40,6 +45,7 @@ extension DefaultSummonerRepository {
                     return
                 }
 
+                cache.save(summonerInformation)
                 completion(.success(summonerInformation))
             case .failure(let error):
                 completion(.failure(error))
