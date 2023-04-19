@@ -99,6 +99,7 @@
 		C43EAC1729EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1629EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift */; };
 		C43EAC1929F03E6200CECECC /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1829F03E6200CECECC /* UserDefaults+Extension.swift */; };
 		C43EAC1D29F05FA100CECECC /* SummonerRankListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1C29F05FA100CECECC /* SummonerRankListStorage.swift */; };
+		C43EAC1F29F0631200CECECC /* UserDefaultsSummonerRankListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1E29F0631200CECECC /* UserDefaultsSummonerRankListStorage.swift */; };
 		C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */; };
 		C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */; };
 		C43F3F43290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */; };
@@ -262,6 +263,7 @@
 		C43EAC1629EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSummonerMatchListStorage.swift; sourceTree = "<group>"; };
 		C43EAC1829F03E6200CECECC /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		C43EAC1C29F05FA100CECECC /* SummonerRankListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerRankListStorage.swift; sourceTree = "<group>"; };
+		C43EAC1E29F0631200CECECC /* UserDefaultsSummonerRankListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSummonerRankListStorage.swift; sourceTree = "<group>"; };
 		C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTierCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -688,6 +690,7 @@
 				C43EAC0729ED62DA00CECECC /* UserDefaultsSummonerStorage.swift */,
 				C43EAC1129EFCF0B00CECECC /* UserDefaultsMatchListStorage.swift */,
 				C43EAC1629EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift */,
+				C43EAC1E29F0631200CECECC /* UserDefaultsSummonerRankListStorage.swift */,
 			);
 			path = UserDefaultsStorages;
 			sourceTree = "<group>";
@@ -1254,6 +1257,7 @@
 				C458CAFC29112276004E6D74 /* SummonerSearchViewController.swift in Sources */,
 				204A9C37290A7A4500D70FC4 /* UICollectionView+Extension.swift in Sources */,
 				C40F9A67293E3120006E1051 /* ThemeSelectionViewController.swift in Sources */,
+				C43EAC1F29F0631200CECECC /* UserDefaultsSummonerRankListStorage.swift in Sources */,
 				C4BD16FC2935A79000DB736B /* SummonerInformationTableViewCell.swift in Sources */,
 				20336A52291546A3001BDF7D /* SummonerRepository.swift in Sources */,
 				20C766AC291D149400E94133 /* RiotSummonerMatchAPIRequest.swift in Sources */,
