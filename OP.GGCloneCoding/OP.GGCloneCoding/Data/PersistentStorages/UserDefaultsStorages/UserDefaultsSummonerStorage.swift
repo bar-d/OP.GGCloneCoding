@@ -25,7 +25,7 @@ final class UserDefaultsSummonerStorage: UserDefaultsStorage {
     
     private func persist(_ summoner: Summoner) {
         let summonerData = try? JSONEncoder().encode(summoner)
-
+        
         userDefaults.set(
             summonerData,
             forKey: UserDefaults.Key.mySummonerInformation
@@ -59,12 +59,10 @@ extension UserDefaultsSummonerStorage: SummonerStorage {
     }
     
     func getResponse(completion: @escaping (Result<Summoner, Error>) -> Void) {
-        DispatchQueue.main.async { [weak self] in
-            guard let summoner = self?.fetchSummoner() else {
-                return
-            }
-            
-            completion(.success(summoner))
+        guard let summoner = self?.fetchSummoner() else {
+            return
         }
+        
+        completion(.success(summoner))
     }
 }

@@ -53,15 +53,13 @@ extension UserDefaultsMatchListStorage: MatchListStorage {
         maxCount: Int = 10,
         completion: @escaping (Result<[String], Error>) -> Void
     ) {
-        DispatchQueue.main.async { [weak self] in
-            guard var matchList = self?.fetchMatchList(),
-                  let maxCount = self?.maxStorageLimit else {
-                return
-            }
-            let range = 0..<maxCount
-            
-            matchList = matchList.count <= maxCount ? matchList : Array(matchList[range])
-            completion(.success(matchList))
+        guard var matchList = self?.fetchMatchList(),
+              let maxCount = self?.maxStorageLimit else {
+            return
         }
+        let range = 0..<maxCount
+        
+        matchList = matchList.count <= maxCount ? matchList : Array(matchList[range])
+        completion(.success(matchList))
     }
 }
