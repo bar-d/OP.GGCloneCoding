@@ -7,5 +7,5 @@
 
 protocol SummonerStorage {
     func save(_ summoner: Summoner)
-    func fetchSummoner() -> Summoner?
+    func getResponse(completion: @escaping (Result<Summoner, Error>) -> Void)
 }

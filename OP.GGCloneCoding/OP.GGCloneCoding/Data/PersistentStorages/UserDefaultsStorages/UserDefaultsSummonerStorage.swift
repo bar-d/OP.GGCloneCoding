@@ -23,22 +23,21 @@ final class UserDefaultsSummonerStorage: UserDefaultsStorage {
     
     // MARK: - Methods
     
-    func persist(_ summoner: Summoner) {
+    private func persist(_ summoner: Summoner) {
         let summonerData = try? JSONEncoder().encode(summoner)
 
         userDefaults.set(
             summonerData,
             forKey: Design.mySummonerInformationUserDefaultKey
         )
-    }
-}
-
-extension UserDefaultsSummonerStorage: SummonerStorage {
-    func save(_ summoner: Summoner) {
-        persist(summoner)
+        
+        userDefaults.set(
+            true,
+            forKey: Design.didSummonerSelectedUserDefaultKey
+        )
     }
     
-    func fetchSummoner() -> Summoner? {
+    private func fetchSummoner() -> Summoner? {
         guard let unarchivedSummonerData = userDefaults.object(
             forKey: Design.mySummonerInformationUserDefaultKey
         ) as? Data,
@@ -52,8 +51,27 @@ extension UserDefaultsSummonerStorage: SummonerStorage {
     }
 }
 
+// MARK: Extension
+
+extension UserDefaultsSummonerStorage: SummonerStorage {
+    func save(_ summoner: Summoner) {
+        persist(summoner)
+    }
+    
+    func getResponse(completion: @escaping (Result<Summoner, Error>) -> Void) {
+        DispatchQueue.main.async { [weak self] in
+            guard let summoner = self?.fetchSummoner() else {
+                return
+            }
+            
+            completion(.success(summoner))
+        }
+    }
+}
+
 // MARK: - Namespace
 
 private enum Design {
     static let mySummonerInformationUserDefaultKey = "MySummonerInformation"
+    static let didSummonerSelectedUserDefaultKey = "DidSummonerSelected"
 }
