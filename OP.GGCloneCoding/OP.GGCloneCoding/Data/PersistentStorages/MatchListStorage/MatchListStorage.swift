@@ -9,5 +9,8 @@ import Foundation
 
 protocol MatchListStorage {
     func save(_ matchList: [String])
-    func getResponse(completion: @escaping (Result<[String], Error>) -> Void)
+    func getResponse(
+        maxCount: Int,
+        completion: @escaping (Result<[String], Error>) -> Void
+    )
 }
