@@ -93,6 +93,7 @@
 		C43EAC0829ED62DA00CECECC /* UserDefaultsSummonerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC0729ED62DA00CECECC /* UserDefaultsSummonerStorage.swift */; };
 		C43EAC0A29ED95DB00CECECC /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC0929ED95DB00CECECC /* UserDefaultsStorage.swift */; };
 		C43EAC0D29EE5A7F00CECECC /* SummonerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC0C29EE5A7F00CECECC /* SummonerStorage.swift */; };
+		C43EAC1029EFC92D00CECECC /* MatchListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC0F29EFC92D00CECECC /* MatchListStorage.swift */; };
 		C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */; };
 		C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */; };
 		C43F3F43290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */; };
@@ -250,6 +251,7 @@
 		C43EAC0729ED62DA00CECECC /* UserDefaultsSummonerStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSummonerStorage.swift; sourceTree = "<group>"; };
 		C43EAC0929ED95DB00CECECC /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		C43EAC0C29EE5A7F00CECECC /* SummonerStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerStorage.swift; sourceTree = "<group>"; };
+		C43EAC0F29EFC92D00CECECC /* MatchListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListStorage.swift; sourceTree = "<group>"; };
 		C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTierCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 		C43EAC0529ED333500CECECC /* PersistentStorages */ = {
 			isa = PBXGroup;
 			children = (
+				C43EAC0E29EFC91D00CECECC /* MatchListStorage */,
 				C43EAC0B29EE5A4200CECECC /* SummonerStorage */,
 				C43EAC0629ED347C00CECECC /* UserDefaultsStorages */,
 			);
@@ -680,6 +683,14 @@
 				C43EAC0C29EE5A7F00CECECC /* SummonerStorage.swift */,
 			);
 			path = SummonerStorage;
+			sourceTree = "<group>";
+		};
+		C43EAC0E29EFC91D00CECECC /* MatchListStorage */ = {
+			isa = PBXGroup;
+			children = (
+				C43EAC0F29EFC92D00CECECC /* MatchListStorage.swift */,
+			);
+			path = MatchListStorage;
 			sourceTree = "<group>";
 		};
 		C43F3F3A290A6CBC00B03A04 /* Protocol */ = {
@@ -1085,6 +1096,7 @@
 				205BC1A52907E85B004053F3 /* String+Extension.swift in Sources */,
 				C4BD16F42935A4BE00DB736B /* ItemStackView.swift in Sources */,
 				C4BD16E629359EB900DB736B /* TierView.swift in Sources */,
+				C43EAC1029EFC92D00CECECC /* MatchListStorage.swift in Sources */,
 				2043E9E52924C1B300F087A9 /* DataDragonVersionRepository.swift in Sources */,
 				C43F3F48290A717100B03A04 /* PositionTabBarDelegate.swift in Sources */,
 				C40F9A6C293E3176006E1051 /* LanguageSelectionTableView.swift in Sources */,
