@@ -12,11 +12,16 @@ struct DefaultSummonerRankRepository: SummonerRankRepository {
     // MARK: Properties
     
     private let riotAPIService: RiotAPIService
-
+    private let cache: SummonerRankListStorage
+    
     // MARK: - Initializers
     
-    init(riotAPIService: RiotAPIService = RiotAPIService()) {
+    init(
+        riotAPIService: RiotAPIService = RiotAPIService(),
+        cache: SummonerRankListStorage = UserDefaultsSummonerRankListStorage()
+    ) {
         self.riotAPIService = riotAPIService
+        self.cache = cache
     }
 }
 
@@ -34,7 +39,7 @@ extension DefaultSummonerRankRepository {
         riotAPIService.execute(summonerRankRequest) { result in
             switch result {
             case .success(let response):
-                var array: [SummonerRank] = []
+                var summonerRankList: [SummonerRank] = []
 
                 response.forEach { leagueEntryDTO in
                     guard let summonerRankInformation = leagueEntryDTO.toDomain() else {
@@ -42,10 +47,11 @@ extension DefaultSummonerRankRepository {
 
                         return
                     }
-                    array.append(summonerRankInformation)
+                    summonerRankList.append(summonerRankInformation)
                 }
-
-                completion(.success(array))
+                
+                cache.save(summonerRankList)
+                completion(.success(summonerRankList))
             case .failure(let error):
                 completion(.failure(error))
             }
