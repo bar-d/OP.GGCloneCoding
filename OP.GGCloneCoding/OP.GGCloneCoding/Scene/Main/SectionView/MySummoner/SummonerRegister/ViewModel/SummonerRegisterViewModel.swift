@@ -28,16 +28,6 @@ struct SummonerSearchViewModel: ViewModel {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let summoner):
-                    let archivedData = try? JSONEncoder().encode(summoner)
-
-                    UserDefaults.standard.set(
-                        archivedData,
-                        forKey: Design.mySummonerInformationUserDefaultKey
-                    )
-                    UserDefaults.standard.set(
-                        true,
-                        forKey: Design.didSummonerSelectedUserDefaultKey
-                    )
                     output.fetchSummonerRankInformation(summoner.id)
                     output.fetchSummonerMatchListInformation(summoner.puuid)
                 case .failure(_):
