@@ -96,6 +96,7 @@
 		C43EAC1029EFC92D00CECECC /* MatchListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC0F29EFC92D00CECECC /* MatchListStorage.swift */; };
 		C43EAC1229EFCF0B00CECECC /* UserDefaultsMatchListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1129EFCF0B00CECECC /* UserDefaultsMatchListStorage.swift */; };
 		C43EAC1529EFDD1600CECECC /* SummonerMatchListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1429EFDD1600CECECC /* SummonerMatchListStorage.swift */; };
+		C43EAC1729EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1629EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift */; };
 		C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */; };
 		C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */; };
 		C43F3F43290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */; };
@@ -256,6 +257,7 @@
 		C43EAC0F29EFC92D00CECECC /* MatchListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListStorage.swift; sourceTree = "<group>"; };
 		C43EAC1129EFCF0B00CECECC /* UserDefaultsMatchListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMatchListStorage.swift; sourceTree = "<group>"; };
 		C43EAC1429EFDD1600CECECC /* SummonerMatchListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerMatchListStorage.swift; sourceTree = "<group>"; };
+		C43EAC1629EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSummonerMatchListStorage.swift; sourceTree = "<group>"; };
 		C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTierCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -665,9 +667,9 @@
 		C43EAC0529ED333500CECECC /* PersistentStorages */ = {
 			isa = PBXGroup;
 			children = (
-				C43EAC1329EFDCBC00CECECC /* SummonerMatchListStorage */,
 				C43EAC0B29EE5A4200CECECC /* SummonerStorage */,
 				C43EAC0E29EFC91D00CECECC /* MatchListStorage */,
+				C43EAC1329EFDCBC00CECECC /* SummonerMatchListStorage */,
 				C43EAC0629ED347C00CECECC /* UserDefaultsStorages */,
 			);
 			path = PersistentStorages;
@@ -679,6 +681,7 @@
 				C43EAC0929ED95DB00CECECC /* UserDefaultsStorage.swift */,
 				C43EAC0729ED62DA00CECECC /* UserDefaultsSummonerStorage.swift */,
 				C43EAC1129EFCF0B00CECECC /* UserDefaultsMatchListStorage.swift */,
+				C43EAC1629EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift */,
 			);
 			path = UserDefaultsStorages;
 			sourceTree = "<group>";
@@ -1179,6 +1182,7 @@
 				C43EAC0A29ED95DB00CECECC /* UserDefaultsStorage.swift in Sources */,
 				C440CCFC290113DD008B3C16 /* SwiftUIPreviewController.swift in Sources */,
 				20C7669E291CCF1700E94133 /* SummonerRankViewModel.swift in Sources */,
+				C43EAC1729EFDDAB00CECECC /* UserDefaultsSummonerMatchListStorage.swift in Sources */,
 				202B4C42291B71860078A03E /* ErrorAlertController.swift in Sources */,
 				C4BD16EC2935A09800DB736B /* ChampionInformationView.swift in Sources */,
 				20336A4929154571001BDF7D /* DefaultSummonerRepository.swift in Sources */,
