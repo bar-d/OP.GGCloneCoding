@@ -64,5 +64,5 @@ extension SummonerMatchListViewModel {
 // MARK: - Namespace
 
 private enum Design {
-    static let userDefaultsKey = "MySummonerMatchListInformation"
+    static let userDefaultsKey = "MySummonerMatchIDListInformation"
 }

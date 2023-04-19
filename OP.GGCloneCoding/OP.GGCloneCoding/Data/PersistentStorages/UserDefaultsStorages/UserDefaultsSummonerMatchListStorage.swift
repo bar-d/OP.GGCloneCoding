@@ -27,13 +27,13 @@ final class UserDefaultsSummonerMatchListStorage: UserDefaultsStorage {
         let summonerMatchListData = try? JSONEncoder().encode(summonerMatchList)
         userDefaults.set(
             summonerMatchListData,
-            forKey: Design.mySummonerMatchInformationUserDefaultKey
+            forKey: UserDefaults.Key.mySummonerMatchInformation
         )
     }
     
     private func fetchSummonerMatchList() -> [SummonerMatch] {
         guard let unarchivedSummonerMatchListData = userDefaults.object(
-            forKey: Design.mySummonerMatchInformationUserDefaultKey
+            forKey: UserDefaults.Key.mySummonerMatchInformation
         ) as? [SummonerMatch] else {
             return []
         }
@@ -60,10 +60,4 @@ extension UserDefaultsSummonerMatchListStorage: SummonerMatchListStorage {
         matchList = matchList.count <= maxCount ? matchList : Array(matchList[range])
         completion(.success(matchList))
     }
-}
-
-// MARK: - Namespace
-
-private enum Design {
-    static let mySummonerMatchInformationUserDefaultKey = "MySummonerMatchInformation"
 }

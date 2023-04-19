@@ -28,18 +28,18 @@ final class UserDefaultsSummonerStorage: UserDefaultsStorage {
 
         userDefaults.set(
             summonerData,
-            forKey: Design.mySummonerInformationUserDefaultKey
+            forKey: UserDefaults.Key.mySummonerInformation
         )
         
         userDefaults.set(
             true,
-            forKey: Design.didSummonerSelectedUserDefaultKey
+            forKey: UserDefaults.Key.didSummonerSelected
         )
     }
     
     private func fetchSummoner() -> Summoner? {
         guard let unarchivedSummonerData = userDefaults.object(
-            forKey: Design.mySummonerInformationUserDefaultKey
+            forKey: UserDefaults.Key.mySummonerInformation
         ) as? Data,
               let summoner = try? JSONDecoder().decode(
                 Summoner.self, from: unarchivedSummonerData
@@ -67,11 +67,4 @@ extension UserDefaultsSummonerStorage: SummonerStorage {
             completion(.success(summoner))
         }
     }
-}
-
-// MARK: - Namespace
-
-private enum Design {
-    static let mySummonerInformationUserDefaultKey = "MySummonerInformation"
-    static let didSummonerSelectedUserDefaultKey = "DidSummonerSelected"
 }

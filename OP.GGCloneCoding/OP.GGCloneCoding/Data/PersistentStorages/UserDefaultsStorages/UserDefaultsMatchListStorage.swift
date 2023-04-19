@@ -25,12 +25,15 @@ final class UserDefaultsMatchListStorage: UserDefaultsStorage {
     
     private func persist(_ matchList: [String]) {
         let matchListData = try? JSONEncoder().encode(matchList)
-        userDefaults.set(matchListData, forKey: Design.matchListUserDefaultKey)
+        userDefaults.set(
+            matchListData,
+            forKey: UserDefaults.Key.mySummonerMatchIDListInformation
+        )
     }
     
     private func fetchMatchList() -> [String] {
         guard let unarchivedMatchListData = userDefaults.object(
-            forKey: Design.matchListUserDefaultKey
+            forKey: UserDefaults.Key.mySummonerMatchIDListInformation
         ) as? [String] else {
             return []
         }
@@ -61,10 +64,4 @@ extension UserDefaultsMatchListStorage: MatchListStorage {
             completion(.success(matchList))
         }
     }
-}
-
-// MARK: - Namespace
-
-private enum Design {
-    static let matchListUserDefaultKey = "MatchList"
 }
