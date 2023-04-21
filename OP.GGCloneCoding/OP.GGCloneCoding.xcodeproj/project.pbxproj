@@ -102,6 +102,7 @@
 		C43EAC1F29F0631200CECECC /* UserDefaultsSummonerRankListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC1E29F0631200CECECC /* UserDefaultsSummonerRankListStorage.swift */; };
 		C43EAC2229F0F5AE00CECECC /* AppearanceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC2129F0F5AE00CECECC /* AppearanceStorage.swift */; };
 		C43EAC2429F0F68700CECECC /* UserDefaultsAppearanceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC2329F0F68700CECECC /* UserDefaultsAppearanceStorage.swift */; };
+		C43EAC2629F23AE800CECECC /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EAC2529F23AE800CECECC /* Appearance.swift */; };
 		C43F3F3C290A6CCA00B03A04 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */; };
 		C43F3F41290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */; };
 		C43F3F43290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */; };
@@ -268,6 +269,7 @@
 		C43EAC1E29F0631200CECECC /* UserDefaultsSummonerRankListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSummonerRankListStorage.swift; sourceTree = "<group>"; };
 		C43EAC2129F0F5AE00CECECC /* AppearanceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceStorage.swift; sourceTree = "<group>"; };
 		C43EAC2329F0F68700CECECC /* UserDefaultsAppearanceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAppearanceStorage.swift; sourceTree = "<group>"; };
+		C43EAC2529F23AE800CECECC /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		C43F3F3B290A6CCA00B03A04 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		C43F3F40290A6E5400B03A04 /* PositionTabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTabBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		C43F3F42290A6EEA00B03A04 /* ChampionTierCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTierCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 			isa = PBXGroup;
 			children = (
 				C43EAC2129F0F5AE00CECECC /* AppearanceStorage.swift */,
+				C43EAC2529F23AE800CECECC /* Appearance.swift */,
 			);
 			path = AppearanceStorage;
 			sourceTree = "<group>";
@@ -1295,6 +1298,7 @@
 				208AF1A4292D07FC0047466D /* SummonerDetailViewDelegate.swift in Sources */,
 				C4C7AEA3292CFBD600DB75F1 /* DataDragonChampionIconAPIRequest.swift in Sources */,
 				C4BD17032935B1BE00DB736B /* SummonerDetailViewController.swift in Sources */,
+				C43EAC2629F23AE800CECECC /* Appearance.swift in Sources */,
 				20C7669C291CCE7100E94133 /* SummonerRankUseCase.swift in Sources */,
 				C4AC8067291B680400C5A550 /* SelectedSummonerView.swift in Sources */,
 			);
