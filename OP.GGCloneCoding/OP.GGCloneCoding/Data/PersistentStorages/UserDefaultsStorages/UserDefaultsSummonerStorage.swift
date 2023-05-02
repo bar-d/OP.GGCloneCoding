@@ -54,6 +54,10 @@ final class UserDefaultsSummonerStorage: UserDefaultsStorage {
 // MARK: Extension
 
 extension UserDefaultsSummonerStorage: SummonerStorage {
+    func getSummoner() -> Summoner? {
+        fetchSummoner()
+    }
+    
     func save(_ summoner: Summoner) {
         persist(summoner)
     }

@@ -24,16 +24,12 @@ struct DataDragonProfileIconViewModel: ViewModel {
     // MARK: - Methods
 
     private func fetchProfileIconImage(with version: String) {
-        guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-              let summoner = try? JSONDecoder().decode(Summoner.self, from: unarchivedSummonerData) else {
-            return
-        }
-
-        dataDragonProfileIconUseCase.searchProfileIcon(version: version, iconID: String(summoner.profileIconID)) { result in
+        dataDragonProfileIconUseCase.searchProfileIcon(version: version) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let profileIcon):
                     output.setupContents(profileIcon)
+                    fetchSummoner()
                 case .failure(let error):
                     output.showErrorAlert(
                         ErrorAlertController.unknownError(error as? APIError).value
@@ -41,6 +37,15 @@ struct DataDragonProfileIconViewModel: ViewModel {
                 }
             }
         }
+        
+    }
+    
+    private func fetchSummoner() {
+        guard let summoner = dataDragonProfileIconUseCase.getSummoner() else {
+            return
+        }
+        
+        output.setupContentsWithSummoner(summoner)
     }
 }
 
@@ -51,6 +56,7 @@ extension DataDragonProfileIconViewModel {
 
     struct Output {
         let setupContents: (UIImage) -> Void
+        let setupContentsWithSummoner: (Summoner) -> Void
         let showErrorAlert: (UIAlertController) -> Void
     }
 }

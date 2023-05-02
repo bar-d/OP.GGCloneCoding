@@ -8,4 +8,5 @@
 protocol SummonerStorage: AnyObject {
     func save(_ summoner: Summoner)
     func getResponse(completion: @escaping (Result<Summoner, Error>) -> Void)
+    func getSummoner() -> Summoner?
 }
