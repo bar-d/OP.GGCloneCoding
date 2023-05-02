@@ -28,15 +28,7 @@ struct SummonerRankViewModel: ViewModel {
     private func fetchSummonerRankInformation(encryptedID: String) {
         summonerRankUseCase.searchSummonerRank(encryptedId: encryptedID) { result in
             DispatchQueue.main.async {
-                switch result {
-                case .success(let summonerRankArray):
-                    let archivedRankData = try? JSONEncoder().encode(summonerRankArray)
-                    // UserDefaults는 비즈니스 로직인가?
-                    UserDefaults.standard.set(
-                        archivedRankData,
-                        forKey: Design.userDefaultsKey
-                    )
-                case .failure(let error):
+                if case let .failure(error) = result {
                     output.showErrorAlert(
                         ErrorAlertController.unknownError(error as? APIError).value
                     )
