@@ -32,4 +32,8 @@ struct SummonerSearchUseCase {
             }
         }
     }
+    
+    func getSummoner() -> Summoner? {
+        return repository.getSummoner()
+    }
 }

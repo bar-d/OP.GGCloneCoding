@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DefaultSummonerRankRepository: SummonerRankRepository {
+struct DefaultSummonerRankRepository {
     
     // MARK: Properties
     
@@ -29,7 +29,7 @@ struct DefaultSummonerRankRepository: SummonerRankRepository {
 
 private typealias Request = RiotSummonerRankAPIRequest
 
-extension DefaultSummonerRankRepository {
+extension DefaultSummonerRankRepository: SummonerRankRepository {
     func fetchSummonerInformation(
         encryptedSummonerID: String,
         completion: @escaping (Result<[SummonerRank], Error>) -> Void
@@ -56,5 +56,9 @@ extension DefaultSummonerRankRepository {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func getSummonerRankList() -> [SummonerRank] {
+        return cache.getSummonerRankList()
     }
 }

@@ -13,4 +13,5 @@ protocol SummonerMatchListStorage: AnyObject {
         maxCount: Int,
         completion: @escaping (Result<[SummonerMatch], Error>) -> Void
     )
+    func getSummonerMatchList() -> [SummonerMatch]
 }

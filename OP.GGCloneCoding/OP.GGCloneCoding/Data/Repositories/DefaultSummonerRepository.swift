@@ -52,4 +52,8 @@ extension DefaultSummonerRepository {
             }
         }
     }
+    
+    func getSummoner() -> Summoner? {
+        cache.getSummoner()
+    }
 }

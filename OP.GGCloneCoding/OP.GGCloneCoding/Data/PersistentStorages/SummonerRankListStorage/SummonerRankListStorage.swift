@@ -13,4 +13,5 @@ protocol SummonerRankListStorage: AnyObject {
         maxCount: Int,
         completion: @escaping (Result<[SummonerRank], Error>) -> Void
     )
+    func getSummonerRankList() -> [SummonerRank]
 }

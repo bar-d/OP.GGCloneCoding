@@ -61,4 +61,8 @@ extension UserDefaultsSummonerRankListStorage: SummonerRankListStorage {
                             summonerRankList : Array(summonerRankList[range])
         completion(.success(summonerRankList))
     }
+    
+    func getSummonerRankList() -> [SummonerRank] {
+        return fetchSummonerRankList()
+    }
 }
