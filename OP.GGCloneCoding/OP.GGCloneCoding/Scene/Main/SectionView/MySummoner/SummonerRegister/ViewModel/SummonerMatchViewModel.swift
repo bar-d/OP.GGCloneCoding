@@ -30,13 +30,7 @@ struct SummonerMatchViewModel: ViewModel {
         summonerMatchUseCase.searchSummoner(matchIDList: matchIDList) { result in
             DispatchQueue.main.async() {
                 switch result {
-                case .success(let summonerMatchArray):
-                    let archivedMatchData = try? JSONEncoder().encode(summonerMatchArray)
-                    UserDefaults.standard.set(
-                        archivedMatchData,
-                        forKey: Design.userDefaultsKey
-                    )
-
+                case .success(_):
                     output.dismissController()
                 case .failure(let error):
                     output.showErrorAlert(
@@ -59,10 +53,4 @@ extension SummonerMatchViewModel {
         let dismissController: () -> Void
         let showErrorAlert: (UIAlertController) -> Void
     }
-}
-
-// MARK: - Namespace
-
-private enum Design {
-    static let userDefaultsKey = "MySummonerMatchInformation"
 }

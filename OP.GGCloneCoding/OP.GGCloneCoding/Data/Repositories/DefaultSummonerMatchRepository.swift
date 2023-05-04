@@ -69,6 +69,6 @@ extension DefaultSummonerMatchRepository {
     }
     
     func getSummonerMatchList() -> [SummonerMatch] {
-        cache.getSummonerMatchList()
+        return cache.getSummonerMatchList()
     }
 }

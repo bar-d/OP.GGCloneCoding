@@ -32,4 +32,8 @@ struct SummonerMatchIDListUseCase {
             }
         }
     }
+    
+    func getMatchIDList() -> [String] {
+        return repository.getSummonerMatchIDList()
+    }
 }

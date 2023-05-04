@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DefaultSummonerMatchListRepository: SummonerMatchListRepository {
+struct DefaultSummonerMatchListRepository {
     
     // MARK: Properties
     
@@ -29,7 +29,7 @@ struct DefaultSummonerMatchListRepository: SummonerMatchListRepository {
 
 private typealias Request = RiotSummonerMatchListAPIRequest
 
-extension DefaultSummonerMatchListRepository {
+extension DefaultSummonerMatchListRepository: SummonerMatchListRepository {
     func fetchSummonerInformation(
         puuid: String,
         completion: @escaping (Result<[String], Error>) -> Void
@@ -47,5 +47,9 @@ extension DefaultSummonerMatchListRepository {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func getSummonerMatchIDList() -> [String] {
+        cache.getSummonerMatchIDList()
     }
 }

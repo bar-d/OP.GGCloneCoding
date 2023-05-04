@@ -62,4 +62,8 @@ extension UserDefaultsMatchListStorage: MatchListStorage {
         matchList = matchList.count <= maxCount ? matchList : Array(matchList[range])
         completion(.success(matchList))
     }
+    
+    func getSummonerMatchIDList() -> [String] {
+        return fetchMatchList()
+    }
 }

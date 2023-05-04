@@ -29,16 +29,38 @@ final class UserDefaultsSummonerMatchListStorage: UserDefaultsStorage {
             summonerMatchListData,
             forKey: UserDefaults.Key.mySummonerMatchInformation
         )
+        print(#function, fetchSummonerMatchList())
     }
     
     private func fetchSummonerMatchList() -> [SummonerMatch] {
         guard let unarchivedSummonerMatchListData = userDefaults.object(
             forKey: UserDefaults.Key.mySummonerMatchInformation
-        ) as? [SummonerMatch] else {
+        ) as? Data,
+              let summonerMatchArray = try? JSONDecoder().decode(
+                [SummonerMatch].self,
+                from: unarchivedSummonerMatchListData
+              ) else {
             return []
         }
         
-        return unarchivedSummonerMatchListData
+        return summonerMatchArray
+        
+//        let summonerMatchArray = try? JSONDecoder().decode(
+//          [SummonerMatch].self,
+//          from: unarchivedSummonerMatchData
+//        ) else {
+//      return [
+//  }
+//
+//        guard let unarchivedSummonerMatchData = UserDefaults.standard.object(forKey: "MySummonerMatchInformation") as? Data,
+//              let summonerMatchArray = try? JSONDecoder().decode(
+//                [SummonerMatch].self,
+//                from: unarchivedSummonerMatchData
+//              ) else {
+//            return
+//        }
+        
+//        return unarchivedSummonerMatchListData
     }
 }
 

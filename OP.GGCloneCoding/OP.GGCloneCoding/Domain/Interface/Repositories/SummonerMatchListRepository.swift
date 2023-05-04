@@ -10,4 +10,5 @@ protocol SummonerMatchListRepository {
         puuid: String,
         completion: @escaping (Result<[String], Error>) -> Void
     )
+    func getSummonerMatchIDList() -> [String]
 }

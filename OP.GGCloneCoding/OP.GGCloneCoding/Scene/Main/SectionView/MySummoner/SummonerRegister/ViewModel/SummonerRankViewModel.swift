@@ -47,9 +47,3 @@ extension SummonerRankViewModel {
         let showErrorAlert: (UIAlertController) -> Void
     }
 }
-
-// MARK: - Namespace
-
-private enum Design {
-    static let userDefaultsKey = "MySummonerRankInformation"
-}

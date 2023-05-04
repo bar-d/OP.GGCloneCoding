@@ -12,6 +12,8 @@ struct SummonerDetailViewModel: ViewModel {
     // MARK: Properties
 
     private let dataDragonChampionIconUseCase = DataDragonChampionIconUseCase()
+    private let summonerMatchUseCase = SummonerMatchUseCase()
+    private let summonerUseCase = SummonerSearchUseCase()
     private let output: Output
     lazy var input = Input(fetchChampionInformation: fetchChampionIconImage)
 
@@ -24,26 +26,17 @@ struct SummonerDetailViewModel: ViewModel {
     // MARK: - Methods
 
     private func fetchChampionIconImage(with version: String) {
-        guard let unarchivedSummonerMatchData = UserDefaults.standard.object(forKey: "MySummonerMatchInformation") as? Data,
-              let summonerMatchArray = try? JSONDecoder().decode(
-                [SummonerMatch].self,
-                from: unarchivedSummonerMatchData
-              ) else {
-            return
-        }
-
+        let summonerMatchArray = summonerMatchUseCase.getSummonerMatchList()
+        let summoner = summonerUseCase.getSummoner()
+        
         // 그냥 모델에 넣을때 내 소환사 정보만 넣어야 하나...?
         let myChampionPicks = summonerMatchArray.map { (match) -> String in
             match.participants.filter { participant in
-                guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-                      let summoner = try? JSONDecoder().decode(Summoner.self, from: unarchivedSummonerData) else {
-                    return false
-                }
 
-                return participant.summonerName == summoner.name
+                return participant.summonerName == summoner?.name
             }[0].championName
         }
-
+        
         let selectedChampionSet = NSCountedSet(array: myChampionPicks)
         let sortedSelectedChampionArray = selectedChampionSet
             .sorted {
@@ -88,27 +81,16 @@ struct SummonerDetailViewModel: ViewModel {
     }
 
     private func setupChampionLabels(champions: [String]) -> [(Int, Double)] {
-        guard let unarchivedSummonerMatchData = UserDefaults.standard.object(forKey: "MySummonerMatchInformation") as? Data,
-              let summonerMatchArray = try? JSONDecoder().decode(
-                [SummonerMatch].self,
-                from: unarchivedSummonerMatchData
-              ) else {
-            return []
-        }
-
+        let summonerMatchArray = summonerMatchUseCase.getSummonerMatchList()
+        let summoner = summonerUseCase.getSummoner()
         /// 그냥 모델에 넣을때 내 소환사 정보만 넣어야 하나...?
-        let myChampionPicks = summonerMatchArray.map { (match) -> SummonerMatch.Participant in
+        
+        let myChampionPicks = summonerMatchArray.map { (match) in
             match.participants.filter { participant in
-                guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MySummonerInformation") as? Data,
-                      let summoner = try? JSONDecoder().decode(Summoner.self, from: unarchivedSummonerData) else {
-                    return false
-                }
 
-                return participant.summonerName == summoner.name
+                return participant.summonerName == summoner?.name
             }[0]
         }
-
-
 
         var arrayOfChampionWinRateAndKDA: [(Int, Double)] = []
 
