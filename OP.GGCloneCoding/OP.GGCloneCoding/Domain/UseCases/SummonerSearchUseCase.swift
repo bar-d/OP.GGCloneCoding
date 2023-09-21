@@ -13,7 +13,7 @@ struct SummonerSearchUseCase {
     
     // MARK: - Initializers
 
-    init(repository: SummonerRepository = DefaultSummonerRepostiory()) {
+    init(repository: SummonerRepository = DefaultSummonerRepository()) {
         self.repository = repository
     }
     
@@ -31,5 +31,9 @@ struct SummonerSearchUseCase {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func getSummoner() -> Summoner? {
+        return repository.getSummoner()
     }
 }

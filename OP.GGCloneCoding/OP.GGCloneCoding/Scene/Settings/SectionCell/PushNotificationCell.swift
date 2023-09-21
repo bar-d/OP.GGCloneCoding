@@ -122,7 +122,7 @@ final class PushNotificationCell: UITableViewCell {
         setupSubviews()
         setupConstraints()
         setupBackgroundColor(Design.secondaryColor)
-        setupUserInterationEnabled(false)
+        setupUserInteractionEnabled(false)
         setupSelectionStyle(.none)
         setupContent()
     }
@@ -163,7 +163,7 @@ final class PushNotificationCell: UITableViewCell {
         backgroundColor = color
     }
     
-    private func setupUserInterationEnabled(_ bool: Bool) {
+    private func setupUserInteractionEnabled(_ bool: Bool) {
         contentView.isUserInteractionEnabled = bool
     }
     

@@ -15,7 +15,7 @@ final class TodayTMICell: UITableViewCell {
         let label = PaddingLabel(top: 4, left: 0, bottom: 4, right: 0)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.layer.backgroundColor = Design.titleLabelBackgoundColors[0]?.cgColor
+        label.layer.backgroundColor = Design.titleLabelBackgroundColors[0]?.cgColor
         label.layer.cornerRadius = 8
         
         return label
@@ -44,7 +44,7 @@ final class TodayTMICell: UITableViewCell {
     private func commonInit() {
         setupSubviews()
         setupConstraints()
-        setupBackgroundColor(Design.cellBackgoundColors)
+        setupBackgroundColor(Design.cellBackgroundColors)
         setupTitleLabel()
         setupTMIDescriptionLabel()
     }
@@ -104,7 +104,7 @@ final class TodayTMICell: UITableViewCell {
 
 private enum Design {
     static let titleLabelText = "  😁 오늘의 TMI  "
-    static let titleLabelBackgoundColors = [UIColor(named: "TMITitleBackgroundBlue")]
+    static let titleLabelBackgroundColors = [UIColor(named: "TMITitleBackgroundBlue")]
     static let TMIDescriptionText = "다리우스와 드레이븐은 형제입니다."
-    static let cellBackgoundColors = [UIColor(named: "TMIBackgroundBlue")]
+    static let cellBackgroundColors = [UIColor(named: "TMIBackgroundBlue")]
 }

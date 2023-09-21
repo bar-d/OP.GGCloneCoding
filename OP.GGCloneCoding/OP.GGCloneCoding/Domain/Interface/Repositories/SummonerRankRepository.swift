@@ -10,4 +10,5 @@ protocol SummonerRankRepository {
         encryptedSummonerID: String,
         completion: @escaping (Result<[SummonerRank], Error>) -> Void
     )
+    func getSummonerRankList() -> [SummonerRank]
 }

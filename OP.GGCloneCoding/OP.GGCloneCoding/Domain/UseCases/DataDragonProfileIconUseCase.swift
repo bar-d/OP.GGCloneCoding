@@ -25,13 +25,9 @@ struct DataDragonProfileIconUseCase {
     
     func searchProfileIcon(
         version: String,
-        iconID: String,
         completion: @escaping (Result<UIImage, Error>) -> Void
     ) {
-        repository.fetchDataDragonInformation(
-            version: version,
-            iconID: iconID
-        ) { result in
+        repository.fetchDataDragonInformation(version: version) { result in
             switch result {
             case .success(let profileIcon):
                 completion(.success(profileIcon))
@@ -39,5 +35,9 @@ struct DataDragonProfileIconUseCase {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func getSummoner() -> Summoner? {
+        return repository.getSummoner()
     }
 }

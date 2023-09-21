@@ -7,16 +7,21 @@
 
 import Foundation
 
-struct DefaultSummonerMatchListRepository: SummonerMatchListRepository {
+struct DefaultSummonerMatchListRepository {
     
     // MARK: Properties
     
     private let riotAPIService: RiotAPIService
+    private let cache: MatchListStorage
 
     // MARK: - Initializers
     
-    init(riotAPIService: RiotAPIService = RiotAPIService()) {
+    init(
+        riotAPIService: RiotAPIService = RiotAPIService(),
+        cache: MatchListStorage = UserDefaultsMatchListStorage()
+    ) {
         self.riotAPIService = riotAPIService
+        self.cache = cache
     }
 }
 
@@ -24,7 +29,7 @@ struct DefaultSummonerMatchListRepository: SummonerMatchListRepository {
 
 private typealias Request = RiotSummonerMatchListAPIRequest
 
-extension DefaultSummonerMatchListRepository {
+extension DefaultSummonerMatchListRepository: SummonerMatchListRepository {
     func fetchSummonerInformation(
         puuid: String,
         completion: @escaping (Result<[String], Error>) -> Void
@@ -34,25 +39,17 @@ extension DefaultSummonerMatchListRepository {
         riotAPIService.execute(summonerMatchListRequest) { result in
             switch result {
             case .success(let response):
-                if response.isEmpty {
-                    UserDefaults.standard.removeObject(forKey: "MySummonerInformation")
-                    completion(.success(response))
-                }
+                let unarchivedMatchListData = response as [String]
                 
-                UserDefaults.standard.set(response, forKey: "MatchList")
-                guard let unarchivedSummonerData = UserDefaults.standard.object(forKey: "MatchList") as? [String] else { return }
-                
-                if unarchivedSummonerData == response {
-                    UserDefaults.standard.set(true, forKey: "DidMatchListChanged")
-                } else {
-                    UserDefaults.standard.set(false, forKey: "DidMatchListChanged")
-                }
-                
+                cache.save(unarchivedMatchListData)
                 completion(.success(response))
-                
             case .failure(let error):
                 completion(.failure(error))
             }
         }
+    }
+    
+    func getSummonerMatchIDList() -> [String] {
+        cache.getSummonerMatchIDList()
     }
 }

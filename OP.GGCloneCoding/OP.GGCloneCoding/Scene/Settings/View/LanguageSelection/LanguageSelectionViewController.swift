@@ -58,7 +58,7 @@ final class LanguageSelectionViewController: UIViewController {
         setupConstraints()
         setupModalPresentationStyle(.overCurrentContext)
         setupTabGesture()
-        setupTrainsitionDelegate()
+        setupTransitionDelegate()
     }
     
     private func setupSubviews() {
@@ -69,13 +69,13 @@ final class LanguageSelectionViewController: UIViewController {
     }
     
     private func setupConstraints() {
-        sestupMainViewConstraints()
+        setupMainViewConstraints()
         setupCancelButtonConstraints()
         setupTitleLabelConstraints()
         setupLanguageSelectionTableViewConstraints()
     }
     
-    private func sestupMainViewConstraints() {
+    private func setupMainViewConstraints() {
         NSLayoutConstraint.activate([
             mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -137,7 +137,7 @@ final class LanguageSelectionViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
     }
     
-    private func setupTrainsitionDelegate() {
+    private func setupTransitionDelegate() {
         transitioningDelegate = self
     }
     

@@ -10,4 +10,5 @@ protocol SummonerRepository {
         id: String,
         completion: @escaping (Result<Summoner, Error>) -> Void
     )
+    func getSummoner() -> Summoner?
 }

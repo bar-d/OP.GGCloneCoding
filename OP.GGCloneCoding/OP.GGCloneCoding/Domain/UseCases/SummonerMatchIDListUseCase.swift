@@ -1,11 +1,11 @@
 //
-//  SummonerMatchListUseCase.swift
+//  SummonerMatchIDListUseCase.swift
 //  OP.GGCloneCoding
 //
 //  Created by 바드, 수꿍 on 2022/11/10.
 //
 
-struct SummonerMatchListUseCase {
+struct SummonerMatchIDListUseCase {
     
     // MARK: Properties
     
@@ -31,5 +31,9 @@ struct SummonerMatchListUseCase {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func getMatchIDList() -> [String] {
+        return repository.getSummonerMatchIDList()
     }
 }

@@ -12,11 +12,16 @@ struct DefaultSummonerMatchRepository: SummonerMatchRepository {
     // MARK: Properties
     
     private let riotAPIService: RiotAPIService
+    private let cache: SummonerMatchListStorage
     
     // MARK: - Initializers
     
-    init(riotAPIService: RiotAPIService = RiotAPIService()) {
+    init(
+        riotAPIService: RiotAPIService = RiotAPIService(),
+        cache: SummonerMatchListStorage = UserDefaultsSummonerMatchListStorage()
+    ) {
         self.riotAPIService = riotAPIService
+        self.cache = cache
     }
 }
 
@@ -47,6 +52,7 @@ extension DefaultSummonerMatchRepository {
                     /// 네트워크 딜레이 추후 해결 필요
                     array.append(summonerMatchInformation)
                     if array.count == 10 {
+                        cache.save(array)
                         completion(.success(array))
                     }
                     
@@ -60,5 +66,9 @@ extension DefaultSummonerMatchRepository {
                 }
             }
         }
+    }
+    
+    func getSummonerMatchList() -> [SummonerMatch] {
+        return cache.getSummonerMatchList()
     }
 }

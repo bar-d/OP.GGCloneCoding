@@ -7,7 +7,7 @@
 
 struct SummonerMatchUseCase {
     
-    typealias SummonerMathcRepository = DefaultSummonerMatchRepository
+    typealias SummonerMatchRepository = DefaultSummonerMatchRepository
     
     // MARK: Properties
     
@@ -15,7 +15,7 @@ struct SummonerMatchUseCase {
     
     // MARK: - Initializers
     
-    init(repository: SummonerMatchRepository = SummonerMathcRepository()) {
+    init(repository: SummonerMatchRepository = SummonerMatchRepository()) {
         self.repository = repository
     }
     
@@ -27,11 +27,15 @@ struct SummonerMatchUseCase {
     ) {
         repository.fetchSummonerInformation(matchIDList: matchIDList) { result in
             switch result {
-            case .success(let summoner):
-                completion(.success(summoner))
+            case .success(let summonerMatchList):
+                completion(.success(summonerMatchList))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
+    }
+    
+    func getSummonerMatchList() -> [SummonerMatch] {
+        return repository.getSummonerMatchList()
     }
 }

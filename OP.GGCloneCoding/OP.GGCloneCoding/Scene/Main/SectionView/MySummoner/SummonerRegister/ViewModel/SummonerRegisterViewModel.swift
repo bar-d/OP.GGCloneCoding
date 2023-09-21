@@ -11,7 +11,7 @@ struct SummonerSearchViewModel: ViewModel {
     
     // MARK: Properties
     
-    private let summonerSearchUsecase: SummonerSearchUseCase = SummonerSearchUseCase()
+    private let summonerSearchUseCase: SummonerSearchUseCase = SummonerSearchUseCase()
     private let output: Output
     lazy var input = Input(completeButtonDidTap: completeButtonDidTap(id:))
 
@@ -24,20 +24,10 @@ struct SummonerSearchViewModel: ViewModel {
     // MARK: - Methods
 
     private func completeButtonDidTap(id: String) {
-        summonerSearchUsecase.searchSummoner(id: id) { result in
+        summonerSearchUseCase.searchSummoner(id: id) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let summoner):
-                    let archivedData = try? JSONEncoder().encode(summoner)
-
-                    UserDefaults.standard.set(
-                        archivedData,
-                        forKey: Design.mySummonerInformationUserDefaultKey
-                    )
-                    UserDefaults.standard.set(
-                        true,
-                        forKey: Design.didSummonerSelectedUserDefaultKey
-                    )
                     output.fetchSummonerRankInformation(summoner.id)
                     output.fetchSummonerMatchListInformation(summoner.puuid)
                 case .failure(_):
@@ -58,11 +48,4 @@ extension SummonerSearchViewModel {
         let fetchSummonerMatchListInformation: (String) -> Void
         let showErrorAlert: (UIAlertController) -> Void
     }
-}
-
-// MARK: - Namespace
-
-private enum Design {
-    static let mySummonerInformationUserDefaultKey = "MySummonerInformation"
-    static let didSummonerSelectedUserDefaultKey = "DidSummonerSelected"
 }

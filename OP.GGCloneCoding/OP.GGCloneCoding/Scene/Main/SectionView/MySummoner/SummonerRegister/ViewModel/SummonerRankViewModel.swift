@@ -11,7 +11,7 @@ struct SummonerRankViewModel: ViewModel {
 
     // MARK: Properties
 
-    private let summonerRankUsecase: SummonerRankUseCase = SummonerRankUseCase()
+    private let summonerRankUseCase: SummonerRankUseCase = SummonerRankUseCase()
     private let output: Output
     lazy var input = Input(
         fetchSummonerRankInformation: fetchSummonerRankInformation(encryptedID:)
@@ -26,17 +26,9 @@ struct SummonerRankViewModel: ViewModel {
     // MARK: - Methods
 
     private func fetchSummonerRankInformation(encryptedID: String) {
-        summonerRankUsecase.searchSummonerRank(encryptedId: encryptedID) { result in
+        summonerRankUseCase.searchSummonerRank(encryptedId: encryptedID) { result in
             DispatchQueue.main.async {
-                switch result {
-                case .success(let summonerRankArray):
-                    let archivedRankData = try? JSONEncoder().encode(summonerRankArray)
-                    // UserDefaults는 비즈니스 로직인가?
-                    UserDefaults.standard.set(
-                        archivedRankData,
-                        forKey: Design.userDefaultsKey
-                    )
-                case .failure(let error):
+                if case let .failure(error) = result {
                     output.showErrorAlert(
                         ErrorAlertController.unknownError(error as? APIError).value
                     )
@@ -54,10 +46,4 @@ extension SummonerRankViewModel {
     struct Output {
         let showErrorAlert: (UIAlertController) -> Void
     }
-}
-
-// MARK: - Namespace
-
-private enum Design {
-    static let userDefaultsKey = "MySummonerRankInformation"
 }

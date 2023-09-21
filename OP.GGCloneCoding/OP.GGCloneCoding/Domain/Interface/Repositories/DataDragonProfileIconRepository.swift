@@ -10,7 +10,7 @@ import UIKit
 protocol DataDragonProfileIconRepository {
     func fetchDataDragonInformation(
         version: String,
-        iconID: String,
         completion: @escaping (Result<UIImage, Error>) -> Void
     )
+    func getSummoner() -> Summoner?
 }

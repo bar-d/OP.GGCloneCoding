@@ -119,7 +119,7 @@ extension ImageViewBuilder {
         return builder
     }
     
-    func setupClipstoBounds(_ bool: Bool) -> ImageViewBuilder {
+    func setupClipsToBounds(_ bool: Bool) -> ImageViewBuilder {
         imageView.clipsToBounds = bool
         
         return self

@@ -11,7 +11,7 @@ struct SummonerMatchListViewModel: ViewModel {
 
     // MARK: Properties
 
-    private let summonerMatchListUsecase = SummonerMatchListUseCase()
+    private let summonerMatchIDListUseCase = SummonerMatchIDListUseCase()
     private let output: Output
     lazy var input = Input(
         fetchSummonerMatchListInformation: fetchSummonerMatchListInformation(puuid:)
@@ -26,7 +26,7 @@ struct SummonerMatchListViewModel: ViewModel {
     // MARK: - Methods
 
     private func fetchSummonerMatchListInformation(puuid: String) {
-        summonerMatchListUsecase.searchSummonerMatch(puuid: puuid) { result in
+        summonerMatchIDListUseCase.searchSummonerMatch(puuid: puuid) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let summonerMatchList):
@@ -64,5 +64,5 @@ extension SummonerMatchListViewModel {
 // MARK: - Namespace
 
 private enum Design {
-    static let userDefaultsKey = "MySummonerMatchListInformation"
+    static let userDefaultsKey = "MySummonerMatchIDListInformation"
 }

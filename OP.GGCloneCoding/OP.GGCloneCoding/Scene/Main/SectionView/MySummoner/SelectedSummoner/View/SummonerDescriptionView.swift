@@ -22,6 +22,7 @@ final class SummonerDescriptionView: UIView {
     private lazy var dataDragonProfileIconViewModel = DataDragonProfileIconViewModel(
         output: .init(
             setupContents: setupContents(with:),
+            setupContentsWithSummoner: setupContents(with:),
             showErrorAlert: showErrorAlert(from:)
         )
     )
@@ -217,21 +218,26 @@ final class SummonerDescriptionView: UIView {
         summonerDescriptionViewDelegate?.showAlert(from: alert)
     }
     
-    private func setupContents(with profileIcon: UIImage) {
-        guard let unarchivedSummonerData = UserDefaults.standard.object(
-            forKey: "MySummonerInformation"
-        ) as? Data,
-              let summoner = try? JSONDecoder().decode(
-                Summoner.self,
-                from: unarchivedSummonerData
-              ) else {
-            return
-        }
-        
-        iconImageView.image = profileIcon.resize(width: iconImageView.frame.size.width)
-        
+    private func setupContents(with summoner: Summoner) {
         levelLabel.text = String(" \(summoner.summonerLevel) ")
         summonerIDLabel.text = summoner.name
+    }
+    
+    /// viewModel에서 필터링해서 가져오기
+    /// 추후 함수 적용 필요
+    private func setupContents(with summonerSoloRank: SummonerRank) {
+        tierLabel.text = "\(summonerSoloRank.tier) \(summonerSoloRank.rank)"
+        // summonerRank 이미지화
+        
+        tierIconImageView.image = UIImage(
+            named: summonerSoloRank.tier.firstLetterUppercased()
+        )?.resize(width: tierStackView.frame.size.height)
+        
+        tierPointLabel.text = "\(summonerSoloRank.leaguePoints) LP"
+    }
+    
+    private func setupContents(with profileIcon: UIImage) {
+        iconImageView.image = profileIcon.resize(width: iconImageView.frame.size.width)
         
         /// queueType enum으로 만들기
         /// 비동기가 늦어지면 해당 정보를 네트워킹 하기전에 가져오는 것인가

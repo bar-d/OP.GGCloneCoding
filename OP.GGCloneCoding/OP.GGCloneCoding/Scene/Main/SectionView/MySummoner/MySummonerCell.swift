@@ -19,7 +19,7 @@ final class MySummonerCell: UITableViewCell {
     }()
 
     private let unselectedSummonerView = UnselectedSummonerView()
-    private let selectedSummoenrView = SelectedSummonerView()
+    private let selectedSummonerView = SelectedSummonerView()
 
     // MARK: - Initializers
 
@@ -44,15 +44,15 @@ final class MySummonerCell: UITableViewCell {
     func setupSummonerDescriptionViewDelegate(
         _ delegate: SummonerDescriptionViewDelegate
     ) {
-        selectedSummoenrView.setupSummonerDescriptionViewDelegate(delegate)
+        selectedSummonerView.setupSummonerDescriptionViewDelegate(delegate)
     }
 
     func setupSummonerDetailViewDelegate(_ delegate: SummonerDetailViewDelegate) {
-        selectedSummoenrView.setupSummonerDetailViewDelegate(delegate)
+        selectedSummonerView.setupSummonerDetailViewDelegate(delegate)
     }
     
     func setupSelectedSummonerViewDelegate(_ delegate: SelectedSummonerViewDelegate) {
-        selectedSummoenrView.setupSelectedSummonerViewDelegate(delegate)
+        selectedSummonerView.setupSelectedSummonerViewDelegate(delegate)
     }
 
     private func commonInit() {
@@ -83,7 +83,7 @@ final class MySummonerCell: UITableViewCell {
     private func setupSubviews() {
         [emptyView]
             .forEach { addSubview($0) }
-        [unselectedSummonerView, selectedSummoenrView]
+        [unselectedSummonerView, selectedSummonerView]
             .forEach { emptyView.addSubview($0) }
     }
 
@@ -121,14 +121,14 @@ final class MySummonerCell: UITableViewCell {
 
     private func setupSelectedSummonerViewConstraints() {
         NSLayoutConstraint.activate([
-            selectedSummoenrView.topAnchor.constraint(equalTo: emptyView.topAnchor),
-            selectedSummoenrView.bottomAnchor.constraint(
+            selectedSummonerView.topAnchor.constraint(equalTo: emptyView.topAnchor),
+            selectedSummonerView.bottomAnchor.constraint(
                 equalTo: emptyView.bottomAnchor
             ),
-            selectedSummoenrView.leadingAnchor.constraint(
+            selectedSummonerView.leadingAnchor.constraint(
                 equalTo: emptyView.leadingAnchor
             ),
-            selectedSummoenrView.trailingAnchor.constraint(
+            selectedSummonerView.trailingAnchor.constraint(
                 equalTo: emptyView.trailingAnchor
             )
         ])
@@ -147,7 +147,7 @@ final class MySummonerCell: UITableViewCell {
     }
 
     private func setupSelectedSummonerViewHidden(_ bool: Bool) {
-        selectedSummoenrView.isHidden = bool
+        selectedSummonerView.isHidden = bool
     }
 }
 
